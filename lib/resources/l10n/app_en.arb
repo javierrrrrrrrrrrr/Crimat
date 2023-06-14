@@ -11,7 +11,9 @@
     "code": "Code",
     "confirm": "Confirm",
     "contactUs": "Contact us",
+    "toContinue": "To continue",
     "currentPassword": "Current Password",
+    "createAccount": "Create an account",
     "dontShowAgain": "Do not show again",
     "download": "Download",
     "email": "Email",
@@ -20,6 +22,7 @@
     "error": "Error",
     "forgotPass": "Forgot password?",
     "home": "Home",
+    "initSession": "Login",
     "invalidFormText": "The form is no valid, please check the fields.",
     "isRequired": "is required",
     "loading": "Loading",
@@ -35,6 +38,7 @@
     "newPassword": "New Password",
     "newVersion": "New version available",
     "noCnx": "You need an internet connection to continue",
+    "notRegistered": "Not registered yet?",
     "options": "Options",
     "password": "Password",
     "phone": "Phone",
@@ -59,5 +63,8 @@
     "userName": "Username",
     "version": "Version",
     "versionError": "The specified version on the specified platform does not exist",
-    "wrongLogin": "Your session has expired"
+    "wrongLogin": "Your session has expired",
+
+    "helloAgain": "Hello, welcome again to your account."
+
 }

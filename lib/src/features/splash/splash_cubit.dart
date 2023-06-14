@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/features/login/login_screen.dart';
 import 'package:crimat_app/src/features/splash/splash_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +15,7 @@ class SplashCubit extends Cubit<SplashState>{
 
   onLoading() async{
     await Future.delayed(const Duration(seconds: 2));
-    // if(!isClosed) emit(SplashState.onSuccess());
+    if(!isClosed) emit(SplashState.onSuccess());
   }
 
   Future<UserModel?> checkLogin() async{
@@ -45,7 +46,7 @@ class SplashCubit extends Cubit<SplashState>{
     );
     }else{
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const AuthScreen())
+          MaterialPageRoute(builder: (context) => const LoginScreen())
       );
     }
   }

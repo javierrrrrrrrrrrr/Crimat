@@ -11,6 +11,8 @@
     "code": "Código",
     "confirm": "Confirmar",
     "contactUs": "Contáctanos",
+    "createAccount": "Crea una cuenta",
+    "toContinue": "Continuar",
     "currentPassword": "Contraseña actual",
     "dontShowAgain": "No volver a mostrar",
     "download": "Descargar",
@@ -20,11 +22,12 @@
     "error": "Error",
     "forgotPass": "Has olvidado la contraseña?",
     "home": "Inicio",
+    "initSession": "Iniciar sesión",
     "invalidFormText": "Hay campos no válidos, por favor revise nuevamente los campos a llenar.",
     "isRequired": "es obligatorio",
     "loading": "Cargando",
     "loggedOut": "Cerrada Sesión",
-    "login": "Ingresar",
+    "login": "Iniciar",
     "logout": "Cerrar Sesión",
     "logoutSuccessfully": "La sesión fue cerrada satisfactoriamente",
     "logoutFailed": "Cierre de Sesión Fallido",
@@ -35,6 +38,7 @@
     "newPassword": "Nueva Contraseña",
     "newVersion": "Nueva versión disponible",
     "noCnx": "Necesita internet para continuar",
+    "notRegistered": "Aún no estás registrado?",
     "options": "Ajustes",
     "password": "Contraseña",
     "phone": "Teléfono",
@@ -59,5 +63,7 @@
     "userName": "Nombre de Usuario",
     "version": "Versión",
     "versionError": "La versión especificada en la plataforma especificada no existe",
-    "wrongLogin": "Su sesión ha caducado"
+    "wrongLogin": "Su sesión ha caducado",
+
+    "helloAgain": "Hola, bienvenido nuevamente a su cuenta."
 }
