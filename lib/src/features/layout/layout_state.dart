@@ -1,0 +1,1 @@
+enum LayoutState{home, page}
