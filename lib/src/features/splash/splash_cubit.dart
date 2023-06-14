@@ -14,7 +14,7 @@ class SplashCubit extends Cubit<SplashState>{
 
   onLoading() async{
     await Future.delayed(const Duration(seconds: 2));
-    if(!isClosed) emit(SplashState.onSuccess());
+    // if(!isClosed) emit(SplashState.onSuccess());
   }
 
   Future<UserModel?> checkLogin() async{
