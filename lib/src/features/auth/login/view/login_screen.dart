@@ -75,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                       text: context.loc.login,
                       loading: state.onLoading,
                       onPressed: (){
-                        if(!state.onLoading) {
+                        if(!state.onLoading && cubit.loginForm.valid) {
                           cubit.login(
                           onLoginSuccess: () {Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>HomeView()));},
                         );
