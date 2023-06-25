@@ -16,13 +16,25 @@ class AuthRepository{
     };
 
     final bodyToSend = jsonEncode(body);
-    Uri uri = Uri.parse(Urls.login);
+    Uri uri = Uri.https(Urls.host, Urls.login);
     var response = await http.post(uri, headers: headers, body: bodyToSend);
     var decodeResponse = jsonDecode(response.body);
     if(response.statusCode == 200) {
       return LoginResponseModel.fromJson(decodeResponse);
     }
     else{
+      throw(decodeResponse['error']);
+    }
+  }
+
+  Future<void> register(Map<String, dynamic> body)async{
+    final Map<String, String> headers = {'Content-Type': 'application/json'};
+    final bodyToSend = jsonEncode(body);
+    final Uri uri = Uri.https(Urls.host, Urls.register);
+
+    var response = await http.post(uri, headers: headers, body: bodyToSend);
+    var decodeResponse = jsonDecode(response.body);
+    if(response.statusCode != 201){
       throw(decodeResponse['error']);
     }
   }

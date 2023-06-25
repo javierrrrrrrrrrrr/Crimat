@@ -7,7 +7,7 @@ import 'package:crimat_app/src/shared/app_info.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../auth_state.dart';
+import '../auth_state.dart';
 
 class LoginCubit extends Cubit<AuthState>{
   FormGroup loginForm = FormGroup({
@@ -31,7 +31,7 @@ class LoginCubit extends Cubit<AuthState>{
       onLoginSuccess.call();
 
     }catch(e){
-      UtilFunctions.printToast(e.toString(), GStyles.alertColor);
+      UtilFunctions.printToast(message: e.toString(), color: GStyles.alertColor);
       if(!isClosed) emit(const AuthState(onLoading: false));
       loginForm.markAsEnabled();
     }

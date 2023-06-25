@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/user_model.dart';
 import '../../shared/widgets/error_dialog.dart';
-import '../auth/login/view/login_screen.dart';
+import '../auth/views/login_screen.dart';
 import '../layout/layout_screen.dart';
 
 class SplashCubit extends Cubit<SplashState>{
