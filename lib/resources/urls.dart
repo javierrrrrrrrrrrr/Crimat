@@ -6,4 +6,6 @@ class Urls{
   ///Auth services
   static String get login => '$api/token/';
   static String get register => '$api/nuevo_cliente/';
+  static String get changePassword => '$api/change-password/';
+  static String get resetPassword => '$api/reset-password/';
 }

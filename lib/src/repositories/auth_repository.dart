@@ -38,4 +38,30 @@ class AuthRepository{
       throw(decodeResponse['error']);
     }
   }
+
+  resetPassword(String email)async{
+    final Map<String, String> headers = {'Content-Type': 'application/json'};
+    final bodyToSend = jsonEncode({
+      "email": email
+    });
+    final Uri uri = Uri.https(Urls.host, Urls.resetPassword);
+
+    var response = await http.post(uri, headers: headers, body: bodyToSend);
+    var decodeResponse = jsonDecode(response.body);
+    if(response.statusCode != 200){
+      throw(decodeResponse['error']);
+    }
+  }
+
+  changePassword(Map<String, dynamic> body)async{
+    final Map<String, String> headers = {'Content-Type': 'application/json'};
+    final bodyToSend = jsonEncode(body);
+    final Uri uri = Uri.https(Urls.host, Urls.changePassword);
+
+    var response = await http.post(uri, headers: headers, body: bodyToSend);
+    var decodeResponse = jsonDecode(response.body);
+    if(response.statusCode != 200){
+      throw(decodeResponse['error']);
+    }
+  }
 }

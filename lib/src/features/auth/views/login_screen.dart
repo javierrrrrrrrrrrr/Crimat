@@ -2,6 +2,7 @@ import 'package:crimat_app/resources/general_styles.dart';
 import 'package:crimat_app/src/features/auth/cubit/login_cubit.dart';
 import 'package:crimat_app/src/features/auth/auth_state.dart';
 import 'package:crimat_app/src/features/auth/cubit/register_cubit.dart';
+import 'package:crimat_app/src/features/auth/views/reset_password_screen.dart';
 import 'package:crimat_app/src/features/home/home.dart';
 import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:crimat_app/src/shared/widgets/large_button.dart';
@@ -65,7 +66,9 @@ class LoginScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 20.sp,),
                       GestureDetector(
-                        onTap: (){},
+                        onTap: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ResetPasswordScreen()));
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
