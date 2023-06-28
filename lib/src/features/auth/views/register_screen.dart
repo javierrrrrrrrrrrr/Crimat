@@ -50,8 +50,8 @@ class RegisterScreen extends StatelessWidget {
                                 ],
                               ),
                               CustomRxTextField(formControlName: "email", labelText: context.loc.email),
-                              CustomRxTextField(formControlName: "password", labelText: context.loc.password),
-                              CustomRxTextField(formControlName: 'repeat_password', labelText: context.loc.repeatPassword),
+                              CustomRxTextField(formControlName: "password", labelText: context.loc.password, hideText: true,),
+                              CustomRxTextField(formControlName: 'repeat_password', labelText: context.loc.repeatPassword, hideText: true,),
                               CustomRxTextField(formControlName: 'telefono', labelText: context.loc.phone),
                               CustomRxTextField(formControlName: 'licencia', labelText: context.loc.license)
                             ],

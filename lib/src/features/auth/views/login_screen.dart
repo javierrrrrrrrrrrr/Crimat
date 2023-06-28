@@ -5,6 +5,7 @@ import 'package:crimat_app/src/features/auth/cubit/register_cubit.dart';
 import 'package:crimat_app/src/features/auth/views/reset_password_screen.dart';
 import 'package:crimat_app/src/features/home/home.dart';
 import 'package:crimat_app/src/shared/extensions/context_extension.dart';
+import 'package:crimat_app/src/shared/widgets/custom_reactive_text_field.dart';
 import 'package:crimat_app/src/shared/widgets/large_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,13 +55,7 @@ class LoginScreen extends StatelessWidget {
                               decoration: GStyles.formDecoration.copyWith(labelText: context.loc.email),
                             ),
                             SizedBox(height: 16.sp),
-                            ReactiveTextField(
-                              validationMessages: {
-                                'required': (error) => context.loc.requiredMessage,
-                              },
-                              formControlName: 'password',
-                              decoration: GStyles.formDecoration.copyWith(labelText: context.loc.password),
-                            )
+                            CustomRxTextField(formControlName: 'password', labelText: context.loc.password, hideText: true,)
                           ],
                         ),
                       ),

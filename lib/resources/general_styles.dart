@@ -11,6 +11,7 @@ class GStyles{
   static TextStyle get bigTextStyle => TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w600, color: primaryColor, fontSize: 20.sp);
 
   static InputDecoration get formDecoration => InputDecoration(
+    suffixIconColor: Colors.grey,
     contentPadding: EdgeInsets.all(20.sp),
     floatingLabelBehavior: FloatingLabelBehavior.auto,
     labelStyle: TextStyle(fontSize: 24.sp, fontFamily: 'Poppins', fontWeight: FontWeight.w400, color: Colors.black38),
