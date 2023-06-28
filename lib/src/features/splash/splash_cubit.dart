@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/features/splash/intro_screen.dart';
 import 'package:crimat_app/src/features/splash/splash_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +46,7 @@ class SplashCubit extends Cubit<SplashState>{
     );
     }else{
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const LoginScreen())
+          MaterialPageRoute(builder: (context) => const IntroScreen())
       );
     }
   }
