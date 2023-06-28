@@ -3,13 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'layout_state.dart';
 
 class LayoutCubit extends Cubit<LayoutState>{
-  LayoutCubit():super(LayoutState.home);
+  LayoutCubit():super(const LayoutState.init());
 
   void changeScreen(int newIndex){
     ///Here we extract the state from the enum list by its index
-    LayoutState newState = LayoutState.values.elementAt(newIndex);
+    LayoutState newState = state.copyWith(selectedIndex: newIndex);
     if(!isClosed) emit(newState);
   }
 
-
+  void changeBuyElements(int newElements){
+    LayoutState newState = state.copyWith(buyElements: newElements);
+    if(!isClosed) emit(newState);
+  }
 }

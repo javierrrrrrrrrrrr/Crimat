@@ -4,6 +4,7 @@ import 'package:crimat_app/src/features/auth/auth_state.dart';
 import 'package:crimat_app/src/features/auth/cubit/register_cubit.dart';
 import 'package:crimat_app/src/features/auth/views/reset_password_screen.dart';
 import 'package:crimat_app/src/features/home/home.dart';
+import 'package:crimat_app/src/features/layout/layout_screen.dart';
 import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:crimat_app/src/shared/widgets/custom_reactive_text_field.dart';
 import 'package:crimat_app/src/shared/widgets/large_button.dart';
@@ -79,7 +80,7 @@ class LoginScreen extends StatelessWidget {
                         onPressed: (){
                           if(!state.onLoading && cubit.loginForm.valid) {
                             cubit.login(
-                            onLoginSuccess: () {Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>HomeView()));},
+                            onLoginSuccess: () {Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const LayoutScreen()));},
                           );
                           }
                         },
@@ -88,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                       LargeButton(
                         text: context.loc.toContinue,
                         color: Colors.white,
-                        onPressed: state.onLoading ? null : (){Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>HomeView()));},
+                        onPressed: state.onLoading ? null : (){Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const LayoutScreen()));},
                       ),
                       SizedBox(height: 50.sp,),
                       TextButton(

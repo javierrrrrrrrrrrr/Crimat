@@ -17,9 +17,9 @@ class LayoutScreen extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(title: Text(context.loc.app_title,), centerTitle: true,),
-            body: selectedScreen(state),
+            body: selectedScreen(state.selectedIndex),
             bottomNavigationBar: BottomNavigationBar(
-              currentIndex: state.index,
+              currentIndex: state.selectedIndex,
               showSelectedLabels: false,
               showUnselectedLabels: false,
               items: const [
@@ -36,9 +36,9 @@ class LayoutScreen extends StatelessWidget {
     );
   }
 
-  Widget selectedScreen(LayoutState currentScreen){
-    switch(currentScreen){
-      case LayoutState.home:
+  Widget selectedScreen(int selectedIndex){
+    switch(selectedIndex){
+      case 1:
         return Center(
           child: Text('HOME', style: TextStyle(fontSize: 32.sp, color: Colors.black),),
         );
