@@ -1,9 +1,7 @@
 import 'package:crimat_app/resources/general_styles.dart';
 import 'package:crimat_app/src/features/auth/cubit/login_cubit.dart';
 import 'package:crimat_app/src/features/auth/auth_state.dart';
-import 'package:crimat_app/src/features/auth/cubit/register_cubit.dart';
-import 'package:crimat_app/src/features/auth/views/reset_password_screen.dart';
-import 'package:crimat_app/src/features/home/home.dart';
+import 'package:crimat_app/src/features/auth/screens/reset_password_screen.dart';
 import 'package:crimat_app/src/features/layout/layout_screen.dart';
 import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:crimat_app/src/shared/widgets/custom_reactive_text_field.dart';
@@ -94,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(height: 50.sp,),
                       TextButton(
                         onPressed: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RegisterScreen()));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const RegisterScreen()));
                         },
                         child: FittedBox(
                           fit: BoxFit.scaleDown,

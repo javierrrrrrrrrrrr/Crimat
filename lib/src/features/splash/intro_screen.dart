@@ -1,6 +1,6 @@
 import 'package:crimat_app/resources/app_images.dart';
 import 'package:crimat_app/resources/general_styles.dart';
-import 'package:crimat_app/src/features/auth/views/login_screen.dart';
+import 'package:crimat_app/src/features/auth/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intro_slider/intro_slider.dart';

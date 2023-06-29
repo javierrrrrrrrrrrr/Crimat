@@ -2,20 +2,16 @@ import 'package:crimat_app/src/features/splash/intro_screen.dart';
 import 'package:crimat_app/src/features/splash/splash_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../models/user_model.dart';
 import '../../shared/widgets/error_dialog.dart';
-import '../auth/views/login_screen.dart';
 import '../layout/layout_screen.dart';
 
 class SplashCubit extends Cubit<SplashState>{
   bool login = false;
-  SplashCubit() : super(SplashState.loading());
+  SplashCubit() : super(const SplashState.loading());
 
   onLoading() async{
     await Future.delayed(const Duration(seconds: 2));
-    if(!isClosed) emit(SplashState.onSuccess());
+    if(!isClosed) emit(const SplashState.onSuccess());
   }
 
   // Future<UserModel?> checkLogin() async{
@@ -34,7 +30,7 @@ class SplashCubit extends Cubit<SplashState>{
   void error(BuildContext context){
     showDialog(context: context, builder: (context) => ErrorDialog(content: state.error!,)).then(
         (_) {
-          if(!isClosed) emit(SplashState.loading());
+          if(!isClosed) emit(const SplashState.loading());
         }
     );
   }
