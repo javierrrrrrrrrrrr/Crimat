@@ -6,7 +6,7 @@ class AuthState extends Equatable{
   const AuthState({required this.onLoading});
 
   @override
-  // TODO: implement props
+  
   List<Object?> get props => [onLoading];
 }
 

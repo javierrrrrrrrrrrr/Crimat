@@ -1,19 +1,18 @@
 import 'package:equatable/equatable.dart';
 
-class SplashState extends Equatable{
-  SplashStatus status;
-  String? error;
+class SplashState extends Equatable {
+  final SplashStatus status;
+  final String? error;
 
-  SplashState._({required this.status, this.error});
+  const SplashState._({required this.status, this.error});
 
-  SplashState.loading(): this._(status: SplashStatus.loading);
-  SplashState.onError(error) : this._(status: SplashStatus.onError, error: error);
-  SplashState.onSuccess(): this._(status: SplashStatus.onSuccess);
-
+  const SplashState.loading() : this._(status: SplashStatus.loading);
+  const SplashState.onError(error)
+      : this._(status: SplashStatus.onError, error: error);
+  const SplashState.onSuccess() : this._(status: SplashStatus.onSuccess);
 
   @override
   List<Object> get props => [status, error ?? ''];
-
 }
 
-enum SplashStatus{loading, onSuccess, onError}
+enum SplashStatus { loading, onSuccess, onError }
