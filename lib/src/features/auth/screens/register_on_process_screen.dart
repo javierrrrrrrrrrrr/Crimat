@@ -32,7 +32,7 @@ class RegisterOnProcessScreen extends StatelessWidget {
             child: LargeButton(
               text: context.loc.toContinue,
               onPressed: (){
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LayoutScreen()));
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>  LayoutScreen()));
               },
             ),
           ),

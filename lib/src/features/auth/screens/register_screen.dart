@@ -111,7 +111,7 @@ class RegisterScreen extends StatelessWidget {
   }
 
   void goHome(BuildContext context){
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LayoutScreen()));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>  LayoutScreen()));
   }
 
   void onRegisterSuccess(BuildContext context){

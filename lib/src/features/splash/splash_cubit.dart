@@ -38,7 +38,7 @@ class SplashCubit extends Cubit<SplashState>{
   void onSuccess(context){
     if(login){
     Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LayoutScreen())
+        MaterialPageRoute(builder: (context) =>  LayoutScreen())
     );
     }else{
       Navigator.of(context).pushReplacement(

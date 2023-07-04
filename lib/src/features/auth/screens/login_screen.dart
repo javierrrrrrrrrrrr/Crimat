@@ -78,7 +78,7 @@ class LoginScreen extends StatelessWidget {
                         onPressed: (){
                           if(!state.onLoading && cubit.loginForm.valid) {
                             cubit.login(
-                            onLoginSuccess: () {Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const LayoutScreen()));},
+                            onLoginSuccess: () {Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> LayoutScreen()));},
                           );
                           }
                         },
@@ -87,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                       LargeButton(
                         text: context.loc.toContinue,
                         color: Colors.white,
-                        onPressed: state.onLoading ? null : (){Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const LayoutScreen()));},
+                        onPressed: state.onLoading ? null : (){Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> LayoutScreen()));},
                       ),
                       SizedBox(height: 50.sp,),
                       TextButton(

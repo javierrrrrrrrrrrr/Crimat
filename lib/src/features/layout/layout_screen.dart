@@ -10,7 +10,23 @@ import 'layout_cubit.dart';
 import 'layout_state.dart';
 
 class LayoutScreen extends StatelessWidget {
-  const LayoutScreen({Key? key}) : super(key: key);
+   LayoutScreen({Key? key}) : super(key: key);
+
+  final list = <Widget>[
+    const HomeView(),
+    Center(
+      child: Text(
+        'Historial',
+        style: TextStyle(fontSize: 32.sp, color: Colors.black),
+      ),
+    ),
+    Center(
+      child: Text(
+        'Historial',
+        style: TextStyle(fontSize: 32.sp, color: Colors.black),
+      ),
+    )
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +34,10 @@ class LayoutScreen extends StatelessWidget {
       create: (context) => LayoutCubit(),
       child: BlocBuilder<LayoutCubit, LayoutState>(builder: (context, state) {
         return Scaffold(
-          body: selectedScreen(state.selectedIndex),
+          body: IndexedStack(
+            index: state.selectedIndex,
+            children: list,
+          ),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             elevation: 0,
@@ -59,6 +78,8 @@ class LayoutScreen extends StatelessWidget {
       }),
     );
   }
+
+  
 
   Widget selectedScreen(int selectedIndex) {
     switch (selectedIndex) {
