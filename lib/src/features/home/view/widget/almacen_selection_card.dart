@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'cusotm_buttom_product.dart';
+
 class AlmacenSeleccionCard extends StatelessWidget {
   const AlmacenSeleccionCard({
     super.key,
@@ -64,21 +66,10 @@ class AlmacenSeleccionCard extends StatelessWidget {
                 SizedBox(
                   height: 10.sp,
                 ),
-                SizedBox(
+                CusotmButtomForProducts(
+                  name: "Ver productos",
                   height: 34.sp,
                   width: 120.sp,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(const Color(0xFFDB3022)),
-                    ),
-                    child: Center(
-                        child: Text(
-                      "Ver productos",
-                      style: TextStyle(fontSize: 12.sp),
-                    )),
-                    onPressed: () {},
-                  ),
                 ),
               ],
             ),
