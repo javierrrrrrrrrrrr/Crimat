@@ -16,9 +16,9 @@ class MainProdcutCarrusel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.sp),
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: GridView.builder(
-        padding: EdgeInsets.only(top: 20.sp, bottom: 20.sp),
+        padding: EdgeInsets.only(top: 20.h, bottom: 20.h),
         physics: const BouncingScrollPhysics(),
         itemCount: 10, // Número de elementos a mostrar
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

@@ -16,7 +16,7 @@ class AlmacenSeleccionCarusel extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: EdgeInsets.only(
-                left: 10.sp, right: 10.sp, top: 15.5.sp, bottom: 15.5.sp),
+                left: 10.w, right: 10.w, top: 15.5.h, bottom: 15.5.h),
             child: const AlmacenSeleccionCard(),
           );
         });

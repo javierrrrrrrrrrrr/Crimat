@@ -7,7 +7,7 @@ ThemeData buildThemeData() {
 
   return ThemeData(
       primaryColor: const Color.fromARGB(255, 217, 53, 39),
-      secondaryHeaderColor: Colors.blue,
+      secondaryHeaderColor: const Color(0xFF222222),
       colorScheme: const ColorScheme.light().copyWith(
         primary: const Color.fromARGB(255, 217, 53, 39),
         tertiary: const Color.fromARGB(255, 183, 4, 4),

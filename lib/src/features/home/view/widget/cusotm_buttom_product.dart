@@ -20,7 +20,8 @@ class CusotmButtomForProducts extends StatelessWidget {
       width: width,
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(const Color(0xFFDB3022)),
+          backgroundColor:
+              MaterialStateProperty.all(Theme.of(context).primaryColor),
         ),
         child: Center(
             child: Text(

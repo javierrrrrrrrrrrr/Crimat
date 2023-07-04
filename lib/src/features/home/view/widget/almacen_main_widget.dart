@@ -16,7 +16,7 @@ class AlmacenWidgetPrincipal extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 28.sp, top: 77.sp),
+          padding: EdgeInsets.only(left: 28.w, top: 77.h),
           child: Text(
             'Seleccione almacén',
             style: TextStyle(
@@ -25,9 +25,9 @@ class AlmacenWidgetPrincipal extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 12.sp),
+          padding: EdgeInsets.only(top: 12.h),
           child: SizedBox(
-            height: 152.sp,
+            height: 152.h,
             width: MediaQuery.of(context).size.width,
             child: const AlmacenSeleccionCarusel(),
           ),

@@ -12,7 +12,7 @@ class MainCardCarrusel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.sp),
+        borderRadius: BorderRadius.circular(10.r),
         border: Border.all(
           color: Colors.black.withOpacity(0.1),
           width: 1,
@@ -34,7 +34,7 @@ class MainCardCarrusel extends StatelessWidget {
             children: [
               const PictureContainer(),
               Padding(
-                padding: EdgeInsets.only(left: 14.0.sp, top: 15.sp),
+                padding: EdgeInsets.only(left: 14.0.w, top: 15.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -55,19 +55,19 @@ class MainCardCarrusel extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 5.sp,
+                height: 5.h,
               ),
               Center(
                   child: CusotmButtomForProducts(
                 name: "Añadir al carrito",
-                height: 35.sp,
-                width: 160.sp,
+                height: 35.h,
+                width: 160.w,
               ))
             ],
           ),
           Positioned(
-            right: 10.sp,
-            top: 10.sp,
+            right: 10.w,
+            top: 10.h,
             child: const FavoriteCircle(),
           )
         ],

@@ -11,16 +11,16 @@ class AlmacenSeleccionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120.sp,
-      width: 280.sp,
+      height: 120.h,
+      width: 280.w,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.sp),
       ),
       child: Row(
         children: [
-          const SizedBox(
-            width: 10,
+          SizedBox(
+            width: 10.w,
           ),
           Container(
             height: 103.sp,
@@ -35,14 +35,14 @@ class AlmacenSeleccionCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 10.sp,
+                  height: 10.h,
                 ),
                 Text(
                   "Nombre del Almacén",
-                  style: TextStyle(fontSize: 12.sp),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 SizedBox(
-                  height: 10.sp,
+                  height: 10.h,
                 ),
                 Row(
                   children: [
@@ -51,25 +51,25 @@ class AlmacenSeleccionCard extends StatelessWidget {
                       color: Theme.of(context).primaryColor,
                     ),
                     SizedBox(
-                      width: 5.sp,
+                      width: 5.w,
                     ),
                     SizedBox(
-                      width: 50,
-                      height: 20,
+                      width: 50.w,
+                      height: 20.h,
                       child: Text(
                         "Lorem ipsum dolor sit amet, consectetr",
-                        style: TextStyle(fontSize: 8.sp),
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: 10.sp,
+                  height: 10.h,
                 ),
                 CusotmButtomForProducts(
                   name: "Ver productos",
-                  height: 34.sp,
-                  width: 120.sp,
+                  height: 34.h,
+                  width: 120.w,
                 ),
               ],
             ),

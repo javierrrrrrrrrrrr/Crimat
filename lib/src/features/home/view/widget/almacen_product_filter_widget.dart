@@ -12,24 +12,24 @@ class AlmacenProductFilter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120.sp,
+      height: 120.h,
       width: MediaQuery.of(context).size.width,
       color: const Color(0xFFFBECEA),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 10.sp,
+            height: 10.h,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 30.sp),
+            padding: EdgeInsets.only(left: 30.w),
             child: Text(
               "Productos",
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
           SizedBox(
-            height: 10.sp,
+            height: 10.h,
           ),
           const FilterProductList(),
           const IconsFilterList(),

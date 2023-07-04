@@ -9,7 +9,7 @@ class IconsFilterList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 10.sp, left: 20.sp, right: 20.sp),
+      padding: EdgeInsets.only(bottom: 10.h, left: 20.w, right: 20.w),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -21,7 +21,7 @@ class IconsFilterList extends StatelessWidget {
                 size: 24.sp,
               ),
               SizedBox(
-                width: 8.sp,
+                width: 8.w,
               ),
               Text(
                 "Filters",
@@ -36,7 +36,7 @@ class IconsFilterList extends StatelessWidget {
                 size: 24.sp,
               ),
               SizedBox(
-                width: 8.sp,
+                width: 8.w,
               ),
               Text(
                 "Price: bajo a alto",

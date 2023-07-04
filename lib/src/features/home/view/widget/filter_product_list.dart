@@ -10,21 +10,23 @@ class FilterProductList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.only(left: 10),
+        padding: EdgeInsets.only(left: 10.w),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: 20,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
-              padding: EdgeInsets.only(bottom: 10.sp, left: 10),
+              padding: EdgeInsets.only(bottom: 10.h, left: 10.w),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25.sp),
-                  color: index % 2 == 0 ? Colors.black : Colors.red,
+                  borderRadius: BorderRadius.circular(25.r),
+                  color: index % 2 == 0
+                      ? Theme.of(context).secondaryHeaderColor
+                      : Theme.of(context).primaryColor,
                 ),
                 child: Center(
                     child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0.sp),
+                  padding: EdgeInsets.symmetric(horizontal: 12.w),
                   child: Text(
                     "Cuidado facial",
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
