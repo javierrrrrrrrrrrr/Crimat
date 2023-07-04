@@ -1,11 +1,14 @@
-import 'package:crimat_app/src/features/home/view/widget/almacen_product_filter_widget.dart';
-import 'package:crimat_app/src/features/home/view/widget/almacen_seleccion_carrusel.dart';
-import 'package:crimat_app/src/features/home/view/widget/main_product_carrusel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+import 'almacen_product_filter_widget.dart';
+import 'almacen_seleccion_carrusel.dart';
+import 'main_product_carrusel.dart';
+
+class AlmacenWidgetPrincipal extends StatelessWidget {
+  const AlmacenWidgetPrincipal({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
