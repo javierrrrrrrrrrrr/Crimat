@@ -25,9 +25,12 @@ class FilterProductList extends StatelessWidget {
                 child: Center(
                     child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 12.0.sp),
-                  child: const Text(
+                  child: Text(
                     "Cuidado facial",
-                    style: TextStyle(color: Colors.white),
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: Colors.white,
+                          fontSize: 15.sp,
+                        ),
                   ),
                 )),
               ),

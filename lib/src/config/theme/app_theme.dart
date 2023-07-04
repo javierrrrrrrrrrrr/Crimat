@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-ThemeData themeData() {
+ThemeData buildThemeData() {
   const fontFamilyPoppins = 'Poppins';
   const fontFamilyInter = 'Inter';
   return ThemeData(
@@ -19,7 +19,7 @@ ThemeData themeData() {
         bodyLarge: TextStyle(
           fontSize: 20.sp,
           fontFamily: fontFamilyInter,
-          color: themeData().primaryColor,
+          color: const Color.fromARGB(255, 217, 53, 39),
           fontWeight: FontWeight.w600,
         ),
       ));

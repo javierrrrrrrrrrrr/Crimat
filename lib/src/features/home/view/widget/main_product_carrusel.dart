@@ -14,6 +14,8 @@ class MainProdcutCarrusel extends StatelessWidget {
         child: Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.sp),
       child: GridView.builder(
+        padding: EdgeInsets.only(top: 20.sp, bottom: 20.sp),
+        physics: const BouncingScrollPhysics(),
         itemCount: 10, // Número de elementos a mostrar
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
@@ -49,11 +51,25 @@ class MainProdcutCarrusel extends StatelessWidget {
                     const PictureContainer(),
                     Padding(
                       padding: EdgeInsets.only(left: 14.0.sp, top: 15.sp),
-                      child: const Column(
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Lorem ipsumr dolor"),
-                          Text("\$16"),
+                          Text(
+                            "Lorem ipsumr dolor",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(fontSize: 16.sp, color: Colors.black),
+                          ),
+                          Text("\$16",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    fontSize: 17.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                  )),
                         ],
                       ),
                     ),

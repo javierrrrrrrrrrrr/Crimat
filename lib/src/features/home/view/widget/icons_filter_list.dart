@@ -12,18 +12,42 @@ class IconsFilterList extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 10.sp, left: 20.sp, right: 20.sp),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Icon(Icons.filter_list),
-          const Text("Filters"),
-          SizedBox(
-            width: 75.sp,
+          Row(
+            children: [
+              Icon(
+                Icons.filter_list,
+                size: 24.sp,
+              ),
+              SizedBox(
+                width: 8.sp,
+              ),
+              Text(
+                "Filters",
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
           ),
-          const Icon(Icons.swap_vert),
-          const Text("Price: bajo a alto"),
-          SizedBox(
-            width: 75.sp,
+          Row(
+            children: [
+              Icon(
+                Icons.swap_vert,
+                size: 24.sp,
+              ),
+              SizedBox(
+                width: 8.sp,
+              ),
+              Text(
+                "Price: bajo a alto",
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
           ),
-          const Icon(Icons.widgets),
+          Icon(
+            Icons.widgets,
+            size: 24.sp,
+          ),
         ],
       ),
     );

@@ -25,7 +25,7 @@ class AlmacenProductFilter extends StatelessWidget {
             padding: EdgeInsets.only(left: 30.sp),
             child: Text(
               "Productos",
-              style: TextStyle(color: Colors.black, fontSize: 20.sp),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
           SizedBox(
