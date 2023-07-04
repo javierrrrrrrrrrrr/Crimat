@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'loadingContainer.dart';
+import 'loading_container.dart';
 
 class LoadingCardCarusel extends StatelessWidget {
   const LoadingCardCarusel({
@@ -15,34 +15,34 @@ class LoadingCardCarusel extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: 60.sp,
-            left: 65.sp,
+            top: 60.h,
+            left: 65.w,
             child: const CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
             ),
           ),
           Positioned(
-            top: 150.sp,
-            left: 13.sp,
+            top: 150.h,
+            left: 13.w,
             child: LoadingContainer(
-              height: 12.sp,
-              width: 109.sp,
+              height: 12.h,
+              width: 109.w,
             ),
           ),
           Positioned(
-            top: 170.sp,
-            left: 13.sp,
+            top: 170.h,
+            left: 13.w,
             child: LoadingContainer(
-              height: 15.sp,
-              width: 18.sp,
+              height: 15.h,
+              width: 18.w,
             ),
           ),
           Positioned(
-            top: 190.sp,
-            left: 13.sp,
+            top: 190.h,
+            left: 13.w,
             child: LoadingContainer(
-              height: 34.sp,
-              width: 153.sp,
+              height: 34.h,
+              width: 153.w,
             ),
           ),
         ],
