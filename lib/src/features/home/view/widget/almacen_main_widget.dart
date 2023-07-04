@@ -19,15 +19,16 @@ class AlmacenWidgetPrincipal extends StatelessWidget {
           padding: EdgeInsets.only(left: 28.sp, top: 77.sp),
           child: Text(
             'Seleccione almacén',
-            style: TextStyle(fontSize: 20.sp, color: Colors.black),
+            style: TextStyle(
+              fontSize: 20.sp,
+            ),
           ),
         ),
         Padding(
           padding: EdgeInsets.only(top: 12.sp),
-          child: Container(
+          child: SizedBox(
             height: 152.sp,
             width: MediaQuery.of(context).size.width,
-            color: Colors.red,
             child: const AlmacenSeleccionCarusel(),
           ),
         ),

@@ -46,9 +46,9 @@ class AlmacenSeleccionCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.edit_location_outlined,
-                      color: Color(0xFFDB3022),
+                      color: Theme.of(context).primaryColor,
                     ),
                     SizedBox(
                       width: 5.sp,

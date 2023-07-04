@@ -4,7 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 ThemeData buildThemeData() {
   const fontFamilyPoppins = 'Poppins';
   const fontFamilyInter = 'Inter';
+
   return ThemeData(
+      primaryColor: const Color.fromARGB(255, 217, 53, 39),
+      secondaryHeaderColor: Colors.blue,
       colorScheme: const ColorScheme.light().copyWith(
         primary: const Color.fromARGB(255, 217, 53, 39),
         tertiary: const Color.fromARGB(255, 183, 4, 4),
