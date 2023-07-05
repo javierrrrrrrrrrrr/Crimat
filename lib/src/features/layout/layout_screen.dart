@@ -10,7 +10,9 @@ import 'layout_cubit.dart';
 import 'layout_state.dart';
 
 class LayoutScreen extends StatelessWidget {
-   LayoutScreen({Key? key}) : super(key: key);
+  LayoutScreen({Key? key}) : super(key: key);
+
+  static const String name = 'layout_screen';
 
   final list = <Widget>[
     const HomeView(),
@@ -78,8 +80,6 @@ class LayoutScreen extends StatelessWidget {
       }),
     );
   }
-
-  
 
   Widget selectedScreen(int selectedIndex) {
     switch (selectedIndex) {

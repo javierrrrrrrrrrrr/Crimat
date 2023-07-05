@@ -1,25 +1,27 @@
 import 'package:crimat_app/resources/app_images.dart';
 import 'package:crimat_app/resources/general_styles.dart';
-import 'package:crimat_app/src/features/auth/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intro_slider/intro_slider.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);
 
+  static const String name = 'intro_screen';
+  
   @override
   State<IntroScreen> createState() => _IntroScreenState();
 }
 
 class _IntroScreenState extends State<IntroScreen> {
-  final String loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet arcu id tincidunt tellus arcu rhoncus, turpis nisl sed. Neque viverra ipsum orci, morbi semper.';
+  final String loremIpsum =
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet arcu id tincidunt tellus arcu rhoncus, turpis nisl sed. Neque viverra ipsum orci, morbi semper.';
   List<ContentConfig> listContentConfig = [];
   double sizeIndicator = 10.sp;
 
-
   void onDonePress() {
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const LoginScreen()));
+    context.go('/login');
   }
 
   void onNextPress() {
@@ -85,13 +87,15 @@ class _IntroScreenState extends State<IntroScreen> {
           width: sizeIndicator,
           height: sizeIndicator,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50), color: GStyles.primaryColor.withOpacity(0.4)),
+              borderRadius: BorderRadius.circular(50.r),
+              color: GStyles.primaryColor.withOpacity(0.4)),
         ),
         activeIndicatorWidget: Container(
           width: sizeIndicator,
           height: sizeIndicator,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50), color: GStyles.primaryColor),
+              borderRadius: BorderRadius.circular(50.r),
+              color: GStyles.primaryColor),
         ),
         spaceBetweenIndicator: 10,
         typeIndicatorAnimation: TypeIndicatorAnimation.sliding,
@@ -101,8 +105,8 @@ class _IntroScreenState extends State<IntroScreen> {
       navigationBarConfig: NavigationBarConfig(
         navPosition: NavPosition.bottom,
         padding: EdgeInsets.only(
-          top: MediaQuery.of(context).viewPadding.top > 0 ? 30 : 20,
-          bottom: MediaQuery.of(context).viewPadding.bottom > 0 ? 30 : 20,
+          top: MediaQuery.of(context).viewPadding.top > 0 ? 30.h : 20.h,
+          bottom: MediaQuery.of(context).viewPadding.bottom > 0 ? 30.h : 20.h,
         ),
         backgroundColor: Colors.white,
       ),
@@ -114,18 +118,21 @@ class _IntroScreenState extends State<IntroScreen> {
     );
   }
 
-  List<Widget> widgetsCustomList(){
+  List<Widget> widgetsCustomList() {
     return [
-      introSlide(text: loremIpsum,imagePath: AppImages.intro1),
-      introSlide(text: loremIpsum,imagePath: AppImages.intro2),
-      introSlide(text: loremIpsum,imagePath: AppImages.intro3),
+      introSlide(text: loremIpsum, imagePath: AppImages.intro1),
+      introSlide(text: loremIpsum, imagePath: AppImages.intro2),
+      introSlide(text: loremIpsum, imagePath: AppImages.intro3),
     ];
   }
 
-  Widget introSlide({required String text, required String imagePath}){
+  Widget introSlide({required String text, required String imagePath}) {
     return Column(
       children: [
-        Image.asset(imagePath, fit: BoxFit.cover,),
+        Image.asset(
+          imagePath,
+          fit: BoxFit.cover,
+        ),
         Padding(
           padding: EdgeInsets.all(20.sp),
           child: Column(
@@ -135,8 +142,14 @@ class _IntroScreenState extends State<IntroScreen> {
                   Image.asset(AppImages.crimatPro),
                 ],
               ),
-              SizedBox(height: 20.sp,),
-              Text(text, style: GStyles.normalTextStyle, textAlign: TextAlign.justify,),
+              SizedBox(
+                height: 20.sp,
+              ),
+              Text(
+                text,
+                style: GStyles.normalTextStyle,
+                textAlign: TextAlign.justify,
+              ),
             ],
           ),
         ),

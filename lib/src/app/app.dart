@@ -1,10 +1,9 @@
+import 'package:crimat_app/src/config/router/app_router.dart';
 import 'package:crimat_app/src/config/theme/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../features/splash/splash_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(430, 932),
       builder: (context, child) {
-        return MaterialApp(
+        return MaterialApp.router(
           title: 'Flutter Demo',
           localizationsDelegates: const [
             AppLocalizations.delegate,
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
             Locale('es'), // Spanish
           ],
           theme: buildThemeData(),
-          home: const SplashScreen(),
+          routerConfig: appRouter,
         );
       },
     );
