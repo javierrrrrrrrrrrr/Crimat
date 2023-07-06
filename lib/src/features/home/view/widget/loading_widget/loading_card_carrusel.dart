@@ -11,7 +11,9 @@ class LoadingCardCarusel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color((0xFFD63E30)).withOpacity(0.5),
+      decoration: BoxDecoration(
+          color: const Color((0xFFD63E30)).withOpacity(0.5),
+          borderRadius: BorderRadius.circular(8.0.r)),
       child: Stack(
         children: [
           Positioned(
@@ -25,6 +27,7 @@ class LoadingCardCarusel extends StatelessWidget {
             top: 150.h,
             left: 13.w,
             child: LoadingContainer(
+              color: const Color((0x878D8F)).withOpacity(0.5),
               height: 12.h,
               width: 109.w,
             ),
@@ -35,12 +38,15 @@ class LoadingCardCarusel extends StatelessWidget {
             child: LoadingContainer(
               height: 15.h,
               width: 18.w,
+              color: const Color((0x878D8F)).withOpacity(0.5),
             ),
           ),
           Positioned(
             top: 190.h,
             left: 13.w,
             child: LoadingContainer(
+              iscircularborder: true,
+              color: const Color((0x878D8F)).withOpacity(0.5),
               height: 34.h,
               width: 153.w,
             ),

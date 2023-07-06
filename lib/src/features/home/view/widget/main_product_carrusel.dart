@@ -7,10 +7,10 @@ import 'main_card_carrusel.dart';
 class MainProdcutCarrusel extends StatelessWidget {
   const MainProdcutCarrusel({
     super.key,
-    this.isloading,
+    //  this.isloading,
   });
 
-  final bool? isloading;
+  final bool isloading = true;
 
   @override
   Widget build(BuildContext context) {

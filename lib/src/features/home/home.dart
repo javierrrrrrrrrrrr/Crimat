@@ -27,7 +27,7 @@ class HomeView extends StatelessWidget {
             child: Container(
               height: 152.h,
               width: MediaQuery.of(context).size.width,
-              color: Colors.red,
+              color: Theme.of(context).primaryColor,
               child: const AlmacenSeleccionCarusel(),
             ),
           ),
