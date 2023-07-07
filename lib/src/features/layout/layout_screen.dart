@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../Favoritos/favorito_home.dart';
+import '../favoritos/favorito_home.dart';
+import '../historial/historial_home.dart';
 import '../home/home.dart';
 import 'layout_cubit.dart';
 import 'layout_state.dart';
@@ -17,19 +18,14 @@ class LayoutScreen extends StatelessWidget {
 
   final list = <Widget>[
     const HomeView(),
-    Center(
-      child: Text(
-        'Historial',
-        style: TextStyle(fontSize: 32.sp, color: Colors.black),
-      ),
-    ),
+    const HistorialView(),
     Center(
       child: Text(
         'Buy',
         style: TextStyle(fontSize: 32.sp, color: Colors.black),
       ),
     ),
-    const FavoritoHome()
+    const FavoritoView()
   ];
 
   @override
