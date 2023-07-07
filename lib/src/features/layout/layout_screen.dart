@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../Favoritos/favorito_home.dart';
 import '../home/home.dart';
 import 'layout_cubit.dart';
 import 'layout_state.dart';
@@ -24,10 +25,11 @@ class LayoutScreen extends StatelessWidget {
     ),
     Center(
       child: Text(
-        'Historial',
+        'Buy',
         style: TextStyle(fontSize: 32.sp, color: Colors.black),
       ),
-    )
+    ),
+    const FavoritoHome()
   ];
 
   @override
