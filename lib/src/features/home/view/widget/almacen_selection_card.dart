@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'cusotm_buttom_product.dart';
+import 'image_container.dart';
 
 class AlmacenSeleccionCard extends StatelessWidget {
   const AlmacenSeleccionCard({
@@ -22,12 +23,10 @@ class AlmacenSeleccionCard extends StatelessWidget {
           SizedBox(
             width: 10.w,
           ),
-          Container(
+          ImageContainer(
             height: 103.sp,
             width: 123.sp,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/image3.jpg'))),
+            url: 'assets/images/image3.jpg',
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.sp),
@@ -67,6 +66,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
                   height: 10.h,
                 ),
                 CusotmButtomForProducts(
+                  ispraimary: true,
                   name: "Ver productos",
                   height: 34.h,
                   width: 120.w,
