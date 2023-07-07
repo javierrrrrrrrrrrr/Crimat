@@ -1,19 +1,36 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 
-class SplashState extends Equatable{
+
+
+enum SplashStatus { loading, leaded, error }
+class SplashState extends Equatable {
   final SplashStatus status;
   final String? error;
+  final bool? isLogin;
 
-  const SplashState._({required this.status, this.error});
+  const SplashState({
+    required this.status,
+    this.error,
+    this.isLogin,
+  });
 
-  const SplashState.loading(): this._(status: SplashStatus.loading);
-  const SplashState.onError(error) : this._(status: SplashStatus.onError, error: error);
-  const SplashState.onSuccess(): this._(status: SplashStatus.onSuccess);
 
 
-  @override
-  List<Object> get props => [status, error ?? ''];
+  SplashState copyWith({
+    SplashStatus? status,
+    String? error,
+    bool? isLogin,
+  }) {
+    return SplashState(
+      status: status ?? this.status,
+      error: error ?? this.error,
+      isLogin: isLogin ?? this.isLogin,
+    );
+  }
 
+    @override
+  List<Object?> get props => [status, error, isLogin];
 }
 
-enum SplashStatus{loading, onSuccess, onError}
+
