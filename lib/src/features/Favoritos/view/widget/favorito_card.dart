@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../shared/widgets/card_sking.dart';
 import '../../../home/view/widget/cusotm_buttom_product.dart';
 import '../../../home/view/widget/image_container.dart';
 
-class FavoriteCarrusel extends StatelessWidget {
-  const FavoriteCarrusel({
+class FavoriteCard extends StatelessWidget {
+  const FavoriteCard({
     super.key,
   });
 
@@ -13,21 +14,7 @@ class FavoriteCarrusel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          height: 127.h,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(8.sp),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 1,
-                blurRadius: 2,
-                offset: const Offset(0, 2),
-              ),
-            ],
-          ),
-        ),
+        const CardSking(),
         Positioned(
           left: 10.w,
           bottom: 9.h,
@@ -59,6 +46,7 @@ class FavoriteCarrusel extends StatelessWidget {
                 height: 30.h,
                 width: 160.w,
                 name: "Comprar ahora",
+                ispraimary: true,
               ),
             ],
           ),

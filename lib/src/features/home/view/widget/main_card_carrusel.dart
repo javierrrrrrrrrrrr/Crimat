@@ -59,6 +59,7 @@ class MainCardCarrusel extends StatelessWidget {
               ),
               Center(
                   child: CusotmButtomForProducts(
+                ispraimary: true,
                 name: "Añadir al carrito",
                 height: 35.h,
                 width: 160.w,

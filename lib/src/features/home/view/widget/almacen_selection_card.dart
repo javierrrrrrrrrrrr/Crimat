@@ -66,6 +66,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
                   height: 10.h,
                 ),
                 CusotmButtomForProducts(
+                  ispraimary: true,
                   name: "Ver productos",
                   height: 34.h,
                   width: 120.w,
