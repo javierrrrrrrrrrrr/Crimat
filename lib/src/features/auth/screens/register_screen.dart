@@ -1,7 +1,6 @@
 import 'package:crimat_app/src/features/auth/auth_state.dart';
 import 'package:crimat_app/src/features/auth/cubit/register_cubit.dart';
 import 'package:crimat_app/src/features/auth/screens/register_on_process_screen.dart';
-import 'package:crimat_app/src/features/layout/layout_screen.dart';
 import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:crimat_app/src/shared/utils/utils.dart';
 import 'package:crimat_app/src/shared/widgets/custom_reactive_text_field.dart';
@@ -9,6 +8,7 @@ import 'package:crimat_app/src/shared/widgets/large_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -176,10 +176,7 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 
-  void goHome(BuildContext context) {
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => LayoutScreen()));
-  }
+  void goHome(BuildContext context) => context.go('/home');
 
   void onRegisterSuccess(BuildContext context) {
     Navigator.of(context).pushAndRemoveUntil(

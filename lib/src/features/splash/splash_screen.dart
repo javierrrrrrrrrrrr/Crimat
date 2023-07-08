@@ -24,7 +24,7 @@ class SplashScreen extends StatelessWidget {
             if (state.isLogin!) {
               context.push('/intro');
             } else {
-              context.push('/layout');
+              context.push('/home');
             }
           }
 

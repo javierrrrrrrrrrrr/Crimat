@@ -4,10 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../shared/utils/const.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 
-class PerfilView extends StatelessWidget {
-  const PerfilView({
+class ProfileView extends StatelessWidget {
+  const ProfileView({
     super.key,
   });
+
+  static const String name = 'profile_view';
 
   @override
   Widget build(BuildContext context) {
