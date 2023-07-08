@@ -4,15 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTitle extends StatelessWidget {
   const CustomTitle({
     super.key,
-    required this.titulo,
+    required this.title,
   });
 
-  final String titulo;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      titulo,
+      title,
       style: TextStyle(
           fontSize: 20.sp, color: Theme.of(context).secondaryHeaderColor),
     );

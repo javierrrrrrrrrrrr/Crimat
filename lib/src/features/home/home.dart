@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 28.w, top: 20.h),
             child: const CustomTitle(
-              titulo: 'Seleccione almacén',
+              title: 'Seleccione almacén',
             ),
           ),
           Padding(

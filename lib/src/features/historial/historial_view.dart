@@ -11,10 +11,9 @@ class HistorialView extends StatelessWidget {
   Widget build(BuildContext context) {
     //usar la propiedad CardWidthpadding para modificar el ancho de la carta en la lista
     return CarruselListVerticalConfg(
-        titulo: "Tus Historial",
+        title: "Tus Historial",
         itemcount: 4,
-        onItemBuilt: (int) {},
-        child: (BuildContext context, int index) {
+        itemBuilder: (BuildContext context, int index) {
           return const HisorialCard();
         });
   }

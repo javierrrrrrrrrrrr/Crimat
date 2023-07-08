@@ -12,23 +12,23 @@ class PerfilView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CarruselListVerticalConfg(
-        onItemBuilt: (index) {},
-        titulo: "Mi Perfil",
-        itemcount: 5,
-        child: (BuildContext context, int index) {
-          return Column(
-            children: [
-              PerfilOption(
-                title: opciones[index].value1,
-                subtitle: opciones[index].value2,
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              const CustomLine(),
-            ],
-          );
-        });
+      title: "Mi Perfil",
+      itemcount: 5,
+      itemBuilder: (BuildContext context, int index) {
+        return Column(
+          children: [
+            PerfilOption(
+              title: opciones[index].value1,
+              subtitle: opciones[index].value2,
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            const CustomLine(),
+          ],
+        );
+      },
+    );
   }
 }
 
