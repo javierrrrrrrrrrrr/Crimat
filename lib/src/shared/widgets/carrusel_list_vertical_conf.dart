@@ -15,9 +15,9 @@ class CarruselListVerticalConfg extends StatelessWidget {
     required this.itemcount,
     this.verticalpadding,
     this.cardWidthpadding,
+    required this.onItemBuilt,
   });
 
-  final Widget child;
   final String titulo;
   final double? leftpadding;
   final double? rightpadding;
@@ -26,7 +26,10 @@ class CarruselListVerticalConfg extends StatelessWidget {
   final int itemcount;
   final double? verticalpadding;
   final double? cardWidthpadding;
+  final void Function(int)
+      onItemBuilt; // Nueva función de devolución de llamada
 
+  final Widget Function(BuildContext, int) child;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -46,11 +49,13 @@ class CarruselListVerticalConfg extends StatelessWidget {
               itemCount: itemcount,
               scrollDirection: Axis.vertical,
               itemBuilder: (BuildContext context, int index) {
+                onItemBuilt(index);
                 return Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: cardWidthpadding ?? 22.w,
-                        vertical: verticalpadding ?? 5.h),
-                    child: child);
+                  padding: EdgeInsets.symmetric(
+                      horizontal: cardWidthpadding ?? 22.w,
+                      vertical: verticalpadding ?? 5.h),
+                  child: child(context, index),
+                ); // Llamamos a la función anónima child con los parámetros requeridos);
               }),
         )
       ],

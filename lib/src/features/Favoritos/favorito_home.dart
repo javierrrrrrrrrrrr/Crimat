@@ -9,10 +9,12 @@ class FavoritoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CarruselListVerticalConfg(
-      titulo: "Tus Favoritos",
-      itemcount: 4,
-      child: FavoriteCard(),
-    );
+    return CarruselListVerticalConfg(
+        titulo: "Tus Favoritos",
+        itemcount: 4,
+        onItemBuilt: (int) {},
+        child: (BuildContext context, int index) {
+          return const FavoriteCard();
+        });
   }
 }

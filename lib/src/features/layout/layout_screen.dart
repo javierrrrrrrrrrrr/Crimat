@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../favoritos/favorito_home.dart';
 import '../historial/historial_home.dart';
 import '../home/home.dart';
+import '../perfil/perfil_home.dart';
 import 'layout_cubit.dart';
 import 'layout_state.dart';
 
@@ -25,7 +26,8 @@ class LayoutScreen extends StatelessWidget {
         style: TextStyle(fontSize: 32.sp, color: Colors.black),
       ),
     ),
-    const FavoritoView()
+    const FavoritoView(),
+    const PerfilView()
   ];
 
   @override
