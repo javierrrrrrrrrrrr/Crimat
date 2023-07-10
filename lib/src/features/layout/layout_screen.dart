@@ -1,13 +1,6 @@
-import 'package:crimat_app/src/features/favorites/favorites_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../shared/widgets/custom_botton_navbar.dart';
-
-import '../historial/historial_view.dart';
-import '../home/home.dart';
-import '../perfil/perfil_home.dart';
 import 'layout_cubit.dart';
 import 'layout_state.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'cusotm_buttom_product.dart';
+import '../../../../shared/widgets/cusotm_buttom_product.dart';
 
 class MainCardCarrusel extends StatelessWidget {
   const MainCardCarrusel({
@@ -58,7 +58,7 @@ class MainCardCarrusel extends StatelessWidget {
                 height: 5.h,
               ),
               Center(
-                  child: CusotmButtomForProducts(
+                  child: CusotmButtom(
                 ispraimary: true,
                 name: "Añadir al carrito",
                 height: 35.h,

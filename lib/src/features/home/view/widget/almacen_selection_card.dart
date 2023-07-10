@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'cusotm_buttom_product.dart';
+import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import 'image_container.dart';
 
 class AlmacenSeleccionCard extends StatelessWidget {
@@ -65,7 +64,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                CusotmButtomForProducts(
+                CusotmButtom(
                   ispraimary: true,
                   name: "Ver productos",
                   height: 34.h,

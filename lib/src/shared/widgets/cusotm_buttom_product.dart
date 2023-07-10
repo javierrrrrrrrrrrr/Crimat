@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CusotmButtomForProducts extends StatelessWidget {
-  const CusotmButtomForProducts({
+class CusotmButtom extends StatelessWidget {
+  const CusotmButtom({
     super.key,
     required this.width,
     required this.height,
