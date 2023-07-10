@@ -29,7 +29,7 @@ class CustomBottonNavigationBar extends StatelessWidget {
       case 4:
         context.go('/profile');
         break;
-      default:
+      
     }
   }
 
@@ -70,7 +70,7 @@ class CustomBottonNavigationBar extends StatelessWidget {
       ],
       onTap: (newIndex) {
         onItemTapped(newIndex, context);
-        BlocProvider.of<LayoutCubit>(context).changeScreen(newIndex);
+       // BlocProvider.of<LayoutCubit>(context).changeScreen(newIndex);
       },
     );
   }

@@ -35,36 +35,38 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
       GoRoute(
         path: '/home',
         name: HomeView.name,
-        builder: (context, state) => const HomeView(),
+        builder: (context, state) => const Scaffold(body: HomeView()),
       ),
       GoRoute(
         path: '/history',
         name: 'history',
-        builder: (context, state) => const Center(
-          child: Text('HISTORY VIEW'),
+        builder: (context, state) => const Scaffold(
+          body: Center(
+            child: Text('HISTORY VIEW'),
+          ),
         ),
       ),
       GoRoute(
         path: '/cart',
         name: 'cart',
-        builder: (context, state) => const Center(
-          child: Text('CART VIEW'),
+        builder: (context, state) => const Scaffold(
+          body: Center(
+            child: Text('CART VIEW'),
+          ),
         ),
       ),
       GoRoute(
         path: '/favotites',
         name: FavoritesView.name,
-        builder: (context, state) => const FavoritesView(),
+        builder: (context, state) => const Scaffold(body: FavoritesView()),
       ),
       GoRoute(
         path: '/profile',
         name: ProfileView.name,
-        builder: (context, state) => const ProfileView(),
+        builder: (context, state) => const Scaffold(body: ProfileView()),
       ),
     ],
   ),
-
-
 
   GoRoute(
     path: '/login',

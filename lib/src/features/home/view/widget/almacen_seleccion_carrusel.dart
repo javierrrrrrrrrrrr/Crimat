@@ -25,7 +25,7 @@ class AlmacenSeleccionCarusel extends StatelessWidget {
             top: 15.5.h,
             bottom: 15.5.h,
           ),
-          child: isloagind == true
+          child: isloagind == false
               ? const LoadingAlmacenSeleccionCard()
               : const AlmacenSeleccionCard(),
         );

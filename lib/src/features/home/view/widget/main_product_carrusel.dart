@@ -29,7 +29,7 @@ class MainProdcutCarrusel extends StatelessWidget {
         ),
         itemBuilder: (BuildContext context, int index) {
           // Construir cada celda de la cuadrícula
-          return isloading == true
+          return isloading == false
               ? const LoadingCardCarusel()
               : const MainCardCarrusel();
         },

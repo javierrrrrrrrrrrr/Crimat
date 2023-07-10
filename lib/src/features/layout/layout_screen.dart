@@ -12,24 +12,11 @@ import 'layout_cubit.dart';
 import 'layout_state.dart';
 
 class LayoutScreen extends StatelessWidget {
-  LayoutScreen({Key? key, required this.childView}) : super(key: key);
+  const LayoutScreen({Key? key, required this.childView}) : super(key: key);
 
   static const String name = 'layout_screen';
 
   final Widget childView;
-
-  final list = <Widget>[
-    const HomeView(),
-    const HistorialView(),
-    Center(
-      child: Text(
-        'Buy',
-        style: TextStyle(fontSize: 32.sp, color: Colors.black),
-      ),
-    ),
-    const FavoritesView(),
-    const ProfileView()
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -43,32 +30,4 @@ class LayoutScreen extends StatelessWidget {
       }),
     );
   }
-
-  // Widget selectedScreen(int selectedIndex) {
-  //   switch (selectedIndex) {
-  //     case 0:
-  //       return const HomeView();
-  //     case 1:
-  //       return Center(
-  //         child: Text(
-  //           'Historial',
-  //           style: TextStyle(fontSize: 32.sp, color: Colors.black),
-  //         ),
-  //       );
-  //     case 2:
-  //       return Center(
-  //         child: Text(
-  //           'Carrito',
-  //           style: TextStyle(fontSize: 32.sp, color: Colors.black),
-  //         ),
-  //       );
-  //     default:
-  //       return Center(
-  //         child: Text(
-  //           'PAGE',
-  //           style: TextStyle(fontSize: 32.sp, color: Colors.black),
-  //         ),
-  //       );
-  //   }
-  // }
 }
