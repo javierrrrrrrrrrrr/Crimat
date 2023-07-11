@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../shared/widgets/card_sking.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
-import '../../../home/view/widget/image_container.dart';
+import '../../../home/presentation/view/widget/image_container.dart';
 
 class FavoriteCard extends StatelessWidget {
   const FavoriteCard({

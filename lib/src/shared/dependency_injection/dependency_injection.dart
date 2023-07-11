@@ -1,3 +1,5 @@
+import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
+import 'package:crimat_app/src/repositories/almacen_repository.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -15,5 +17,13 @@ Future<void> init() async {
   final preferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton<SharedPreferences>(() => preferences);
 
-  sl.registerLazySingleton(() => AlmacenDataSurce(sl.get()));
+  //?? DataSources.
+  sl.registerLazySingleton(() => AlmacenDataSurce(sl.get<http.Client>()));
+
+  //?? Repositories
+  sl.registerLazySingleton(() => AlmacenRepository(sl.get<AlmacenDataSurce>()));
+
+  //?? Blocs
+  sl.registerFactory(() => AlmacenBloc(sl.get<AlmacenRepository>()));
+  
 }

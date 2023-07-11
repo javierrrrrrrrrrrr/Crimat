@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:crimat_app/src/errors/expetion.dart';
 import 'package:http/http.dart' as http;
-import 'package:dartz/dartz.dart';
 
 import '../../resources/urls.dart';
 
@@ -13,24 +12,27 @@ class AlmacenDataSurce {
 
   AlmacenDataSurce(this.client);
 
-  Future<Either<Exception, List<AlmacenModel>>> getAllAlmacen() async {
-    final Uri uri = Uri.https(Urls.api, 'api/almacenes/');
+  Future<List<AlmacenModel>> getAllAlmacen() async {
+    final Uri uri = Uri.https(Urls.api, 'crimat-development/api/almacenes/');
 
     try {
       final response = await http.get(uri);
 
       if (response.statusCode == 200) {
-        final jsonMap = jsonDecode(response.body) as Map<String, dynamic>;
-        final almacenesData = jsonMap['data'] as List<dynamic>;
+        
 
-        final almacenesList = almacenesData
+        final jsonMap = jsonDecode(response.body) as List<dynamic>;
+         
+
+        final almacenesList = jsonMap
             .map((almacenData) => AlmacenModel.fromJson(almacenData))
             .toList();
-        return Right(almacenesList);
+        return almacenesList;
       } else {
         return throw ServerException();
       }
-    } catch (e) {}
-    return const Right([]);
+    } catch (e) {
+      return throw ServerException();
+    }
   }
 }

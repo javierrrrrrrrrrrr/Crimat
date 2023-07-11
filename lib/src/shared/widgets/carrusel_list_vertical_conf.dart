@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../features/home/view/widget/custom_title.dart';
+import '../../features/home/presentation/view/widget/custom_title.dart';
 
 class CarruselListVerticalConfg extends StatelessWidget {
   const CarruselListVerticalConfg({

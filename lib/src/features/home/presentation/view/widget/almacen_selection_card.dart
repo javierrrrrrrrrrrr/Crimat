@@ -1,12 +1,16 @@
+import 'package:crimat_app/src/models/almacen_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../../../shared/widgets/cusotm_buttom_product.dart';
 import 'image_container.dart';
 
 class AlmacenSeleccionCard extends StatelessWidget {
   const AlmacenSeleccionCard({
     super.key,
+    required this.almacen,
   });
+
+  final AlmacenModel almacen;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +40,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
                   height: 10.h,
                 ),
                 Text(
-                  "Nombre del Almacén",
+                  almacen.name,
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 SizedBox(
@@ -55,7 +59,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
                       width: 50.w,
                       height: 20.h,
                       child: Text(
-                        "Lorem ipsum dolor sit amet, consectetr",
+                        almacen.address.toString(),
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
