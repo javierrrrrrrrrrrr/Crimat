@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../models/producto_model.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
 
 class MainCardCarrusel extends StatelessWidget {
   const MainCardCarrusel({
     super.key,
+    required this.producto,
   });
+
+  final ProductModel producto;
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +36,20 @@ class MainCardCarrusel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const PictureContainer(),
+              PictureContainer(pictureUrl: producto.image),
               Padding(
                 padding: EdgeInsets.only(left: 14.0.w, top: 15.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Lorem ipsumr dolor",
+                      producto.name,
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!
                           .copyWith(fontSize: 16.sp, color: Colors.black),
                     ),
-                    Text("\$16",
+                    Text("\$${producto.basePrice}",
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               fontSize: 17.sp,
                               color: Colors.black,
@@ -80,21 +84,49 @@ class MainCardCarrusel extends StatelessWidget {
 class PictureContainer extends StatelessWidget {
   const PictureContainer({
     super.key,
+    required this.pictureUrl,
   });
+
+  final String pictureUrl;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return FadeInImage.assetNetwork(
+      placeholder: 'assets/images/no_image.png',
+      placeholderFit: BoxFit.fill,
+      image: 'https://crimatus.com/$pictureUrl',
+      fit: BoxFit.fill,
       height: 140.sp,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(8.sp), topRight: Radius.circular(8.sp)),
-          color: Colors.grey[200],
-          image: const DecorationImage(
-            image: NetworkImage('https://picsum.photos/300/300/?image'),
-            fit: BoxFit.cover,
-          )),
+      width: double.infinity,
+      imageErrorBuilder: (_, __, ___) {
+        return Container(
+          height: 140.sp,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(8.sp),
+              topRight: Radius.circular(8.sp),
+            ),
+            color: Colors.grey[200],
+          ),
+          child: const Center(
+            child: Icon(Icons.error),
+          ),
+        );
+      },
     );
+    // return Container(
+    //   height: 140.sp,
+    //   decoration: BoxDecoration(
+    //       borderRadius: BorderRadius.only(
+    //           topLeft: Radius.circular(8.sp), topRight: Radius.circular(8.sp)),
+    //       color: Colors.grey[200],
+    //       image: DecorationImage(
+    //         image:FadeInImage.assetNetwork(image:"" ,placeholder: ,)
+    //         // image: NetworkImage('https://crimatus.com/$pictureUrl',),
+    //         // fit: BoxFit.fill,
+
+    //       )),
+    // );
   }
 }
 

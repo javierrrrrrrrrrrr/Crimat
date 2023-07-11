@@ -31,7 +31,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
           ImageContainer(
             height: 103.sp,
             width: 123.sp,
-            url: 'assets/images/image3.jpg',
+            url: 'assets/images/no_image.png',
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.sp),
@@ -71,9 +71,8 @@ class AlmacenSeleccionCard extends StatelessWidget {
                   height: 10.h,
                 ),
                 CusotmButtom(
-                  onPressed: () => context
-                      .read<ProductBloc>()
-                      .add(ProductEvent.loadProducts(id: almacen.id.toString())),
+                  onPressed: () => context.read<ProductBloc>().add(
+                      ProductEvent.loadProducts(id: almacen.id.toString())),
                   ispraimary: true,
                   name: "Ver productos",
                   height: 34.h,
