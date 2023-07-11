@@ -1,7 +1,7 @@
-class Urls{
+class Urls {
   ///Whiletrue server
   static const String host = 'whiletruecu.com';
-  static const String api = '/crimat-development/api';
+  static const String api = 'crimatus.com/crimat-development';
 
   ///Auth services
   static String get login => '$api/token/';
