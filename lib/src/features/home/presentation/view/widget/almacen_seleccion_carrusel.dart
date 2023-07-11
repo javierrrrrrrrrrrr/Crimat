@@ -14,36 +14,38 @@ class AlmacenSeleccionCarusel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AlmacenBloc, AlmacenState>(
-        builder: (context, state) => state.when(
-            initial: () => const SizedBox(),
-            loading: () => ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10.w,
-                          vertical: 15.5.h,
-                        ),
-                        child: const LoadingAlmacenSeleccionCard());
-                  },
+      builder: (context, state) => state.when(
+        initial: () => const SizedBox(),
+        loading: () => ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 5,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10.w,
+                  vertical: 15.5.h,
                 ),
-            success: (almacenes) => ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: almacenes.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 10.w,
-                        vertical: 15.5.h,
-                      ),
-                      child: AlmacenSeleccionCard(almacen: almacenes[index]),
-                    );
-                  },
-                ),
-            failure: (error) => SizedBox(
-                  child: Text(error),
-                )));
+                child: const LoadingAlmacenSeleccionCard());
+          },
+        ),
+        success: (almacenes) => ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: almacenes.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 10.w,
+                vertical: 15.5.h,
+              ),
+              child: AlmacenSeleccionCard(almacen: almacenes[index]),
+            );
+          },
+        ),
+        failure: (error) => SizedBox(
+          child: Text(error),
+        ),
+      ),
+    );
   }
 }
 
