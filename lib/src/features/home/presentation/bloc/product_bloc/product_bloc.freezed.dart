@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProductEvent {
-  String get id => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadProducts,
+    required TResult Function() toloadingState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadProducts,
+    TResult? Function()? toloadingState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadProducts,
+    TResult Function()? toloadingState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_ToloadingState value) toloadingState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_ToloadingState value)? toloadingState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_ToloadingState value)? toloadingState,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ProductEventCopyWith<ProductEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $ProductEventCopyWith<$Res> {
   factory $ProductEventCopyWith(
           ProductEvent value, $Res Function(ProductEvent) then) =
       _$ProductEventCopyWithImpl<$Res, ProductEvent>;
-  @useResult
-  $Res call({String id});
 }
 
 /// @nodoc
@@ -73,28 +72,13 @@ class _$ProductEventCopyWithImpl<$Res, $Val extends ProductEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_LoadProductsCopyWith<$Res>
-    implements $ProductEventCopyWith<$Res> {
+abstract class _$$_LoadProductsCopyWith<$Res> {
   factory _$$_LoadProductsCopyWith(
           _$_LoadProducts value, $Res Function(_$_LoadProducts) then) =
       __$$_LoadProductsCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String id});
 }
@@ -155,6 +139,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadProducts,
+    required TResult Function() toloadingState,
   }) {
     return loadProducts(id);
   }
@@ -163,6 +148,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadProducts,
+    TResult? Function()? toloadingState,
   }) {
     return loadProducts?.call(id);
   }
@@ -171,6 +157,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadProducts,
+    TResult Function()? toloadingState,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -183,6 +170,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_ToloadingState value) toloadingState,
   }) {
     return loadProducts(this);
   }
@@ -191,6 +179,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_ToloadingState value)? toloadingState,
   }) {
     return loadProducts?.call(this);
   }
@@ -199,6 +188,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_ToloadingState value)? toloadingState,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -211,12 +201,112 @@ class _$_LoadProducts implements _LoadProducts {
 abstract class _LoadProducts implements ProductEvent {
   const factory _LoadProducts({required final String id}) = _$_LoadProducts;
 
-  @override
   String get id;
-  @override
   @JsonKey(ignore: true)
   _$$_LoadProductsCopyWith<_$_LoadProducts> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ToloadingStateCopyWith<$Res> {
+  factory _$$_ToloadingStateCopyWith(
+          _$_ToloadingState value, $Res Function(_$_ToloadingState) then) =
+      __$$_ToloadingStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ToloadingStateCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$_ToloadingState>
+    implements _$$_ToloadingStateCopyWith<$Res> {
+  __$$_ToloadingStateCopyWithImpl(
+      _$_ToloadingState _value, $Res Function(_$_ToloadingState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ToloadingState implements _ToloadingState {
+  const _$_ToloadingState();
+
+  @override
+  String toString() {
+    return 'ProductEvent.toloadingState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ToloadingState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) loadProducts,
+    required TResult Function() toloadingState,
+  }) {
+    return toloadingState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? loadProducts,
+    TResult? Function()? toloadingState,
+  }) {
+    return toloadingState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? loadProducts,
+    TResult Function()? toloadingState,
+    required TResult orElse(),
+  }) {
+    if (toloadingState != null) {
+      return toloadingState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_ToloadingState value) toloadingState,
+  }) {
+    return toloadingState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_ToloadingState value)? toloadingState,
+  }) {
+    return toloadingState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_ToloadingState value)? toloadingState,
+    required TResult orElse(),
+  }) {
+    if (toloadingState != null) {
+      return toloadingState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToloadingState implements ProductEvent {
+  const factory _ToloadingState() = _$_ToloadingState;
 }
 
 /// @nodoc

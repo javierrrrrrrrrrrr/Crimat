@@ -17,17 +17,22 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     on<ProductEvent>(eventHandler);
   }
 
-  FutureOr<void> eventHandler(event, emit) async {
-    await event.when(loadProducts: (id) async {
-      emit(const ProductState.loading());
-      final result = await repository.getAllProduct(id);
-      result.fold((failure) {
-        if (failure is ServerFailure) {
-          emit(ProductState.failure(message: failure.message));
-        }
-      }, (productos) {
-        emit(ProductState.loadedSuccess(productos: productos));
-      });
-    });
+  FutureOr<void> eventHandler(ProductEvent event, Emitter emit) async {
+    await event.when(
+      loadProducts: (id) async {
+        emit(const ProductState.loading());
+        final result = await repository.getAllProduct(id);
+        result.fold((failure) {
+          if (failure is ServerFailure) {
+            emit(ProductState.failure(message: failure.message));
+          }
+        }, (productos) {
+          emit(ProductState.loadedSuccess(productos: productos));
+        });
+      },
+      toloadingState: () {
+        emit(const ProductState.loading());
+      },
+    );
   }
 }
