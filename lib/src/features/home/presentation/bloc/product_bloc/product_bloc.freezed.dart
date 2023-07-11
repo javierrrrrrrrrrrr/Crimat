@@ -19,38 +19,38 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadProducts,
-    required TResult Function() toloadingState,
+    required TResult Function() toInitialState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadProducts,
-    TResult? Function()? toloadingState,
+    TResult? Function()? toInitialState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadProducts,
-    TResult Function()? toloadingState,
+    TResult Function()? toInitialState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProducts value) loadProducts,
-    required TResult Function(_ToloadingState value) toloadingState,
+    required TResult Function(_ToInitialState value) toInitialState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
-    TResult? Function(_ToloadingState value)? toloadingState,
+    TResult? Function(_ToInitialState value)? toInitialState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
-    TResult Function(_ToloadingState value)? toloadingState,
+    TResult Function(_ToInitialState value)? toInitialState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,7 +139,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadProducts,
-    required TResult Function() toloadingState,
+    required TResult Function() toInitialState,
   }) {
     return loadProducts(id);
   }
@@ -148,7 +148,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadProducts,
-    TResult? Function()? toloadingState,
+    TResult? Function()? toInitialState,
   }) {
     return loadProducts?.call(id);
   }
@@ -157,7 +157,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadProducts,
-    TResult Function()? toloadingState,
+    TResult Function()? toInitialState,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -170,7 +170,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProducts value) loadProducts,
-    required TResult Function(_ToloadingState value) toloadingState,
+    required TResult Function(_ToInitialState value) toInitialState,
   }) {
     return loadProducts(this);
   }
@@ -179,7 +179,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
-    TResult? Function(_ToloadingState value)? toloadingState,
+    TResult? Function(_ToInitialState value)? toInitialState,
   }) {
     return loadProducts?.call(this);
   }
@@ -188,7 +188,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
-    TResult Function(_ToloadingState value)? toloadingState,
+    TResult Function(_ToInitialState value)? toInitialState,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -208,35 +208,35 @@ abstract class _LoadProducts implements ProductEvent {
 }
 
 /// @nodoc
-abstract class _$$_ToloadingStateCopyWith<$Res> {
-  factory _$$_ToloadingStateCopyWith(
-          _$_ToloadingState value, $Res Function(_$_ToloadingState) then) =
-      __$$_ToloadingStateCopyWithImpl<$Res>;
+abstract class _$$_ToInitialStateCopyWith<$Res> {
+  factory _$$_ToInitialStateCopyWith(
+          _$_ToInitialState value, $Res Function(_$_ToInitialState) then) =
+      __$$_ToInitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ToloadingStateCopyWithImpl<$Res>
-    extends _$ProductEventCopyWithImpl<$Res, _$_ToloadingState>
-    implements _$$_ToloadingStateCopyWith<$Res> {
-  __$$_ToloadingStateCopyWithImpl(
-      _$_ToloadingState _value, $Res Function(_$_ToloadingState) _then)
+class __$$_ToInitialStateCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$_ToInitialState>
+    implements _$$_ToInitialStateCopyWith<$Res> {
+  __$$_ToInitialStateCopyWithImpl(
+      _$_ToInitialState _value, $Res Function(_$_ToInitialState) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ToloadingState implements _ToloadingState {
-  const _$_ToloadingState();
+class _$_ToInitialState implements _ToInitialState {
+  const _$_ToInitialState();
 
   @override
   String toString() {
-    return 'ProductEvent.toloadingState()';
+    return 'ProductEvent.toInitialState()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ToloadingState);
+        (other.runtimeType == runtimeType && other is _$_ToInitialState);
   }
 
   @override
@@ -246,29 +246,29 @@ class _$_ToloadingState implements _ToloadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadProducts,
-    required TResult Function() toloadingState,
+    required TResult Function() toInitialState,
   }) {
-    return toloadingState();
+    return toInitialState();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadProducts,
-    TResult? Function()? toloadingState,
+    TResult? Function()? toInitialState,
   }) {
-    return toloadingState?.call();
+    return toInitialState?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadProducts,
-    TResult Function()? toloadingState,
+    TResult Function()? toInitialState,
     required TResult orElse(),
   }) {
-    if (toloadingState != null) {
-      return toloadingState();
+    if (toInitialState != null) {
+      return toInitialState();
     }
     return orElse();
   }
@@ -277,36 +277,36 @@ class _$_ToloadingState implements _ToloadingState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProducts value) loadProducts,
-    required TResult Function(_ToloadingState value) toloadingState,
+    required TResult Function(_ToInitialState value) toInitialState,
   }) {
-    return toloadingState(this);
+    return toInitialState(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
-    TResult? Function(_ToloadingState value)? toloadingState,
+    TResult? Function(_ToInitialState value)? toInitialState,
   }) {
-    return toloadingState?.call(this);
+    return toInitialState?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
-    TResult Function(_ToloadingState value)? toloadingState,
+    TResult Function(_ToInitialState value)? toInitialState,
     required TResult orElse(),
   }) {
-    if (toloadingState != null) {
-      return toloadingState(this);
+    if (toInitialState != null) {
+      return toInitialState(this);
     }
     return orElse();
   }
 }
 
-abstract class _ToloadingState implements ProductEvent {
-  const factory _ToloadingState() = _$_ToloadingState;
+abstract class _ToInitialState implements ProductEvent {
+  const factory _ToInitialState() = _$_ToInitialState;
 }
 
 /// @nodoc

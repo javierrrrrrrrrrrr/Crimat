@@ -22,7 +22,7 @@ class MainProdcutCarrusel extends StatelessWidget {
     return BlocListener<AlmacenBloc, AlmacenState>(
       listener: (context, state) {
         state.whenOrNull(
-          loading: () => productBloc.add(const ProductEvent.toloadingState()),
+          success: (_) => productBloc.add(const ProductEvent.toInitialState()),
         );
       },
       child: BlocBuilder<ProductBloc, ProductState>(
