@@ -69,6 +69,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
                   height: 10.h,
                 ),
                 CusotmButtom(
+                  //  onPressed: () => context.read<ProductBloc>().add(const ProductEvent.load())),
                   ispraimary: true,
                   name: "Ver productos",
                   height: 34.h,
