@@ -29,13 +29,12 @@ class CustomBottonNavigationBar extends StatelessWidget {
       case 4:
         context.go('/profile');
         break;
-      
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final layoutCubitState = context.read<LayoutCubit>().state;
+    final layoutCubitState = context.watch<LayoutCubit>().state;
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       elevation: 0,
@@ -70,7 +69,7 @@ class CustomBottonNavigationBar extends StatelessWidget {
       ],
       onTap: (newIndex) {
         onItemTapped(newIndex, context);
-       // BlocProvider.of<LayoutCubit>(context).changeScreen(newIndex);
+        BlocProvider.of<LayoutCubit>(context).changeScreen(newIndex);
       },
     );
   }
