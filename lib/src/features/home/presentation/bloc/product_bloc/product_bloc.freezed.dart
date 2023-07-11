@@ -20,7 +20,6 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadProducts,
-    required Future<Null> Function() load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs

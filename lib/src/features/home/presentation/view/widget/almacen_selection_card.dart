@@ -1,7 +1,9 @@
 import 'package:crimat_app/src/models/almacen_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../bloc/product_bloc/product_bloc.dart';
 import 'image_container.dart';
 
 class AlmacenSeleccionCard extends StatelessWidget {
@@ -69,7 +71,9 @@ class AlmacenSeleccionCard extends StatelessWidget {
                   height: 10.h,
                 ),
                 CusotmButtom(
-                  //  onPressed: () => context.read<ProductBloc>().add(const ProductEvent.load())),
+                  onPressed: () => context
+                      .read<ProductBloc>()
+                      .add(ProductEvent.loadProducts(id: almacen.id.toString())),
                   ispraimary: true,
                   name: "Ver productos",
                   height: 34.h,

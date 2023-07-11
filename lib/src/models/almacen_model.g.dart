@@ -7,6 +7,7 @@ part of 'almacen_model.dart';
 // **************************************************************************
 
 AlmacenModel _$AlmacenModelFromJson(Map<String, dynamic> json) => AlmacenModel(
+      id: json['id'] as int,
       name: json['nombre'] as String,
       phone: json['telefono'] as String,
       taxes: json['taxes'] as String,
@@ -17,6 +18,7 @@ AlmacenModel _$AlmacenModelFromJson(Map<String, dynamic> json) => AlmacenModel(
 
 Map<String, dynamic> _$AlmacenModelToJson(AlmacenModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'nombre': instance.name,
       'telefono': instance.phone,
       'taxes': instance.taxes,

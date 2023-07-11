@@ -3,6 +3,8 @@ part 'almacen_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class AlmacenModel {
+  @JsonKey(name: 'id')
+  final int id;
   @JsonKey(name: 'nombre')
   final String name;
   @JsonKey(name: 'telefono')
@@ -17,6 +19,7 @@ class AlmacenModel {
   final num gestor;
 
   AlmacenModel({
+    required this.id,
     required this.name,
     required this.phone,
     required this.taxes,
