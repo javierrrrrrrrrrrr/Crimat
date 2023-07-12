@@ -179,9 +179,15 @@ class RegisterScreen extends StatelessWidget {
   void goHome(BuildContext context) => context.go('/home');
 
   void onRegisterSuccess(BuildContext context) {
-    Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(
-            builder: (context) => const RegisterOnProcessScreen()),
-        (route) => false);
+    try{
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(
+              builder: (context) => const RegisterOnProcessScreen()),
+              (route) => false);
+    }catch(e){
+      print(e.toString());
+      print('');
+    }
+
   }
 }
