@@ -15,20 +15,22 @@ class ProductsDetails extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(top: 70.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const ProductDetailsHeder(),
-          SizedBox(height: 20.h),
-          ProductPictureContainer(url: queryParams['image']),
-          SizedBox(height: 20.h),
-          ProductDetailsColum(
-            description: queryParams["description"],
-            name: queryParams["name"],
-            price: queryParams["price"],
-          ),
-          const OptionButtoms(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const ProductDetailsHeder(),
+            SizedBox(height: 20.h),
+            ProductPictureContainer(url: queryParams['image']),
+            SizedBox(height: 20.h),
+            ProductDetailsColum(
+              description: queryParams["description"],
+              name: queryParams["name"],
+              price: queryParams["price"],
+            ),
+            const OptionButtoms(),
+          ],
+        ),
       ),
     );
   }

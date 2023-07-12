@@ -40,7 +40,7 @@ class RegisterCubit extends Cubit<AuthState>{
       requestBody.remove('repeat_password');
       requestBody['direccion'] = Map<String, dynamic>.from(addressForm.value);
       // await Future.delayed(const Duration(seconds: 3));
-      AuthRepository().register(requestBody);
+      await AuthRepository().register(requestBody);
       onRegisterSuccess.call();
     }catch(error){
       UtilFunctions.printToast(message: error.toString());

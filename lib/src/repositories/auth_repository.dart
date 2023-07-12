@@ -33,8 +33,9 @@ class AuthRepository{
     final Uri uri = Uri.https(Urls.host, Urls.register);
 
     var response = await http.post(uri, headers: headers, body: bodyToSend);
-    var decodeResponse = jsonDecode(response.body);
+
     if(response.statusCode != 201){
+      var decodeResponse = jsonDecode(response.body);
       throw(decodeResponse['error']);
     }
   }
