@@ -40,7 +40,7 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
           routes: [
             GoRoute(
                 path: 'home/details',
-                name: 'DetailsView',
+                name: ProductsDetails.name,
                 builder: (context, state) =>
                     const Scaffold(body: ProductsDetails())),
           ]),

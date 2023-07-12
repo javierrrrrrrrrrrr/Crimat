@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../models/producto_model.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../products_detales_screen.dart';
 import 'custom_picture_container.dart';
 
 class MainCardCarrusel extends StatelessWidget {
@@ -40,15 +41,14 @@ class MainCardCarrusel extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  context.pushNamed(
-                    "DetailsView",
-                    queryParameters: {
-                      "name": producto.name,
-                      "price": producto.basePrice,
-                      "description": producto.description,
-                      "image": producto.image
-                    },
-                  );
+                  context.pushNamed(ProductsDetails.name,
+                      queryParameters: {
+                        "name": producto.name,
+                        "price": producto.basePrice,
+                        "description": producto.description,
+                        "image": producto.image
+                      },
+                      extra: producto);
                 },
                 child: PictureContainer(pictureUrl: producto.image),
               ),
