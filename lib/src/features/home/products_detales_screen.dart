@@ -1,7 +1,7 @@
-import 'package:crimat_app/src/features/home/presentation/view/widget/prdoct_details_widgets/option_buttoms.dart';
-import 'package:crimat_app/src/features/home/presentation/view/widget/prdoct_details_widgets/products_details_colum.dart';
-import 'package:crimat_app/src/features/home/presentation/view/widget/prdoct_details_widgets/products_details_header.dart';
-import 'package:crimat_app/src/features/home/presentation/view/widget/prdoct_details_widgets/products_picture_container.dart';
+import 'package:crimat_app/src/features/home/presentation/view/widget/products_details_widgets/option_buttoms.dart';
+import 'package:crimat_app/src/features/home/presentation/view/widget/products_details_widgets/products_details_colum.dart';
+import 'package:crimat_app/src/features/home/presentation/view/widget/products_details_widgets/products_details_header.dart';
+import 'package:crimat_app/src/features/home/presentation/view/widget/products_details_widgets/products_picture_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
