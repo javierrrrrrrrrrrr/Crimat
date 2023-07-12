@@ -42,7 +42,12 @@ class MainCardCarrusel extends StatelessWidget {
                 onTap: () {
                   context.pushNamed(
                     "DetailsView",
-                    //    queryParameters: {"producto": producto},
+                    queryParameters: {
+                      "name": producto.name,
+                      "price": producto.basePrice,
+                      "description": producto.description,
+                      "image": producto.image
+                    },
                   );
                 },
                 child: PictureContainer(pictureUrl: producto.image),

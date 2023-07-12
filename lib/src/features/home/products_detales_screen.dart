@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/features/home/presentation/view/widget/custom_picture_container.dart';
 import 'package:crimat_app/src/shared/widgets/cusotm_buttom_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,18 +9,24 @@ class ProductsDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final Map<String, dynamic> arguments =
-    //     ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
-    // print(arguments);
+    final Map<String, dynamic> queryParams =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+
     return Padding(
       padding: EdgeInsets.only(top: 70.h),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ProductDetailsHeder(),
-          ProductPictureContainer(),
-          ProductDetailsColum(),
-          OptionButtoms(),
+          const ProductDetailsHeder(),
+          SizedBox(height: 20.h),
+          ProductPictureContainer(url: queryParams['image']),
+          SizedBox(height: 20.h),
+          ProductDetailsColum(
+            description: queryParams["description"],
+            name: queryParams["name"],
+            price: queryParams["price"],
+          ),
+          const OptionButtoms(),
         ],
       ),
     );
@@ -89,22 +96,36 @@ class ProductDetailsHeder extends StatelessWidget {
 class ProductPictureContainer extends StatelessWidget {
   const ProductPictureContainer({
     super.key,
+    required this.url,
   });
+
+  final String url;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return PictureContainer(
+      pictureUrl: url,
       height: 300.h,
-      width: 430.w,
-      color: Colors.blue,
     );
+    // return Container(
+    //   height: 300.h,
+    //   width: 430.w,
+    //   color: Colors.blue,
+    // );
   }
 }
 
 class ProductDetailsColum extends StatelessWidget {
   const ProductDetailsColum({
     super.key,
+    required this.name,
+    required this.price,
+    required this.description,
   });
+
+  final String name;
+  final String price;
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -114,13 +135,14 @@ class ProductDetailsColum extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 10.h),
-          const Text(
-            "Nombre del Producto",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          Text(
+            name,
+            style: const TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 10.h),
           Text(
-            "\$16",
+            "\$$price",
             style: TextStyle(color: Colors.black.withOpacity(0.8)),
           ),
           SizedBox(height: 10.h),
@@ -132,7 +154,7 @@ class ProductDetailsColum extends StatelessWidget {
             height: 180,
             child: Center(
               child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet arcu id tincidunt tellus arcu rhoncus, turpis nisl sed. Neque viverra ipsum orci, morbi semper. Nulla bibendum purus tempor semper purus. Ut curabitur platea sed blandit. Amet non at proin justo nulla et. A, blandit morbi suspendisse vel malesuada purus massa mi. Faucibus neque a mi hendrerit.",
+                description,
                 style: TextStyle(
                     color: Colors.black.withOpacity(0.5), fontSize: 16),
               ),
