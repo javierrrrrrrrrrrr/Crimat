@@ -12,7 +12,7 @@ class ProductDataSource {
   ProductDataSource(this.client);
 
   Future<List<ProductModel>> getAllProduct(String id) async {
-    final Uri uri = Uri.https(Urls.api, 'crimat-development/api/productos', {
+    final Uri uri = Uri.https(Urls.api, Urls.getproducts, {
       'almacen': id,
     });
 

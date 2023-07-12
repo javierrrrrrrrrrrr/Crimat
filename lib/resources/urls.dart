@@ -9,4 +9,7 @@ class Urls {
   static String get register => '$host_api/nuevo_cliente/';
   static String get changePassword => '$host_api/change-password/';
   static String get resetPassword => '$host_api/reset-password/';
+
+  static String get getAlmacen => 'crimat-development/api/almacenes/';
+  static String get getproducts => 'crimat-development/api/productos';
 }

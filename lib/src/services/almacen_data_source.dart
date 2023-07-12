@@ -13,16 +13,13 @@ class AlmacenDataSurce {
   AlmacenDataSurce(this.client);
 
   Future<List<AlmacenModel>> getAllAlmacen() async {
-    final Uri uri = Uri.https(Urls.api, 'crimat-development/api/almacenes/');
+    final Uri uri = Uri.https(Urls.api, Urls.getAlmacen);
 
     try {
       final response = await http.get(uri);
 
       if (response.statusCode == 200) {
-        
-
         final jsonMap = jsonDecode(response.body) as List<dynamic>;
-         
 
         final almacenesList = jsonMap
             .map((almacenData) => AlmacenModel.fromJson(almacenData))
