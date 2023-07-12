@@ -32,7 +32,8 @@ class CusotmButtom extends StatelessWidget {
                 backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
-                  side: const BorderSide(color: Colors.red, width: 2),
+                  side:
+                      BorderSide(color: Colors.red.withOpacity(0.4), width: 2),
                 ),
               ),
         onPressed: onPressed,

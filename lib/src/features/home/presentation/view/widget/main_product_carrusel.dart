@@ -27,7 +27,13 @@ class MainProdcutCarrusel extends StatelessWidget {
       },
       child: BlocBuilder<ProductBloc, ProductState>(
         builder: (context, state) => state.when(
-          initial: () => const SizedBox(),
+          initial: () => const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 150),
+            child: Text(
+              "Debe seleccionar un almacen para poder visualizar sus prodcutos",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
           loading: () => Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),

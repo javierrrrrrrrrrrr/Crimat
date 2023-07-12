@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../models/producto_model.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
+import 'custom_picture_container.dart';
 
 class MainCardCarrusel extends StatelessWidget {
   const MainCardCarrusel({
@@ -36,7 +38,15 @@ class MainCardCarrusel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PictureContainer(pictureUrl: producto.image),
+              GestureDetector(
+                onTap: () {
+                  context.pushNamed(
+                    "DetailsView",
+                    //    queryParameters: {"producto": producto},
+                  );
+                },
+                child: PictureContainer(pictureUrl: producto.image),
+              ),
               Padding(
                 padding: EdgeInsets.only(left: 14.0.w, top: 15.h),
                 child: Column(
@@ -78,55 +88,6 @@ class MainCardCarrusel extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class PictureContainer extends StatelessWidget {
-  const PictureContainer({
-    super.key,
-    required this.pictureUrl,
-  });
-
-  final String pictureUrl;
-
-  @override
-  Widget build(BuildContext context) {
-    return FadeInImage.assetNetwork(
-      placeholder: 'assets/images/no_image.png',
-      placeholderFit: BoxFit.fill,
-      image: 'https://crimatus.com/$pictureUrl',
-      fit: BoxFit.fill,
-      height: 140.sp,
-      width: double.infinity,
-      imageErrorBuilder: (_, __, ___) {
-        return Container(
-          height: 140.sp,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(8.sp),
-              topRight: Radius.circular(8.sp),
-            ),
-            color: Colors.grey[200],
-          ),
-          child: const Center(
-            child: Icon(Icons.error),
-          ),
-        );
-      },
-    );
-    // return Container(
-    //   height: 140.sp,
-    //   decoration: BoxDecoration(
-    //       borderRadius: BorderRadius.only(
-    //           topLeft: Radius.circular(8.sp), topRight: Radius.circular(8.sp)),
-    //       color: Colors.grey[200],
-    //       image: DecorationImage(
-    //         image:FadeInImage.assetNetwork(image:"" ,placeholder: ,)
-    //         // image: NetworkImage('https://crimatus.com/$pictureUrl',),
-    //         // fit: BoxFit.fill,
-
-    //       )),
-    // );
   }
 }
 

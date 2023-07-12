@@ -9,6 +9,7 @@ import 'package:crimat_app/src/features/splash/intro_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/home/products_detales_screen.dart';
 import '../../features/splash/splash_screen.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [
@@ -33,10 +34,16 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
     },
     routes: [
       GoRoute(
-        path: '/home',
-        name: HomeView.name,
-        builder: (context, state) => const Scaffold(body: HomeView()),
-      ),
+          path: '/home',
+          name: HomeView.name,
+          builder: (context, state) => const Scaffold(body: HomeView()),
+          routes: [
+            GoRoute(
+                path: 'home/details',
+                name: 'DetailsView',
+                builder: (context, state) =>
+                    const Scaffold(body: ProductsDetails())),
+          ]),
       GoRoute(
         path: '/history',
         name: 'history',
