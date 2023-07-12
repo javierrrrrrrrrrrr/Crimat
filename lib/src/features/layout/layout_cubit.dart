@@ -8,6 +8,10 @@ class LayoutCubit extends Cubit<LayoutState>{
   void changeScreen(int newIndex){
     ///Here we extract the state from the enum list by its index
     LayoutState newState = state.copyWith(selectedIndex: newIndex);
+
+    
+
+
     if(!isClosed) emit(newState);
   }
 

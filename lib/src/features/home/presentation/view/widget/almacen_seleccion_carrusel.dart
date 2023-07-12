@@ -1,4 +1,6 @@
+import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'almacen_selection_card.dart';
@@ -7,29 +9,42 @@ import 'loading_widget/loading_container.dart';
 class AlmacenSeleccionCarusel extends StatelessWidget {
   const AlmacenSeleccionCarusel({
     super.key,
-    // this.isloagind,
   });
-
-  final bool isloagind = true;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: 15,
-      itemBuilder: (BuildContext context, int index) {
-        return Padding(
-          padding: EdgeInsets.only(
-            left: 10.w,
-            right: 10.w,
-            top: 15.5.h,
-            bottom: 15.5.h,
-          ),
-          child: isloagind == true
-              ? const LoadingAlmacenSeleccionCard()
-              : const AlmacenSeleccionCard(),
-        );
-      },
+    return BlocBuilder<AlmacenBloc, AlmacenState>(
+      builder: (context, state) => state.when(
+        initial: () => const SizedBox(),
+        loading: () => ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 5,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10.w,
+                  vertical: 15.5.h,
+                ),
+                child: const LoadingAlmacenSeleccionCard());
+          },
+        ),
+        success: (almacenes) => ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: almacenes.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 10.w,
+                vertical: 15.5.h,
+              ),
+              child: AlmacenSeleccionCard(almacen: almacenes[index]),
+            );
+          },
+        ),
+        failure: (error) => SizedBox(
+          child: Text(error),
+        ),
+      ),
     );
   }
 }

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../shared/widgets/card_sking.dart';
-import '../../../home/view/widget/cusotm_buttom_product.dart';
-import '../../../home/view/widget/image_container.dart';
+import '../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../home/presentation/view/widget/image_container.dart';
 
 class FavoriteCard extends StatelessWidget {
   const FavoriteCard({
@@ -42,7 +41,7 @@ class FavoriteCard extends StatelessWidget {
               SizedBox(
                 height: 35.h,
               ),
-              CusotmButtomForProducts(
+              CusotmButtom(
                 height: 30.h,
                 width: 160.w,
                 name: "Comprar ahora",

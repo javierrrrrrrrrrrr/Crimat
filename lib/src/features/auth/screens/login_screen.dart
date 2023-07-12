@@ -112,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         if (!state.onLoading && cubit.loginForm.valid) {
                           cubit.login(
-                              onLoginSuccess: () => context.go('/layout'));
+                              onLoginSuccess: () => context.go('/home'));
                         }
                       },
                     ),
@@ -123,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                       text: context.loc.toContinue,
                       color: Colors.white,
                       onPressed:
-                          state.onLoading ? null : () => context.go('/layout'),
+                          state.onLoading ? null : () => context.go('/home'),
                     ),
                     SizedBox(
                       height: 50.sp,

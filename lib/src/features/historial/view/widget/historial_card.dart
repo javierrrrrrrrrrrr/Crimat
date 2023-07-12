@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../shared/widgets/card_sking.dart';
-import '../../../home/view/widget/cusotm_buttom_product.dart';
+import '../../../../shared/widgets/cusotm_buttom_product.dart';
 
 class HisorialCard extends StatelessWidget {
   const HisorialCard({
@@ -82,7 +82,7 @@ class HisorialCard extends StatelessWidget {
         Positioned(
           right: 15.w,
           bottom: 20.h,
-          child: CusotmButtomForProducts(
+          child: CusotmButtom(
             height: 32.h,
             width: 90.w,
             name: "Detalles",

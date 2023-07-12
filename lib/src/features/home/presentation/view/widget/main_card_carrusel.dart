@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
-import 'cusotm_buttom_product.dart';
+import '../../../../../models/producto_model.dart';
+import '../../../../../shared/widgets/cusotm_buttom_product.dart';
+import 'custom_picture_container.dart';
 
 class MainCardCarrusel extends StatelessWidget {
   const MainCardCarrusel({
     super.key,
+    required this.producto,
   });
+
+  final ProductModel producto;
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +38,33 @@ class MainCardCarrusel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const PictureContainer(),
+              GestureDetector(
+                onTap: () {
+                  context.pushNamed(
+                    "DetailsView",
+                    queryParameters: {
+                      "name": producto.name,
+                      "price": producto.basePrice,
+                      "description": producto.description,
+                      "image": producto.image
+                    },
+                  );
+                },
+                child: PictureContainer(pictureUrl: producto.image),
+              ),
               Padding(
                 padding: EdgeInsets.only(left: 14.0.w, top: 15.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Lorem ipsumr dolor",
+                      producto.name,
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!
                           .copyWith(fontSize: 16.sp, color: Colors.black),
                     ),
-                    Text("\$16",
+                    Text("\$${producto.basePrice}",
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               fontSize: 17.sp,
                               color: Colors.black,
@@ -58,7 +77,7 @@ class MainCardCarrusel extends StatelessWidget {
                 height: 5.h,
               ),
               Center(
-                  child: CusotmButtomForProducts(
+                  child: CusotmButtom(
                 ispraimary: true,
                 name: "Añadir al carrito",
                 height: 35.h,
@@ -73,27 +92,6 @@ class MainCardCarrusel extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class PictureContainer extends StatelessWidget {
-  const PictureContainer({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 140.sp,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(8.sp), topRight: Radius.circular(8.sp)),
-          color: Colors.grey[200],
-          image: const DecorationImage(
-            image: NetworkImage('https://picsum.photos/300/300/?image'),
-            fit: BoxFit.cover,
-          )),
     );
   }
 }

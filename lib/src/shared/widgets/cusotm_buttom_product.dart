@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CusotmButtomForProducts extends StatelessWidget {
-  const CusotmButtomForProducts({
+class CusotmButtom extends StatelessWidget {
+  const CusotmButtom({
     super.key,
     required this.width,
     required this.height,
@@ -32,7 +32,8 @@ class CusotmButtomForProducts extends StatelessWidget {
                 backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
-                  side: const BorderSide(color: Colors.red, width: 2),
+                  side:
+                      BorderSide(color: Colors.red.withOpacity(0.4), width: 2),
                 ),
               ),
         onPressed: onPressed,

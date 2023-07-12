@@ -5,14 +5,17 @@ class CardSking extends StatelessWidget {
   const CardSking({
     super.key,
     this.cardheight,
+    this.cardwidth,
   });
 
   final double? cardheight;
+  final double? cardwidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: cardheight ?? 127.h,
+      width: cardwidth ?? 0,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.sp),
