@@ -41,14 +41,16 @@ class MainCardCarrusel extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  context.pushNamed(ProductsDetails.name,
-                      queryParameters: {
-                        "name": producto.name,
-                        "price": producto.basePrice,
-                        "description": producto.description,
-                        "image": producto.image
-                      },
-                      extra: producto);
+                  context.pushNamed(
+                    ProductsDetails.name,
+                    queryParameters: {
+                      "name": producto.name,
+                      "price": producto.basePrice,
+                      "description": producto.description,
+                      "image": producto.image
+                    },
+                    //extra: producto
+                  );
                 },
                 child: PictureContainer(pictureUrl: producto.image),
               ),
