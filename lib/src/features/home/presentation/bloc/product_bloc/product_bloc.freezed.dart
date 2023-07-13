@@ -19,18 +19,25 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadProducts,
+    required TResult Function(
+            CategoriesModel category, List<ProductModel> listProduct)
+        getProductsByCategories,
     required TResult Function() toInitialState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadProducts,
+    TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
     TResult? Function()? toInitialState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadProducts,
+    TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
     TResult Function()? toInitialState,
     required TResult orElse(),
   }) =>
@@ -38,18 +45,22 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_GetProductsByCategories value)
+        getProductsByCategories,
     required TResult Function(_ToInitialState value) toInitialState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_GetProductsByCategories value)? getProductsByCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     required TResult orElse(),
   }) =>
@@ -139,6 +150,9 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadProducts,
+    required TResult Function(
+            CategoriesModel category, List<ProductModel> listProduct)
+        getProductsByCategories,
     required TResult Function() toInitialState,
   }) {
     return loadProducts(id);
@@ -148,6 +162,8 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadProducts,
+    TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
     TResult? Function()? toInitialState,
   }) {
     return loadProducts?.call(id);
@@ -157,6 +173,8 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadProducts,
+    TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
     TResult Function()? toInitialState,
     required TResult orElse(),
   }) {
@@ -170,6 +188,8 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_GetProductsByCategories value)
+        getProductsByCategories,
     required TResult Function(_ToInitialState value) toInitialState,
   }) {
     return loadProducts(this);
@@ -179,6 +199,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
   }) {
     return loadProducts?.call(this);
@@ -188,6 +209,7 @@ class _$_LoadProducts implements _LoadProducts {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_GetProductsByCategories value)? getProductsByCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     required TResult orElse(),
   }) {
@@ -205,6 +227,174 @@ abstract class _LoadProducts implements ProductEvent {
   @JsonKey(ignore: true)
   _$$_LoadProductsCopyWith<_$_LoadProducts> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetProductsByCategoriesCopyWith<$Res> {
+  factory _$$_GetProductsByCategoriesCopyWith(_$_GetProductsByCategories value,
+          $Res Function(_$_GetProductsByCategories) then) =
+      __$$_GetProductsByCategoriesCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CategoriesModel category, List<ProductModel> listProduct});
+}
+
+/// @nodoc
+class __$$_GetProductsByCategoriesCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$_GetProductsByCategories>
+    implements _$$_GetProductsByCategoriesCopyWith<$Res> {
+  __$$_GetProductsByCategoriesCopyWithImpl(_$_GetProductsByCategories _value,
+      $Res Function(_$_GetProductsByCategories) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? category = null,
+    Object? listProduct = null,
+  }) {
+    return _then(_$_GetProductsByCategories(
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as CategoriesModel,
+      listProduct: null == listProduct
+          ? _value._listProduct
+          : listProduct // ignore: cast_nullable_to_non_nullable
+              as List<ProductModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetProductsByCategories implements _GetProductsByCategories {
+  const _$_GetProductsByCategories(
+      {required this.category, required final List<ProductModel> listProduct})
+      : _listProduct = listProduct;
+
+  @override
+  final CategoriesModel category;
+  final List<ProductModel> _listProduct;
+  @override
+  List<ProductModel> get listProduct {
+    if (_listProduct is EqualUnmodifiableListView) return _listProduct;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listProduct);
+  }
+
+  @override
+  String toString() {
+    return 'ProductEvent.getProductsByCategories(category: $category, listProduct: $listProduct)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetProductsByCategories &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            const DeepCollectionEquality()
+                .equals(other._listProduct, _listProduct));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, category, const DeepCollectionEquality().hash(_listProduct));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetProductsByCategoriesCopyWith<_$_GetProductsByCategories>
+      get copyWith =>
+          __$$_GetProductsByCategoriesCopyWithImpl<_$_GetProductsByCategories>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) loadProducts,
+    required TResult Function(
+            CategoriesModel category, List<ProductModel> listProduct)
+        getProductsByCategories,
+    required TResult Function() toInitialState,
+  }) {
+    return getProductsByCategories(category, listProduct);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? loadProducts,
+    TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
+    TResult? Function()? toInitialState,
+  }) {
+    return getProductsByCategories?.call(category, listProduct);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? loadProducts,
+    TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
+    TResult Function()? toInitialState,
+    required TResult orElse(),
+  }) {
+    if (getProductsByCategories != null) {
+      return getProductsByCategories(category, listProduct);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_GetProductsByCategories value)
+        getProductsByCategories,
+    required TResult Function(_ToInitialState value) toInitialState,
+  }) {
+    return getProductsByCategories(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult? Function(_ToInitialState value)? toInitialState,
+  }) {
+    return getProductsByCategories?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult Function(_ToInitialState value)? toInitialState,
+    required TResult orElse(),
+  }) {
+    if (getProductsByCategories != null) {
+      return getProductsByCategories(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetProductsByCategories implements ProductEvent {
+  const factory _GetProductsByCategories(
+          {required final CategoriesModel category,
+          required final List<ProductModel> listProduct}) =
+      _$_GetProductsByCategories;
+
+  CategoriesModel get category;
+  List<ProductModel> get listProduct;
+  @JsonKey(ignore: true)
+  _$$_GetProductsByCategoriesCopyWith<_$_GetProductsByCategories>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -246,6 +436,9 @@ class _$_ToInitialState implements _ToInitialState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadProducts,
+    required TResult Function(
+            CategoriesModel category, List<ProductModel> listProduct)
+        getProductsByCategories,
     required TResult Function() toInitialState,
   }) {
     return toInitialState();
@@ -255,6 +448,8 @@ class _$_ToInitialState implements _ToInitialState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadProducts,
+    TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
     TResult? Function()? toInitialState,
   }) {
     return toInitialState?.call();
@@ -264,6 +459,8 @@ class _$_ToInitialState implements _ToInitialState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadProducts,
+    TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
     TResult Function()? toInitialState,
     required TResult orElse(),
   }) {
@@ -277,6 +474,8 @@ class _$_ToInitialState implements _ToInitialState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_GetProductsByCategories value)
+        getProductsByCategories,
     required TResult Function(_ToInitialState value) toInitialState,
   }) {
     return toInitialState(this);
@@ -286,6 +485,7 @@ class _$_ToInitialState implements _ToInitialState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
   }) {
     return toInitialState?.call(this);
@@ -295,6 +495,7 @@ class _$_ToInitialState implements _ToInitialState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_GetProductsByCategories value)? getProductsByCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     required TResult orElse(),
   }) {

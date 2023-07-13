@@ -18,9 +18,9 @@ class CategoriesModel {
   });
 
   factory CategoriesModel.fromJson(Map<String, dynamic> json) =>
-      _$CategoriaProductoModelFromJson(json);
+      _$CategoriesModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CategoriaProductoModelToJson(this);
+  Map<String, dynamic> toJson() => _$CategoriesModelToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:crimat_app/src/models/categories_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../errors/failure.dart';
@@ -32,6 +33,24 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       },
       toInitialState: () {
         emit(const ProductState.initial());
+      },
+      getProductsByCategories:
+          (CategoriesModel category, List<ProductModel> listProduct) async {
+        List<ProductModel> aux = [];
+        emit(const ProductState.loading());
+
+        // Introducir una pausa de 1 segundo
+        await Future.delayed(const Duration(seconds: 1));
+
+        for (var product in listProduct) {
+          for (var tipo in category.tiposProducto) {
+            if (product.productType == tipo.id) {
+              aux = [...aux, product];
+            }
+          }
+        }
+
+        emit(ProductState.loadedSuccess(productos: aux));
       },
     );
   }
