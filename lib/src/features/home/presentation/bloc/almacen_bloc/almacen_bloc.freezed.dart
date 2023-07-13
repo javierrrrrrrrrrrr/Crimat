@@ -19,19 +19,20 @@ mixin _$AlmacenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(int index) activeAlmacen,
+    required TResult Function(int index, List<AlmacenModel> almacenes)
+        activeAlmacen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(int index)? activeAlmacen,
+    TResult? Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(int index)? activeAlmacen,
+    TResult Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -111,7 +112,8 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(int index) activeAlmacen,
+    required TResult Function(int index, List<AlmacenModel> almacenes)
+        activeAlmacen,
   }) {
     return load();
   }
@@ -120,7 +122,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(int index)? activeAlmacen,
+    TResult? Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
   }) {
     return load?.call();
   }
@@ -129,7 +131,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(int index)? activeAlmacen,
+    TResult Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -180,7 +182,7 @@ abstract class _$$_ActiveAlmacenCopyWith<$Res> {
           _$_ActiveAlmacen value, $Res Function(_$_ActiveAlmacen) then) =
       __$$_ActiveAlmacenCopyWithImpl<$Res>;
   @useResult
-  $Res call({int index});
+  $Res call({int index, List<AlmacenModel> almacenes});
 }
 
 /// @nodoc
@@ -195,12 +197,17 @@ class __$$_ActiveAlmacenCopyWithImpl<$Res>
   @override
   $Res call({
     Object? index = null,
+    Object? almacenes = null,
   }) {
     return _then(_$_ActiveAlmacen(
-      null == index
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
+      almacenes: null == almacenes
+          ? _value._almacenes
+          : almacenes // ignore: cast_nullable_to_non_nullable
+              as List<AlmacenModel>,
     ));
   }
 }
@@ -208,14 +215,23 @@ class __$$_ActiveAlmacenCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ActiveAlmacen implements _ActiveAlmacen {
-  const _$_ActiveAlmacen(this.index);
+  const _$_ActiveAlmacen(
+      {required this.index, required final List<AlmacenModel> almacenes})
+      : _almacenes = almacenes;
 
   @override
   final int index;
+  final List<AlmacenModel> _almacenes;
+  @override
+  List<AlmacenModel> get almacenes {
+    if (_almacenes is EqualUnmodifiableListView) return _almacenes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_almacenes);
+  }
 
   @override
   String toString() {
-    return 'AlmacenEvent.activeAlmacen(index: $index)';
+    return 'AlmacenEvent.activeAlmacen(index: $index, almacenes: $almacenes)';
   }
 
   @override
@@ -223,11 +239,14 @@ class _$_ActiveAlmacen implements _ActiveAlmacen {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ActiveAlmacen &&
-            (identical(other.index, index) || other.index == index));
+            (identical(other.index, index) || other.index == index) &&
+            const DeepCollectionEquality()
+                .equals(other._almacenes, _almacenes));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index);
+  int get hashCode => Object.hash(
+      runtimeType, index, const DeepCollectionEquality().hash(_almacenes));
 
   @JsonKey(ignore: true)
   @override
@@ -239,29 +258,30 @@ class _$_ActiveAlmacen implements _ActiveAlmacen {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(int index) activeAlmacen,
+    required TResult Function(int index, List<AlmacenModel> almacenes)
+        activeAlmacen,
   }) {
-    return activeAlmacen(index);
+    return activeAlmacen(index, almacenes);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(int index)? activeAlmacen,
+    TResult? Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
   }) {
-    return activeAlmacen?.call(index);
+    return activeAlmacen?.call(index, almacenes);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(int index)? activeAlmacen,
+    TResult Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
     required TResult orElse(),
   }) {
     if (activeAlmacen != null) {
-      return activeAlmacen(index);
+      return activeAlmacen(index, almacenes);
     }
     return orElse();
   }
@@ -299,9 +319,12 @@ class _$_ActiveAlmacen implements _ActiveAlmacen {
 }
 
 abstract class _ActiveAlmacen implements AlmacenEvent {
-  const factory _ActiveAlmacen(final int index) = _$_ActiveAlmacen;
+  const factory _ActiveAlmacen(
+      {required final int index,
+      required final List<AlmacenModel> almacenes}) = _$_ActiveAlmacen;
 
   int get index;
+  List<AlmacenModel> get almacenes;
   @JsonKey(ignore: true)
   _$$_ActiveAlmacenCopyWith<_$_ActiveAlmacen> get copyWith =>
       throw _privateConstructorUsedError;

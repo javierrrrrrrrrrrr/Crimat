@@ -41,6 +41,7 @@ class AlmacenSeleccionCarusel extends StatelessWidget {
                 ),
                 child: AlmacenSeleccionCard(
                   almacen: almacenes[index],
+                  selectedIndex: index,
                 ));
           },
         ),

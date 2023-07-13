@@ -15,19 +15,22 @@ class AlmacenBloc extends Bloc<AlmacenEvent, AlmacenState> {
     on<AlmacenEvent>(eventHandler);
   }
 
-  Future<void> eventHandler(event, emit) async {
-    await event.when(load: () async {
-      emit(const AlmacenState.loading());
-      final result = await repository.getAllAlmacenes();
-      result.fold((failure) {
-        if (failure is ServerFailure) {
-          emit(AlmacenState.failure(message: failure.message));
-        }
-      }, (almacenes) {
-        emit(AlmacenState.success(almacenes: almacenes));
-      });
-    }, 
-    activeAlmacen:(){}
+  Future<void> eventHandler(AlmacenEvent event, Emitter emit) async {
+    await event.when(
+      load: () async {
+        emit(const AlmacenState.loading());
+        final result = await repository.getAllAlmacenes();
+        result.fold((failure) {
+          if (failure is ServerFailure) {
+            emit(AlmacenState.failure(message: failure.message));
+          }
+        }, (almacenes) {
+          emit(AlmacenState.success(almacenes: almacenes));
+        });
+      },
+      activeAlmacen: (int index, List<AlmacenModel> almacenes) {
+        emit(AlmacenState.selectedAlmacen(almacenes: almacenes, index: index));
+      },
     );
   }
 }

@@ -21,6 +21,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final almacenBloc = context.read<AlmacenBloc>();
     return Container(
       height: 120.h,
       width: 280.w,
@@ -42,9 +43,14 @@ class AlmacenSeleccionCard extends StatelessWidget {
                   .read<ProductBloc>()
                   .add(ProductEvent.loadProducts(id: almacen.id.toString()));
 
-              context
-                  .read<AlmacenBloc>()
-                  .add(AlmacenEvent.activeAlmacen(selectedIndex ?? 0));
+              almacenBloc.state.mapOrNull(
+                  success: (value) => almacenBloc.add(
+                      AlmacenEvent.activeAlmacen(
+                          index: selectedIndex!, almacenes: value.almacenes)),
+                  selectedAlmacen: (value) => almacenBloc.add(
+                        AlmacenEvent.activeAlmacen(
+                            index: selectedIndex!, almacenes: value.almacenes),
+                      ));
             },
             child: ImageContainer(
               height: 103.sp,
