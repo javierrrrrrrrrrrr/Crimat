@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
 import 'package:crimat_app/src/models/features/home/almacen/almacen_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,10 +12,12 @@ class AlmacenSeleccionCard extends StatelessWidget {
     super.key,
     required this.almacen,
     this.isSelected,
+    this.selectedIndex,
   });
 
   final AlmacenModel almacen;
   final bool? isSelected;
+  final int? selectedIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +37,15 @@ class AlmacenSeleccionCard extends StatelessWidget {
             width: 10.w,
           ),
           GestureDetector(
-            onTap: () => context
-                .read<ProductBloc>()
-                .add(ProductEvent.loadProducts(id: almacen.id.toString())),
+            onTap: () {
+              context
+                  .read<ProductBloc>()
+                  .add(ProductEvent.loadProducts(id: almacen.id.toString()));
+
+              context
+                  .read<AlmacenBloc>()
+                  .add(AlmacenEvent.activeAlmacen(selectedIndex ?? 0));
+            },
             child: ImageContainer(
               height: 103.sp,
               width: 123.sp,

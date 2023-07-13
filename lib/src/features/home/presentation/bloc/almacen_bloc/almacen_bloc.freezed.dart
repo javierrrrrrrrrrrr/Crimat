@@ -19,32 +19,38 @@ mixin _$AlmacenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(int index) activeAlmacen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(int index)? activeAlmacen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(int index)? activeAlmacen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_ActiveAlmacen value) activeAlmacen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_ActiveAlmacen value)? activeAlmacen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_ActiveAlmacen value)? activeAlmacen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -105,6 +111,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(int index) activeAlmacen,
   }) {
     return load();
   }
@@ -113,6 +120,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(int index)? activeAlmacen,
   }) {
     return load?.call();
   }
@@ -121,6 +129,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(int index)? activeAlmacen,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -133,6 +142,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_ActiveAlmacen value) activeAlmacen,
   }) {
     return load(this);
   }
@@ -141,6 +151,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_ActiveAlmacen value)? activeAlmacen,
   }) {
     return load?.call(this);
   }
@@ -149,6 +160,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_ActiveAlmacen value)? activeAlmacen,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -163,11 +175,146 @@ abstract class _Load implements AlmacenEvent {
 }
 
 /// @nodoc
+abstract class _$$_ActiveAlmacenCopyWith<$Res> {
+  factory _$$_ActiveAlmacenCopyWith(
+          _$_ActiveAlmacen value, $Res Function(_$_ActiveAlmacen) then) =
+      __$$_ActiveAlmacenCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$_ActiveAlmacenCopyWithImpl<$Res>
+    extends _$AlmacenEventCopyWithImpl<$Res, _$_ActiveAlmacen>
+    implements _$$_ActiveAlmacenCopyWith<$Res> {
+  __$$_ActiveAlmacenCopyWithImpl(
+      _$_ActiveAlmacen _value, $Res Function(_$_ActiveAlmacen) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$_ActiveAlmacen(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ActiveAlmacen implements _ActiveAlmacen {
+  const _$_ActiveAlmacen(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'AlmacenEvent.activeAlmacen(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ActiveAlmacen &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ActiveAlmacenCopyWith<_$_ActiveAlmacen> get copyWith =>
+      __$$_ActiveAlmacenCopyWithImpl<_$_ActiveAlmacen>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(int index) activeAlmacen,
+  }) {
+    return activeAlmacen(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(int index)? activeAlmacen,
+  }) {
+    return activeAlmacen?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(int index)? activeAlmacen,
+    required TResult orElse(),
+  }) {
+    if (activeAlmacen != null) {
+      return activeAlmacen(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_ActiveAlmacen value) activeAlmacen,
+  }) {
+    return activeAlmacen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_ActiveAlmacen value)? activeAlmacen,
+  }) {
+    return activeAlmacen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_ActiveAlmacen value)? activeAlmacen,
+    required TResult orElse(),
+  }) {
+    if (activeAlmacen != null) {
+      return activeAlmacen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ActiveAlmacen implements AlmacenEvent {
+  const factory _ActiveAlmacen(final int index) = _$_ActiveAlmacen;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_ActiveAlmacenCopyWith<_$_ActiveAlmacen> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AlmacenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<AlmacenModel> almacenes, int index)
+        selectedAlmacen,
     required TResult Function(List<AlmacenModel> almacenes) success,
     required TResult Function(String message) failure,
   }) =>
@@ -176,6 +323,7 @@ mixin _$AlmacenState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
     TResult? Function(List<AlmacenModel> almacenes)? success,
     TResult? Function(String message)? failure,
   }) =>
@@ -184,6 +332,7 @@ mixin _$AlmacenState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
     TResult Function(List<AlmacenModel> almacenes)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -193,6 +342,7 @@ mixin _$AlmacenState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectedAlmacen value) selectedAlmacen,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) =>
@@ -201,6 +351,7 @@ mixin _$AlmacenState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectedAlmacen value)? selectedAlmacen,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) =>
@@ -209,6 +360,7 @@ mixin _$AlmacenState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_SelectedAlmacen value)? selectedAlmacen,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -273,6 +425,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<AlmacenModel> almacenes, int index)
+        selectedAlmacen,
     required TResult Function(List<AlmacenModel> almacenes) success,
     required TResult Function(String message) failure,
   }) {
@@ -284,6 +438,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
     TResult? Function(List<AlmacenModel> almacenes)? success,
     TResult? Function(String message)? failure,
   }) {
@@ -295,6 +450,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
     TResult Function(List<AlmacenModel> almacenes)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -310,6 +466,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectedAlmacen value) selectedAlmacen,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
@@ -321,6 +478,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectedAlmacen value)? selectedAlmacen,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -332,6 +490,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_SelectedAlmacen value)? selectedAlmacen,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -386,6 +545,8 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<AlmacenModel> almacenes, int index)
+        selectedAlmacen,
     required TResult Function(List<AlmacenModel> almacenes) success,
     required TResult Function(String message) failure,
   }) {
@@ -397,6 +558,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
     TResult? Function(List<AlmacenModel> almacenes)? success,
     TResult? Function(String message)? failure,
   }) {
@@ -408,6 +570,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
     TResult Function(List<AlmacenModel> almacenes)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -423,6 +586,7 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectedAlmacen value) selectedAlmacen,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
@@ -434,6 +598,7 @@ class _$_Loading implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectedAlmacen value)? selectedAlmacen,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -445,6 +610,7 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_SelectedAlmacen value)? selectedAlmacen,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -458,6 +624,179 @@ class _$_Loading implements _Loading {
 
 abstract class _Loading implements AlmacenState {
   const factory _Loading() = _$_Loading;
+}
+
+/// @nodoc
+abstract class _$$_SelectedAlmacenCopyWith<$Res> {
+  factory _$$_SelectedAlmacenCopyWith(
+          _$_SelectedAlmacen value, $Res Function(_$_SelectedAlmacen) then) =
+      __$$_SelectedAlmacenCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<AlmacenModel> almacenes, int index});
+}
+
+/// @nodoc
+class __$$_SelectedAlmacenCopyWithImpl<$Res>
+    extends _$AlmacenStateCopyWithImpl<$Res, _$_SelectedAlmacen>
+    implements _$$_SelectedAlmacenCopyWith<$Res> {
+  __$$_SelectedAlmacenCopyWithImpl(
+      _$_SelectedAlmacen _value, $Res Function(_$_SelectedAlmacen) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? almacenes = null,
+    Object? index = null,
+  }) {
+    return _then(_$_SelectedAlmacen(
+      almacenes: null == almacenes
+          ? _value._almacenes
+          : almacenes // ignore: cast_nullable_to_non_nullable
+              as List<AlmacenModel>,
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedAlmacen implements _SelectedAlmacen {
+  const _$_SelectedAlmacen(
+      {required final List<AlmacenModel> almacenes, required this.index})
+      : _almacenes = almacenes;
+
+  final List<AlmacenModel> _almacenes;
+  @override
+  List<AlmacenModel> get almacenes {
+    if (_almacenes is EqualUnmodifiableListView) return _almacenes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_almacenes);
+  }
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'AlmacenState.selectedAlmacen(almacenes: $almacenes, index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedAlmacen &&
+            const DeepCollectionEquality()
+                .equals(other._almacenes, _almacenes) &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_almacenes), index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedAlmacenCopyWith<_$_SelectedAlmacen> get copyWith =>
+      __$$_SelectedAlmacenCopyWithImpl<_$_SelectedAlmacen>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<AlmacenModel> almacenes, int index)
+        selectedAlmacen,
+    required TResult Function(List<AlmacenModel> almacenes) success,
+    required TResult Function(String message) failure,
+  }) {
+    return selectedAlmacen(almacenes, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
+    TResult? Function(List<AlmacenModel> almacenes)? success,
+    TResult? Function(String message)? failure,
+  }) {
+    return selectedAlmacen?.call(almacenes, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
+    TResult Function(List<AlmacenModel> almacenes)? success,
+    TResult Function(String message)? failure,
+    required TResult orElse(),
+  }) {
+    if (selectedAlmacen != null) {
+      return selectedAlmacen(almacenes, index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectedAlmacen value) selectedAlmacen,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return selectedAlmacen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectedAlmacen value)? selectedAlmacen,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return selectedAlmacen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SelectedAlmacen value)? selectedAlmacen,
+    TResult Function(_Success value)? success,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (selectedAlmacen != null) {
+      return selectedAlmacen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedAlmacen implements AlmacenState {
+  const factory _SelectedAlmacen(
+      {required final List<AlmacenModel> almacenes,
+      required final int index}) = _$_SelectedAlmacen;
+
+  List<AlmacenModel> get almacenes;
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_SelectedAlmacenCopyWith<_$_SelectedAlmacen> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -533,6 +872,8 @@ class _$_Success implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<AlmacenModel> almacenes, int index)
+        selectedAlmacen,
     required TResult Function(List<AlmacenModel> almacenes) success,
     required TResult Function(String message) failure,
   }) {
@@ -544,6 +885,7 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
     TResult? Function(List<AlmacenModel> almacenes)? success,
     TResult? Function(String message)? failure,
   }) {
@@ -555,6 +897,7 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
     TResult Function(List<AlmacenModel> almacenes)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -570,6 +913,7 @@ class _$_Success implements _Success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectedAlmacen value) selectedAlmacen,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
@@ -581,6 +925,7 @@ class _$_Success implements _Success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectedAlmacen value)? selectedAlmacen,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -592,6 +937,7 @@ class _$_Success implements _Success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_SelectedAlmacen value)? selectedAlmacen,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -678,6 +1024,8 @@ class _$_Failure implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<AlmacenModel> almacenes, int index)
+        selectedAlmacen,
     required TResult Function(List<AlmacenModel> almacenes) success,
     required TResult Function(String message) failure,
   }) {
@@ -689,6 +1037,7 @@ class _$_Failure implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
     TResult? Function(List<AlmacenModel> almacenes)? success,
     TResult? Function(String message)? failure,
   }) {
@@ -700,6 +1049,7 @@ class _$_Failure implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<AlmacenModel> almacenes, int index)? selectedAlmacen,
     TResult Function(List<AlmacenModel> almacenes)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -715,6 +1065,7 @@ class _$_Failure implements _Failure {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectedAlmacen value) selectedAlmacen,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
@@ -726,6 +1077,7 @@ class _$_Failure implements _Failure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectedAlmacen value)? selectedAlmacen,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -737,6 +1089,7 @@ class _$_Failure implements _Failure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_SelectedAlmacen value)? selectedAlmacen,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),

@@ -26,6 +26,8 @@ class AlmacenBloc extends Bloc<AlmacenEvent, AlmacenState> {
       }, (almacenes) {
         emit(AlmacenState.success(almacenes: almacenes));
       });
-    });
+    }, 
+    activeAlmacen:(){}
+    );
   }
 }

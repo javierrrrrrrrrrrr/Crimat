@@ -2,7 +2,9 @@ import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/alma
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import '../../../../../models/features/home/almacen/almacen_model.dart';
 import 'almacen_selection_card.dart';
 import 'loading_widget/loading_container.dart';
 
@@ -33,17 +35,36 @@ class AlmacenSeleccionCarusel extends StatelessWidget {
           itemCount: almacenes.length,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 10.w,
-                vertical: 15.5.h,
-              ),
-              child: AlmacenSeleccionCard(almacen: almacenes[index]),
-            );
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10.w,
+                  vertical: 15.5.h,
+                ),
+                child: AlmacenSeleccionCard(
+                  almacen: almacenes[index],
+                ));
           },
         ),
         failure: (error) => SizedBox(
           child: Text(error),
         ),
+        selectedAlmacen: (List<AlmacenModel> almacenes, int index) {
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: almacenes.length,
+            itemBuilder: (BuildContext context, int listviewIndex) {
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10.w,
+                  vertical: 15.5.h,
+                ),
+                child: AlmacenSeleccionCard(
+                    selectedIndex: listviewIndex,
+                    almacen: almacenes[index],
+                    isSelected: listviewIndex == index ? true : false),
+              );
+            },
+          );
+        },
       ),
     );
   }
@@ -68,12 +89,11 @@ class LoadingAlmacenSeleccionCard extends StatelessWidget {
                   width: 2.0,
                 ))),
         Positioned(
-          top: 40.h,
-          left: 50.w,
-          child: const CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-          ),
-        ),
+            top: 30.h,
+            left: 50.w,
+            child: const SpinKitFadingCircle(
+              color: Colors.white,
+            )),
         Positioned(
           top: 15.h,
           left: 140.w,

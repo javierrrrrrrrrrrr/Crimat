@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'loading_container.dart';
 
@@ -17,12 +18,11 @@ class LoadingCardCarusel extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: 60.h,
-            left: 65.w,
-            child: const CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-            ),
-          ),
+              top: 50.h,
+              left: 65.w,
+              child: const SpinKitFadingCircle(
+                color: Colors.white,
+              )),
           Positioned(
             top: 150.h,
             left: 13.w,
