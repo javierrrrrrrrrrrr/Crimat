@@ -17,9 +17,11 @@ class AddressModel {
   @JsonKey(name: 'Estado')
   final String state;
 
-  const AddressModel(this.id, this.address, this.aparted, this.state, this.city);
+  const AddressModel(
+      this.id, this.address, this.aparted, this.state, this.city);
 
-  factory AddressModel.fromJson(Map<String, dynamic> json) => _$AddressModelFromJson(json);
+  factory AddressModel.fromJson(Map<String, dynamic> json) =>
+      _$AddressModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$AddressModelToJson(this);
 }

@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../../resources/urls.dart';
 import '../errors/expetion.dart';
-import '../models/producto_model.dart';
+import '../models/features/home/products/producto_model.dart';
 
 class ProductDataSource {
   final http.Client client;

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:crimat_app/src/errors/failure.dart';
-import 'package:crimat_app/src/models/almacen_model.dart';
+import 'package:crimat_app/src/models/features/home/almacen/almacen_model.dart';
 import 'package:crimat_app/src/repositories/almacen_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

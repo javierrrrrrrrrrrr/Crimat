@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'login_response_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class LoginResponseModel{
+class LoginResponseModel {
   @JsonKey(name: 'access')
   final String accessToken;
 
@@ -11,7 +11,8 @@ class LoginResponseModel{
 
   const LoginResponseModel(this.accessToken, this.refreshToken);
 
-  factory LoginResponseModel.fromJson(Map<String, dynamic> json) => _$LoginResponseModelFromJson(json);
+  factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$LoginResponseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LoginResponseModelToJson(this);
 }

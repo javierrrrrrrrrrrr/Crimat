@@ -3,7 +3,7 @@ import 'package:crimat_app/src/errors/failure.dart';
 import 'package:crimat_app/src/repositories/categorias_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../../models/categories_model.dart';
+import '../../../../../models/features/home/categories/categories_model.dart';
 
 part 'categories_event.dart';
 part 'categories_state.dart';

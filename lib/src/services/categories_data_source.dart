@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:crimat_app/src/errors/expetion.dart';
 import 'package:http/http.dart' as http;
 import '../../resources/urls.dart';
-import '../models/categories_model.dart';
+import '../models/features/home/categories/categories_model.dart';
 
 class CategoriesDataSurce {
   final http.Client client;

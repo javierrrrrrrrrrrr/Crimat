@@ -78,16 +78,16 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
   GoRoute(
     path: '/login',
     name: LoginScreen.name,
-    builder: (context, state) => const LoginScreen(),
+    builder: (context, state) => const Scaffold(body: LoginScreen()),
   ),
   GoRoute(
     path: '/register',
     name: RegisterScreen.name,
-    builder: (context, state) => const RegisterScreen(),
+    builder: (context, state) => const Scaffold(body: RegisterScreen()),
   ),
   GoRoute(
     path: '/resetPassword',
     name: ResetPasswordScreen.name,
-    builder: (context, state) => const ResetPasswordScreen(),
+    builder: (context, state) => const Scaffold(body: ResetPasswordScreen()),
   ),
 ]);

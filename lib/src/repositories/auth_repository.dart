@@ -1,14 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../../resources/urls.dart';
-import '../models/login_response_model.dart';
+import '../models/features/auth/login_response_model.dart';
 
-class AuthRepository{
-
-  Future<LoginResponseModel> login(String email, String password)async{
-    Map<String, String> headers = {
-      'Content-Type': 'application/json'
-    };
+class AuthRepository {
+  Future<LoginResponseModel> login(String email, String password) async {
+    Map<String, String> headers = {'Content-Type': 'application/json'};
 
     Map<String, dynamic> body = {
       "email": email,
@@ -19,50 +16,47 @@ class AuthRepository{
     Uri uri = Uri.https(Urls.host, Urls.login);
     var response = await http.post(uri, headers: headers, body: bodyToSend);
     var decodeResponse = jsonDecode(response.body);
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       return LoginResponseModel.fromJson(decodeResponse);
-    }
-    else{
-      throw(decodeResponse['error']);
+    } else {
+      throw (decodeResponse['error']);
     }
   }
 
-  Future<void> register(Map<String, dynamic> body)async{
+  Future<void> register(Map<String, dynamic> body) async {
     final Map<String, String> headers = {'Content-Type': 'application/json'};
     final bodyToSend = jsonEncode(body);
     final Uri uri = Uri.https(Urls.host, Urls.register);
 
     var response = await http.post(uri, headers: headers, body: bodyToSend);
 
-    if(response.statusCode != 201){
+    if (response.statusCode != 201) {
       var decodeResponse = jsonDecode(response.body);
-      throw(decodeResponse['error']);
+      throw (decodeResponse['error']);
     }
   }
 
-  resetPassword(String email)async{
+  resetPassword(String email) async {
     final Map<String, String> headers = {'Content-Type': 'application/json'};
-    final bodyToSend = jsonEncode({
-      "email": email
-    });
+    final bodyToSend = jsonEncode({"email": email});
     final Uri uri = Uri.https(Urls.host, Urls.resetPassword);
 
     var response = await http.post(uri, headers: headers, body: bodyToSend);
     var decodeResponse = jsonDecode(response.body);
-    if(response.statusCode != 200){
-      throw(decodeResponse['error']);
+    if (response.statusCode != 200) {
+      throw (decodeResponse['error']);
     }
   }
 
-  changePassword(Map<String, dynamic> body)async{
+  changePassword(Map<String, dynamic> body) async {
     final Map<String, String> headers = {'Content-Type': 'application/json'};
     final bodyToSend = jsonEncode(body);
     final Uri uri = Uri.https(Urls.host, Urls.changePassword);
 
     var response = await http.post(uri, headers: headers, body: bodyToSend);
     var decodeResponse = jsonDecode(response.body);
-    if(response.statusCode != 200){
-      throw(decodeResponse['error']);
+    if (response.statusCode != 200) {
+      throw (decodeResponse['error']);
     }
   }
 }

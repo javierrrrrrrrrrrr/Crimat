@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../models/categories_model.dart';
+import '../../../../../models/features/home/categories/categories_model.dart';
 import '../../bloc/categories_bloc/categories_bloc.dart';
 import 'filter_product_list.dart';
 import 'icons_filter_list.dart';

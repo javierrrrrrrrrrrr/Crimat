@@ -249,11 +249,11 @@ class __$$_GetProductsByCategoriesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? category = null,
+    Object? category = freezed,
     Object? listProduct = null,
   }) {
     return _then(_$_GetProductsByCategories(
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as CategoriesModel,
@@ -292,15 +292,16 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GetProductsByCategories &&
-            (identical(other.category, category) ||
-                other.category == category) &&
+            const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality()
                 .equals(other._listProduct, _listProduct));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, category, const DeepCollectionEquality().hash(_listProduct));
+      runtimeType,
+      const DeepCollectionEquality().hash(category),
+      const DeepCollectionEquality().hash(_listProduct));
 
   @JsonKey(ignore: true)
   @override

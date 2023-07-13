@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../models/producto_model.dart';
+import '../../../../../models/features/home/products/producto_model.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../products_detales_screen.dart';
 import 'custom_picture_container.dart';

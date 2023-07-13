@@ -1,9 +1,10 @@
-import 'package:crimat_app/src/models/address_model.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'address_model.dart';
 part 'user_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class UserModel{
+class UserModel {
   @JsonKey(name: 'nombre')
   final String name;
 
@@ -22,9 +23,11 @@ class UserModel{
   @JsonKey(name: 'direccion')
   final AddressModel address;
 
-  const UserModel(this.name, this.lastName, this.email, this.phoneNumber, this.license, this.address);
+  const UserModel(this.name, this.lastName, this.email, this.phoneNumber,
+      this.license, this.address);
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
 }

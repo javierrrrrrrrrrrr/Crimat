@@ -2,7 +2,7 @@ import 'package:crimat_app/src/errors/expetion.dart';
 import 'package:crimat_app/src/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 
-import '../models/categories_model.dart';
+import '../models/features/home/categories/categories_model.dart';
 import '../services/categories_data_source.dart';
 
 class CategoriesRepository {

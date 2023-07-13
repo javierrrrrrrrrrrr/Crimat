@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 import '../../resources/urls.dart';
 
-import '../models/almacen_model.dart';
+import '../models/features/home/almacen/almacen_model.dart';
 
 class AlmacenDataSurce {
   final http.Client client;
