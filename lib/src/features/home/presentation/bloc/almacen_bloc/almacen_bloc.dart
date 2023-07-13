@@ -15,9 +15,7 @@ class AlmacenBloc extends Bloc<AlmacenEvent, AlmacenState> {
     on<AlmacenEvent>(eventHandler);
   }
 
-  
-
-  FutureOr<void> eventHandler(event, emit) async {
+  Future<void> eventHandler(event, emit) async {
     await event.when(load: () async {
       emit(const AlmacenState.loading());
       final result = await repository.getAllAlmacenes();

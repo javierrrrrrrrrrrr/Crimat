@@ -12,4 +12,5 @@ class Urls {
 
   static String get getAlmacen => 'crimat-development/api/almacenes/';
   static String get getproducts => 'crimat-development/api/productos';
+  static String get getcategories => 'crimat-development/api/categorias/';
 }
