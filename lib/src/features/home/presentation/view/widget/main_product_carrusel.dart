@@ -30,7 +30,8 @@ class MainProdcutCarrusel extends StatelessWidget {
         builder: (context, state) => state.when(
           initial: () => const Padding(
             padding: EdgeInsets.symmetric(horizontal: 50, vertical: 150),
-            child: NoSelectedAlmacenwidget(),
+            child: NoSelectedAlmacenwidget(
+                message: "Seleccione un almacén para ver los productos."),
           ),
           loading: () => Expanded(
             child: Padding(
@@ -59,7 +60,9 @@ class MainProdcutCarrusel extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                     vertical: 170.h,
                   ),
-                  child: const NoSelectedAlmacenwidget(),
+                  child: const NoSelectedAlmacenwidget(
+                      message:
+                          "No hay productos que concidan con esa categoria en este almacen"),
                 ),
               );
             } else {

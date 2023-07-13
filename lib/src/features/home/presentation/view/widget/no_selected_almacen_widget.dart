@@ -6,7 +6,10 @@ import '../../../../../../resources/app_icons.dart';
 class NoSelectedAlmacenwidget extends StatelessWidget {
   const NoSelectedAlmacenwidget({
     super.key,
+    required this.message,
   });
+
+  final String message;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class NoSelectedAlmacenwidget extends StatelessWidget {
             width: 160,
             child: Center(
               child: Text(
-                "Seleccione un almacén para ver los productos.",
+                message,
                 style: TextStyle(fontSize: 14.sp),
               ),
             ),
