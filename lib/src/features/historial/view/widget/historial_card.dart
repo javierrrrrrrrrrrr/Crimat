@@ -12,7 +12,7 @@ class HisorialCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const CardSking(),
+        const CardSking(cardwidth: 375),
         Positioned(
           left: 10.w,
           child: Column(

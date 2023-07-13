@@ -19,6 +19,10 @@ class CardSking extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.sp),
+        // border: Border.all(
+        //         color: Colors.white.withOpacity(0.6),
+        //         width: 2.0,
+        //       ))),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),

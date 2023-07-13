@@ -6,7 +6,7 @@ class HistorialView extends StatelessWidget {
   const HistorialView({
     super.key,
   });
-
+  static const String name = 'hisorial_view';
   @override
   Widget build(BuildContext context) {
     //usar la propiedad CardWidthpadding para modificar el ancho de la carta en la lista
