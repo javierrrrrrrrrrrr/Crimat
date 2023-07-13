@@ -28,7 +28,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             emit(ProductState.failure(message: failure.message));
           }
         }, (productos) {
-          emit(ProductState.loadedSuccess(productos: productos));
+          emit(ProductState.loadedSuccess(
+              productos: productos, originalProductList: productos));
         });
       },
       toInitialState: () {
@@ -50,7 +51,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           }
         }
 
-        emit(ProductState.loadedSuccess(productos: aux));
+        emit(ProductState.loadedSuccess(
+            productos: aux, originalProductList: listProduct));
       },
     );
   }

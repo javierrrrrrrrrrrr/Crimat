@@ -52,11 +52,13 @@ class MainProdcutCarrusel extends StatelessWidget {
               ),
             ),
           ),
-          loadedSuccess: (productos) {
+          loadedSuccess: (productos, _) {
             if (productos.isEmpty) {
               return Center(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 180.h),
+                  padding: EdgeInsets.symmetric(
+                    vertical: 170.h,
+                  ),
                   child: const NoSelectedAlmacenwidget(),
                 ),
               );

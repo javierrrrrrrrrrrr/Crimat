@@ -31,7 +31,7 @@ class FilterProductList extends StatelessWidget {
                     productBloc.add(
                       ProductEvent.getProductsByCategories(
                           category: categories[index],
-                          listProduct: state.productos),
+                          listProduct: state.originalProductList),
                     );
                   },
                 );
