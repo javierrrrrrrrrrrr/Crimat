@@ -1,4 +1,5 @@
 import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
+import 'package:crimat_app/src/features/home/presentation/bloc/categories_bloc/categories_bloc.dart';
 import 'package:crimat_app/src/features/home/presentation/bloc/product_bloc/product_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +23,9 @@ class LayoutScreen extends StatelessWidget {
         BlocProvider(
             create: (_) => sl<AlmacenBloc>()..add(const AlmacenEvent.load())),
         BlocProvider(create: (_) => sl<ProductBloc>()),
+        BlocProvider(
+            create: (_) =>
+                sl<CategoriesBloc>()..add(const CategoriesEvent.load())),
       ],
       child: BlocBuilder<LayoutCubit, LayoutState>(builder: (context, state) {
         return Scaffold(

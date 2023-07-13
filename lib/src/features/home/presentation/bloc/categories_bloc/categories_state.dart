@@ -5,7 +5,7 @@ class CategoriesState with _$CategoriesState {
   const factory CategoriesState.initial() = _Initial;
   const factory CategoriesState.loading() = _Loading;
   const factory CategoriesState.success({
-    required List<CategoriaProductoModel> categories,
+    required List<CategoriesModel> categories,
   }) = _Success;
   const factory CategoriesState.failure({
     required String message,

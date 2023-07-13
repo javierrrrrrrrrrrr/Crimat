@@ -10,8 +10,7 @@ class CategoriesRepository {
 
   CategoriesRepository(this.categoriasDataSurce);
 
-  Future<Either<Failure, List<CategoriaProductoModel>>>
-      getAllcategories() async {
+  Future<Either<Failure, List<CategoriesModel>>> getAllcategories() async {
     //TODO: Hacer la implementacion de si el dispositivo tiene internet.
     try {
       final categories = await categoriasDataSurce.getAllCategories();

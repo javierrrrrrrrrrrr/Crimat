@@ -168,7 +168,7 @@ mixin _$CategoriesState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CategoriaProductoModel> categories) success,
+    required TResult Function(List<CategoriesModel> categories) success,
     required TResult Function(String message) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -176,7 +176,7 @@ mixin _$CategoriesState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CategoriaProductoModel> categories)? success,
+    TResult? Function(List<CategoriesModel> categories)? success,
     TResult? Function(String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -184,7 +184,7 @@ mixin _$CategoriesState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CategoriaProductoModel> categories)? success,
+    TResult Function(List<CategoriesModel> categories)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) =>
@@ -273,7 +273,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CategoriaProductoModel> categories) success,
+    required TResult Function(List<CategoriesModel> categories) success,
     required TResult Function(String message) failure,
   }) {
     return initial();
@@ -284,7 +284,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CategoriaProductoModel> categories)? success,
+    TResult? Function(List<CategoriesModel> categories)? success,
     TResult? Function(String message)? failure,
   }) {
     return initial?.call();
@@ -295,7 +295,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CategoriaProductoModel> categories)? success,
+    TResult Function(List<CategoriesModel> categories)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -386,7 +386,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CategoriaProductoModel> categories) success,
+    required TResult Function(List<CategoriesModel> categories) success,
     required TResult Function(String message) failure,
   }) {
     return loading();
@@ -397,7 +397,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CategoriaProductoModel> categories)? success,
+    TResult? Function(List<CategoriesModel> categories)? success,
     TResult? Function(String message)? failure,
   }) {
     return loading?.call();
@@ -408,7 +408,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CategoriaProductoModel> categories)? success,
+    TResult Function(List<CategoriesModel> categories)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -466,7 +466,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<CategoriaProductoModel> categories});
+  $Res call({List<CategoriesModel> categories});
 }
 
 /// @nodoc
@@ -485,7 +485,7 @@ class __$$_SuccessCopyWithImpl<$Res>
       categories: null == categories
           ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoriaProductoModel>,
+              as List<CategoriesModel>,
     ));
   }
 }
@@ -493,12 +493,12 @@ class __$$_SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success({required final List<CategoriaProductoModel> categories})
+  const _$_Success({required final List<CategoriesModel> categories})
       : _categories = categories;
 
-  final List<CategoriaProductoModel> _categories;
+  final List<CategoriesModel> _categories;
   @override
-  List<CategoriaProductoModel> get categories {
+  List<CategoriesModel> get categories {
     if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_categories);
@@ -533,7 +533,7 @@ class _$_Success implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CategoriaProductoModel> categories) success,
+    required TResult Function(List<CategoriesModel> categories) success,
     required TResult Function(String message) failure,
   }) {
     return success(categories);
@@ -544,7 +544,7 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CategoriaProductoModel> categories)? success,
+    TResult? Function(List<CategoriesModel> categories)? success,
     TResult? Function(String message)? failure,
   }) {
     return success?.call(categories);
@@ -555,7 +555,7 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CategoriaProductoModel> categories)? success,
+    TResult Function(List<CategoriesModel> categories)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -604,10 +604,10 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements CategoriesState {
-  const factory _Success(
-      {required final List<CategoriaProductoModel> categories}) = _$_Success;
+  const factory _Success({required final List<CategoriesModel> categories}) =
+      _$_Success;
 
-  List<CategoriaProductoModel> get categories;
+  List<CategoriesModel> get categories;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -678,7 +678,7 @@ class _$_Failure implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CategoriaProductoModel> categories) success,
+    required TResult Function(List<CategoriesModel> categories) success,
     required TResult Function(String message) failure,
   }) {
     return failure(message);
@@ -689,7 +689,7 @@ class _$_Failure implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CategoriaProductoModel> categories)? success,
+    TResult? Function(List<CategoriesModel> categories)? success,
     TResult? Function(String message)? failure,
   }) {
     return failure?.call(message);
@@ -700,7 +700,7 @@ class _$_Failure implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CategoriaProductoModel> categories)? success,
+    TResult Function(List<CategoriesModel> categories)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {

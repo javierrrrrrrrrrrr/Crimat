@@ -17,31 +17,11 @@ class AlmacenProductFilter extends StatelessWidget {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
       builder: (context, state) => state.when(
         initial: () => const SizedBox(),
-        loading: () => ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10.w,
-                  vertical: 15.5.h,
-                ),
-                child: Container());
-          },
+        loading: () => const AlmacenProductFilterWidget(
+          categories: [],
         ),
-        success: (categories) => ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10.w,
-                  vertical: 15.5.h,
-                ),
-                child: AlmacenProductFilterWidget(
-                  categories: categories[index],
-                ));
-          },
+        success: (categories) => AlmacenProductFilterWidget(
+          categories: categories,
         ),
         failure: (error) => SizedBox(
           child: Text(error),
@@ -57,7 +37,7 @@ class AlmacenProductFilterWidget extends StatelessWidget {
     required this.categories,
   });
 
-  final CategoriaProductoModel categories;
+  final List<CategoriesModel> categories;
 
   @override
   Widget build(BuildContext context) {
@@ -74,14 +54,16 @@ class AlmacenProductFilterWidget extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 30.w),
             child: Text(
-              categories.nombre,
+              'Productos',
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
           SizedBox(
             height: 10.h,
           ),
-          const FilterProductList(),
+          FilterProductList(
+            categories: categories,
+          ),
           const IconsFilterList(),
         ],
       ),

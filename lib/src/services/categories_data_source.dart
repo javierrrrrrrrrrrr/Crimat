@@ -10,7 +10,7 @@ class CategoriesDataSurce {
 
   CategoriesDataSurce(this.client);
 
-  Future<List<CategoriaProductoModel>> getAllCategories() async {
+  Future<List<CategoriesModel>> getAllCategories() async {
     final Uri uri = Uri.https(Urls.api, Urls.getcategories);
 
     try {
@@ -20,8 +20,7 @@ class CategoriesDataSurce {
         final jsonMap = jsonDecode(response.body) as List<dynamic>;
 
         final categoriesList = jsonMap
-            .map((categoriesData) =>
-                CategoriaProductoModel.fromJson(categoriesData))
+            .map((categoriesData) => CategoriesModel.fromJson(categoriesData))
             .toList();
         return categoriesList;
       } else {

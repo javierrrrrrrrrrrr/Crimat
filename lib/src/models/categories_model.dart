@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'categories_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class CategoriaProductoModel {
+class CategoriesModel {
   @JsonKey(name: 'id')
   final int id;
   @JsonKey(name: 'nombre')
@@ -11,13 +11,13 @@ class CategoriaProductoModel {
   @JsonKey(name: 'tipos_producto')
   final List<TipoProductoModel> tiposProducto;
 
-  CategoriaProductoModel({
+  CategoriesModel({
     required this.id,
     required this.nombre,
     required this.tiposProducto,
   });
 
-  factory CategoriaProductoModel.fromJson(Map<String, dynamic> json) =>
+  factory CategoriesModel.fromJson(Map<String, dynamic> json) =>
       _$CategoriaProductoModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CategoriaProductoModelToJson(this);
