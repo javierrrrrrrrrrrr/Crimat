@@ -46,12 +46,14 @@ class AlmacenSeleccionCard extends StatelessWidget {
               almacenBloc.state.mapOrNull(
                   success: (value) => almacenBloc.add(
                       AlmacenEvent.activeAlmacen(
-                          index: selectedIndex!, almacenes: value.almacenes)),
+                          index: selectedIndex!,
+                          almacenes: List.of(value.almacenes))),
                   selectedAlmacen: (value) => almacenBloc.add(
-                        AlmacenEvent.activeAlmacen(
-                            index: selectedIndex!, almacenes: value.almacenes),
-                      ));
+                      AlmacenEvent.activeAlmacen(
+                          index: selectedIndex!,
+                          almacenes: List.of(value.almacenes))));
             },
+            key: ValueKey(almacen.id),
             child: ImageContainer(
               height: 103.sp,
               width: 123.sp,
@@ -63,8 +65,19 @@ class AlmacenSeleccionCard extends StatelessWidget {
             child: Column(
               children: [
                 GestureDetector(
-                  onTap: () => context.read<ProductBloc>().add(
-                      ProductEvent.loadProducts(id: almacen.id.toString())),
+                  onTap: () {
+                    context.read<ProductBloc>().add(
+                        ProductEvent.loadProducts(id: almacen.id.toString()));
+                    almacenBloc.state.mapOrNull(
+                        success: (value) => almacenBloc.add(
+                            AlmacenEvent.activeAlmacen(
+                                index: selectedIndex!,
+                                almacenes: List.of(value.almacenes))),
+                        selectedAlmacen: (value) => almacenBloc.add(
+                            AlmacenEvent.activeAlmacen(
+                                index: selectedIndex!,
+                                almacenes: List.of(value.almacenes))));
+                  },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

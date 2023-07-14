@@ -53,6 +53,7 @@ class AlmacenSeleccionCarusel extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: almacenes.length,
             itemBuilder: (BuildContext context, int listviewIndex) {
+              final almacen = almacenes[listviewIndex];
               return Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: 10.w,
@@ -60,7 +61,7 @@ class AlmacenSeleccionCarusel extends StatelessWidget {
                 ),
                 child: AlmacenSeleccionCard(
                     selectedIndex: listviewIndex,
-                    almacen: almacenes[index],
+                    almacen: almacen,
                     isSelected: listviewIndex == index ? true : false),
               );
             },
