@@ -10,12 +10,7 @@ import 'main_card_carrusel.dart';
 import 'no_selected_almacen_widget.dart';
 
 class MainProdcutCarrusel extends StatelessWidget {
-  const MainProdcutCarrusel({
-    super.key,
-    //  this.isloading,
-  });
-
-  final bool isloading = true;
+  const MainProdcutCarrusel({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,24 +25,22 @@ class MainProdcutCarrusel extends StatelessWidget {
         builder: (context, state) => state.when(
           initial: () => const NoSelectedAlmacenwidget(
               message: "Seleccione un almacén para ver los productos."),
-          loading: () => Expanded(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: GridView.builder(
-                padding: EdgeInsets.only(top: 20.h, bottom: 20.h),
-                physics: const BouncingScrollPhysics(),
-                itemCount: 10, // Número de elementos a mostrar
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 20.sp,
-                  crossAxisSpacing: 20.sp,
-                  childAspectRatio: 0.75,
-                ),
-                itemBuilder: (BuildContext context, int index) {
-                  // Construir cada celda de la cuadrícula
-                  return const LoadingCardCarusel();
-                },
+          loading: () => Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: GridView.builder(
+              padding: EdgeInsets.only(top: 20.h, bottom: 20.h),
+              physics: const BouncingScrollPhysics(),
+              itemCount: 10, // Número de elementos a mostrar
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 20.sp,
+                crossAxisSpacing: 20.sp,
+                childAspectRatio: 0.75,
               ),
+              itemBuilder: (BuildContext context, int index) {
+                // Construir cada celda de la cuadrícula
+                return const LoadingCardCarusel();
+              },
             ),
           ),
           loadedSuccess: (productos, _) {
@@ -56,27 +49,24 @@ class MainProdcutCarrusel extends StatelessWidget {
                   message:
                       "No hay productos que concidan con esa categoria en este almacen");
             } else {
-              return Expanded(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: GridView.builder(
-                    padding: EdgeInsets.only(top: 20.h, bottom: 20.h),
-                    physics: const BouncingScrollPhysics(),
-                    itemCount:
-                        productos.length, // Número de elementos a mostrar
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 20.sp,
-                      crossAxisSpacing: 20.sp,
-                      childAspectRatio: 0.75,
-                    ),
-                    itemBuilder: (BuildContext context, int index) {
-                      // Construir cada celda de la cuadrícula
-                      return MainCardCarrusel(
-                        producto: productos[index],
-                      );
-                    },
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: GridView.builder(
+                  padding: EdgeInsets.only(top: 20.h, bottom: 20.h),
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: productos.length, // Número de elementos a mostrar
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20.sp,
+                    crossAxisSpacing: 20.sp,
+                    childAspectRatio: 0.75,
                   ),
+                  itemBuilder: (BuildContext context, int index) {
+                    // Construir cada celda de la cuadrícula
+                    return MainCardCarrusel(
+                      producto: productos[index],
+                    );
+                  },
                 ),
               );
             }

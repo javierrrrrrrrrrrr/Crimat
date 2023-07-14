@@ -26,6 +26,7 @@ class NoSelectedAlmacenwidget extends StatelessWidget {
             child: Center(
               child: Text(
                 message,
+                textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 14.sp),
               ),
             ),
