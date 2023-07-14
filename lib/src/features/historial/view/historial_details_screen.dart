@@ -10,19 +10,20 @@ class HistorialDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Expanded(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CardSking(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Expanded(
+          child: Align(
+            alignment: Alignment.center,
+            child: CardSking(
               cardheight: 734.h,
               cardwidth: 375.w,
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

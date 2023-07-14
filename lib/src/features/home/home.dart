@@ -32,7 +32,7 @@ class HomeView extends StatelessWidget {
             ),
           ),
           const AlmacenProductFilter(),
-          const MainProdcutCarrusel(),
+          const Expanded(child: MainProdcutCarrusel()),
         ],
       ),
     );

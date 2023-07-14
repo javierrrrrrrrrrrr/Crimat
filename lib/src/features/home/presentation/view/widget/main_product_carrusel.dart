@@ -28,11 +28,8 @@ class MainProdcutCarrusel extends StatelessWidget {
       },
       child: BlocBuilder<ProductBloc, ProductState>(
         builder: (context, state) => state.when(
-          initial: () => const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 150),
-            child: NoSelectedAlmacenwidget(
-                message: "Seleccione un almacén para ver los productos."),
-          ),
+          initial: () => const NoSelectedAlmacenwidget(
+              message: "Seleccione un almacén para ver los productos."),
           loading: () => Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -55,14 +52,9 @@ class MainProdcutCarrusel extends StatelessWidget {
           ),
           loadedSuccess: (productos, _) {
             if (productos.isEmpty) {
-              return Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: 170.h,
-                ),
-                child: const NoSelectedAlmacenwidget(
-                    message:
-                        "No hay productos que concidan con esa categoria en este almacen"),
-              );
+              return const NoSelectedAlmacenwidget(
+                  message:
+                      "No hay productos que concidan con esa categoria en este almacen");
             } else {
               return Expanded(
                 child: Padding(
