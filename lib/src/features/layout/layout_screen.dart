@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../shared/dependency_injection/dependency_injection.dart';
 import '../../shared/widgets/custom_botton_navbar.dart';
+import '../home/presentation/bloc/historial_bloc/historial_bloc.dart';
 import 'layout_cubit.dart';
 import 'layout_state.dart';
 
@@ -26,6 +27,9 @@ class LayoutScreen extends StatelessWidget {
         BlocProvider(
             create: (_) =>
                 sl<CategoriesBloc>()..add(const CategoriesEvent.load())),
+        BlocProvider(
+            create: (_) =>
+                sl<HistorialBloc>()..add(const HistorialEvent.load())),
       ],
       child: BlocBuilder<LayoutCubit, LayoutState>(builder: (context, state) {
         return Scaffold(

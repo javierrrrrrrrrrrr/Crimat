@@ -1,7 +1,7 @@
 import 'package:crimat_app/resources/general_styles.dart';
 import 'package:crimat_app/src/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:crimat_app/src/models/features/auth/login_response_model.dart';
+import 'package:crimat_app/src/models/auth/login_response_model.dart';
 import 'package:crimat_app/src/repositories/auth_repository.dart';
 import 'package:crimat_app/src/shared/app_info.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

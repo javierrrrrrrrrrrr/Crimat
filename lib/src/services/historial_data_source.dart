@@ -4,16 +4,16 @@ import 'package:http/http.dart' as http;
 
 import '../../resources/urls.dart';
 import '../errors/expetion.dart';
-import '../models/home/products/producto_model.dart';
+import '../models/historial/historial_model.dart';
 
-class ProductDataSource {
+class HistorialDataSource {
   final http.Client client;
 
-  ProductDataSource(this.client);
+  HistorialDataSource(this.client);
 
-  Future<List<ProductModel>> getAllProduct(String id) async {
-    final Uri uri = Uri.https(Urls.api, Urls.getproducts, {
-      'almacen': id,
+  Future<List<OrdenModel>> getAllhistorial(String token) async {
+    final Uri uri = Uri.https(Urls.api, Urls.gethistorial, {
+      'token': token,
     });
 
     try {
@@ -22,10 +22,10 @@ class ProductDataSource {
       if (response.statusCode == 200) {
         final jsonMap = jsonDecode(response.body) as List<dynamic>;
 
-        final almacenesList = jsonMap
-            .map((almacenData) => ProductModel.fromJson(almacenData))
+        final historialList = jsonMap
+            .map((historialData) => OrdenModel.fromJson(historialData))
             .toList();
-        return almacenesList;
+        return historialList;
       } else {
         return throw ServerException();
       }

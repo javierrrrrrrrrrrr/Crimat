@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:crimat_app/src/models/features/home/categories/categories_model.dart';
+import 'package:crimat_app/src/models/home/categories/categories_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../errors/failure.dart';
-import '../../../../../models/features/home/products/producto_model.dart';
+import '../../../../../models/home/products/producto_model.dart';
 import '../../../../../repositories/product_repository.dart';
 
 part 'product_event.dart';

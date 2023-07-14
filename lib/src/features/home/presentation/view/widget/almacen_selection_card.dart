@@ -1,5 +1,5 @@
 import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
-import 'package:crimat_app/src/models/features/home/almacen/almacen_model.dart';
+import 'package:crimat_app/src/models/home/almacen/almacen_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../../resources/urls.dart';
-import '../models/features/auth/login_response_model.dart';
+import '../models/auth/login_response_model.dart';
 
 class AuthRepository {
   Future<LoginResponseModel> login(String email, String password) async {

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import '../../../../../models/features/home/almacen/almacen_model.dart';
+import '../../../../../models/home/almacen/almacen_model.dart';
 import 'almacen_selection_card.dart';
 import 'loading_widget/loading_container.dart';
 
