@@ -55,15 +55,13 @@ class MainProdcutCarrusel extends StatelessWidget {
           ),
           loadedSuccess: (productos, _) {
             if (productos.isEmpty) {
-              return Center(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 170.h,
-                  ),
-                  child: const NoSelectedAlmacenwidget(
-                      message:
-                          "No hay productos que concidan con esa categoria en este almacen"),
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 170.h,
                 ),
+                child: const NoSelectedAlmacenwidget(
+                    message:
+                        "No hay productos que concidan con esa categoria en este almacen"),
               );
             } else {
               return Expanded(

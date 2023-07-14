@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/historial/historial_view.dart';
+import '../../features/historial/view/historial_details_screen.dart';
 import '../../features/home/products_detales_screen.dart';
 import '../../features/splash/splash_screen.dart';
 
@@ -46,15 +47,18 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
                     const Scaffold(body: ProductsDetails())),
           ]),
       GoRoute(
-        path: '/history',
-        name: HistorialView.name,
-        builder: (context, state) => const Scaffold(
-          body: Center(
-              child: Scaffold(
-            body: HistorialView(),
-          )),
-        ),
-      ),
+          path: '/history',
+          name: HistorialView.name,
+          builder: (context, state) => const Scaffold(
+                body: Center(child: Scaffold(body: HistorialView())),
+              ),
+          routes: [
+            GoRoute(
+                path: 'history/details',
+                name: HistorialDetails.name,
+                builder: (context, state) =>
+                    const Scaffold(body: HistorialDetails())),
+          ]),
       GoRoute(
         path: '/cart',
         name: 'cart',

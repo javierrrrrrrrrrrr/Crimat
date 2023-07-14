@@ -13,9 +13,11 @@ class NoSelectedAlmacenwidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 60),
+    return Align(
+      alignment: Alignment.center,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(AppIcons.homeSelected, height: 50.h, fit: BoxFit.cover),
           SizedBox(
