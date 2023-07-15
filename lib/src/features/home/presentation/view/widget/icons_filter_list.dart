@@ -29,25 +29,25 @@ class IconsFilterList extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            children: [
-              Icon(
-                Icons.swap_vert,
-                size: 24.sp,
-              ),
-              SizedBox(
-                width: 8.w,
-              ),
-              Text(
-                "Price: bajo a alto",
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-            ],
-          ),
-          Icon(
-            Icons.widgets,
-            size: 24.sp,
-          ),
+          // Row(
+          //   children: [
+          //     Icon(
+          //       Icons.swap_vert,
+          //       size: 24.sp,
+          //     ),
+          //     SizedBox(
+          //       width: 8.w,
+          //     ),
+          //     Text(
+          //       "Price: bajo a alto",
+          //       style: Theme.of(context).textTheme.bodySmall,
+          //     ),
+          //   ],
+          // ),
+          // Icon(
+          //   Icons.widgets,
+          //   size: 24.sp,
+          // ),
         ],
       ),
     );

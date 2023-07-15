@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,6 +27,10 @@ class AlmacenProductFilter extends StatelessWidget {
         failure: (error) => SizedBox(
           child: Text(error),
         ),
+        selectedCategory: (categories, __, ___, ____) =>
+            AlmacenProductFilterWidget(
+          categories: categories,
+        ),
       ),
     );
   }
@@ -41,8 +46,14 @@ class AlmacenProductFilterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categoriesBloc = context.watch<CategoriesBloc>();
     return Container(
-      height: 120.h,
+      height: categoriesBloc.state.maybeWhen(
+        orElse: () => 120.h,
+        selectedCategory: (_, subCategories, ___, ____) {
+          return subCategories!.isEmpty ? 120.h : 165.h;
+        },
+      ),
       width: MediaQuery.of(context).size.width,
       color: const Color(0xFFFBECEA),
       child: Column(
@@ -53,10 +64,20 @@ class AlmacenProductFilterWidget extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(left: 30.w),
-            child: Text(
-              'Productos',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
+            child: Builder(builder: (context) {
+              final productBloc = context.watch<AlmacenBloc>();
+
+              return productBloc.state.maybeMap(
+                selectedAlmacen: (value) => Text(
+                  'Productos de ${value.almacenes[value.index].name}',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                orElse: () => Text(
+                  'Productos',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              );
+            }),
           ),
           SizedBox(
             height: 10.h,
@@ -65,6 +86,15 @@ class AlmacenProductFilterWidget extends StatelessWidget {
             categories: categories,
           ),
           const IconsFilterList(),
+          categoriesBloc.state.maybeWhen(
+            orElse: () => const SizedBox(),
+            selectedCategory: (_, subCategories, ___, ____) =>
+                subCategories!.isEmpty
+                    ? const SizedBox()
+                    : FilterProductList(
+                        subCategories: subCategories,
+                      ),
+          ),
         ],
       ),
     );

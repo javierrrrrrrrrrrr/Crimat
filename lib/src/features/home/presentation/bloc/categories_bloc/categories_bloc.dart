@@ -16,16 +16,44 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   }
 
   Future<void> eventHandler(CategoriesEvent event, Emitter emit) async {
-    await event.when(load: () async {
-      emit(const CategoriesState.loading());
-      final result = await repository.getAllcategories();
-      result.fold((failure) {
-        if (failure is ServerFailure) {
-          emit(CategoriesState.failure(message: failure.message));
-        }
-      }, (categories) {
-        emit(CategoriesState.success(categories: categories));
-      });
-    });
+    await event.when(
+      load: () async {
+        emit(const CategoriesState.loading());
+        final result = await repository.getAllcategories();
+        result.fold((failure) {
+          if (failure is ServerFailure) {
+            emit(CategoriesState.failure(message: failure.message));
+          }
+        }, (categories) {
+          emit(CategoriesState.success(categories: categories));
+        });
+      },
+      selectCategory: (int index) {
+        final List<CategoriesModel> categories = state.maybeMap(
+          success: (value) => value.categories,
+          selectedCategory: (value) => value.categories,
+          orElse: () => [],
+        );
+        emit(
+          CategoriesState.selectedCategory(
+              categories: categories,
+              categogyIndex: index,
+              subCategiries: categories[index].tiposProducto,
+              subCategogyIndex: -1),
+        );
+      },
+      selectSubCategory: (int categoryIndex, int subCategoryIndex) {
+        final List<CategoriesModel> categories = state.maybeMap(
+          success: (value) => value.categories,
+          selectedCategory: (value) => value.categories,
+          orElse: () => [],
+        );
+        emit(CategoriesState.selectedCategory(
+            categories: categories,
+            categogyIndex: categoryIndex,
+            subCategiries: categories[categoryIndex].tiposProducto,
+            subCategogyIndex: subCategoryIndex));
+      },
+    );
   }
 }
