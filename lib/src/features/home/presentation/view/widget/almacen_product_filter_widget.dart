@@ -51,7 +51,11 @@ class AlmacenProductFilterWidget extends StatelessWidget {
       height: categoriesBloc.state.maybeWhen(
         orElse: () => 120.h,
         selectedCategory: (_, subCategories, ___, ____) {
-          return subCategories!.isEmpty ? 120.h : 165.h;
+          if (subCategories != null) {
+            return subCategories.isEmpty ? 120.h : 165.h;
+          } else {
+            return 120.h;
+          }
         },
       ),
       width: MediaQuery.of(context).size.width,
@@ -88,12 +92,17 @@ class AlmacenProductFilterWidget extends StatelessWidget {
           const IconsFilterList(),
           categoriesBloc.state.maybeWhen(
             orElse: () => const SizedBox(),
-            selectedCategory: (_, subCategories, ___, ____) =>
-                subCategories!.isEmpty
+            selectedCategory: (_, subCategories, ___, ____) {
+              if (subCategories != null) {
+                return subCategories.isEmpty
                     ? const SizedBox()
                     : FilterProductList(
                         subCategories: subCategories,
-                      ),
+                      );
+              } else {
+                return const SizedBox();
+              }
+            },
           ),
         ],
       ),

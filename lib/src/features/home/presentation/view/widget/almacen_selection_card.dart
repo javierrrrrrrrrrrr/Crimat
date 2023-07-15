@@ -61,8 +61,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
                     );
 
                     categoriesBloc.add(
-                      const CategoriesEvent.selectCategory(
-                          categorySelectedIndex: -1),
+                      const CategoriesEvent.selectCategory(),
                     );
                   });
             },

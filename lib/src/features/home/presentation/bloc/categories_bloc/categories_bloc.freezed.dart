@@ -19,7 +19,7 @@ mixin _$CategoriesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(int categorySelectedIndex) selectCategory,
+    required TResult Function(int? categorySelectedIndex) selectCategory,
     required TResult Function(
             int categorySelectedIndex, int subCategorySelectedIndex)
         selectSubCategory,
@@ -28,7 +28,7 @@ mixin _$CategoriesEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(int categorySelectedIndex)? selectCategory,
+    TResult? Function(int? categorySelectedIndex)? selectCategory,
     TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
   }) =>
@@ -36,7 +36,7 @@ mixin _$CategoriesEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(int categorySelectedIndex)? selectCategory,
+    TResult Function(int? categorySelectedIndex)? selectCategory,
     TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
     required TResult orElse(),
@@ -121,7 +121,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(int categorySelectedIndex) selectCategory,
+    required TResult Function(int? categorySelectedIndex) selectCategory,
     required TResult Function(
             int categorySelectedIndex, int subCategorySelectedIndex)
         selectSubCategory,
@@ -133,7 +133,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(int categorySelectedIndex)? selectCategory,
+    TResult? Function(int? categorySelectedIndex)? selectCategory,
     TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
   }) {
@@ -144,7 +144,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(int categorySelectedIndex)? selectCategory,
+    TResult Function(int? categorySelectedIndex)? selectCategory,
     TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
     required TResult orElse(),
@@ -200,7 +200,7 @@ abstract class _$$_SelectCategoryCopyWith<$Res> {
           _$_SelectCategory value, $Res Function(_$_SelectCategory) then) =
       __$$_SelectCategoryCopyWithImpl<$Res>;
   @useResult
-  $Res call({int categorySelectedIndex});
+  $Res call({int? categorySelectedIndex});
 }
 
 /// @nodoc
@@ -214,13 +214,13 @@ class __$$_SelectCategoryCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categorySelectedIndex = null,
+    Object? categorySelectedIndex = freezed,
   }) {
     return _then(_$_SelectCategory(
-      categorySelectedIndex: null == categorySelectedIndex
+      categorySelectedIndex: freezed == categorySelectedIndex
           ? _value.categorySelectedIndex
           : categorySelectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -228,10 +228,10 @@ class __$$_SelectCategoryCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SelectCategory implements _SelectCategory {
-  const _$_SelectCategory({required this.categorySelectedIndex});
+  const _$_SelectCategory({this.categorySelectedIndex});
 
   @override
-  final int categorySelectedIndex;
+  final int? categorySelectedIndex;
 
   @override
   String toString() {
@@ -260,7 +260,7 @@ class _$_SelectCategory implements _SelectCategory {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(int categorySelectedIndex) selectCategory,
+    required TResult Function(int? categorySelectedIndex) selectCategory,
     required TResult Function(
             int categorySelectedIndex, int subCategorySelectedIndex)
         selectSubCategory,
@@ -272,7 +272,7 @@ class _$_SelectCategory implements _SelectCategory {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(int categorySelectedIndex)? selectCategory,
+    TResult? Function(int? categorySelectedIndex)? selectCategory,
     TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
   }) {
@@ -283,7 +283,7 @@ class _$_SelectCategory implements _SelectCategory {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(int categorySelectedIndex)? selectCategory,
+    TResult Function(int? categorySelectedIndex)? selectCategory,
     TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
     required TResult orElse(),
@@ -330,10 +330,10 @@ class _$_SelectCategory implements _SelectCategory {
 }
 
 abstract class _SelectCategory implements CategoriesEvent {
-  const factory _SelectCategory({required final int categorySelectedIndex}) =
+  const factory _SelectCategory({final int? categorySelectedIndex}) =
       _$_SelectCategory;
 
-  int get categorySelectedIndex;
+  int? get categorySelectedIndex;
   @JsonKey(ignore: true)
   _$$_SelectCategoryCopyWith<_$_SelectCategory> get copyWith =>
       throw _privateConstructorUsedError;
@@ -419,7 +419,7 @@ class _$_SelectSubCategory implements _SelectSubCategory {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(int categorySelectedIndex) selectCategory,
+    required TResult Function(int? categorySelectedIndex) selectCategory,
     required TResult Function(
             int categorySelectedIndex, int subCategorySelectedIndex)
         selectSubCategory,
@@ -431,7 +431,7 @@ class _$_SelectSubCategory implements _SelectSubCategory {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(int categorySelectedIndex)? selectCategory,
+    TResult? Function(int? categorySelectedIndex)? selectCategory,
     TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
   }) {
@@ -443,7 +443,7 @@ class _$_SelectSubCategory implements _SelectSubCategory {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(int categorySelectedIndex)? selectCategory,
+    TResult Function(int? categorySelectedIndex)? selectCategory,
     TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
     required TResult orElse(),

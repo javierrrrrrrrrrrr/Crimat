@@ -28,19 +28,29 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
           emit(CategoriesState.success(categories: categories));
         });
       },
-      selectCategory: (int index) {
+      selectCategory: (categorySelectedIndex) {
         final List<CategoriesModel> categories = state.maybeMap(
           success: (value) => value.categories,
           selectedCategory: (value) => value.categories,
           orElse: () => [],
         );
-        emit(
-          CategoriesState.selectedCategory(
+        if (categorySelectedIndex != null) {
+          emit(
+            CategoriesState.selectedCategory(
+                categories: categories,
+                categogyIndex: categorySelectedIndex,
+                subCategiries: categories[categorySelectedIndex].tiposProducto,
+                subCategogyIndex: -1),
+          );
+        } else {
+          emit(
+            CategoriesState.selectedCategory(
               categories: categories,
-              categogyIndex: index,
-              subCategiries: categories[index].tiposProducto,
-              subCategogyIndex: -1),
-        );
+              categogyIndex: -1,
+              subCategogyIndex: -1,
+            ),
+          );
+        }
       },
       selectSubCategory: (int categoryIndex, int subCategoryIndex) {
         final List<CategoriesModel> categories = state.maybeMap(
