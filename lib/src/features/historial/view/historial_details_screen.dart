@@ -7,7 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../shared/widgets/card_sking.dart';
 import '../../../shared/widgets/cusotm_buttom_product.dart';
-import '../../home/presentation/view/widget/custom_picture_container.dart';
 import '../../home/presentation/view/widget/custom_title.dart';
 
 class HistorialDetails extends StatelessWidget {
@@ -69,7 +68,6 @@ class HistorialDetails extends StatelessWidget {
                     ispraimary: false,
                   ),
                 ),
-              
               ],
             ),
           ),
