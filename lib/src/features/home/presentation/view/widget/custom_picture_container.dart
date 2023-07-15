@@ -4,19 +4,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class PictureContainer extends StatelessWidget {
   const PictureContainer({
     super.key,
-    required this.pictureUrl,
+    this.pictureUrl,
     this.height,
+    this.isanotherurl,
   });
 
-  final String pictureUrl;
+  final String? pictureUrl;
   final double? height;
+  final String? isanotherurl;
 
   @override
   Widget build(BuildContext context) {
     return FadeInImage.assetNetwork(
       placeholder: 'assets/images/no_image.png',
       placeholderFit: BoxFit.fill,
-      image: 'https://whiletruecu.com/$pictureUrl',
+      image: isanotherurl ?? 'https://whiletruecu.com/$pictureUrl',
       fit: BoxFit.fill,
       height: height ?? 140.sp,
       width: double.infinity,
