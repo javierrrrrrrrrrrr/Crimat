@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import '../../../../shared/widgets/card_sking.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../historial_details_screen.dart';
+import 'custom_date.dart';
+import 'custom_details_colum.dart';
 
 class HisorialCard extends StatelessWidget {
   const HisorialCard({
@@ -17,69 +19,12 @@ class HisorialCard extends StatelessWidget {
         const CardSking(cardwidth: 375),
         Positioned(
           left: 10.w,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 15.h),
-              Text(
-                "Orden: 771947034",
-                style: TextStyle(fontSize: 14.sp, color: Colors.black),
-              ),
-              SizedBox(height: 5.h),
-              RichText(
-                text: const TextSpan(
-                  children: [
-                    TextSpan(
-                      text: 'Almacén',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    TextSpan(
-                      text: ' Crimat Hialeah',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 5.h),
-              RichText(
-                text: const TextSpan(
-                  children: [
-                    TextSpan(
-                      text: 'Cantidad',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    TextSpan(
-                      text: ' 2',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 5.h),
-              RichText(
-                text: const TextSpan(
-                  children: [
-                    TextSpan(
-                      text: 'Monto total',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    TextSpan(
-                      text: ' \$34 ',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          child: const ColumDetails(),
         ),
         Positioned(
           right: 15.w,
           top: 15.h,
-          child: Text(
-            "05-12-2019",
-            style: TextStyle(fontSize: 14.sp, color: Colors.grey),
-          ),
+          child: const CustomDate(),
         ),
         Positioned(
           right: 15.w,
