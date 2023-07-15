@@ -6,5 +6,8 @@ class ProductEvent with _$ProductEvent {
   const factory ProductEvent.getProductsByCategories(
       {required CategoriesModel category,
       required List<ProductModel> listProduct}) = _GetProductsByCategories;
+  const factory ProductEvent.getProductsBySubCategories(
+      {required TipoProductoModel subCategory,
+      required List<ProductModel> listProduct}) = _GetProductsBySubCategories;
   const factory ProductEvent.toInitialState() = _ToInitialState;
 }

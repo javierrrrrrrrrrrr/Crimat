@@ -19,32 +19,48 @@ mixin _$CategoriesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(int categorySelectedIndex) selectCategory,
+    required TResult Function(
+            int categorySelectedIndex, int subCategorySelectedIndex)
+        selectSubCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(int categorySelectedIndex)? selectCategory,
+    TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
+        selectSubCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(int categorySelectedIndex)? selectCategory,
+    TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
+        selectSubCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_SelectCategory value) selectCategory,
+    required TResult Function(_SelectSubCategory value) selectSubCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_SelectCategory value)? selectCategory,
+    TResult? Function(_SelectSubCategory value)? selectSubCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_SelectCategory value)? selectCategory,
+    TResult Function(_SelectSubCategory value)? selectSubCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -105,6 +121,10 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(int categorySelectedIndex) selectCategory,
+    required TResult Function(
+            int categorySelectedIndex, int subCategorySelectedIndex)
+        selectSubCategory,
   }) {
     return load();
   }
@@ -113,6 +133,9 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(int categorySelectedIndex)? selectCategory,
+    TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
+        selectSubCategory,
   }) {
     return load?.call();
   }
@@ -121,6 +144,9 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(int categorySelectedIndex)? selectCategory,
+    TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
+        selectSubCategory,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -133,6 +159,8 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_SelectCategory value) selectCategory,
+    required TResult Function(_SelectSubCategory value) selectSubCategory,
   }) {
     return load(this);
   }
@@ -141,6 +169,8 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_SelectCategory value)? selectCategory,
+    TResult? Function(_SelectSubCategory value)? selectSubCategory,
   }) {
     return load?.call(this);
   }
@@ -149,6 +179,8 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_SelectCategory value)? selectCategory,
+    TResult Function(_SelectSubCategory value)? selectSubCategory,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -163,12 +195,325 @@ abstract class _Load implements CategoriesEvent {
 }
 
 /// @nodoc
+abstract class _$$_SelectCategoryCopyWith<$Res> {
+  factory _$$_SelectCategoryCopyWith(
+          _$_SelectCategory value, $Res Function(_$_SelectCategory) then) =
+      __$$_SelectCategoryCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int categorySelectedIndex});
+}
+
+/// @nodoc
+class __$$_SelectCategoryCopyWithImpl<$Res>
+    extends _$CategoriesEventCopyWithImpl<$Res, _$_SelectCategory>
+    implements _$$_SelectCategoryCopyWith<$Res> {
+  __$$_SelectCategoryCopyWithImpl(
+      _$_SelectCategory _value, $Res Function(_$_SelectCategory) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categorySelectedIndex = null,
+  }) {
+    return _then(_$_SelectCategory(
+      categorySelectedIndex: null == categorySelectedIndex
+          ? _value.categorySelectedIndex
+          : categorySelectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectCategory implements _SelectCategory {
+  const _$_SelectCategory({required this.categorySelectedIndex});
+
+  @override
+  final int categorySelectedIndex;
+
+  @override
+  String toString() {
+    return 'CategoriesEvent.selectCategory(categorySelectedIndex: $categorySelectedIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectCategory &&
+            (identical(other.categorySelectedIndex, categorySelectedIndex) ||
+                other.categorySelectedIndex == categorySelectedIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, categorySelectedIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectCategoryCopyWith<_$_SelectCategory> get copyWith =>
+      __$$_SelectCategoryCopyWithImpl<_$_SelectCategory>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(int categorySelectedIndex) selectCategory,
+    required TResult Function(
+            int categorySelectedIndex, int subCategorySelectedIndex)
+        selectSubCategory,
+  }) {
+    return selectCategory(categorySelectedIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(int categorySelectedIndex)? selectCategory,
+    TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
+        selectSubCategory,
+  }) {
+    return selectCategory?.call(categorySelectedIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(int categorySelectedIndex)? selectCategory,
+    TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
+        selectSubCategory,
+    required TResult orElse(),
+  }) {
+    if (selectCategory != null) {
+      return selectCategory(categorySelectedIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_SelectCategory value) selectCategory,
+    required TResult Function(_SelectSubCategory value) selectSubCategory,
+  }) {
+    return selectCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_SelectCategory value)? selectCategory,
+    TResult? Function(_SelectSubCategory value)? selectSubCategory,
+  }) {
+    return selectCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_SelectCategory value)? selectCategory,
+    TResult Function(_SelectSubCategory value)? selectSubCategory,
+    required TResult orElse(),
+  }) {
+    if (selectCategory != null) {
+      return selectCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectCategory implements CategoriesEvent {
+  const factory _SelectCategory({required final int categorySelectedIndex}) =
+      _$_SelectCategory;
+
+  int get categorySelectedIndex;
+  @JsonKey(ignore: true)
+  _$$_SelectCategoryCopyWith<_$_SelectCategory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectSubCategoryCopyWith<$Res> {
+  factory _$$_SelectSubCategoryCopyWith(_$_SelectSubCategory value,
+          $Res Function(_$_SelectSubCategory) then) =
+      __$$_SelectSubCategoryCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int categorySelectedIndex, int subCategorySelectedIndex});
+}
+
+/// @nodoc
+class __$$_SelectSubCategoryCopyWithImpl<$Res>
+    extends _$CategoriesEventCopyWithImpl<$Res, _$_SelectSubCategory>
+    implements _$$_SelectSubCategoryCopyWith<$Res> {
+  __$$_SelectSubCategoryCopyWithImpl(
+      _$_SelectSubCategory _value, $Res Function(_$_SelectSubCategory) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categorySelectedIndex = null,
+    Object? subCategorySelectedIndex = null,
+  }) {
+    return _then(_$_SelectSubCategory(
+      categorySelectedIndex: null == categorySelectedIndex
+          ? _value.categorySelectedIndex
+          : categorySelectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      subCategorySelectedIndex: null == subCategorySelectedIndex
+          ? _value.subCategorySelectedIndex
+          : subCategorySelectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectSubCategory implements _SelectSubCategory {
+  const _$_SelectSubCategory(
+      {required this.categorySelectedIndex,
+      required this.subCategorySelectedIndex});
+
+  @override
+  final int categorySelectedIndex;
+  @override
+  final int subCategorySelectedIndex;
+
+  @override
+  String toString() {
+    return 'CategoriesEvent.selectSubCategory(categorySelectedIndex: $categorySelectedIndex, subCategorySelectedIndex: $subCategorySelectedIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectSubCategory &&
+            (identical(other.categorySelectedIndex, categorySelectedIndex) ||
+                other.categorySelectedIndex == categorySelectedIndex) &&
+            (identical(
+                    other.subCategorySelectedIndex, subCategorySelectedIndex) ||
+                other.subCategorySelectedIndex == subCategorySelectedIndex));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, categorySelectedIndex, subCategorySelectedIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectSubCategoryCopyWith<_$_SelectSubCategory> get copyWith =>
+      __$$_SelectSubCategoryCopyWithImpl<_$_SelectSubCategory>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(int categorySelectedIndex) selectCategory,
+    required TResult Function(
+            int categorySelectedIndex, int subCategorySelectedIndex)
+        selectSubCategory,
+  }) {
+    return selectSubCategory(categorySelectedIndex, subCategorySelectedIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(int categorySelectedIndex)? selectCategory,
+    TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
+        selectSubCategory,
+  }) {
+    return selectSubCategory?.call(
+        categorySelectedIndex, subCategorySelectedIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(int categorySelectedIndex)? selectCategory,
+    TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
+        selectSubCategory,
+    required TResult orElse(),
+  }) {
+    if (selectSubCategory != null) {
+      return selectSubCategory(categorySelectedIndex, subCategorySelectedIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_SelectCategory value) selectCategory,
+    required TResult Function(_SelectSubCategory value) selectSubCategory,
+  }) {
+    return selectSubCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_SelectCategory value)? selectCategory,
+    TResult? Function(_SelectSubCategory value)? selectSubCategory,
+  }) {
+    return selectSubCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_SelectCategory value)? selectCategory,
+    TResult Function(_SelectSubCategory value)? selectSubCategory,
+    required TResult orElse(),
+  }) {
+    if (selectSubCategory != null) {
+      return selectSubCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectSubCategory implements CategoriesEvent {
+  const factory _SelectSubCategory(
+      {required final int categorySelectedIndex,
+      required final int subCategorySelectedIndex}) = _$_SelectSubCategory;
+
+  int get categorySelectedIndex;
+  int get subCategorySelectedIndex;
+  @JsonKey(ignore: true)
+  _$$_SelectSubCategoryCopyWith<_$_SelectSubCategory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CategoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)
+        selectedCategory,
     required TResult Function(String message) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -177,6 +522,12 @@ mixin _$CategoriesState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
     TResult? Function(String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -185,6 +536,12 @@ mixin _$CategoriesState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) =>
@@ -194,6 +551,7 @@ mixin _$CategoriesState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_Failure value) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -202,6 +560,7 @@ mixin _$CategoriesState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SelectedCategory value)? selectedCategory,
     TResult? Function(_Failure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -210,6 +569,7 @@ mixin _$CategoriesState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) =>
@@ -274,6 +634,12 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)
+        selectedCategory,
     required TResult Function(String message) failure,
   }) {
     return initial();
@@ -285,6 +651,12 @@ class _$_Initial implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
     TResult? Function(String message)? failure,
   }) {
     return initial?.call();
@@ -296,6 +668,12 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -311,6 +689,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_Failure value) failure,
   }) {
     return initial(this);
@@ -322,6 +701,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SelectedCategory value)? selectedCategory,
     TResult? Function(_Failure value)? failure,
   }) {
     return initial?.call(this);
@@ -333,6 +713,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -387,6 +768,12 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)
+        selectedCategory,
     required TResult Function(String message) failure,
   }) {
     return loading();
@@ -398,6 +785,12 @@ class _$_Loading implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
     TResult? Function(String message)? failure,
   }) {
     return loading?.call();
@@ -409,6 +802,12 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -424,6 +823,7 @@ class _$_Loading implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_Failure value) failure,
   }) {
     return loading(this);
@@ -435,6 +835,7 @@ class _$_Loading implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SelectedCategory value)? selectedCategory,
     TResult? Function(_Failure value)? failure,
   }) {
     return loading?.call(this);
@@ -446,6 +847,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -534,6 +936,12 @@ class _$_Success implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)
+        selectedCategory,
     required TResult Function(String message) failure,
   }) {
     return success(categories);
@@ -545,6 +953,12 @@ class _$_Success implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
     TResult? Function(String message)? failure,
   }) {
     return success?.call(categories);
@@ -556,6 +970,12 @@ class _$_Success implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -571,6 +991,7 @@ class _$_Success implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_Failure value) failure,
   }) {
     return success(this);
@@ -582,6 +1003,7 @@ class _$_Success implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SelectedCategory value)? selectedCategory,
     TResult? Function(_Failure value)? failure,
   }) {
     return success?.call(this);
@@ -593,6 +1015,7 @@ class _$_Success implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -610,6 +1033,239 @@ abstract class _Success implements CategoriesState {
   List<CategoriesModel> get categories;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedCategoryCopyWith<$Res> {
+  factory _$$_SelectedCategoryCopyWith(
+          _$_SelectedCategory value, $Res Function(_$_SelectedCategory) then) =
+      __$$_SelectedCategoryCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {List<CategoriesModel> categories,
+      List<TipoProductoModel>? subCategiries,
+      int categogyIndex,
+      int subCategogyIndex});
+}
+
+/// @nodoc
+class __$$_SelectedCategoryCopyWithImpl<$Res>
+    extends _$CategoriesStateCopyWithImpl<$Res, _$_SelectedCategory>
+    implements _$$_SelectedCategoryCopyWith<$Res> {
+  __$$_SelectedCategoryCopyWithImpl(
+      _$_SelectedCategory _value, $Res Function(_$_SelectedCategory) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categories = null,
+    Object? subCategiries = freezed,
+    Object? categogyIndex = null,
+    Object? subCategogyIndex = null,
+  }) {
+    return _then(_$_SelectedCategory(
+      categories: null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<CategoriesModel>,
+      subCategiries: freezed == subCategiries
+          ? _value._subCategiries
+          : subCategiries // ignore: cast_nullable_to_non_nullable
+              as List<TipoProductoModel>?,
+      categogyIndex: null == categogyIndex
+          ? _value.categogyIndex
+          : categogyIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      subCategogyIndex: null == subCategogyIndex
+          ? _value.subCategogyIndex
+          : subCategogyIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedCategory implements _SelectedCategory {
+  const _$_SelectedCategory(
+      {required final List<CategoriesModel> categories,
+      final List<TipoProductoModel>? subCategiries,
+      required this.categogyIndex,
+      required this.subCategogyIndex})
+      : _categories = categories,
+        _subCategiries = subCategiries;
+
+  final List<CategoriesModel> _categories;
+  @override
+  List<CategoriesModel> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
+  }
+
+  final List<TipoProductoModel>? _subCategiries;
+  @override
+  List<TipoProductoModel>? get subCategiries {
+    final value = _subCategiries;
+    if (value == null) return null;
+    if (_subCategiries is EqualUnmodifiableListView) return _subCategiries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final int categogyIndex;
+  @override
+  final int subCategogyIndex;
+
+  @override
+  String toString() {
+    return 'CategoriesState.selectedCategory(categories: $categories, subCategiries: $subCategiries, categogyIndex: $categogyIndex, subCategogyIndex: $subCategogyIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedCategory &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories) &&
+            const DeepCollectionEquality()
+                .equals(other._subCategiries, _subCategiries) &&
+            (identical(other.categogyIndex, categogyIndex) ||
+                other.categogyIndex == categogyIndex) &&
+            (identical(other.subCategogyIndex, subCategogyIndex) ||
+                other.subCategogyIndex == subCategogyIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_categories),
+      const DeepCollectionEquality().hash(_subCategiries),
+      categogyIndex,
+      subCategogyIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedCategoryCopyWith<_$_SelectedCategory> get copyWith =>
+      __$$_SelectedCategoryCopyWithImpl<_$_SelectedCategory>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)
+        selectedCategory,
+    required TResult Function(String message) failure,
+  }) {
+    return selectedCategory(
+        categories, subCategiries, categogyIndex, subCategogyIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
+    TResult? Function(String message)? failure,
+  }) {
+    return selectedCategory?.call(
+        categories, subCategiries, categogyIndex, subCategogyIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
+    TResult Function(String message)? failure,
+    required TResult orElse(),
+  }) {
+    if (selectedCategory != null) {
+      return selectedCategory(
+          categories, subCategiries, categogyIndex, subCategogyIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return selectedCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_SelectedCategory value)? selectedCategory,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return selectedCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (selectedCategory != null) {
+      return selectedCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedCategory implements CategoriesState {
+  const factory _SelectedCategory(
+      {required final List<CategoriesModel> categories,
+      final List<TipoProductoModel>? subCategiries,
+      required final int categogyIndex,
+      required final int subCategogyIndex}) = _$_SelectedCategory;
+
+  List<CategoriesModel> get categories;
+  List<TipoProductoModel>? get subCategiries;
+  int get categogyIndex;
+  int get subCategogyIndex;
+  @JsonKey(ignore: true)
+  _$$_SelectedCategoryCopyWith<_$_SelectedCategory> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -679,6 +1335,12 @@ class _$_Failure implements _Failure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)
+        selectedCategory,
     required TResult Function(String message) failure,
   }) {
     return failure(message);
@@ -690,6 +1352,12 @@ class _$_Failure implements _Failure {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
     TResult? Function(String message)? failure,
   }) {
     return failure?.call(message);
@@ -701,6 +1369,12 @@ class _$_Failure implements _Failure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(
+            List<CategoriesModel> categories,
+            List<TipoProductoModel>? subCategiries,
+            int categogyIndex,
+            int subCategogyIndex)?
+        selectedCategory,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -716,6 +1390,7 @@ class _$_Failure implements _Failure {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_Failure value) failure,
   }) {
     return failure(this);
@@ -727,6 +1402,7 @@ class _$_Failure implements _Failure {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SelectedCategory value)? selectedCategory,
     TResult? Function(_Failure value)? failure,
   }) {
     return failure?.call(this);
@@ -738,6 +1414,7 @@ class _$_Failure implements _Failure {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {

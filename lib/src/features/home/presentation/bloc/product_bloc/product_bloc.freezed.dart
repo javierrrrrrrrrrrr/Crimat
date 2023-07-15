@@ -22,6 +22,9 @@ mixin _$ProductEvent {
     required TResult Function(
             CategoriesModel category, List<ProductModel> listProduct)
         getProductsByCategories,
+    required TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)
+        getProductsBySubCategories,
     required TResult Function() toInitialState,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,6 +33,9 @@ mixin _$ProductEvent {
     TResult? Function(String id)? loadProducts,
     TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
         getProductsByCategories,
+    TResult? Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
     TResult? Function()? toInitialState,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,6 +44,9 @@ mixin _$ProductEvent {
     TResult Function(String id)? loadProducts,
     TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
         getProductsByCategories,
+    TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
     TResult Function()? toInitialState,
     required TResult orElse(),
   }) =>
@@ -47,6 +56,8 @@ mixin _$ProductEvent {
     required TResult Function(_LoadProducts value) loadProducts,
     required TResult Function(_GetProductsByCategories value)
         getProductsByCategories,
+    required TResult Function(_GetProductsBySubCategories value)
+        getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +65,8 @@ mixin _$ProductEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
     TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult? Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,6 +74,8 @@ mixin _$ProductEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
     TResult Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     required TResult orElse(),
   }) =>
@@ -153,6 +168,9 @@ class _$_LoadProducts implements _LoadProducts {
     required TResult Function(
             CategoriesModel category, List<ProductModel> listProduct)
         getProductsByCategories,
+    required TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)
+        getProductsBySubCategories,
     required TResult Function() toInitialState,
   }) {
     return loadProducts(id);
@@ -164,6 +182,9 @@ class _$_LoadProducts implements _LoadProducts {
     TResult? Function(String id)? loadProducts,
     TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
         getProductsByCategories,
+    TResult? Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
     TResult? Function()? toInitialState,
   }) {
     return loadProducts?.call(id);
@@ -175,6 +196,9 @@ class _$_LoadProducts implements _LoadProducts {
     TResult Function(String id)? loadProducts,
     TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
         getProductsByCategories,
+    TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
     TResult Function()? toInitialState,
     required TResult orElse(),
   }) {
@@ -190,6 +214,8 @@ class _$_LoadProducts implements _LoadProducts {
     required TResult Function(_LoadProducts value) loadProducts,
     required TResult Function(_GetProductsByCategories value)
         getProductsByCategories,
+    required TResult Function(_GetProductsBySubCategories value)
+        getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
   }) {
     return loadProducts(this);
@@ -200,6 +226,8 @@ class _$_LoadProducts implements _LoadProducts {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
     TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult? Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
   }) {
     return loadProducts?.call(this);
@@ -210,6 +238,8 @@ class _$_LoadProducts implements _LoadProducts {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
     TResult Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     required TResult orElse(),
   }) {
@@ -317,6 +347,9 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
     required TResult Function(
             CategoriesModel category, List<ProductModel> listProduct)
         getProductsByCategories,
+    required TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)
+        getProductsBySubCategories,
     required TResult Function() toInitialState,
   }) {
     return getProductsByCategories(category, listProduct);
@@ -328,6 +361,9 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
     TResult? Function(String id)? loadProducts,
     TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
         getProductsByCategories,
+    TResult? Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
     TResult? Function()? toInitialState,
   }) {
     return getProductsByCategories?.call(category, listProduct);
@@ -339,6 +375,9 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
     TResult Function(String id)? loadProducts,
     TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
         getProductsByCategories,
+    TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
     TResult Function()? toInitialState,
     required TResult orElse(),
   }) {
@@ -354,6 +393,8 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
     required TResult Function(_LoadProducts value) loadProducts,
     required TResult Function(_GetProductsByCategories value)
         getProductsByCategories,
+    required TResult Function(_GetProductsBySubCategories value)
+        getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
   }) {
     return getProductsByCategories(this);
@@ -364,6 +405,8 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
     TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult? Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
   }) {
     return getProductsByCategories?.call(this);
@@ -374,6 +417,8 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
     TResult Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     required TResult orElse(),
   }) {
@@ -394,6 +439,191 @@ abstract class _GetProductsByCategories implements ProductEvent {
   List<ProductModel> get listProduct;
   @JsonKey(ignore: true)
   _$$_GetProductsByCategoriesCopyWith<_$_GetProductsByCategories>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetProductsBySubCategoriesCopyWith<$Res> {
+  factory _$$_GetProductsBySubCategoriesCopyWith(
+          _$_GetProductsBySubCategories value,
+          $Res Function(_$_GetProductsBySubCategories) then) =
+      __$$_GetProductsBySubCategoriesCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TipoProductoModel subCategory, List<ProductModel> listProduct});
+}
+
+/// @nodoc
+class __$$_GetProductsBySubCategoriesCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$_GetProductsBySubCategories>
+    implements _$$_GetProductsBySubCategoriesCopyWith<$Res> {
+  __$$_GetProductsBySubCategoriesCopyWithImpl(
+      _$_GetProductsBySubCategories _value,
+      $Res Function(_$_GetProductsBySubCategories) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? subCategory = null,
+    Object? listProduct = null,
+  }) {
+    return _then(_$_GetProductsBySubCategories(
+      subCategory: null == subCategory
+          ? _value.subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as TipoProductoModel,
+      listProduct: null == listProduct
+          ? _value._listProduct
+          : listProduct // ignore: cast_nullable_to_non_nullable
+              as List<ProductModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
+  const _$_GetProductsBySubCategories(
+      {required this.subCategory,
+      required final List<ProductModel> listProduct})
+      : _listProduct = listProduct;
+
+  @override
+  final TipoProductoModel subCategory;
+  final List<ProductModel> _listProduct;
+  @override
+  List<ProductModel> get listProduct {
+    if (_listProduct is EqualUnmodifiableListView) return _listProduct;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listProduct);
+  }
+
+  @override
+  String toString() {
+    return 'ProductEvent.getProductsBySubCategories(subCategory: $subCategory, listProduct: $listProduct)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetProductsBySubCategories &&
+            (identical(other.subCategory, subCategory) ||
+                other.subCategory == subCategory) &&
+            const DeepCollectionEquality()
+                .equals(other._listProduct, _listProduct));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, subCategory,
+      const DeepCollectionEquality().hash(_listProduct));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetProductsBySubCategoriesCopyWith<_$_GetProductsBySubCategories>
+      get copyWith => __$$_GetProductsBySubCategoriesCopyWithImpl<
+          _$_GetProductsBySubCategories>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) loadProducts,
+    required TResult Function(
+            CategoriesModel category, List<ProductModel> listProduct)
+        getProductsByCategories,
+    required TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)
+        getProductsBySubCategories,
+    required TResult Function() toInitialState,
+  }) {
+    return getProductsBySubCategories(subCategory, listProduct);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? loadProducts,
+    TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
+    TResult? Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
+    TResult? Function()? toInitialState,
+  }) {
+    return getProductsBySubCategories?.call(subCategory, listProduct);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? loadProducts,
+    TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
+    TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
+    TResult Function()? toInitialState,
+    required TResult orElse(),
+  }) {
+    if (getProductsBySubCategories != null) {
+      return getProductsBySubCategories(subCategory, listProduct);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_GetProductsByCategories value)
+        getProductsByCategories,
+    required TResult Function(_GetProductsBySubCategories value)
+        getProductsBySubCategories,
+    required TResult Function(_ToInitialState value) toInitialState,
+  }) {
+    return getProductsBySubCategories(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult? Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
+    TResult? Function(_ToInitialState value)? toInitialState,
+  }) {
+    return getProductsBySubCategories?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
+    TResult Function(_ToInitialState value)? toInitialState,
+    required TResult orElse(),
+  }) {
+    if (getProductsBySubCategories != null) {
+      return getProductsBySubCategories(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetProductsBySubCategories implements ProductEvent {
+  const factory _GetProductsBySubCategories(
+          {required final TipoProductoModel subCategory,
+          required final List<ProductModel> listProduct}) =
+      _$_GetProductsBySubCategories;
+
+  TipoProductoModel get subCategory;
+  List<ProductModel> get listProduct;
+  @JsonKey(ignore: true)
+  _$$_GetProductsBySubCategoriesCopyWith<_$_GetProductsBySubCategories>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -439,6 +669,9 @@ class _$_ToInitialState implements _ToInitialState {
     required TResult Function(
             CategoriesModel category, List<ProductModel> listProduct)
         getProductsByCategories,
+    required TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)
+        getProductsBySubCategories,
     required TResult Function() toInitialState,
   }) {
     return toInitialState();
@@ -450,6 +683,9 @@ class _$_ToInitialState implements _ToInitialState {
     TResult? Function(String id)? loadProducts,
     TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
         getProductsByCategories,
+    TResult? Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
     TResult? Function()? toInitialState,
   }) {
     return toInitialState?.call();
@@ -461,6 +697,9 @@ class _$_ToInitialState implements _ToInitialState {
     TResult Function(String id)? loadProducts,
     TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
         getProductsByCategories,
+    TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
     TResult Function()? toInitialState,
     required TResult orElse(),
   }) {
@@ -476,6 +715,8 @@ class _$_ToInitialState implements _ToInitialState {
     required TResult Function(_LoadProducts value) loadProducts,
     required TResult Function(_GetProductsByCategories value)
         getProductsByCategories,
+    required TResult Function(_GetProductsBySubCategories value)
+        getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
   }) {
     return toInitialState(this);
@@ -486,6 +727,8 @@ class _$_ToInitialState implements _ToInitialState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProducts value)? loadProducts,
     TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult? Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
   }) {
     return toInitialState?.call(this);
@@ -496,6 +739,8 @@ class _$_ToInitialState implements _ToInitialState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProducts value)? loadProducts,
     TResult Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     required TResult orElse(),
   }) {

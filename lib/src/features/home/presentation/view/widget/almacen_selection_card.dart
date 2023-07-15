@@ -1,4 +1,5 @@
 import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
+import 'package:crimat_app/src/features/home/presentation/bloc/categories_bloc/categories_bloc.dart';
 import 'package:crimat_app/src/models/home/almacen/almacen_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +23,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final almacenBloc = context.read<AlmacenBloc>();
+    final categoriesBloc = context.read<CategoriesBloc>();
     return Container(
       height: 120.h,
       width: 280.w,
@@ -45,13 +47,24 @@ class AlmacenSeleccionCard extends StatelessWidget {
 
               almacenBloc.state.mapOrNull(
                   success: (value) => almacenBloc.add(
-                      AlmacenEvent.activeAlmacen(
+                        AlmacenEvent.activeAlmacen(
                           index: selectedIndex!,
-                          almacenes: List.of(value.almacenes))),
-                  selectedAlmacen: (value) => almacenBloc.add(
+                          almacenes: List.of(value.almacenes),
+                        ),
+                      ),
+                  selectedAlmacen: (value) {
+                    almacenBloc.add(
                       AlmacenEvent.activeAlmacen(
-                          index: selectedIndex!,
-                          almacenes: List.of(value.almacenes))));
+                        index: selectedIndex!,
+                        almacenes: List.of(value.almacenes),
+                      ),
+                    );
+
+                    categoriesBloc.add(
+                      const CategoriesEvent.selectCategory(
+                          categorySelectedIndex: -1),
+                    );
+                  });
             },
             key: ValueKey(almacen.id),
             child: ImageContainer(

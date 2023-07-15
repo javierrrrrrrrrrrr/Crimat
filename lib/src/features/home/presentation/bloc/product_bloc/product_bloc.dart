@@ -54,6 +54,25 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         emit(ProductState.loadedSuccess(
             productos: aux, originalProductList: listProduct));
       },
+      getProductsBySubCategories:
+          (subCategory, List<ProductModel> listProduct) async {
+        List<ProductModel> aux = [];
+        emit(const ProductState.loading());
+
+        // Introducir una pausa de 1 segundo
+        await Future.delayed(const Duration(seconds: 1));
+
+        for (var product in listProduct) {
+          if (product.productType == subCategory.id) {
+            aux = [...aux, product];
+          }
+        }
+
+        emit(
+          ProductState.loadedSuccess(
+              productos: aux, originalProductList: listProduct),
+        );
+      },
     );
   }
 }
