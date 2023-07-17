@@ -12,12 +12,14 @@ class HistorialDataSource {
   HistorialDataSource(this.client);
 
   Future<List<OrdenModel>> getAllhistorial(String token) async {
-    final Uri uri = Uri.https(Urls.api, Urls.gethistorial, {
-      'token': token,
-    });
+    final Uri uri = Uri.https(
+      Urls.api,
+      Urls.gethistorial,
+    );
 
     try {
-      final response = await http.get(uri);
+      final response =
+          await http.get(uri, headers: {'Authorization': 'Bearer $token'});
 
       if (response.statusCode == 200) {
         final jsonMap = jsonDecode(response.body) as List<dynamic>;

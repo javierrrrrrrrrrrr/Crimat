@@ -5,9 +5,17 @@ class ColumDetails extends StatelessWidget {
   const ColumDetails({
     super.key,
     this.isvisibleamount,
+    required this.orderNumber,
+    required this.warehouse,
+    required this.quantity,
+    required this.totalAmount,
   });
 
   final bool? isvisibleamount;
+  final String orderNumber;
+  final String warehouse;
+  final int quantity;
+  final double totalAmount;
 
   @override
   Widget build(BuildContext context) {
@@ -16,35 +24,35 @@ class ColumDetails extends StatelessWidget {
       children: [
         SizedBox(height: 15.h),
         Text(
-          "Orden: 771947034",
+          "Orden: $orderNumber",
           style: TextStyle(fontSize: 14.sp, color: Colors.black),
         ),
         SizedBox(height: 5.h),
         RichText(
-          text: const TextSpan(
+          text: TextSpan(
             children: [
-              TextSpan(
+              const TextSpan(
                 text: 'Almacén',
                 style: TextStyle(color: Colors.grey),
               ),
               TextSpan(
-                text: ' Crimat Hialeah',
-                style: TextStyle(color: Colors.black),
+                text: ' $warehouse',
+                style: const TextStyle(color: Colors.black),
               ),
             ],
           ),
         ),
         SizedBox(height: 5.h),
         RichText(
-          text: const TextSpan(
+          text: TextSpan(
             children: [
-              TextSpan(
+              const TextSpan(
                 text: 'Cantidad',
                 style: TextStyle(color: Colors.grey),
               ),
               TextSpan(
-                text: ' 2',
-                style: TextStyle(color: Colors.black),
+                text: ' $quantity',
+                style: const TextStyle(color: Colors.black),
               ),
             ],
           ),
@@ -53,15 +61,15 @@ class ColumDetails extends StatelessWidget {
         isvisibleamount == false
             ? Container()
             : RichText(
-                text: const TextSpan(
+                text: TextSpan(
                   children: [
-                    TextSpan(
+                    const TextSpan(
                       text: 'Monto total',
                       style: TextStyle(color: Colors.grey),
                     ),
                     TextSpan(
-                      text: ' \$34 ',
-                      style: TextStyle(color: Colors.black),
+                      text: '\$$totalAmount',
+                      style: const TextStyle(color: Colors.black),
                     ),
                   ],
                 ),

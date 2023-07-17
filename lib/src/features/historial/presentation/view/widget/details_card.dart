@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../home/presentation/view/widget/custom_picture_container.dart';
+import '../../../../home/presentation/view/widget/custom_picture_container.dart';
 
 class DetailsCard extends StatelessWidget {
   const DetailsCard({

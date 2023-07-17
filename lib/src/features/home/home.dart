@@ -5,6 +5,8 @@ import 'package:crimat_app/src/features/home/presentation/view/widget/main_produ
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../shared/app_info.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -12,6 +14,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? token = AppInfo().accessToken;
+    print(token);
     return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

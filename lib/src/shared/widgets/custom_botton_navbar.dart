@@ -6,6 +6,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../resources/app_icons.dart';
 import '../../../resources/general_styles.dart';
+import '../../features/historial/presentation/bloc/historial_bloc/historial_bloc.dart';
+import '../app_info.dart';
 
 class CustomBottonNavigationBar extends StatelessWidget {
   const CustomBottonNavigationBar({
@@ -34,6 +36,8 @@ class CustomBottonNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final historialBloc = context.read<HistorialBloc>();
+    String? token = AppInfo().accessToken;
     final layoutCubitState = context.watch<LayoutCubit>().state;
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
@@ -68,6 +72,9 @@ class CustomBottonNavigationBar extends StatelessWidget {
             label: context.loc.profile),
       ],
       onTap: (newIndex) {
+        if (newIndex == 1) {
+          context.read<HistorialBloc>().add(const HistorialEvent.load());
+        }
         onItemTapped(newIndex, context);
         BlocProvider.of<LayoutCubit>(context).changeScreen(newIndex);
       },

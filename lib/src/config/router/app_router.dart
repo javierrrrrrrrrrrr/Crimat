@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/historial/historial_view.dart';
-import '../../features/historial/view/historial_details_screen.dart';
+import '../../features/historial/presentation/view/historial_details_screen.dart';
 import '../../features/home/products_detales_screen.dart';
 import '../../features/splash/splash_screen.dart';
 

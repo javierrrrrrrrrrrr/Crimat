@@ -4,8 +4,8 @@ import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
+import '../../features/historial/presentation/bloc/historial_bloc/historial_bloc.dart';
 import '../../features/home/presentation/bloc/categories_bloc/categories_bloc.dart';
-import '../../features/home/presentation/bloc/historial_bloc/historial_bloc.dart';
 import '../../features/home/presentation/bloc/product_bloc/product_bloc.dart';
 import '../../repositories/categorias_repository.dart';
 import '../../repositories/historial_repository.dart';
