@@ -40,15 +40,10 @@ class HisorialCard extends StatelessWidget {
           bottom: 20.h,
           child: CusotmButtom(
             onPressed: () {
+              final args = data;
               context.pushNamed(
                 HistorialDetails.name,
-                queryParameters: {
-                  "orderDate": data.orderDate,
-                  "orderNumber": data.orderNumber,
-                  "quantity": "${data.quantity}",
-                  "totalAmount": "${data.totalAmount}",
-                  "warehouse": data.warehouse,
-                },
+                extra: args,
                 //extra: producto
               );
             },

@@ -13,6 +13,8 @@ import '../../features/historial/historial_view.dart';
 import '../../features/historial/presentation/view/historial_details_screen.dart';
 import '../../features/home/products_detales_screen.dart';
 import '../../features/splash/splash_screen.dart';
+import '../../models/historial/historial_model.dart';
+import '../../models/home/products/producto_model.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [
   GoRoute(
@@ -43,8 +45,14 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
             GoRoute(
                 path: 'home/details',
                 name: ProductsDetails.name,
-                builder: (context, state) =>
-                    const Scaffold(body: ProductsDetails())),
+                builder: (context, state) {
+                  final args = state.extra as ProductModel;
+                  return Scaffold(
+                      body: ProductsDetails(
+                    product: args,
+                    key: state.pageKey,
+                  ));
+                }),
           ]),
       GoRoute(
           path: '/history',
@@ -56,8 +64,14 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
             GoRoute(
                 path: 'history/details',
                 name: HistorialDetails.name,
-                builder: (context, state) =>
-                    const Scaffold(body: HistorialDetails())),
+                builder: (context, state) {
+                  final args = state.extra as OrdenModel;
+                  return Scaffold(
+                      body: HistorialDetails(
+                    datos: args,
+                    key: state.pageKey,
+                  ));
+                }),
           ]),
       GoRoute(
         path: '/cart',

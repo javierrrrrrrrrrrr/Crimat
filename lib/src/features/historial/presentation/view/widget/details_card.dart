@@ -6,7 +6,14 @@ import '../../../../home/presentation/view/widget/custom_picture_container.dart'
 class DetailsCard extends StatelessWidget {
   const DetailsCard({
     super.key,
+    required this.name,
+    required this.price,
+    required this.quantity,
   });
+
+  final String name;
+  final double price;
+  final double quantity;
 
   @override
   Widget build(BuildContext context) {
@@ -47,14 +54,17 @@ class DetailsCard extends StatelessWidget {
               ),
             ),
           ),
-          const ProductDetails(),
+          ProductDetails(
+            name: name,
+            quantity: quantity,
+          ),
           Padding(
-            padding: EdgeInsets.only(bottom: 8.h),
+            padding: EdgeInsets.only(bottom: 8.h, left: 30.w),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  "\$16",
+                  "\$$price",
                   style: TextStyle(fontSize: 14.sp),
                 ),
               ],
@@ -69,7 +79,12 @@ class DetailsCard extends StatelessWidget {
 class ProductDetails extends StatelessWidget {
   const ProductDetails({
     super.key,
+    required this.name,
+    required this.quantity,
   });
+
+  final String name;
+  final double quantity;
 
   @override
   Widget build(BuildContext context) {
@@ -82,25 +97,8 @@ class ProductDetails extends StatelessWidget {
             height: 10.h,
           ),
           Text(
-            "Lorem ipsumr dolor",
+            name,
             style: TextStyle(fontSize: 14.sp),
-          ),
-          SizedBox(
-            height: 10.h,
-          ),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: 'Color',
-                  style: TextStyle(color: Colors.grey, fontSize: 12.sp),
-                ),
-                TextSpan(
-                  text: ' Negro',
-                  style: TextStyle(color: Colors.black, fontSize: 12.sp),
-                ),
-              ],
-            ),
           ),
           SizedBox(
             height: 10.h,
@@ -113,7 +111,7 @@ class ProductDetails extends StatelessWidget {
                   style: TextStyle(color: Colors.grey, fontSize: 11.sp),
                 ),
                 TextSpan(
-                  text: ' 1',
+                  text: quantity.toString(),
                   style: TextStyle(color: Colors.black, fontSize: 11.sp),
                 ),
               ],

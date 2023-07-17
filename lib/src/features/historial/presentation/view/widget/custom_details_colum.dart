@@ -32,11 +32,11 @@ class ColumDetails extends StatelessWidget {
           text: TextSpan(
             children: [
               const TextSpan(
-                text: 'Almacén',
+                text: 'Almacén: ',
                 style: TextStyle(color: Colors.grey),
               ),
               TextSpan(
-                text: ' $warehouse',
+                text: warehouse,
                 style: const TextStyle(color: Colors.black),
               ),
             ],
@@ -47,11 +47,11 @@ class ColumDetails extends StatelessWidget {
           text: TextSpan(
             children: [
               const TextSpan(
-                text: 'Cantidad',
+                text: 'Cantidad: ',
                 style: TextStyle(color: Colors.grey),
               ),
               TextSpan(
-                text: ' $quantity',
+                text: '$quantity',
                 style: const TextStyle(color: Colors.black),
               ),
             ],
@@ -64,7 +64,7 @@ class ColumDetails extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     const TextSpan(
-                      text: 'Monto total',
+                      text: 'Monto total: ',
                       style: TextStyle(color: Colors.grey),
                     ),
                     TextSpan(

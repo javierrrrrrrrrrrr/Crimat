@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../models/historial/historial_model.dart';
+
 class OrdenDetails extends StatelessWidget {
   const OrdenDetails({
     super.key,
+    required this.datos,
   });
+
+  final OrdenModel datos;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +23,8 @@ class OrdenDetails extends StatelessWidget {
         SizedBox(
           height: 12.h,
         ),
+
+        //QUeda pendiente estructurar bien la direccion
         const CustomInfoRow(
           step: "Direccion de envio",
           value: "3 Newbridge court,Chino Hills CA 91709,United State",
@@ -25,30 +32,30 @@ class OrdenDetails extends StatelessWidget {
         SizedBox(
           height: 0.h,
         ),
-        const CustomInfoRow(
+        CustomInfoRow(
           step: "Descuento",
-          value: "10%,Codigo promocional",
+          value: "${datos.discount}",
         ),
         SizedBox(
           height: 0.h,
         ),
-        const CustomInfoRow(
+        CustomInfoRow(
           step: "Costo de envio",
-          value: "\$5",
+          value: "\$${datos.shippingCost}",
         ),
         SizedBox(
           height: 0.h,
         ),
-        const CustomInfoRow(
+        CustomInfoRow(
           step: "Impustos",
-          value: "\$5",
+          value: "\$${datos.tax}",
         ),
         SizedBox(
           height: 0.h,
         ),
-        const CustomInfoRow(
+        CustomInfoRow(
           step: "Monto total",
-          value: "\$40",
+          value: "\$${datos.totalAmount}",
         ),
       ],
     );

@@ -24,7 +24,7 @@ class HistorialView extends StatelessWidget {
               ),
               success: (List<OrdenModel> li) {
                 return CarruselListVerticalConfg(
-                    title: "Tus Historial",
+                    title: "Tu Historial",
                     itemcount: li.length,
                     itemBuilder: (BuildContext context, int index) {
                       return HisorialCard(
