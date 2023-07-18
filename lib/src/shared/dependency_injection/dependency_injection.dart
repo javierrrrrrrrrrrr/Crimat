@@ -12,7 +12,7 @@ import '../../repositories/historial_repository.dart';
 import '../../repositories/product_repository.dart';
 import '../../services/almacen_data_source.dart';
 import '../../services/categories_data_source.dart';
-import '../../services/historial_data_source.dart';
+import '../../services/historial_sources/historial_online_data_source.dart';
 import '../../services/product_data_source.dart';
 
 final sl = GetIt.instance;
@@ -58,11 +58,12 @@ Future<void> init() async {
 
   ///Historial
   //?? DataSources.
-  sl.registerLazySingleton(() => HistorialDataSource(sl.get<http.Client>()));
+  sl.registerLazySingleton(
+      () => HistorialOnlineDataSource(sl.get<http.Client>()));
 
   //?? Repositories
   sl.registerLazySingleton(
-      () => HistorialRepository(sl.get<HistorialDataSource>()));
+      () => HistorialRepository(sl.get<HistorialOnlineDataSource>()));
 
   //?? Blocs
   sl.registerFactory(() => HistorialBloc(sl.get<HistorialRepository>()));

@@ -3,10 +3,10 @@ import 'package:dartz/dartz.dart';
 import '../errors/expetion.dart';
 import '../errors/failure.dart';
 import '../models/historial/historial_model.dart';
-import '../services/historial_data_source.dart';
+import '../services/historial_sources/historial_online_data_source.dart';
 
 class HistorialRepository {
-  final HistorialDataSource historialDataSurce;
+  final HistorialOnlineDataSource historialDataSurce;
 
   HistorialRepository(this.historialDataSurce);
 
