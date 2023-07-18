@@ -3,11 +3,9 @@ import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../resources/app_icons.dart';
 import '../../../resources/general_styles.dart';
 import '../../features/historial/presentation/bloc/historial_bloc/historial_bloc.dart';
-import '../app_info.dart';
 
 class CustomBottonNavigationBar extends StatelessWidget {
   const CustomBottonNavigationBar({
@@ -36,8 +34,6 @@ class CustomBottonNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final historialBloc = context.read<HistorialBloc>();
-    String? token = AppInfo().accessToken;
     final layoutCubitState = context.watch<LayoutCubit>().state;
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,

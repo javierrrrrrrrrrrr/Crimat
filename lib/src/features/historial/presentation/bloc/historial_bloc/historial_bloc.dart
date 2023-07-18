@@ -24,7 +24,7 @@ class HistorialBloc extends Bloc<HistorialEvent, HistorialState> {
       emit(const HistorialState.loading());
       dynamic result;
 
-      result = await historial.getAllhistorial(token: token!);
+      result = await historial.getAllhistorial(token: token);
 
       //implementar leer del almacenamiento interno y que devuelva una lista de OrdenModel
 
