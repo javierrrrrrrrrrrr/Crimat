@@ -5,11 +5,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../errors/expetion.dart';
 import '../../models/historial/historial_model.dart';
 
-class HistorialDataSource {
+class HistorialLocalDataSource {
   final SharedPreferences sharedPreferences;
   final String _historialKey = 'historial_key';
 
-  HistorialDataSource(this.sharedPreferences);
+  HistorialLocalDataSource(this.sharedPreferences);
 
   Future<List<OrdenModel>> getHistorial() async {
     final storedHistorial = sharedPreferences.getString(_historialKey);

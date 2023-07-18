@@ -23,11 +23,10 @@ class HistorialBloc extends Bloc<HistorialEvent, HistorialState> {
     await event.when(load: () async {
       emit(const HistorialState.loading());
       dynamic result;
-      if (token != null) {
-        result = await historial.getAllhistorial(token: token!);
-      } else {
-        //implementar leer del almacenamiento interno y que devuelva una lista de OrdenModel
-      }
+
+      result = await historial.getAllhistorial(token: token!);
+
+      //implementar leer del almacenamiento interno y que devuelva una lista de OrdenModel
 
       result.fold((failure) {
         if (failure is ServerFailure) {

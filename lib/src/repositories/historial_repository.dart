@@ -3,18 +3,26 @@ import 'package:dartz/dartz.dart';
 import '../errors/expetion.dart';
 import '../errors/failure.dart';
 import '../models/historial/historial_model.dart';
+import '../services/historial_sources/historial_local_data_source.dart';
 import '../services/historial_sources/historial_online_data_source.dart';
 
 class HistorialRepository {
-  final HistorialOnlineDataSource historialDataSurce;
+  final HistorialOnlineDataSource historialOnlineDataSurce;
+  final HistorialLocalDataSource historialLocalDataSurce;
 
-  HistorialRepository(this.historialDataSurce);
+  HistorialRepository(
+      this.historialOnlineDataSurce, this.historialLocalDataSurce);
 
   Future<Either<Failure, List<OrdenModel>>> getAllhistorial(
-      {required String token}) async {
+      {String? token}) async {
     //TODO: Hacer la implementacion de si el dispositivo tiene internet.
+    final List<OrdenModel> historial;
     try {
-      final historial = await historialDataSurce.getAllhistorial(token);
+      if (token != null) {
+        historial = await historialOnlineDataSurce.getAllhistorial(token);
+      } else {
+        historial = await historialLocalDataSurce.getHistorial();
+      }
 
       return Right(historial);
     } on ServerException {
