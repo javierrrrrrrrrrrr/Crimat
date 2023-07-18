@@ -7,11 +7,13 @@ import '../services/historial_sources/historial_local_data_source.dart';
 import '../services/historial_sources/historial_online_data_source.dart';
 
 class HistorialRepository {
-  final HistorialOnlineDataSource historialOnlineDataSurce;
-  final HistorialLocalDataSource historialLocalDataSurce;
+  HistorialOnlineDataSource historialOnlineDataSurce;
+  HistorialLocalDataSource historialLocalDataSurce;
 
-  HistorialRepository(
-      this.historialOnlineDataSurce, this.historialLocalDataSurce);
+  HistorialRepository({
+    required this.historialOnlineDataSurce,
+    required this.historialLocalDataSurce,
+  });
 
   Future<Either<Failure, List<OrdenModel>>> getAllhistorial(
       {String? token}) async {

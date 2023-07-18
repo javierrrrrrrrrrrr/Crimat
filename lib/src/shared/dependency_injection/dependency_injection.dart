@@ -12,6 +12,7 @@ import '../../repositories/historial_repository.dart';
 import '../../repositories/product_repository.dart';
 import '../../services/almacen_data_source.dart';
 import '../../services/categories_data_source.dart';
+import '../../services/historial_sources/historial_local_data_source.dart';
 import '../../services/historial_sources/historial_online_data_source.dart';
 import '../../services/product_data_source.dart';
 
@@ -23,8 +24,8 @@ Future<void> init() async {
   sl.registerLazySingleton<http.Client>(
     () => client,
   );
-  final preferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton<SharedPreferences>(() => preferences);
+  final pref = await SharedPreferences.getInstance();
+  sl.registerLazySingleton<SharedPreferences>(() => pref);
 
   ///Almacenes
   //?? DataSources.
@@ -61,9 +62,14 @@ Future<void> init() async {
   sl.registerLazySingleton(
       () => HistorialOnlineDataSource(sl.get<http.Client>()));
 
-  //?? Repositories
   sl.registerLazySingleton(
-      () => HistorialRepository(sl.get<HistorialOnlineDataSource>()));
+      () => HistorialLocalDataSource(sl.get<SharedPreferences>()));
+
+  //?? Repositories
+  sl.registerLazySingleton(() => HistorialRepository(
+        historialOnlineDataSurce: sl.get<HistorialOnlineDataSource>(),
+        historialLocalDataSurce: sl.get<HistorialLocalDataSource>(),
+      ));
 
   //?? Blocs
   sl.registerFactory(() => HistorialBloc(sl.get<HistorialRepository>()));
