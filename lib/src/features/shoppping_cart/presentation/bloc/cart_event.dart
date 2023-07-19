@@ -6,7 +6,6 @@ abstract class CartEvent with _$CartEvent {
       AddedProductToCartEvent;
   const factory CartEvent.removedProduct({required ProductModel product}) =
       RemovedProductToCartEvent;
-
-
-
+  const factory CartEvent.removedAllProduct({required ProductModel product}) =
+      RemovedProductAllToCartEvent;
 }

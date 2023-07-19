@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../models/home/products/producto_model.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../../shoppping_cart/presentation/bloc/cart_bloc.dart';
 import '../../../products_detales_screen.dart';
 import 'custom_picture_container.dart';
 
@@ -73,6 +75,9 @@ class MainCardCarrusel extends StatelessWidget {
               ),
               Center(
                   child: CusotmButtom(
+                onPressed: () => context
+                    .read<CartBloc>()
+                    .add(CartEvent.addedProduct(product: producto)),
                 ispraimary: true,
                 name: "Añadir al carrito",
                 height: 35.h,

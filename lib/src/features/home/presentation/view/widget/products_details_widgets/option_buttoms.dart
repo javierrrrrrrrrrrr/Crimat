@@ -7,9 +7,11 @@ class OptionButtoms extends StatelessWidget {
   const OptionButtoms({
     super.key,
     this.isShopping,
+    this.total,
   });
 
   final bool? isShopping;
+  final double? total;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,9 @@ class OptionButtoms extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: isShopping == true
-            ? const CustomCardSking()
+            ? CustomCardSking(
+                total: total ?? 0,
+              )
             : const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -45,7 +49,10 @@ class OptionButtoms extends StatelessWidget {
 class CustomCardSking extends StatelessWidget {
   const CustomCardSking({
     super.key,
+    this.total,
   });
+
+  final double? total;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +83,7 @@ class CustomCardSking extends StatelessWidget {
           top: 12.h,
           right: 0,
           child: Text(
-            "\$44",
+            "\$$total",
             style: TextStyle(fontSize: 14.sp),
           ),
         ),

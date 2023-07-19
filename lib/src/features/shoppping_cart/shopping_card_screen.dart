@@ -1,6 +1,9 @@
+import 'package:crimat_app/src/features/shoppping_cart/presentation/bloc/cart_bloc.dart';
 import 'package:crimat_app/src/features/shoppping_cart/presentation/view/widget/direccion_address_row.dart';
 import 'package:crimat_app/src/features/shoppping_cart/presentation/view/widget/shopping_cart_widget.dart';
+import 'package:crimat_app/src/features/shoppping_cart/utils/shopping_card_aux.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
@@ -15,6 +18,28 @@ class ShoppingCartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<CartBloc, CartState>(
+      builder: (context, state) {
+        return state.when(
+            initial: () => Container(),
+            loading: () => Container(),
+            loaded: (cart) => MainWidget(cart: cart),
+            error: ((message) => const Text("Error")));
+      },
+    );
+  }
+}
+
+class MainWidget extends StatelessWidget {
+  const MainWidget({
+    super.key,
+    required this.cart,
+  });
+
+  final Cart cart;
+
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         Positioned(
@@ -26,18 +51,25 @@ class ShoppingCartView extends StatelessWidget {
           child: CarruselListVerticalConfg(
               havesubtitle: true,
               title: "Tu Carrito",
-              itemcount: 8,
+              itemcount: cart.productQuantity(cart.product).keys.length,
               itemBuilder: (BuildContext context, int index) {
-                return const ShoppingCartWidget();
+                return ShoppingCartWidget(
+                  carcantidad: cart
+                      .productQuantity(cart.product)
+                      .values
+                      .elementAt(index),
+                  producto:
+                      cart.productQuantity(cart.product).keys.elementAt(index),
+                );
               }),
         ),
         //como es un stack se usa este sizbox para que ocupe todo el espacio de la pantalla para que a la hora de ubicar el ultimo widget se ubique odnde debe de lo contrario solo llega hasta donde el listview
         const SizedBox(
           height: double.infinity,
         ),
-        const Positioned(
+        Positioned(
           bottom: 0,
-          child: OptionButtoms(isShopping: true),
+          child: OptionButtoms(isShopping: true, total: cart.subtotal),
         ),
       ],
     );

@@ -13,6 +13,10 @@ class DetailsCard extends StatelessWidget {
     this.width,
     this.isshoppingCart,
     required this.image,
+    this.carcantidad,
+    this.onPressedAdd,
+    this.onPressedDelete,
+    this.onPressedDeleteAll,
   });
 
   final String name;
@@ -22,6 +26,10 @@ class DetailsCard extends StatelessWidget {
   final double? width;
   final bool? isshoppingCart;
   final String image;
+  final int? carcantidad;
+  final void Function()? onPressedAdd;
+  final void Function()? onPressedDelete;
+  final void Function()? onPressedDeleteAll;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +73,7 @@ class DetailsCard extends StatelessWidget {
                 ),
               ),
               ProductDetails(
+                baseprice: price,
                 isshoppingCart: isshoppingCart,
                 name: name,
                 quantity: quantity,
@@ -90,7 +99,12 @@ class DetailsCard extends StatelessWidget {
             ? Positioned(
                 bottom: 1.h,
                 right: 3.w,
-                child: const ShopingControllerWidget(),
+                child: ShopingControllerWidget(
+                  cantidad: carcantidad ?? 1,
+                  onPressedAdd: onPressedAdd,
+                  onPressedDeleted: onPressedDelete,
+                  onPressedDeletedAll: onPressedDeleteAll,
+                ),
               )
             : Container()
       ],
@@ -101,16 +115,31 @@ class DetailsCard extends StatelessWidget {
 class ShopingControllerWidget extends StatelessWidget {
   const ShopingControllerWidget({
     super.key,
+    required this.cantidad,
+    this.onPressedAdd,
+    this.onPressedDeleted,
+    this.onPressedDeletedAll,
   });
+
+  final int cantidad;
+  final void Function()? onPressedAdd;
+  final void Function()? onPressedDeleted;
+  final void Function()? onPressedDeletedAll;
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        CusotmButtomCart(icon: Icons.remove),
-        Text("2"),
-        CusotmButtomCart(icon: Icons.add),
-        CusotmButtomCart(icon: Icons.delete_outline),
+        CusotmButtomCart(
+          icon: Icons.remove,
+          onPressed: onPressedDeleted,
+        ),
+        Text(cantidad.toString()),
+        CusotmButtomCart(icon: Icons.add, onPressed: onPressedAdd),
+        CusotmButtomCart(
+          icon: Icons.delete_outline,
+          onPressed: onPressedDeletedAll,
+        ),
       ],
     );
   }
@@ -154,11 +183,13 @@ class ProductDetails extends StatelessWidget {
     required this.name,
     required this.quantity,
     this.isshoppingCart,
+    required this.baseprice,
   });
 
   final String name;
   final double quantity;
   final bool? isshoppingCart;
+  final double baseprice;
 
   @override
   Widget build(BuildContext context) {
@@ -190,7 +221,7 @@ class ProductDetails extends StatelessWidget {
               height: 20.h,
               child: isshoppingCart == true
                   ? Text(
-                      "\$16",
+                      "\$$baseprice",
                       style: TextStyle(fontSize: 14.sp),
                     )
                   : RichText(
