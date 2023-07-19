@@ -41,7 +41,7 @@ class CusotmButtom extends StatelessWidget {
             child: Text(
           name,
           style: TextStyle(
-              fontSize: 12.sp,
+              fontSize: 14.sp,
               color: ispraimary == true
                   ? Colors.white
                   : Theme.of(context).primaryColor),

@@ -79,8 +79,11 @@ class ProductoModel {
   final String name;
   @JsonKey(name: 'cantidad')
   final double quantity;
+  @JsonKey(name: 'imagen')
+  final String imagen;
 
-  ProductoModel({
+  ProductoModel(
+    this.imagen, {
     required this.price,
     required this.name,
     required this.quantity,

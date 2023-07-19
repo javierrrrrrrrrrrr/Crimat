@@ -27,6 +27,7 @@ class CustomCardProdcutsDetailsColum extends StatelessWidget {
                     height: 14.h,
                   ),
                   DetailsCard(
+                    image: datos.products[index].imagen,
                     name: datos.products[index].name,
                     price: datos.products[index].price,
                     quantity: datos.products[index].quantity,

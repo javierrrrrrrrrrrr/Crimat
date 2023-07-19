@@ -13,6 +13,7 @@ class CarruselListVerticalConfg extends StatelessWidget {
     this.cardWidthPadding,
     this.padding,
     this.isperfil,
+    this.havesubtitle,
   });
 
   final String title;
@@ -21,6 +22,7 @@ class CarruselListVerticalConfg extends StatelessWidget {
   final double? verticalPadding;
   final double? cardWidthPadding;
   final bool? isperfil;
+  final bool? havesubtitle;
 
   final Widget Function(BuildContext, int) itemBuilder;
 
@@ -40,6 +42,7 @@ class CarruselListVerticalConfg extends StatelessWidget {
           child: CustomTitle(title: title),
         ),
         SizedBox(height: isperfil == true ? 230.h : 0.h),
+        SizedBox(height: havesubtitle == true ? 50.h : 0.h),
         Expanded(
           child: ListView.builder(
             itemCount: itemcount,

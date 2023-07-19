@@ -12,6 +12,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/historial/historial_view.dart';
 import '../../features/historial/presentation/view/historial_details_screen.dart';
 import '../../features/home/products_detales_screen.dart';
+import '../../features/shoppping_cart/shopping_card_screen.dart';
 import '../../features/splash/splash_screen.dart';
 import '../../models/historial/historial_model.dart';
 import '../../models/home/products/producto_model.dart';
@@ -75,12 +76,11 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
           ]),
       GoRoute(
         path: '/cart',
-        name: 'cart',
+        name: ShoppingCartView.name,
         builder: (context, state) => const Scaffold(
-          body: Center(
-            child: Text('CART VIEW'),
-          ),
-        ),
+            body: Scaffold(
+          body: ShoppingCartView(),
+        )),
       ),
       GoRoute(
         path: '/favotites',
