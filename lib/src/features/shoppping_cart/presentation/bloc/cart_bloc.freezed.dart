@@ -128,8 +128,8 @@ class __$$AddedProductToCartEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddedProductToCartEvent extends AddedProductToCartEvent {
-  const _$AddedProductToCartEvent({required this.product}) : super._();
+class _$AddedProductToCartEvent implements AddedProductToCartEvent {
+  const _$AddedProductToCartEvent({required this.product});
 
   @override
   final ProductModel product;
@@ -220,10 +220,9 @@ class _$AddedProductToCartEvent extends AddedProductToCartEvent {
   }
 }
 
-abstract class AddedProductToCartEvent extends CartEvent {
+abstract class AddedProductToCartEvent implements CartEvent {
   const factory AddedProductToCartEvent({required final ProductModel product}) =
       _$AddedProductToCartEvent;
-  const AddedProductToCartEvent._() : super._();
 
   @override
   ProductModel get product;
@@ -269,8 +268,8 @@ class __$$RemovedProductToCartEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemovedProductToCartEvent extends RemovedProductToCartEvent {
-  const _$RemovedProductToCartEvent({required this.product}) : super._();
+class _$RemovedProductToCartEvent implements RemovedProductToCartEvent {
+  const _$RemovedProductToCartEvent({required this.product});
 
   @override
   final ProductModel product;
@@ -361,10 +360,9 @@ class _$RemovedProductToCartEvent extends RemovedProductToCartEvent {
   }
 }
 
-abstract class RemovedProductToCartEvent extends CartEvent {
+abstract class RemovedProductToCartEvent implements CartEvent {
   const factory RemovedProductToCartEvent(
       {required final ProductModel product}) = _$RemovedProductToCartEvent;
-  const RemovedProductToCartEvent._() : super._();
 
   @override
   ProductModel get product;
@@ -463,8 +461,8 @@ class __$$CartInitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CartInitial extends CartInitial {
-  const _$CartInitial() : super._();
+class _$CartInitial implements CartInitial {
+  const _$CartInitial();
 
   @override
   String toString() {
@@ -555,9 +553,8 @@ class _$CartInitial extends CartInitial {
   }
 }
 
-abstract class CartInitial extends CartState {
+abstract class CartInitial implements CartState {
   const factory CartInitial() = _$CartInitial;
-  const CartInitial._() : super._();
 }
 
 /// @nodoc
@@ -578,8 +575,8 @@ class __$$CartLoadingStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CartLoadingState extends CartLoadingState {
-  const _$CartLoadingState() : super._();
+class _$CartLoadingState implements CartLoadingState {
+  const _$CartLoadingState();
 
   @override
   String toString() {
@@ -670,9 +667,8 @@ class _$CartLoadingState extends CartLoadingState {
   }
 }
 
-abstract class CartLoadingState extends CartState {
+abstract class CartLoadingState implements CartState {
   const factory CartLoadingState() = _$CartLoadingState;
-  const CartLoadingState._() : super._();
 }
 
 /// @nodoc
@@ -708,10 +704,9 @@ class __$$CartLoadedStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CartLoadedState extends CartLoadedState {
+class _$CartLoadedState implements CartLoadedState {
   const _$CartLoadedState({required final List<ProductModel> productCartList})
-      : _productCartList = productCartList,
-        super._();
+      : _productCartList = productCartList;
 
   final List<ProductModel> _productCartList;
   @override
@@ -820,10 +815,9 @@ class _$CartLoadedState extends CartLoadedState {
   }
 }
 
-abstract class CartLoadedState extends CartState {
+abstract class CartLoadedState implements CartState {
   const factory CartLoadedState(
       {required final List<ProductModel> productCartList}) = _$CartLoadedState;
-  const CartLoadedState._() : super._();
 
   List<ProductModel> get productCartList;
   @JsonKey(ignore: true)
@@ -864,8 +858,8 @@ class __$$CartErrorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CartErrorState extends CartErrorState {
-  const _$CartErrorState({required this.message}) : super._();
+class _$CartErrorState implements CartErrorState {
+  const _$CartErrorState({required this.message});
 
   @override
   final String message;
@@ -967,10 +961,9 @@ class _$CartErrorState extends CartErrorState {
   }
 }
 
-abstract class CartErrorState extends CartState {
+abstract class CartErrorState implements CartState {
   const factory CartErrorState({required final String message}) =
       _$CartErrorState;
-  const CartErrorState._() : super._();
 
   String get message;
   @JsonKey(ignore: true)

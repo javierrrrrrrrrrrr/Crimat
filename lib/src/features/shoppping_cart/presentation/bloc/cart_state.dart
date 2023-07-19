@@ -7,8 +7,4 @@ abstract class CartState with _$CartState {
   const factory CartState.loaded(
       {required List<ProductModel> productCartList}) = CartLoadedState;
   const factory CartState.error({required String message}) = CartErrorState;
-
-  const CartState._();
-
-  List<Object?> get props => [];
 }
