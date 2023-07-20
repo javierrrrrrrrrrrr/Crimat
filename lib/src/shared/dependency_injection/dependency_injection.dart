@@ -8,6 +8,7 @@ import '../../features/historial/presentation/bloc/historial_bloc/historial_bloc
 import '../../features/home/presentation/bloc/categories_bloc/categories_bloc.dart';
 import '../../features/home/presentation/bloc/product_bloc/product_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
+import '../../features/shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import '../../repositories/categorias_repository.dart';
 import '../../repositories/historial_repository.dart';
 import '../../repositories/product_repository.dart';
@@ -77,4 +78,5 @@ Future<void> init() async {
 
   //?? Blocs
   sl.registerFactory(() => CartBloc());
+  sl.registerFactory(() => CheckBloc());
 }

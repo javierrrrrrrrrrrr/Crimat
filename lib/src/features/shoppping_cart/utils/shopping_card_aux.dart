@@ -7,6 +7,7 @@ class Cart extends Equatable {
   final List<bool> check = [];
 
   double get subtotal => product.fold(0, (total, current) {
+        // ignore: unnecessary_null_comparison
         if (current.basePrice != null) {
           return total + double.parse(current.basePrice);
         } else {
@@ -30,6 +31,14 @@ class Cart extends Equatable {
     }
 
     return quantity;
+  }
+
+  List<bool> getboolList(List<ProductModel> products) {
+    Map<ProductModel, int> quantity = productQuantity(products);
+
+    List<bool> boolList = List.filled(quantity.length + 1, true);
+
+    return boolList;
   }
 
   @override

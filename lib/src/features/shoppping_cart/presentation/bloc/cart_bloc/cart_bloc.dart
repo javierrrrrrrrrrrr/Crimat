@@ -16,8 +16,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<CartEvent>(eventHandler);
   }
   List<ProductModel> _cartListProducts = [];
-  final List<bool> _checklist = [];
-
+  List<ProductModel> get productList => _cartListProducts;
   FutureOr<void> eventHandler(
     CartEvent event,
     Emitter emit,
@@ -26,6 +25,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       addedProduct: (ProductModel producto) async {
         emit(const CartState.loading());
         _cartListProducts = [..._cartListProducts, producto];
+
         emit(
           CartState.loaded(
             productCartList: Cart(product: _cartListProducts),

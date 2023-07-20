@@ -54,13 +54,13 @@ class MainWidget extends StatelessWidget {
               itemcount: cart.productQuantity(cart.product).keys.length,
               itemBuilder: (BuildContext context, int index) {
                 return ShoppingCartWidget(
-                  isChechkActive: true,
                   carcantidad: cart
                       .productQuantity(cart.product)
                       .values
                       .elementAt(index),
                   producto:
                       cart.productQuantity(cart.product).keys.elementAt(index),
+                  index: index,
                 );
               }),
         ),

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../models/home/products/producto_model.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
+import '../../../../shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import '../../../products_detales_screen.dart';
 import 'custom_picture_container.dart';
 
@@ -19,6 +20,7 @@ class MainCardCarrusel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartBloc = BlocProvider.of<CartBloc>(context);
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.r),
@@ -75,9 +77,14 @@ class MainCardCarrusel extends StatelessWidget {
               ),
               Center(
                   child: CusotmButtom(
-                onPressed: () => context
-                    .read<CartBloc>()
-                    .add(CartEvent.addedProduct(product: producto)),
+                onPressed: () {
+                  context
+                      .read<CartBloc>()
+                      .add(CartEvent.addedProduct(product: producto));
+
+                  context.read<CheckBloc>().add(
+                      CheckEvent.updateList(productlist: cartBloc.productList));
+                },
                 ispraimary: true,
                 name: "Añadir al carrito",
                 height: 35.h,
