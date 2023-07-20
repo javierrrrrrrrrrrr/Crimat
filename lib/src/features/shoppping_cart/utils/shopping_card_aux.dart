@@ -4,6 +4,8 @@ import '../../../models/home/products/producto_model.dart';
 
 class Cart extends Equatable {
   final List<ProductModel> product;
+  final List<bool> check = [];
+
   double get subtotal => product.fold(0, (total, current) {
         if (current.basePrice != null) {
           return total + double.parse(current.basePrice);
@@ -12,7 +14,7 @@ class Cart extends Equatable {
         }
       });
 
-  const Cart({required this.product});
+  Cart({required this.product});
 
   Map<ProductModel, int> productQuantity(List<ProductModel> products) {
     Map<ProductModel, int> quantity = {};
@@ -26,6 +28,7 @@ class Cart extends Equatable {
         quantity[product] = 1;
       }
     }
+
     return quantity;
   }
 
