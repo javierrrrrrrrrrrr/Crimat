@@ -722,7 +722,8 @@ mixin _$CartState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Cart productCartList) loaded,
+    required TResult Function(Cart productCartList, List<bool> checklist)
+        loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -730,7 +731,7 @@ mixin _$CartState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Cart productCartList)? loaded,
+    TResult? Function(Cart productCartList, List<bool> checklist)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -738,7 +739,7 @@ mixin _$CartState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Cart productCartList)? loaded,
+    TResult Function(Cart productCartList, List<bool> checklist)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -827,7 +828,8 @@ class _$CartInitial implements CartInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Cart productCartList) loaded,
+    required TResult Function(Cart productCartList, List<bool> checklist)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -838,7 +840,7 @@ class _$CartInitial implements CartInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Cart productCartList)? loaded,
+    TResult? Function(Cart productCartList, List<bool> checklist)? loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -849,7 +851,7 @@ class _$CartInitial implements CartInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Cart productCartList)? loaded,
+    TResult Function(Cart productCartList, List<bool> checklist)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -941,7 +943,8 @@ class _$CartLoadingState implements CartLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Cart productCartList) loaded,
+    required TResult Function(Cart productCartList, List<bool> checklist)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -952,7 +955,7 @@ class _$CartLoadingState implements CartLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Cart productCartList)? loaded,
+    TResult? Function(Cart productCartList, List<bool> checklist)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -963,7 +966,7 @@ class _$CartLoadingState implements CartLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Cart productCartList)? loaded,
+    TResult Function(Cart productCartList, List<bool> checklist)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -1021,7 +1024,7 @@ abstract class _$$CartLoadedStateCopyWith<$Res> {
           _$CartLoadedState value, $Res Function(_$CartLoadedState) then) =
       __$$CartLoadedStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({Cart productCartList});
+  $Res call({Cart productCartList, List<bool> checklist});
 }
 
 /// @nodoc
@@ -1036,12 +1039,17 @@ class __$$CartLoadedStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? productCartList = null,
+    Object? checklist = null,
   }) {
     return _then(_$CartLoadedState(
       productCartList: null == productCartList
           ? _value.productCartList
           : productCartList // ignore: cast_nullable_to_non_nullable
               as Cart,
+      checklist: null == checklist
+          ? _value._checklist
+          : checklist // ignore: cast_nullable_to_non_nullable
+              as List<bool>,
     ));
   }
 }
@@ -1049,14 +1057,23 @@ class __$$CartLoadedStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CartLoadedState implements CartLoadedState {
-  const _$CartLoadedState({required this.productCartList});
+  const _$CartLoadedState(
+      {required this.productCartList, required final List<bool> checklist})
+      : _checklist = checklist;
 
   @override
   final Cart productCartList;
+  final List<bool> _checklist;
+  @override
+  List<bool> get checklist {
+    if (_checklist is EqualUnmodifiableListView) return _checklist;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_checklist);
+  }
 
   @override
   String toString() {
-    return 'CartState.loaded(productCartList: $productCartList)';
+    return 'CartState.loaded(productCartList: $productCartList, checklist: $checklist)';
   }
 
   @override
@@ -1065,11 +1082,14 @@ class _$CartLoadedState implements CartLoadedState {
         (other.runtimeType == runtimeType &&
             other is _$CartLoadedState &&
             (identical(other.productCartList, productCartList) ||
-                other.productCartList == productCartList));
+                other.productCartList == productCartList) &&
+            const DeepCollectionEquality()
+                .equals(other._checklist, _checklist));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, productCartList);
+  int get hashCode => Object.hash(runtimeType, productCartList,
+      const DeepCollectionEquality().hash(_checklist));
 
   @JsonKey(ignore: true)
   @override
@@ -1082,10 +1102,11 @@ class _$CartLoadedState implements CartLoadedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Cart productCartList) loaded,
+    required TResult Function(Cart productCartList, List<bool> checklist)
+        loaded,
     required TResult Function(String message) error,
   }) {
-    return loaded(productCartList);
+    return loaded(productCartList, checklist);
   }
 
   @override
@@ -1093,10 +1114,10 @@ class _$CartLoadedState implements CartLoadedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Cart productCartList)? loaded,
+    TResult? Function(Cart productCartList, List<bool> checklist)? loaded,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call(productCartList);
+    return loaded?.call(productCartList, checklist);
   }
 
   @override
@@ -1104,12 +1125,12 @@ class _$CartLoadedState implements CartLoadedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Cart productCartList)? loaded,
+    TResult Function(Cart productCartList, List<bool> checklist)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(productCartList);
+      return loaded(productCartList, checklist);
     }
     return orElse();
   }
@@ -1153,10 +1174,12 @@ class _$CartLoadedState implements CartLoadedState {
 }
 
 abstract class CartLoadedState implements CartState {
-  const factory CartLoadedState({required final Cart productCartList}) =
-      _$CartLoadedState;
+  const factory CartLoadedState(
+      {required final Cart productCartList,
+      required final List<bool> checklist}) = _$CartLoadedState;
 
   Cart get productCartList;
+  List<bool> get checklist;
   @JsonKey(ignore: true)
   _$$CartLoadedStateCopyWith<_$CartLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1228,7 +1251,8 @@ class _$CartErrorState implements CartErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Cart productCartList) loaded,
+    required TResult Function(Cart productCartList, List<bool> checklist)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -1239,7 +1263,7 @@ class _$CartErrorState implements CartErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Cart productCartList)? loaded,
+    TResult? Function(Cart productCartList, List<bool> checklist)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -1250,7 +1274,7 @@ class _$CartErrorState implements CartErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Cart productCartList)? loaded,
+    TResult Function(Cart productCartList, List<bool> checklist)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
