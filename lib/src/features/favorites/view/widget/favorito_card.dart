@@ -13,7 +13,7 @@ class FavoriteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const CardSking(),
+        CardSking(cardwidth: 450.w),
         Positioned(
           left: 10.w,
           bottom: 9.h,
