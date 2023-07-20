@@ -9,6 +9,7 @@ class CusotmButtom extends StatelessWidget {
     required this.name,
     required this.ispraimary,
     this.onPressed,
+    this.lettersize,
   });
 
   final double width;
@@ -16,6 +17,7 @@ class CusotmButtom extends StatelessWidget {
   final String name;
   final bool ispraimary;
   final void Function()? onPressed;
+  final double? lettersize;
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +40,20 @@ class CusotmButtom extends StatelessWidget {
               ),
         onPressed: onPressed,
         child: Center(
+            child: SizedBox(
+          height: 15.h,
+          width: lettersize ?? 90.w,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
             child: Text(
-          name,
-          style: TextStyle(
-              fontSize: 14.sp,
-              color: ispraimary == true
-                  ? Colors.white
-                  : Theme.of(context).primaryColor),
+              name,
+              style: TextStyle(
+                  fontSize: 14.sp,
+                  color: ispraimary == true
+                      ? Colors.white
+                      : Theme.of(context).primaryColor),
+            ),
+          ),
         )),
       ),
     );

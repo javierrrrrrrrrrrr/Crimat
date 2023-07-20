@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,22 +26,20 @@ class OptionButtoms extends StatelessWidget {
             ? CustomCardSking(
                 total: total ?? 0,
               )
-            : const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                    CusotmButtom(
-                      height: 45,
-                      width: 178,
-                      name: "Añadir al carrito",
-                      ispraimary: false,
-                    ),
-                    CusotmButtom(
-                      height: 45,
-                      width: 178,
-                      name: "Comprar ahora",
-                      ispraimary: true,
-                    ),
-                  ]),
+            : Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                CusotmButtom(
+                  height: 45,
+                  width: 178,
+                  name: context.loc.addToCart,
+                  ispraimary: false,
+                ),
+                CusotmButtom(
+                  height: 45,
+                  width: 178,
+                  name: context.loc.buyNow,
+                  ispraimary: true,
+                ),
+              ]),
       ),
     );
   }
@@ -66,7 +65,8 @@ class CustomCardSking extends StatelessWidget {
               CusotmButtom(
                 height: 55.h,
                 width: 290.w,
-                name: "Continuar con el pago",
+                name: context.loc.continueToPayment,
+                lettersize: 160.w,
                 ispraimary: true,
               ),
             ],

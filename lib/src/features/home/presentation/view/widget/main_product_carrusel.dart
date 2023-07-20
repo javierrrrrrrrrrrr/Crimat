@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,8 +24,8 @@ class MainProdcutCarrusel extends StatelessWidget {
       },
       child: BlocBuilder<ProductBloc, ProductState>(
         builder: (context, state) => state.when(
-          initial: () => const NoSelectedAlmacenwidget(
-              message: "Seleccione un almacén para ver los productos."),
+          initial: () => NoSelectedAlmacenwidget(
+              message: context.loc.warehouseProductsSelection),
           loading: () => Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: GridView.builder(

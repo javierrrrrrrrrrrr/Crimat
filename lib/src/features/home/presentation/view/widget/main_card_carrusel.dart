@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -86,7 +87,7 @@ class MainCardCarrusel extends StatelessWidget {
                       CheckEvent.updateList(productlist: cartBloc.productList));
                 },
                 ispraimary: true,
-                name: "Añadir al carrito",
+                name: context.loc.addToCart,
                 height: 35.h,
                 width: 160.w,
               ))

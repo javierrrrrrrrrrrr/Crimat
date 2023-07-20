@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../shared/widgets/card_sking.dart';
@@ -44,7 +45,7 @@ class FavoriteCard extends StatelessWidget {
               CusotmButtom(
                 height: 30.h,
                 width: 160.w,
-                name: "Comprar ahora",
+                name: context.loc.buyNow,
                 ispraimary: true,
               ),
             ],

@@ -1,4 +1,5 @@
 import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -77,7 +78,7 @@ class AlmacenProductFilterWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 orElse: () => Text(
-                  'Productos',
+                  context.loc.products,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               );
