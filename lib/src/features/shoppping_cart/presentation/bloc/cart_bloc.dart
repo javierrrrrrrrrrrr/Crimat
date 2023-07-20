@@ -29,7 +29,13 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       );
     }, removedProduct: (ProductModel producto) {
       emit(const CartState.loading());
+      print(_cartListProducts.first.id);
+      _cartListProducts.sort((a, b) => b.id.compareTo(a.id));
+
       _cartListProducts.remove(producto);
+
+      print(_cartListProducts.first.id);
+
       // _cartListProducts.removeWhere((producto) =>
       //     _cartListProducts.indexOf(producto) !=
       //     _cartListProducts.lastIndexOf(producto));
