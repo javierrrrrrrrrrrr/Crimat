@@ -1,4 +1,4 @@
-import 'package:crimat_app/src/features/shoppping_cart/presentation/bloc/cart_bloc.dart';
+import 'package:crimat_app/src/features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'package:crimat_app/src/features/shoppping_cart/presentation/view/widget/direccion_address_row.dart';
 import 'package:crimat_app/src/features/shoppping_cart/presentation/view/widget/shopping_cart_widget.dart';
 import 'package:crimat_app/src/features/shoppping_cart/utils/shopping_card_aux.dart';
@@ -54,6 +54,7 @@ class MainWidget extends StatelessWidget {
               itemcount: cart.productQuantity(cart.product).keys.length,
               itemBuilder: (BuildContext context, int index) {
                 return ShoppingCartWidget(
+                  isChechkActive: true,
                   carcantidad: cart
                       .productQuantity(cart.product)
                       .values

@@ -5,7 +5,7 @@ import 'package:crimat_app/src/features/shoppping_cart/utils/shopping_card_aux.d
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../models/home/products/producto_model.dart';
+import '../../../../../models/home/products/producto_model.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
@@ -16,40 +16,43 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<CartEvent>(eventHandler);
   }
   List<ProductModel> _cartListProducts = [];
+  final List<bool> _checklist = [];
 
   FutureOr<void> eventHandler(
     CartEvent event,
     Emitter emit,
   ) async {
-    await event.when(addedProduct: (ProductModel producto) async {
-      emit(const CartState.loading());
-      _cartListProducts = [..._cartListProducts, producto];
-      emit(
-        CartState.loaded(productCartList: Cart(product: _cartListProducts)),
-      );
-    }, removedProduct: (ProductModel producto) {
-      emit(const CartState.loading());
-      print(_cartListProducts.first.id);
-      _cartListProducts.sort((a, b) => b.id.compareTo(a.id));
+    await event.when(
+        addedProduct: (ProductModel producto) async {
+          emit(const CartState.loading());
+          _cartListProducts = [..._cartListProducts, producto];
+          emit(
+            CartState.loaded(
+                productCartList: Cart(product: _cartListProducts),
+                checklist: _checklist),
+          );
+        },
+        removedProduct: (ProductModel producto) {
+          emit(const CartState.loading());
+          _cartListProducts.sort((a, b) => b.id.compareTo(a.id));
+          _cartListProducts.remove(producto);
 
-      _cartListProducts.remove(producto);
-
-      print(_cartListProducts.first.id);
-
-      // _cartListProducts.removeWhere((producto) =>
-      //     _cartListProducts.indexOf(producto) !=
-      //     _cartListProducts.lastIndexOf(producto));
-
-      emit(
-        CartState.loaded(productCartList: Cart(product: _cartListProducts)),
-      );
-    }, removedAllProduct: (ProductModel product) async {
-      emit(const CartState.loading());
-      removeProductsByMatch(product, _cartListProducts);
-      emit(
-        CartState.loaded(productCartList: Cart(product: _cartListProducts)),
-      );
-    });
+          emit(
+            CartState.loaded(
+                productCartList: Cart(product: _cartListProducts),
+                checklist: _checklist),
+          );
+        },
+        removedAllProduct: (ProductModel product) async {
+          emit(const CartState.loading());
+          removeProductsByMatch(product, _cartListProducts);
+          emit(
+            CartState.loaded(
+                productCartList: Cart(product: _cartListProducts),
+                checklist: _checklist),
+          );
+        },
+        changeCheckState: (ProductModel product) {});
   }
 }
 

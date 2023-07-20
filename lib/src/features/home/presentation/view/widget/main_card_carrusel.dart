@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../models/home/products/producto_model.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
-import '../../../../shoppping_cart/presentation/bloc/cart_bloc.dart';
+import '../../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../../products_detales_screen.dart';
 import 'custom_picture_container.dart';
 
