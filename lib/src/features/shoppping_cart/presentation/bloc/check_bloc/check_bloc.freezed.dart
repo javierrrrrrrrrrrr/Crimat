@@ -37,20 +37,20 @@ mixin _$CheckEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UpdateList value) updateList,
-    required TResult Function(Updatevisibility value) updatevisibility,
+    required TResult Function(_UpdateList value) updateList,
+    required TResult Function(_Updatevisibility value) updatevisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UpdateList value)? updateList,
-    TResult? Function(Updatevisibility value)? updatevisibility,
+    TResult? Function(_UpdateList value)? updateList,
+    TResult? Function(_Updatevisibility value)? updatevisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UpdateList value)? updateList,
-    TResult Function(Updatevisibility value)? updatevisibility,
+    TResult Function(_UpdateList value)? updateList,
+    TResult Function(_Updatevisibility value)? updatevisibility,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,7 +107,7 @@ class __$$UpdateListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateList implements UpdateList {
+class _$UpdateList implements _UpdateList {
   const _$UpdateList({required final List<ProductModel> productlist})
       : _productlist = productlist;
 
@@ -177,8 +177,8 @@ class _$UpdateList implements UpdateList {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UpdateList value) updateList,
-    required TResult Function(Updatevisibility value) updatevisibility,
+    required TResult Function(_UpdateList value) updateList,
+    required TResult Function(_Updatevisibility value) updatevisibility,
   }) {
     return updateList(this);
   }
@@ -186,8 +186,8 @@ class _$UpdateList implements UpdateList {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UpdateList value)? updateList,
-    TResult? Function(Updatevisibility value)? updatevisibility,
+    TResult? Function(_UpdateList value)? updateList,
+    TResult? Function(_Updatevisibility value)? updatevisibility,
   }) {
     return updateList?.call(this);
   }
@@ -195,8 +195,8 @@ class _$UpdateList implements UpdateList {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UpdateList value)? updateList,
-    TResult Function(Updatevisibility value)? updatevisibility,
+    TResult Function(_UpdateList value)? updateList,
+    TResult Function(_Updatevisibility value)? updatevisibility,
     required TResult orElse(),
   }) {
     if (updateList != null) {
@@ -206,8 +206,8 @@ class _$UpdateList implements UpdateList {
   }
 }
 
-abstract class UpdateList implements CheckEvent {
-  const factory UpdateList({required final List<ProductModel> productlist}) =
+abstract class _UpdateList implements CheckEvent {
+  const factory _UpdateList({required final List<ProductModel> productlist}) =
       _$UpdateList;
 
   List<ProductModel> get productlist;
@@ -249,7 +249,7 @@ class __$$UpdatevisibilityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Updatevisibility implements Updatevisibility {
+class _$Updatevisibility implements _Updatevisibility {
   const _$Updatevisibility({required this.index});
 
   @override
@@ -311,8 +311,8 @@ class _$Updatevisibility implements Updatevisibility {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UpdateList value) updateList,
-    required TResult Function(Updatevisibility value) updatevisibility,
+    required TResult Function(_UpdateList value) updateList,
+    required TResult Function(_Updatevisibility value) updatevisibility,
   }) {
     return updatevisibility(this);
   }
@@ -320,8 +320,8 @@ class _$Updatevisibility implements Updatevisibility {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UpdateList value)? updateList,
-    TResult? Function(Updatevisibility value)? updatevisibility,
+    TResult? Function(_UpdateList value)? updateList,
+    TResult? Function(_Updatevisibility value)? updatevisibility,
   }) {
     return updatevisibility?.call(this);
   }
@@ -329,8 +329,8 @@ class _$Updatevisibility implements Updatevisibility {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UpdateList value)? updateList,
-    TResult Function(Updatevisibility value)? updatevisibility,
+    TResult Function(_UpdateList value)? updateList,
+    TResult Function(_Updatevisibility value)? updatevisibility,
     required TResult orElse(),
   }) {
     if (updatevisibility != null) {
@@ -340,8 +340,8 @@ class _$Updatevisibility implements Updatevisibility {
   }
 }
 
-abstract class Updatevisibility implements CheckEvent {
-  const factory Updatevisibility({required final int index}) =
+abstract class _Updatevisibility implements CheckEvent {
+  const factory _Updatevisibility({required final int index}) =
       _$Updatevisibility;
 
   int get index;
@@ -379,26 +379,26 @@ mixin _$CheckState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CartInitial value) initial,
-    required TResult Function(CartLoadingState value) loading,
-    required TResult Function(CheckLoadedState value) loaded,
-    required TResult Function(CheckErrorState value) error,
+    required TResult Function(_CartInitial value) initial,
+    required TResult Function(_CartLoadingState value) loading,
+    required TResult Function(_CheckLoadedState value) loaded,
+    required TResult Function(_CheckErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CartInitial value)? initial,
-    TResult? Function(CartLoadingState value)? loading,
-    TResult? Function(CheckLoadedState value)? loaded,
-    TResult? Function(CheckErrorState value)? error,
+    TResult? Function(_CartInitial value)? initial,
+    TResult? Function(_CartLoadingState value)? loading,
+    TResult? Function(_CheckLoadedState value)? loaded,
+    TResult? Function(_CheckErrorState value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CartInitial value)? initial,
-    TResult Function(CartLoadingState value)? loading,
-    TResult Function(CheckLoadedState value)? loaded,
-    TResult Function(CheckErrorState value)? error,
+    TResult Function(_CartInitial value)? initial,
+    TResult Function(_CartLoadingState value)? loading,
+    TResult Function(_CheckLoadedState value)? loaded,
+    TResult Function(_CheckErrorState value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -440,7 +440,7 @@ class __$$CartInitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CartInitial implements CartInitial {
+class _$CartInitial implements _CartInitial {
   const _$CartInitial();
 
   @override
@@ -497,10 +497,10 @@ class _$CartInitial implements CartInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CartInitial value) initial,
-    required TResult Function(CartLoadingState value) loading,
-    required TResult Function(CheckLoadedState value) loaded,
-    required TResult Function(CheckErrorState value) error,
+    required TResult Function(_CartInitial value) initial,
+    required TResult Function(_CartLoadingState value) loading,
+    required TResult Function(_CheckLoadedState value) loaded,
+    required TResult Function(_CheckErrorState value) error,
   }) {
     return initial(this);
   }
@@ -508,10 +508,10 @@ class _$CartInitial implements CartInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CartInitial value)? initial,
-    TResult? Function(CartLoadingState value)? loading,
-    TResult? Function(CheckLoadedState value)? loaded,
-    TResult? Function(CheckErrorState value)? error,
+    TResult? Function(_CartInitial value)? initial,
+    TResult? Function(_CartLoadingState value)? loading,
+    TResult? Function(_CheckLoadedState value)? loaded,
+    TResult? Function(_CheckErrorState value)? error,
   }) {
     return initial?.call(this);
   }
@@ -519,10 +519,10 @@ class _$CartInitial implements CartInitial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CartInitial value)? initial,
-    TResult Function(CartLoadingState value)? loading,
-    TResult Function(CheckLoadedState value)? loaded,
-    TResult Function(CheckErrorState value)? error,
+    TResult Function(_CartInitial value)? initial,
+    TResult Function(_CartLoadingState value)? loading,
+    TResult Function(_CheckLoadedState value)? loaded,
+    TResult Function(_CheckErrorState value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -532,8 +532,8 @@ class _$CartInitial implements CartInitial {
   }
 }
 
-abstract class CartInitial implements CheckState {
-  const factory CartInitial() = _$CartInitial;
+abstract class _CartInitial implements CheckState {
+  const factory _CartInitial() = _$CartInitial;
 }
 
 /// @nodoc
@@ -554,7 +554,7 @@ class __$$CartLoadingStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CartLoadingState implements CartLoadingState {
+class _$CartLoadingState implements _CartLoadingState {
   const _$CartLoadingState();
 
   @override
@@ -611,10 +611,10 @@ class _$CartLoadingState implements CartLoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CartInitial value) initial,
-    required TResult Function(CartLoadingState value) loading,
-    required TResult Function(CheckLoadedState value) loaded,
-    required TResult Function(CheckErrorState value) error,
+    required TResult Function(_CartInitial value) initial,
+    required TResult Function(_CartLoadingState value) loading,
+    required TResult Function(_CheckLoadedState value) loaded,
+    required TResult Function(_CheckErrorState value) error,
   }) {
     return loading(this);
   }
@@ -622,10 +622,10 @@ class _$CartLoadingState implements CartLoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CartInitial value)? initial,
-    TResult? Function(CartLoadingState value)? loading,
-    TResult? Function(CheckLoadedState value)? loaded,
-    TResult? Function(CheckErrorState value)? error,
+    TResult? Function(_CartInitial value)? initial,
+    TResult? Function(_CartLoadingState value)? loading,
+    TResult? Function(_CheckLoadedState value)? loaded,
+    TResult? Function(_CheckErrorState value)? error,
   }) {
     return loading?.call(this);
   }
@@ -633,10 +633,10 @@ class _$CartLoadingState implements CartLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CartInitial value)? initial,
-    TResult Function(CartLoadingState value)? loading,
-    TResult Function(CheckLoadedState value)? loaded,
-    TResult Function(CheckErrorState value)? error,
+    TResult Function(_CartInitial value)? initial,
+    TResult Function(_CartLoadingState value)? loading,
+    TResult Function(_CheckLoadedState value)? loaded,
+    TResult Function(_CheckErrorState value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -646,8 +646,8 @@ class _$CartLoadingState implements CartLoadingState {
   }
 }
 
-abstract class CartLoadingState implements CheckState {
-  const factory CartLoadingState() = _$CartLoadingState;
+abstract class _CartLoadingState implements CheckState {
+  const factory _CartLoadingState() = _$CartLoadingState;
 }
 
 /// @nodoc
@@ -683,7 +683,7 @@ class __$$CheckLoadedStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CheckLoadedState implements CheckLoadedState {
+class _$CheckLoadedState implements _CheckLoadedState {
   const _$CheckLoadedState({required final List<bool> selection})
       : _selection = selection;
 
@@ -759,10 +759,10 @@ class _$CheckLoadedState implements CheckLoadedState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CartInitial value) initial,
-    required TResult Function(CartLoadingState value) loading,
-    required TResult Function(CheckLoadedState value) loaded,
-    required TResult Function(CheckErrorState value) error,
+    required TResult Function(_CartInitial value) initial,
+    required TResult Function(_CartLoadingState value) loading,
+    required TResult Function(_CheckLoadedState value) loaded,
+    required TResult Function(_CheckErrorState value) error,
   }) {
     return loaded(this);
   }
@@ -770,10 +770,10 @@ class _$CheckLoadedState implements CheckLoadedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CartInitial value)? initial,
-    TResult? Function(CartLoadingState value)? loading,
-    TResult? Function(CheckLoadedState value)? loaded,
-    TResult? Function(CheckErrorState value)? error,
+    TResult? Function(_CartInitial value)? initial,
+    TResult? Function(_CartLoadingState value)? loading,
+    TResult? Function(_CheckLoadedState value)? loaded,
+    TResult? Function(_CheckErrorState value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -781,10 +781,10 @@ class _$CheckLoadedState implements CheckLoadedState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CartInitial value)? initial,
-    TResult Function(CartLoadingState value)? loading,
-    TResult Function(CheckLoadedState value)? loaded,
-    TResult Function(CheckErrorState value)? error,
+    TResult Function(_CartInitial value)? initial,
+    TResult Function(_CartLoadingState value)? loading,
+    TResult Function(_CheckLoadedState value)? loaded,
+    TResult Function(_CheckErrorState value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -794,8 +794,8 @@ class _$CheckLoadedState implements CheckLoadedState {
   }
 }
 
-abstract class CheckLoadedState implements CheckState {
-  const factory CheckLoadedState({required final List<bool> selection}) =
+abstract class _CheckLoadedState implements CheckState {
+  const factory _CheckLoadedState({required final List<bool> selection}) =
       _$CheckLoadedState;
 
   List<bool> get selection;
@@ -837,7 +837,7 @@ class __$$CheckErrorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CheckErrorState implements CheckErrorState {
+class _$CheckErrorState implements _CheckErrorState {
   const _$CheckErrorState({required this.message});
 
   @override
@@ -905,10 +905,10 @@ class _$CheckErrorState implements CheckErrorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CartInitial value) initial,
-    required TResult Function(CartLoadingState value) loading,
-    required TResult Function(CheckLoadedState value) loaded,
-    required TResult Function(CheckErrorState value) error,
+    required TResult Function(_CartInitial value) initial,
+    required TResult Function(_CartLoadingState value) loading,
+    required TResult Function(_CheckLoadedState value) loaded,
+    required TResult Function(_CheckErrorState value) error,
   }) {
     return error(this);
   }
@@ -916,10 +916,10 @@ class _$CheckErrorState implements CheckErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CartInitial value)? initial,
-    TResult? Function(CartLoadingState value)? loading,
-    TResult? Function(CheckLoadedState value)? loaded,
-    TResult? Function(CheckErrorState value)? error,
+    TResult? Function(_CartInitial value)? initial,
+    TResult? Function(_CartLoadingState value)? loading,
+    TResult? Function(_CheckLoadedState value)? loaded,
+    TResult? Function(_CheckErrorState value)? error,
   }) {
     return error?.call(this);
   }
@@ -927,10 +927,10 @@ class _$CheckErrorState implements CheckErrorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CartInitial value)? initial,
-    TResult Function(CartLoadingState value)? loading,
-    TResult Function(CheckLoadedState value)? loaded,
-    TResult Function(CheckErrorState value)? error,
+    TResult Function(_CartInitial value)? initial,
+    TResult Function(_CartLoadingState value)? loading,
+    TResult Function(_CheckLoadedState value)? loaded,
+    TResult Function(_CheckErrorState value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -940,8 +940,8 @@ class _$CheckErrorState implements CheckErrorState {
   }
 }
 
-abstract class CheckErrorState implements CheckState {
-  const factory CheckErrorState({required final String message}) =
+abstract class _CheckErrorState implements CheckState {
+  const factory _CheckErrorState({required final String message}) =
       _$CheckErrorState;
 
   String get message;
