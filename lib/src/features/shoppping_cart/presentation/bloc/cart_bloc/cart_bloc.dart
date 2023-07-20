@@ -23,36 +23,36 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     Emitter emit,
   ) async {
     await event.when(
-        addedProduct: (ProductModel producto) async {
-          emit(const CartState.loading());
-          _cartListProducts = [..._cartListProducts, producto];
-          emit(
-            CartState.loaded(
-                productCartList: Cart(product: _cartListProducts),
-                checklist: _checklist),
-          );
-        },
-        removedProduct: (ProductModel producto) {
-          emit(const CartState.loading());
-          _cartListProducts.sort((a, b) => b.id.compareTo(a.id));
-          _cartListProducts.remove(producto);
+      addedProduct: (ProductModel producto) async {
+        emit(const CartState.loading());
+        _cartListProducts = [..._cartListProducts, producto];
+        emit(
+          CartState.loaded(
+            productCartList: Cart(product: _cartListProducts),
+          ),
+        );
+      },
+      removedProduct: (ProductModel producto) {
+        emit(const CartState.loading());
+        _cartListProducts.sort((a, b) => b.id.compareTo(a.id));
+        _cartListProducts.remove(producto);
 
-          emit(
-            CartState.loaded(
-                productCartList: Cart(product: _cartListProducts),
-                checklist: _checklist),
-          );
-        },
-        removedAllProduct: (ProductModel product) async {
-          emit(const CartState.loading());
-          removeProductsByMatch(product, _cartListProducts);
-          emit(
-            CartState.loaded(
-                productCartList: Cart(product: _cartListProducts),
-                checklist: _checklist),
-          );
-        },
-        changeCheckState: (ProductModel product) {});
+        emit(
+          CartState.loaded(
+            productCartList: Cart(product: _cartListProducts),
+          ),
+        );
+      },
+      removedAllProduct: (ProductModel product) async {
+        emit(const CartState.loading());
+        removeProductsByMatch(product, _cartListProducts);
+        emit(
+          CartState.loaded(
+            productCartList: Cart(product: _cartListProducts),
+          ),
+        );
+      },
+    );
   }
 }
 

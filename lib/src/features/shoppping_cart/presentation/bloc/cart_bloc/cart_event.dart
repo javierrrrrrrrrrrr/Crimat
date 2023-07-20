@@ -8,7 +8,4 @@ abstract class CartEvent with _$CartEvent {
       RemovedProductToCartEvent;
   const factory CartEvent.removedAllProduct({required ProductModel product}) =
       RemovedProductAllToCartEvent;
-
-  const factory CartEvent.changeCheckState({required ProductModel product}) =
-      ChangeCheckState;
 }

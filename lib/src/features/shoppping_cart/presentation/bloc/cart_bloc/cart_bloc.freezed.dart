@@ -22,7 +22,6 @@ mixin _$CartEvent {
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
-    required TResult Function(ProductModel product) changeCheckState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,7 +29,6 @@ mixin _$CartEvent {
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
-    TResult? Function(ProductModel product)? changeCheckState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,7 +36,6 @@ mixin _$CartEvent {
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
-    TResult Function(ProductModel product)? changeCheckState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,7 +45,6 @@ mixin _$CartEvent {
     required TResult Function(RemovedProductToCartEvent value) removedProduct,
     required TResult Function(RemovedProductAllToCartEvent value)
         removedAllProduct,
-    required TResult Function(ChangeCheckState value) changeCheckState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,7 +52,6 @@ mixin _$CartEvent {
     TResult? Function(AddedProductToCartEvent value)? addedProduct,
     TResult? Function(RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(RemovedProductAllToCartEvent value)? removedAllProduct,
-    TResult? Function(ChangeCheckState value)? changeCheckState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,7 +59,6 @@ mixin _$CartEvent {
     TResult Function(AddedProductToCartEvent value)? addedProduct,
     TResult Function(RemovedProductToCartEvent value)? removedProduct,
     TResult Function(RemovedProductAllToCartEvent value)? removedAllProduct,
-    TResult Function(ChangeCheckState value)? changeCheckState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -176,7 +170,6 @@ class _$AddedProductToCartEvent implements AddedProductToCartEvent {
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
-    required TResult Function(ProductModel product) changeCheckState,
   }) {
     return addedProduct(product);
   }
@@ -187,7 +180,6 @@ class _$AddedProductToCartEvent implements AddedProductToCartEvent {
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
-    TResult? Function(ProductModel product)? changeCheckState,
   }) {
     return addedProduct?.call(product);
   }
@@ -198,7 +190,6 @@ class _$AddedProductToCartEvent implements AddedProductToCartEvent {
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
-    TResult Function(ProductModel product)? changeCheckState,
     required TResult orElse(),
   }) {
     if (addedProduct != null) {
@@ -214,7 +205,6 @@ class _$AddedProductToCartEvent implements AddedProductToCartEvent {
     required TResult Function(RemovedProductToCartEvent value) removedProduct,
     required TResult Function(RemovedProductAllToCartEvent value)
         removedAllProduct,
-    required TResult Function(ChangeCheckState value) changeCheckState,
   }) {
     return addedProduct(this);
   }
@@ -225,7 +215,6 @@ class _$AddedProductToCartEvent implements AddedProductToCartEvent {
     TResult? Function(AddedProductToCartEvent value)? addedProduct,
     TResult? Function(RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(RemovedProductAllToCartEvent value)? removedAllProduct,
-    TResult? Function(ChangeCheckState value)? changeCheckState,
   }) {
     return addedProduct?.call(this);
   }
@@ -236,7 +225,6 @@ class _$AddedProductToCartEvent implements AddedProductToCartEvent {
     TResult Function(AddedProductToCartEvent value)? addedProduct,
     TResult Function(RemovedProductToCartEvent value)? removedProduct,
     TResult Function(RemovedProductAllToCartEvent value)? removedAllProduct,
-    TResult Function(ChangeCheckState value)? changeCheckState,
     required TResult orElse(),
   }) {
     if (addedProduct != null) {
@@ -329,7 +317,6 @@ class _$RemovedProductToCartEvent implements RemovedProductToCartEvent {
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
-    required TResult Function(ProductModel product) changeCheckState,
   }) {
     return removedProduct(product);
   }
@@ -340,7 +327,6 @@ class _$RemovedProductToCartEvent implements RemovedProductToCartEvent {
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
-    TResult? Function(ProductModel product)? changeCheckState,
   }) {
     return removedProduct?.call(product);
   }
@@ -351,7 +337,6 @@ class _$RemovedProductToCartEvent implements RemovedProductToCartEvent {
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
-    TResult Function(ProductModel product)? changeCheckState,
     required TResult orElse(),
   }) {
     if (removedProduct != null) {
@@ -367,7 +352,6 @@ class _$RemovedProductToCartEvent implements RemovedProductToCartEvent {
     required TResult Function(RemovedProductToCartEvent value) removedProduct,
     required TResult Function(RemovedProductAllToCartEvent value)
         removedAllProduct,
-    required TResult Function(ChangeCheckState value) changeCheckState,
   }) {
     return removedProduct(this);
   }
@@ -378,7 +362,6 @@ class _$RemovedProductToCartEvent implements RemovedProductToCartEvent {
     TResult? Function(AddedProductToCartEvent value)? addedProduct,
     TResult? Function(RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(RemovedProductAllToCartEvent value)? removedAllProduct,
-    TResult? Function(ChangeCheckState value)? changeCheckState,
   }) {
     return removedProduct?.call(this);
   }
@@ -389,7 +372,6 @@ class _$RemovedProductToCartEvent implements RemovedProductToCartEvent {
     TResult Function(AddedProductToCartEvent value)? addedProduct,
     TResult Function(RemovedProductToCartEvent value)? removedProduct,
     TResult Function(RemovedProductAllToCartEvent value)? removedAllProduct,
-    TResult Function(ChangeCheckState value)? changeCheckState,
     required TResult orElse(),
   }) {
     if (removedProduct != null) {
@@ -483,7 +465,6 @@ class _$RemovedProductAllToCartEvent implements RemovedProductAllToCartEvent {
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
-    required TResult Function(ProductModel product) changeCheckState,
   }) {
     return removedAllProduct(product);
   }
@@ -494,7 +475,6 @@ class _$RemovedProductAllToCartEvent implements RemovedProductAllToCartEvent {
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
-    TResult? Function(ProductModel product)? changeCheckState,
   }) {
     return removedAllProduct?.call(product);
   }
@@ -505,7 +485,6 @@ class _$RemovedProductAllToCartEvent implements RemovedProductAllToCartEvent {
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
-    TResult Function(ProductModel product)? changeCheckState,
     required TResult orElse(),
   }) {
     if (removedAllProduct != null) {
@@ -521,7 +500,6 @@ class _$RemovedProductAllToCartEvent implements RemovedProductAllToCartEvent {
     required TResult Function(RemovedProductToCartEvent value) removedProduct,
     required TResult Function(RemovedProductAllToCartEvent value)
         removedAllProduct,
-    required TResult Function(ChangeCheckState value) changeCheckState,
   }) {
     return removedAllProduct(this);
   }
@@ -532,7 +510,6 @@ class _$RemovedProductAllToCartEvent implements RemovedProductAllToCartEvent {
     TResult? Function(AddedProductToCartEvent value)? addedProduct,
     TResult? Function(RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(RemovedProductAllToCartEvent value)? removedAllProduct,
-    TResult? Function(ChangeCheckState value)? changeCheckState,
   }) {
     return removedAllProduct?.call(this);
   }
@@ -543,7 +520,6 @@ class _$RemovedProductAllToCartEvent implements RemovedProductAllToCartEvent {
     TResult Function(AddedProductToCartEvent value)? addedProduct,
     TResult Function(RemovedProductToCartEvent value)? removedProduct,
     TResult Function(RemovedProductAllToCartEvent value)? removedAllProduct,
-    TResult Function(ChangeCheckState value)? changeCheckState,
     required TResult orElse(),
   }) {
     if (removedAllProduct != null) {
@@ -566,164 +542,12 @@ abstract class RemovedProductAllToCartEvent implements CartEvent {
 }
 
 /// @nodoc
-abstract class _$$ChangeCheckStateCopyWith<$Res>
-    implements $CartEventCopyWith<$Res> {
-  factory _$$ChangeCheckStateCopyWith(
-          _$ChangeCheckState value, $Res Function(_$ChangeCheckState) then) =
-      __$$ChangeCheckStateCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ProductModel product});
-}
-
-/// @nodoc
-class __$$ChangeCheckStateCopyWithImpl<$Res>
-    extends _$CartEventCopyWithImpl<$Res, _$ChangeCheckState>
-    implements _$$ChangeCheckStateCopyWith<$Res> {
-  __$$ChangeCheckStateCopyWithImpl(
-      _$ChangeCheckState _value, $Res Function(_$ChangeCheckState) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? product = null,
-  }) {
-    return _then(_$ChangeCheckState(
-      product: null == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as ProductModel,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChangeCheckState implements ChangeCheckState {
-  const _$ChangeCheckState({required this.product});
-
-  @override
-  final ProductModel product;
-
-  @override
-  String toString() {
-    return 'CartEvent.changeCheckState(product: $product)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangeCheckState &&
-            (identical(other.product, product) || other.product == product));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, product);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangeCheckStateCopyWith<_$ChangeCheckState> get copyWith =>
-      __$$ChangeCheckStateCopyWithImpl<_$ChangeCheckState>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ProductModel product) addedProduct,
-    required TResult Function(ProductModel product) removedProduct,
-    required TResult Function(ProductModel product) removedAllProduct,
-    required TResult Function(ProductModel product) changeCheckState,
-  }) {
-    return changeCheckState(product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ProductModel product)? addedProduct,
-    TResult? Function(ProductModel product)? removedProduct,
-    TResult? Function(ProductModel product)? removedAllProduct,
-    TResult? Function(ProductModel product)? changeCheckState,
-  }) {
-    return changeCheckState?.call(product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ProductModel product)? addedProduct,
-    TResult Function(ProductModel product)? removedProduct,
-    TResult Function(ProductModel product)? removedAllProduct,
-    TResult Function(ProductModel product)? changeCheckState,
-    required TResult orElse(),
-  }) {
-    if (changeCheckState != null) {
-      return changeCheckState(product);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AddedProductToCartEvent value) addedProduct,
-    required TResult Function(RemovedProductToCartEvent value) removedProduct,
-    required TResult Function(RemovedProductAllToCartEvent value)
-        removedAllProduct,
-    required TResult Function(ChangeCheckState value) changeCheckState,
-  }) {
-    return changeCheckState(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AddedProductToCartEvent value)? addedProduct,
-    TResult? Function(RemovedProductToCartEvent value)? removedProduct,
-    TResult? Function(RemovedProductAllToCartEvent value)? removedAllProduct,
-    TResult? Function(ChangeCheckState value)? changeCheckState,
-  }) {
-    return changeCheckState?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AddedProductToCartEvent value)? addedProduct,
-    TResult Function(RemovedProductToCartEvent value)? removedProduct,
-    TResult Function(RemovedProductAllToCartEvent value)? removedAllProduct,
-    TResult Function(ChangeCheckState value)? changeCheckState,
-    required TResult orElse(),
-  }) {
-    if (changeCheckState != null) {
-      return changeCheckState(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangeCheckState implements CartEvent {
-  const factory ChangeCheckState({required final ProductModel product}) =
-      _$ChangeCheckState;
-
-  @override
-  ProductModel get product;
-  @override
-  @JsonKey(ignore: true)
-  _$$ChangeCheckStateCopyWith<_$ChangeCheckState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 mixin _$CartState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Cart productCartList, List<bool> checklist)
-        loaded,
+    required TResult Function(Cart productCartList) loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -731,7 +555,7 @@ mixin _$CartState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Cart productCartList, List<bool> checklist)? loaded,
+    TResult? Function(Cart productCartList)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -739,7 +563,7 @@ mixin _$CartState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Cart productCartList, List<bool> checklist)? loaded,
+    TResult Function(Cart productCartList)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -828,8 +652,7 @@ class _$CartInitial implements CartInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Cart productCartList, List<bool> checklist)
-        loaded,
+    required TResult Function(Cart productCartList) loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -840,7 +663,7 @@ class _$CartInitial implements CartInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Cart productCartList, List<bool> checklist)? loaded,
+    TResult? Function(Cart productCartList)? loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -851,7 +674,7 @@ class _$CartInitial implements CartInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Cart productCartList, List<bool> checklist)? loaded,
+    TResult Function(Cart productCartList)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -943,8 +766,7 @@ class _$CartLoadingState implements CartLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Cart productCartList, List<bool> checklist)
-        loaded,
+    required TResult Function(Cart productCartList) loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -955,7 +777,7 @@ class _$CartLoadingState implements CartLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Cart productCartList, List<bool> checklist)? loaded,
+    TResult? Function(Cart productCartList)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -966,7 +788,7 @@ class _$CartLoadingState implements CartLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Cart productCartList, List<bool> checklist)? loaded,
+    TResult Function(Cart productCartList)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -1024,7 +846,7 @@ abstract class _$$CartLoadedStateCopyWith<$Res> {
           _$CartLoadedState value, $Res Function(_$CartLoadedState) then) =
       __$$CartLoadedStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({Cart productCartList, List<bool> checklist});
+  $Res call({Cart productCartList});
 }
 
 /// @nodoc
@@ -1039,17 +861,12 @@ class __$$CartLoadedStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? productCartList = null,
-    Object? checklist = null,
   }) {
     return _then(_$CartLoadedState(
       productCartList: null == productCartList
           ? _value.productCartList
           : productCartList // ignore: cast_nullable_to_non_nullable
               as Cart,
-      checklist: null == checklist
-          ? _value._checklist
-          : checklist // ignore: cast_nullable_to_non_nullable
-              as List<bool>,
     ));
   }
 }
@@ -1057,23 +874,14 @@ class __$$CartLoadedStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CartLoadedState implements CartLoadedState {
-  const _$CartLoadedState(
-      {required this.productCartList, required final List<bool> checklist})
-      : _checklist = checklist;
+  const _$CartLoadedState({required this.productCartList});
 
   @override
   final Cart productCartList;
-  final List<bool> _checklist;
-  @override
-  List<bool> get checklist {
-    if (_checklist is EqualUnmodifiableListView) return _checklist;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_checklist);
-  }
 
   @override
   String toString() {
-    return 'CartState.loaded(productCartList: $productCartList, checklist: $checklist)';
+    return 'CartState.loaded(productCartList: $productCartList)';
   }
 
   @override
@@ -1082,14 +890,11 @@ class _$CartLoadedState implements CartLoadedState {
         (other.runtimeType == runtimeType &&
             other is _$CartLoadedState &&
             (identical(other.productCartList, productCartList) ||
-                other.productCartList == productCartList) &&
-            const DeepCollectionEquality()
-                .equals(other._checklist, _checklist));
+                other.productCartList == productCartList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, productCartList,
-      const DeepCollectionEquality().hash(_checklist));
+  int get hashCode => Object.hash(runtimeType, productCartList);
 
   @JsonKey(ignore: true)
   @override
@@ -1102,11 +907,10 @@ class _$CartLoadedState implements CartLoadedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Cart productCartList, List<bool> checklist)
-        loaded,
+    required TResult Function(Cart productCartList) loaded,
     required TResult Function(String message) error,
   }) {
-    return loaded(productCartList, checklist);
+    return loaded(productCartList);
   }
 
   @override
@@ -1114,10 +918,10 @@ class _$CartLoadedState implements CartLoadedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Cart productCartList, List<bool> checklist)? loaded,
+    TResult? Function(Cart productCartList)? loaded,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call(productCartList, checklist);
+    return loaded?.call(productCartList);
   }
 
   @override
@@ -1125,12 +929,12 @@ class _$CartLoadedState implements CartLoadedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Cart productCartList, List<bool> checklist)? loaded,
+    TResult Function(Cart productCartList)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(productCartList, checklist);
+      return loaded(productCartList);
     }
     return orElse();
   }
@@ -1174,12 +978,10 @@ class _$CartLoadedState implements CartLoadedState {
 }
 
 abstract class CartLoadedState implements CartState {
-  const factory CartLoadedState(
-      {required final Cart productCartList,
-      required final List<bool> checklist}) = _$CartLoadedState;
+  const factory CartLoadedState({required final Cart productCartList}) =
+      _$CartLoadedState;
 
   Cart get productCartList;
-  List<bool> get checklist;
   @JsonKey(ignore: true)
   _$$CartLoadedStateCopyWith<_$CartLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1251,8 +1053,7 @@ class _$CartErrorState implements CartErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Cart productCartList, List<bool> checklist)
-        loaded,
+    required TResult Function(Cart productCartList) loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -1263,7 +1064,7 @@ class _$CartErrorState implements CartErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Cart productCartList, List<bool> checklist)? loaded,
+    TResult? Function(Cart productCartList)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -1274,7 +1075,7 @@ class _$CartErrorState implements CartErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Cart productCartList, List<bool> checklist)? loaded,
+    TResult Function(Cart productCartList)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
