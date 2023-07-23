@@ -61,6 +61,7 @@
     "postalCode": "Código Postal",
     "products":"Productos",
     "productDetails":"Detalles del Producto",
+    "productSuccessfullyAddedToCart":"Producto agregado al carrito exitosamente.",
     "profile": "Perfil",
     "profileInfo": "información de perfil",
     "register": "Registrarse",

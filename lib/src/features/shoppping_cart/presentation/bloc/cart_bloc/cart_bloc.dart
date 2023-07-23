@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../models/home/products/producto_model.dart';
 
+
 part 'cart_event.dart';
 part 'cart_state.dart';
 part 'cart_bloc.freezed.dart';
@@ -17,6 +18,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   }
   List<ProductModel> _cartListProducts = [];
   List<ProductModel> get productList => _cartListProducts;
+
   FutureOr<void> eventHandler(
     CartEvent event,
     Emitter emit,
@@ -25,7 +27,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       addedProduct: (ProductModel producto) async {
         emit(const CartState.loading());
         _cartListProducts = [..._cartListProducts, producto];
-
+      
         emit(
           CartState.loaded(
             productCartList: Cart(product: _cartListProducts),
@@ -46,6 +48,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       removedAllProduct: (ProductModel product) async {
         emit(const CartState.loading());
         removeProductsByMatch(product, _cartListProducts);
+
         emit(
           CartState.loaded(
             productCartList: Cart(product: _cartListProducts),

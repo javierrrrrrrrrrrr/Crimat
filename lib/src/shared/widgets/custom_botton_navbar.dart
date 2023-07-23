@@ -1,4 +1,5 @@
 import 'package:crimat_app/src/features/layout/layout_cubit.dart';
+import 'package:crimat_app/src/features/layout/layout_state.dart';
 import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../../resources/app_icons.dart';
 import '../../../resources/general_styles.dart';
 import '../../features/historial/presentation/bloc/historial_bloc/historial_bloc.dart';
+import '../../features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 
 class CustomBottonNavigationBar extends StatelessWidget {
   const CustomBottonNavigationBar({
@@ -35,6 +37,20 @@ class CustomBottonNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final layoutCubitState = context.watch<LayoutCubit>().state;
+    return BlocBuilder<CartBloc, CartState>(
+        builder: (context, state) => state.when(
+              error: (message) => const SizedBox(),
+              initial: () => customNavbar(layoutCubitState, context, 0),
+              loaded: (cart) =>
+                  customNavbar(layoutCubitState, context, cart.product.length),
+              loading: () => customNavbar(layoutCubitState, context, 0),
+            ));
+
+    // );
+  }
+
+  BottomNavigationBar customNavbar(
+      LayoutState layoutCubitState, BuildContext context, int index) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       elevation: 0,
@@ -54,7 +70,7 @@ class CustomBottonNavigationBar extends StatelessWidget {
                 : AppIcons.history),
             label: context.loc.history),
         BottomNavigationBarItem(
-            icon: buyingCar(3, layoutCubitState.selectedIndex),
+            icon: buyingCar(index, layoutCubitState.selectedIndex),
             label: context.loc.buy),
         BottomNavigationBarItem(
             icon: Image.asset(layoutCubitState.selectedIndex == 3
