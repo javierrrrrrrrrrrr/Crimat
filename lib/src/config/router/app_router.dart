@@ -12,6 +12,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/historial/historial_view.dart';
 import '../../features/historial/presentation/view/historial_details_screen.dart';
 import '../../features/home/products_detales_screen.dart';
+import '../../features/perfil/presentation/view/delivery_address_view.dart';
 import '../../features/shoppping_cart/shopping_card_screen.dart';
 import '../../features/splash/splash_screen.dart';
 import '../../models/historial/historial_model.dart';
@@ -88,10 +89,17 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
         builder: (context, state) => const Scaffold(body: FavoritesView()),
       ),
       GoRoute(
-        path: '/profile',
-        name: ProfileView.name,
-        builder: (context, state) => const Scaffold(body: ProfileView()),
-      ),
+          path: '/profile',
+          name: ProfileView.name,
+          builder: (context, state) => const Scaffold(body: ProfileView()),
+          routes: [
+            GoRoute(
+                path: 'profile/address',
+                name: DeliveryAddress.name,
+                builder: (context, state) {
+                  return const Scaffold(body: DeliveryAddress());
+                }),
+          ]),
     ],
   ),
 
