@@ -24,7 +24,7 @@ class OptionButtoms extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: isShopping == true
             ? CustomCardSking(
-                total: double.parse(total!.toStringAsFixed(2)) ?? 0,
+                total: double.parse(total!.toStringAsFixed(2)),
               )
             : Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 CusotmButtom(
