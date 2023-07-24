@@ -45,28 +45,24 @@ class ShoppingCartWidget extends StatelessWidget {
               },
             ),
             //
-            Stack(
-              children: [
-                DetailsCard(
-                  onPressedDeleteAll: () => context
-                      .read<CartBloc>()
-                      .add(CartEvent.removedAllProduct(product: producto)),
-                  onPressedDelete: () => context
-                      .read<CartBloc>()
-                      .add(CartEvent.removedProduct(product: producto)),
-                  onPressedAdd: () => context
-                      .read<CartBloc>()
-                      .add(CartEvent.addedProduct(product: producto)),
-                  carcantidad: carcantidad,
-                  image: producto.image,
-                  isshoppingCart: true,
-                  height: 120.h,
-                  width: 320.w,
-                  name: producto.name,
-                  price: double.parse(producto.basePrice),
-                  quantity: 0,
-                ),
-              ],
+            DetailsCard(
+              onPressedDeleteAll: () => context
+                  .read<CartBloc>()
+                  .add(CartEvent.removedAllProduct(product: producto)),
+              onPressedDelete: () => context
+                  .read<CartBloc>()
+                  .add(CartEvent.removedProduct(product: producto)),
+              onPressedAdd: () => context
+                  .read<CartBloc>()
+                  .add(CartEvent.addedProduct(product: producto)),
+              carcantidad: carcantidad,
+              image: producto.image,
+              isshoppingCart: true,
+              height: 120.h,
+              width: 320.w,
+              name: producto.name,
+              price: double.parse(producto.basePrice),
+              quantity: 0,
             ),
           ],
         ),

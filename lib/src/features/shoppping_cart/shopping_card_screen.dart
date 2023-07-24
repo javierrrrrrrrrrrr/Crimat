@@ -47,7 +47,7 @@ class MainWidget extends StatelessWidget {
           child: const DireccionAddressRow(),
         ),
         SizedBox(
-          height: 740.h,
+          height: 690.h,
           child: CarruselListVerticalConfg(
               havesubtitle: true,
               title: "Tu Carrito",
