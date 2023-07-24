@@ -2,7 +2,7 @@ import 'package:crimat_app/src/shared/widgets/cusotm_buttom_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../shared/widgets/card_sking.dart';
+import '../../../../../shared/widgets/card_sking.dart';
 
 class CustomPlane extends StatelessWidget {
   const CustomPlane({

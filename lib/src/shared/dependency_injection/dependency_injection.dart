@@ -7,16 +7,19 @@ import 'package:http/http.dart' as http;
 import '../../features/historial/presentation/bloc/historial_bloc/historial_bloc.dart';
 import '../../features/home/presentation/bloc/categories_bloc/categories_bloc.dart';
 import '../../features/home/presentation/bloc/product_bloc/product_bloc.dart';
+import '../../features/perfil/presentation/bloc/profile_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import '../../repositories/categorias_repository.dart';
 import '../../repositories/historial_repository.dart';
 import '../../repositories/product_repository.dart';
+import '../../repositories/profile_repository.dart';
 import '../../services/almacen_data_source.dart';
 import '../../services/categories_data_source.dart';
 import '../../services/historial_sources/historial_local_data_source.dart';
 import '../../services/historial_sources/historial_online_data_source.dart';
 import '../../services/product_data_source.dart';
+import '../../services/profile_sources/profile_data_source.dart';
 
 final sl = GetIt.instance;
 
@@ -79,4 +82,15 @@ Future<void> init() async {
   //?? Blocs
   sl.registerFactory(() => CartBloc());
   sl.registerFactory(() => CheckBloc());
+
+  ///Profile
+  //?? DataSources.
+  sl.registerLazySingleton(() => ProfileDataSource(sl.get<http.Client>()));
+
+  //?? Repositories
+  sl.registerLazySingleton(
+      () => ProfileRepository(sl.get<ProfileDataSource>()));
+
+  //?? Blocs
+  sl.registerFactory(() => ProfileBloc(sl.get<ProfileRepository>()));
 }

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../models/profile/profile_model.dart';
+
 class PersonalInfo extends StatelessWidget {
   const PersonalInfo({
     super.key,
+    required this.profile,
   });
+
+  final ProfileModel profile;
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +25,14 @@ class PersonalInfo extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Pablo Ruiz",
-              style: TextStyle(
+            Text(
+              "${profile.firstName} ${profile.lastName}",
+              style: const TextStyle(
                 fontSize: 18,
               ),
             ),
             Text(
-              "pabloruiz@gmail.com",
+              profile.email,
               style:
                   TextStyle(fontSize: 14, color: Colors.black.withOpacity(0.4)),
             ),

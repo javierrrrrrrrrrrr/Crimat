@@ -75,20 +75,20 @@ class _$CheckEventCopyWithImpl<$Res, $Val extends CheckEvent>
 }
 
 /// @nodoc
-abstract class _$$UpdateListCopyWith<$Res> {
-  factory _$$UpdateListCopyWith(
-          _$UpdateList value, $Res Function(_$UpdateList) then) =
-      __$$UpdateListCopyWithImpl<$Res>;
+abstract class _$$_UpdateListCopyWith<$Res> {
+  factory _$$_UpdateListCopyWith(
+          _$_UpdateList value, $Res Function(_$_UpdateList) then) =
+      __$$_UpdateListCopyWithImpl<$Res>;
   @useResult
   $Res call({List<ProductModel> productlist});
 }
 
 /// @nodoc
-class __$$UpdateListCopyWithImpl<$Res>
-    extends _$CheckEventCopyWithImpl<$Res, _$UpdateList>
-    implements _$$UpdateListCopyWith<$Res> {
-  __$$UpdateListCopyWithImpl(
-      _$UpdateList _value, $Res Function(_$UpdateList) _then)
+class __$$_UpdateListCopyWithImpl<$Res>
+    extends _$CheckEventCopyWithImpl<$Res, _$_UpdateList>
+    implements _$$_UpdateListCopyWith<$Res> {
+  __$$_UpdateListCopyWithImpl(
+      _$_UpdateList _value, $Res Function(_$_UpdateList) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +96,7 @@ class __$$UpdateListCopyWithImpl<$Res>
   $Res call({
     Object? productlist = null,
   }) {
-    return _then(_$UpdateList(
+    return _then(_$_UpdateList(
       productlist: null == productlist
           ? _value._productlist
           : productlist // ignore: cast_nullable_to_non_nullable
@@ -107,8 +107,8 @@ class __$$UpdateListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateList implements _UpdateList {
-  const _$UpdateList({required final List<ProductModel> productlist})
+class _$_UpdateList implements _UpdateList {
+  const _$_UpdateList({required final List<ProductModel> productlist})
       : _productlist = productlist;
 
   final List<ProductModel> _productlist;
@@ -128,7 +128,7 @@ class _$UpdateList implements _UpdateList {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpdateList &&
+            other is _$_UpdateList &&
             const DeepCollectionEquality()
                 .equals(other._productlist, _productlist));
   }
@@ -140,8 +140,8 @@ class _$UpdateList implements _UpdateList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UpdateListCopyWith<_$UpdateList> get copyWith =>
-      __$$UpdateListCopyWithImpl<_$UpdateList>(this, _$identity);
+  _$$_UpdateListCopyWith<_$_UpdateList> get copyWith =>
+      __$$_UpdateListCopyWithImpl<_$_UpdateList>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -208,29 +208,29 @@ class _$UpdateList implements _UpdateList {
 
 abstract class _UpdateList implements CheckEvent {
   const factory _UpdateList({required final List<ProductModel> productlist}) =
-      _$UpdateList;
+      _$_UpdateList;
 
   List<ProductModel> get productlist;
   @JsonKey(ignore: true)
-  _$$UpdateListCopyWith<_$UpdateList> get copyWith =>
+  _$$_UpdateListCopyWith<_$_UpdateList> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UpdatevisibilityCopyWith<$Res> {
-  factory _$$UpdatevisibilityCopyWith(
-          _$Updatevisibility value, $Res Function(_$Updatevisibility) then) =
-      __$$UpdatevisibilityCopyWithImpl<$Res>;
+abstract class _$$_UpdatevisibilityCopyWith<$Res> {
+  factory _$$_UpdatevisibilityCopyWith(
+          _$_Updatevisibility value, $Res Function(_$_Updatevisibility) then) =
+      __$$_UpdatevisibilityCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$UpdatevisibilityCopyWithImpl<$Res>
-    extends _$CheckEventCopyWithImpl<$Res, _$Updatevisibility>
-    implements _$$UpdatevisibilityCopyWith<$Res> {
-  __$$UpdatevisibilityCopyWithImpl(
-      _$Updatevisibility _value, $Res Function(_$Updatevisibility) _then)
+class __$$_UpdatevisibilityCopyWithImpl<$Res>
+    extends _$CheckEventCopyWithImpl<$Res, _$_Updatevisibility>
+    implements _$$_UpdatevisibilityCopyWith<$Res> {
+  __$$_UpdatevisibilityCopyWithImpl(
+      _$_Updatevisibility _value, $Res Function(_$_Updatevisibility) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -238,7 +238,7 @@ class __$$UpdatevisibilityCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$Updatevisibility(
+    return _then(_$_Updatevisibility(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -249,8 +249,8 @@ class __$$UpdatevisibilityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Updatevisibility implements _Updatevisibility {
-  const _$Updatevisibility({required this.index});
+class _$_Updatevisibility implements _Updatevisibility {
+  const _$_Updatevisibility({required this.index});
 
   @override
   final int index;
@@ -264,7 +264,7 @@ class _$Updatevisibility implements _Updatevisibility {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Updatevisibility &&
+            other is _$_Updatevisibility &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -274,8 +274,8 @@ class _$Updatevisibility implements _Updatevisibility {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UpdatevisibilityCopyWith<_$Updatevisibility> get copyWith =>
-      __$$UpdatevisibilityCopyWithImpl<_$Updatevisibility>(this, _$identity);
+  _$$_UpdatevisibilityCopyWith<_$_Updatevisibility> get copyWith =>
+      __$$_UpdatevisibilityCopyWithImpl<_$_Updatevisibility>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -342,11 +342,11 @@ class _$Updatevisibility implements _Updatevisibility {
 
 abstract class _Updatevisibility implements CheckEvent {
   const factory _Updatevisibility({required final int index}) =
-      _$Updatevisibility;
+      _$_Updatevisibility;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$UpdatevisibilityCopyWith<_$Updatevisibility> get copyWith =>
+  _$$_UpdatevisibilityCopyWith<_$_Updatevisibility> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -423,25 +423,25 @@ class _$CheckStateCopyWithImpl<$Res, $Val extends CheckState>
 }
 
 /// @nodoc
-abstract class _$$CartInitialCopyWith<$Res> {
-  factory _$$CartInitialCopyWith(
-          _$CartInitial value, $Res Function(_$CartInitial) then) =
-      __$$CartInitialCopyWithImpl<$Res>;
+abstract class _$$_CartInitialCopyWith<$Res> {
+  factory _$$_CartInitialCopyWith(
+          _$_CartInitial value, $Res Function(_$_CartInitial) then) =
+      __$$_CartInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CartInitialCopyWithImpl<$Res>
-    extends _$CheckStateCopyWithImpl<$Res, _$CartInitial>
-    implements _$$CartInitialCopyWith<$Res> {
-  __$$CartInitialCopyWithImpl(
-      _$CartInitial _value, $Res Function(_$CartInitial) _then)
+class __$$_CartInitialCopyWithImpl<$Res>
+    extends _$CheckStateCopyWithImpl<$Res, _$_CartInitial>
+    implements _$$_CartInitialCopyWith<$Res> {
+  __$$_CartInitialCopyWithImpl(
+      _$_CartInitial _value, $Res Function(_$_CartInitial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CartInitial implements _CartInitial {
-  const _$CartInitial();
+class _$_CartInitial implements _CartInitial {
+  const _$_CartInitial();
 
   @override
   String toString() {
@@ -451,7 +451,7 @@ class _$CartInitial implements _CartInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CartInitial);
+        (other.runtimeType == runtimeType && other is _$_CartInitial);
   }
 
   @override
@@ -533,29 +533,29 @@ class _$CartInitial implements _CartInitial {
 }
 
 abstract class _CartInitial implements CheckState {
-  const factory _CartInitial() = _$CartInitial;
+  const factory _CartInitial() = _$_CartInitial;
 }
 
 /// @nodoc
-abstract class _$$CartLoadingStateCopyWith<$Res> {
-  factory _$$CartLoadingStateCopyWith(
-          _$CartLoadingState value, $Res Function(_$CartLoadingState) then) =
-      __$$CartLoadingStateCopyWithImpl<$Res>;
+abstract class _$$_CartLoadingStateCopyWith<$Res> {
+  factory _$$_CartLoadingStateCopyWith(
+          _$_CartLoadingState value, $Res Function(_$_CartLoadingState) then) =
+      __$$_CartLoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CartLoadingStateCopyWithImpl<$Res>
-    extends _$CheckStateCopyWithImpl<$Res, _$CartLoadingState>
-    implements _$$CartLoadingStateCopyWith<$Res> {
-  __$$CartLoadingStateCopyWithImpl(
-      _$CartLoadingState _value, $Res Function(_$CartLoadingState) _then)
+class __$$_CartLoadingStateCopyWithImpl<$Res>
+    extends _$CheckStateCopyWithImpl<$Res, _$_CartLoadingState>
+    implements _$$_CartLoadingStateCopyWith<$Res> {
+  __$$_CartLoadingStateCopyWithImpl(
+      _$_CartLoadingState _value, $Res Function(_$_CartLoadingState) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CartLoadingState implements _CartLoadingState {
-  const _$CartLoadingState();
+class _$_CartLoadingState implements _CartLoadingState {
+  const _$_CartLoadingState();
 
   @override
   String toString() {
@@ -565,7 +565,7 @@ class _$CartLoadingState implements _CartLoadingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CartLoadingState);
+        (other.runtimeType == runtimeType && other is _$_CartLoadingState);
   }
 
   @override
@@ -647,24 +647,24 @@ class _$CartLoadingState implements _CartLoadingState {
 }
 
 abstract class _CartLoadingState implements CheckState {
-  const factory _CartLoadingState() = _$CartLoadingState;
+  const factory _CartLoadingState() = _$_CartLoadingState;
 }
 
 /// @nodoc
-abstract class _$$CheckLoadedStateCopyWith<$Res> {
-  factory _$$CheckLoadedStateCopyWith(
-          _$CheckLoadedState value, $Res Function(_$CheckLoadedState) then) =
-      __$$CheckLoadedStateCopyWithImpl<$Res>;
+abstract class _$$_CheckLoadedStateCopyWith<$Res> {
+  factory _$$_CheckLoadedStateCopyWith(
+          _$_CheckLoadedState value, $Res Function(_$_CheckLoadedState) then) =
+      __$$_CheckLoadedStateCopyWithImpl<$Res>;
   @useResult
   $Res call({List<bool> selection});
 }
 
 /// @nodoc
-class __$$CheckLoadedStateCopyWithImpl<$Res>
-    extends _$CheckStateCopyWithImpl<$Res, _$CheckLoadedState>
-    implements _$$CheckLoadedStateCopyWith<$Res> {
-  __$$CheckLoadedStateCopyWithImpl(
-      _$CheckLoadedState _value, $Res Function(_$CheckLoadedState) _then)
+class __$$_CheckLoadedStateCopyWithImpl<$Res>
+    extends _$CheckStateCopyWithImpl<$Res, _$_CheckLoadedState>
+    implements _$$_CheckLoadedStateCopyWith<$Res> {
+  __$$_CheckLoadedStateCopyWithImpl(
+      _$_CheckLoadedState _value, $Res Function(_$_CheckLoadedState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -672,7 +672,7 @@ class __$$CheckLoadedStateCopyWithImpl<$Res>
   $Res call({
     Object? selection = null,
   }) {
-    return _then(_$CheckLoadedState(
+    return _then(_$_CheckLoadedState(
       selection: null == selection
           ? _value._selection
           : selection // ignore: cast_nullable_to_non_nullable
@@ -683,8 +683,8 @@ class __$$CheckLoadedStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CheckLoadedState implements _CheckLoadedState {
-  const _$CheckLoadedState({required final List<bool> selection})
+class _$_CheckLoadedState implements _CheckLoadedState {
+  const _$_CheckLoadedState({required final List<bool> selection})
       : _selection = selection;
 
   final List<bool> _selection;
@@ -704,7 +704,7 @@ class _$CheckLoadedState implements _CheckLoadedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CheckLoadedState &&
+            other is _$_CheckLoadedState &&
             const DeepCollectionEquality()
                 .equals(other._selection, _selection));
   }
@@ -716,8 +716,8 @@ class _$CheckLoadedState implements _CheckLoadedState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CheckLoadedStateCopyWith<_$CheckLoadedState> get copyWith =>
-      __$$CheckLoadedStateCopyWithImpl<_$CheckLoadedState>(this, _$identity);
+  _$$_CheckLoadedStateCopyWith<_$_CheckLoadedState> get copyWith =>
+      __$$_CheckLoadedStateCopyWithImpl<_$_CheckLoadedState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -796,29 +796,29 @@ class _$CheckLoadedState implements _CheckLoadedState {
 
 abstract class _CheckLoadedState implements CheckState {
   const factory _CheckLoadedState({required final List<bool> selection}) =
-      _$CheckLoadedState;
+      _$_CheckLoadedState;
 
   List<bool> get selection;
   @JsonKey(ignore: true)
-  _$$CheckLoadedStateCopyWith<_$CheckLoadedState> get copyWith =>
+  _$$_CheckLoadedStateCopyWith<_$_CheckLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CheckErrorStateCopyWith<$Res> {
-  factory _$$CheckErrorStateCopyWith(
-          _$CheckErrorState value, $Res Function(_$CheckErrorState) then) =
-      __$$CheckErrorStateCopyWithImpl<$Res>;
+abstract class _$$_CheckErrorStateCopyWith<$Res> {
+  factory _$$_CheckErrorStateCopyWith(
+          _$_CheckErrorState value, $Res Function(_$_CheckErrorState) then) =
+      __$$_CheckErrorStateCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$CheckErrorStateCopyWithImpl<$Res>
-    extends _$CheckStateCopyWithImpl<$Res, _$CheckErrorState>
-    implements _$$CheckErrorStateCopyWith<$Res> {
-  __$$CheckErrorStateCopyWithImpl(
-      _$CheckErrorState _value, $Res Function(_$CheckErrorState) _then)
+class __$$_CheckErrorStateCopyWithImpl<$Res>
+    extends _$CheckStateCopyWithImpl<$Res, _$_CheckErrorState>
+    implements _$$_CheckErrorStateCopyWith<$Res> {
+  __$$_CheckErrorStateCopyWithImpl(
+      _$_CheckErrorState _value, $Res Function(_$_CheckErrorState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -826,7 +826,7 @@ class __$$CheckErrorStateCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$CheckErrorState(
+    return _then(_$_CheckErrorState(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -837,8 +837,8 @@ class __$$CheckErrorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CheckErrorState implements _CheckErrorState {
-  const _$CheckErrorState({required this.message});
+class _$_CheckErrorState implements _CheckErrorState {
+  const _$_CheckErrorState({required this.message});
 
   @override
   final String message;
@@ -852,7 +852,7 @@ class _$CheckErrorState implements _CheckErrorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CheckErrorState &&
+            other is _$_CheckErrorState &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -862,8 +862,8 @@ class _$CheckErrorState implements _CheckErrorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CheckErrorStateCopyWith<_$CheckErrorState> get copyWith =>
-      __$$CheckErrorStateCopyWithImpl<_$CheckErrorState>(this, _$identity);
+  _$$_CheckErrorStateCopyWith<_$_CheckErrorState> get copyWith =>
+      __$$_CheckErrorStateCopyWithImpl<_$_CheckErrorState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -942,10 +942,10 @@ class _$CheckErrorState implements _CheckErrorState {
 
 abstract class _CheckErrorState implements CheckState {
   const factory _CheckErrorState({required final String message}) =
-      _$CheckErrorState;
+      _$_CheckErrorState;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$CheckErrorStateCopyWith<_$CheckErrorState> get copyWith =>
+  _$$_CheckErrorStateCopyWith<_$_CheckErrorState> get copyWith =>
       throw _privateConstructorUsedError;
 }

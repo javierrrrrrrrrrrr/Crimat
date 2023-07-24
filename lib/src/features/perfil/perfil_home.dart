@@ -1,11 +1,15 @@
-import 'package:crimat_app/src/features/perfil/view/widget/custom_line_widget.dart';
+import 'package:crimat_app/src/features/perfil/presentation/bloc/profile_bloc.dart';
+import 'package:crimat_app/src/features/perfil/presentation/view/widget/custom_line_widget.dart';
+import 'package:crimat_app/src/features/perfil/presentation/view/widget/perfil_option_widget.dart';
+import 'package:crimat_app/src/features/perfil/presentation/view/widget/personal_info_widget.dart';
 import 'package:crimat_app/src/features/perfil/view/widget/custom_plane_widget.dart';
-import 'package:crimat_app/src/features/perfil/view/widget/perfil_option_widget.dart';
-import 'package:crimat_app/src/features/perfil/view/widget/personal_info_widget.dart';
+
 import 'package:crimat_app/src/shared/widgets/cusotm_buttom_product.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../models/profile/profile_model.dart';
 import '../../shared/utils/const.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 
@@ -15,6 +19,27 @@ class ProfileView extends StatelessWidget {
   });
 
   static const String name = 'profile_view';
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ProfileBloc, ProfileState>(
+        builder: (context, state) => state.when(
+            failure: (message) => Container(),
+            initial: () => Container(),
+            loading: () => Container(),
+            success: (profile) => ProfileMainWidget(
+                  profil: profile,
+                )));
+  }
+}
+
+class ProfileMainWidget extends StatelessWidget {
+  const ProfileMainWidget({
+    super.key,
+    required this.profil,
+  });
+
+  final ProfileModel profil;
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +77,10 @@ class ProfileView extends StatelessWidget {
             )
           ],
         ),
-        const Positioned(
+        Positioned(
           top: 100,
           left: 20,
-          child: PersonalInfo(),
+          child: PersonalInfo(profile: profil),
         ),
         const Positioned(
           top: 180,

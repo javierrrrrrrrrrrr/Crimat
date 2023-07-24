@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../shared/dependency_injection/dependency_injection.dart';
 import '../../shared/widgets/custom_botton_navbar.dart';
 import '../historial/presentation/bloc/historial_bloc/historial_bloc.dart';
+import '../perfil/presentation/bloc/profile_bloc.dart';
 import '../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import 'layout_cubit.dart';
@@ -34,6 +35,8 @@ class LayoutScreen extends StatelessWidget {
                 sl<HistorialBloc>()..add(const HistorialEvent.load())),
         BlocProvider(create: (_) => sl<CartBloc>()),
         BlocProvider(create: (_) => sl<CheckBloc>()),
+        BlocProvider(
+            create: (_) => sl<ProfileBloc>()..add(const ProfileEvent.load())),
       ],
       child: BlocBuilder<LayoutCubit, LayoutState>(builder: (context, state) {
         return Scaffold(
