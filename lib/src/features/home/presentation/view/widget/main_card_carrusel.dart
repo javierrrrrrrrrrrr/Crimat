@@ -88,7 +88,8 @@ class MainCardCarrusel extends StatelessWidget {
                       CheckEvent.updateList(productlist: cartBloc.productList));
 
                   UtilFunctions.printToast(
-                      message: context.loc.productSuccessfullyAddedToCart);
+                      message: context.loc.productSuccessfullyAddedToCart,
+                      shorttime: true);
                 },
                 ispraimary: true,
                 name: context.loc.addToCart,
