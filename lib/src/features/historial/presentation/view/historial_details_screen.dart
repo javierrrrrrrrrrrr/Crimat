@@ -1,18 +1,21 @@
-import 'package:crimat_app/src/features/historial/view/widget/custom_date.dart';
-import 'package:crimat_app/src/features/historial/view/widget/custom_details_colum.dart';
-import 'package:crimat_app/src/features/historial/view/widget/custom_product_details_colum.dart';
-import 'package:crimat_app/src/features/historial/view/widget/orden_details.dart';
+import 'package:crimat_app/src/features/historial/presentation/view/widget/custom_date.dart';
+import 'package:crimat_app/src/features/historial/presentation/view/widget/custom_details_colum.dart';
+import 'package:crimat_app/src/features/historial/presentation/view/widget/custom_product_details_colum.dart';
+import 'package:crimat_app/src/features/historial/presentation/view/widget/orden_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../shared/widgets/card_sking.dart';
-import '../../../shared/widgets/cusotm_buttom_product.dart';
-import '../../home/presentation/view/widget/custom_title.dart';
+import '../../../../models/historial/historial_model.dart';
+import '../../../../shared/widgets/card_sking.dart';
+import '../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../home/presentation/view/widget/custom_title.dart';
 
 class HistorialDetails extends StatelessWidget {
   static const String name = 'hisorial_view_details';
 
-  const HistorialDetails({super.key});
+  const HistorialDetails({super.key, required this.datos});
+
+  final OrdenModel datos;
 
   @override
   Widget build(BuildContext context) {
@@ -39,24 +42,30 @@ class HistorialDetails extends StatelessWidget {
                 Positioned(
                   top: 20.h,
                   left: 40,
-                  child: const ColumDetails(
+                  child: ColumDetails(
                     isvisibleamount: false,
+                    orderNumber: datos.orderNumber,
+                    quantity: datos.quantity,
+                    totalAmount: datos.totalAmount,
+                    warehouse: datos.warehouse,
                   ),
                 ),
                 Positioned(
                   top: 32.h,
                   right: 45,
-                  child: const CustomDate(),
+                  child: CustomDate(
+                    date: datos.orderDate,
+                  ),
                 ),
                 Positioned(
                   left: 40.w,
                   top: 130.h,
-                  child: const CustomCardProdcutsDetailsColum(),
+                  child: CustomCardProdcutsDetailsColum(datos: datos),
                 ),
                 Positioned(
                   left: 40.w,
                   top: 420.h,
-                  child: const OrdenDetails(),
+                  child: OrdenDetails(datos: datos),
                 ),
                 Positioned(
                   bottom: 35.h,

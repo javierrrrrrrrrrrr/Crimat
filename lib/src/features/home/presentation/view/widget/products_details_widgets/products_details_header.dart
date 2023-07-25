@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -22,7 +23,7 @@ class ProductDetailsHeder extends StatelessWidget {
         SizedBox(
           width: 80.w,
         ),
-        const Text("Detalles del Producto"),
+        Text(context.loc.productDetails),
       ],
     );
   }

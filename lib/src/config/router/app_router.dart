@@ -10,9 +10,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/historial/historial_view.dart';
-import '../../features/historial/view/historial_details_screen.dart';
+import '../../features/historial/presentation/view/historial_details_screen.dart';
 import '../../features/home/products_detales_screen.dart';
+import '../../features/perfil/presentation/view/delivery_address_view.dart';
+import '../../features/shoppping_cart/shopping_card_screen.dart';
 import '../../features/splash/splash_screen.dart';
+import '../../models/historial/historial_model.dart';
+import '../../models/home/products/producto_model.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [
   GoRoute(
@@ -43,8 +47,14 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
             GoRoute(
                 path: 'home/details',
                 name: ProductsDetails.name,
-                builder: (context, state) =>
-                    const Scaffold(body: ProductsDetails())),
+                builder: (context, state) {
+                  final args = state.extra as ProductModel;
+                  return Scaffold(
+                      body: ProductsDetails(
+                    product: args,
+                    key: state.pageKey,
+                  ));
+                }),
           ]),
       GoRoute(
           path: '/history',
@@ -56,17 +66,22 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
             GoRoute(
                 path: 'history/details',
                 name: HistorialDetails.name,
-                builder: (context, state) =>
-                    const Scaffold(body: HistorialDetails())),
+                builder: (context, state) {
+                  final args = state.extra as OrdenModel;
+                  return Scaffold(
+                      body: HistorialDetails(
+                    datos: args,
+                    key: state.pageKey,
+                  ));
+                }),
           ]),
       GoRoute(
         path: '/cart',
-        name: 'cart',
+        name: ShoppingCartView.name,
         builder: (context, state) => const Scaffold(
-          body: Center(
-            child: Text('CART VIEW'),
-          ),
-        ),
+            body: Scaffold(
+          body: ShoppingCartView(),
+        )),
       ),
       GoRoute(
         path: '/favotites',
@@ -74,10 +89,17 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
         builder: (context, state) => const Scaffold(body: FavoritesView()),
       ),
       GoRoute(
-        path: '/profile',
-        name: ProfileView.name,
-        builder: (context, state) => const Scaffold(body: ProfileView()),
-      ),
+          path: '/profile',
+          name: ProfileView.name,
+          builder: (context, state) => const Scaffold(body: ProfileView()),
+          routes: [
+            GoRoute(
+                path: 'profile/address',
+                name: DeliveryAddress.name,
+                builder: (context, state) {
+                  return const Scaffold(body: DeliveryAddress());
+                }),
+          ]),
     ],
   ),
 

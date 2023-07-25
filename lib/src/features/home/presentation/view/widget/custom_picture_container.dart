@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../resources/urls.dart';
+
 class PictureContainer extends StatelessWidget {
   const PictureContainer({
     super.key,
@@ -18,7 +20,7 @@ class PictureContainer extends StatelessWidget {
     return FadeInImage.assetNetwork(
       placeholder: 'assets/images/no_image.png',
       placeholderFit: BoxFit.fill,
-      image: isanotherurl ?? 'https://whiletruecu.com/$pictureUrl',
+      image: isanotherurl ?? 'https://${Urls.api}/$pictureUrl',
       fit: BoxFit.fill,
       height: height ?? 140.sp,
       width: double.infinity,

@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../shared/widgets/card_sking.dart';
@@ -13,7 +14,7 @@ class FavoriteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const CardSking(),
+        CardSking(cardwidth: 450.w),
         Positioned(
           left: 10.w,
           bottom: 9.h,
@@ -44,7 +45,7 @@ class FavoriteCard extends StatelessWidget {
               CusotmButtom(
                 height: 30.h,
                 width: 160.w,
-                name: "Comprar ahora",
+                name: context.loc.buyNow,
                 ispraimary: true,
               ),
             ],

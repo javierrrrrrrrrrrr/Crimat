@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -6,7 +7,12 @@ import '../../../../../../shared/widgets/cusotm_buttom_product.dart';
 class OptionButtoms extends StatelessWidget {
   const OptionButtoms({
     super.key,
+    this.isShopping,
+    this.total,
   });
+
+  final bool? isShopping;
+  final double? total;
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +22,72 @@ class OptionButtoms extends StatelessWidget {
       color: const Color(0xFFD63E30).withOpacity(0.4),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
-        child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: isShopping == true
+            ? CustomCardSking(
+                total: double.parse(total!.toStringAsFixed(2)),
+              )
+            : Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                CusotmButtom(
+                  height: 45,
+                  width: 178,
+                  name: context.loc.addToCart,
+                  ispraimary: false,
+                ),
+                CusotmButtom(
+                  height: 45,
+                  width: 178,
+                  name: context.loc.buyNow,
+                  ispraimary: true,
+                ),
+              ]),
+      ),
+    );
+  }
+}
+
+class CustomCardSking extends StatelessWidget {
+  const CustomCardSking({
+    super.key,
+    this.total,
+  });
+
+  final double? total;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Align(
+          alignment: Alignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CusotmButtom(
-                height: 45,
-                width: 178,
-                name: "Añadir al carrito",
-                ispraimary: false,
-              ),
-              CusotmButtom(
-                height: 45,
-                width: 178,
-                name: "Comprar ahora",
+                height: 55.h,
+                width: 290.w,
+                name: context.loc.continueToPayment,
+                lettersize: 160.w,
                 ispraimary: true,
               ),
-            ]),
-      ),
+            ],
+          ),
+        ),
+        Positioned(
+          top: 12.h,
+          child: Text(
+            "Total",
+            style: TextStyle(fontSize: 14.sp),
+          ),
+        ),
+        Positioned(
+          top: 12.h,
+          right: 0,
+          child: Text(
+            "\$$total",
+            style: TextStyle(fontSize: 14.sp),
+          ),
+        ),
+      ],
     );
   }
 }

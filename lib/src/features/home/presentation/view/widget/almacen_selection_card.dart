@@ -1,6 +1,7 @@
 import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
 import 'package:crimat_app/src/features/home/presentation/bloc/categories_bloc/categories_bloc.dart';
 import 'package:crimat_app/src/models/home/almacen/almacen_model.dart';
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -133,7 +134,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
                     //navegar para los detalles del almacen
                   },
                   ispraimary: true,
-                  name: "Ver almacen",
+                  name: context.loc.viewWarehouse,
                   height: 34.h,
                   width: 120.w,
                 ),

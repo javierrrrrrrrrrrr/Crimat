@@ -57,6 +57,7 @@ Map<String, dynamic> _$DireccionModelToJson(DireccionModel instance) =>
 
 ProductoModel _$ProductoModelFromJson(Map<String, dynamic> json) =>
     ProductoModel(
+      json['imagen'] as String,
       price: (json['precio'] as num).toDouble(),
       name: json['nombre'] as String,
       quantity: (json['cantidad'] as num).toDouble(),
@@ -67,4 +68,5 @@ Map<String, dynamic> _$ProductoModelToJson(ProductoModel instance) =>
       'precio': instance.price,
       'nombre': instance.name,
       'cantidad': instance.quantity,
+      'imagen': instance.imagen,
     };

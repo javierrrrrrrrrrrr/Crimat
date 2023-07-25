@@ -2,22 +2,24 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../../resources/urls.dart';
-import '../errors/expetion.dart';
-import '../models/historial/historial_model.dart';
+import '../../../resources/urls.dart';
+import '../../errors/expetion.dart';
+import '../../models/historial/historial_model.dart';
 
-class HistorialDataSource {
+class HistorialOnlineDataSource {
   final http.Client client;
 
-  HistorialDataSource(this.client);
+  HistorialOnlineDataSource(this.client);
 
   Future<List<OrdenModel>> getAllhistorial(String token) async {
-    final Uri uri = Uri.https(Urls.api, Urls.gethistorial, {
-      'token': token,
-    });
+    final Uri uri = Uri.https(
+      Urls.api,
+      Urls.gethistorial,
+    );
 
     try {
-      final response = await http.get(uri);
+      final response =
+          await http.get(uri, headers: {'Authorization': 'Bearer $token'});
 
       if (response.statusCode == 200) {
         final jsonMap = jsonDecode(response.body) as List<dynamic>;

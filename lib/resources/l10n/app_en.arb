@@ -2,12 +2,14 @@
     "about": "About the app",
     "accept": "Accept",
     "add": "Add",
+    "addToCart":"Add to cart",
     "address": "Address",
     "aparted": "Aparted",
     "app_title": "Base Project",
     "auth": "Authentication",
     "authenticationNeeded": "You need to be authenticated",
-    "buy": "Carrito",
+    "buy": "Buy",
+    "buyNow":"Buy now",
     "checkVersion": "Version Checking",
     "city": "City",
     "close": "Close",
@@ -16,6 +18,7 @@
     "confirm": "Confirm",
     "confirmPassword": "Confirm password",
     "contactUs": "Contact us",
+    "continueToPayment":"Continue to Payment",
     "toContinue": "To continue",
     "currentPassword": "Current Password",
     "createAccount": "Create an account",
@@ -26,6 +29,7 @@
     "exit": "Exit",
     "error": "Error",
     "favorites": "Favorites",
+    "filters":"Filters",
     "forgotPass": "Forgot password?",
     "home": "Home",
     "history": "History",
@@ -55,6 +59,9 @@
     "phone": "Phone",
     "platformError": "Could not get the actual platform",
     "postalCode": "Postal Code",
+    "products":"Products",
+    "productDetails":"Product Details",
+    "productSuccessfullyAddedToCart":"Product successfully added to cart",
     "profile": "Profile",
     "profileInfo": "profile info",
     "register": "Register",
@@ -67,6 +74,7 @@
     "resetPasswordExplanation": "Please enter your email address and we will send you a link to create a new one password.",
     "retry": "Retry",
     "searchCountry": "Search Country",
+    "selectWarehouse": "Select Warehouse",
     "serverTimeout": "The server is taking time to respond, please try again",
     "sorryUnexpectedError": "Sorry, an unexpected error has occurred",
     "state": "State",
@@ -81,7 +89,17 @@
     "userName": "Username",
     "version": "Version",
     "versionError": "The specified version on the specified platform does not exist",
+    "viewWarehouse":"View warehouse",
+    "warehouseProductsSelection":"Select a warehouse to view the products.",
     "wrongLogin": "Your session has expired",
+    
+   
+    
+    
+     "wrongLogin": "Your session has expired",
+
+   
+ 
 
     "helloAgain": "Hello, welcome again to your account."
 

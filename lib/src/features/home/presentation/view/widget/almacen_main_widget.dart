@@ -29,7 +29,7 @@ class AlmacenWidgetPrincipal extends StatelessWidget {
           child: SizedBox(
             height: 152.h,
             width: MediaQuery.of(context).size.width,
-            child: const AlmacenSeleccionCarusel(),
+            child: const AlmacenSeleccionCarrusel(),
           ),
         ),
         const AlmacenProductFilter(),

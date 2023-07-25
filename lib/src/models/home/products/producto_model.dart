@@ -3,6 +3,8 @@ part 'producto_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class ProductModel {
+  @JsonKey(name: 'id')
+  final int id;
   @JsonKey(name: 'nombre')
   final String name;
   @JsonKey(name: 'descripcion')
@@ -39,7 +41,8 @@ class ProductModel {
   final num productType;
 
   ProductModel(
-      {required this.name,
+      {required this.id,
+      required this.name,
       required this.description,
       required this.image,
       required this.isForSale,

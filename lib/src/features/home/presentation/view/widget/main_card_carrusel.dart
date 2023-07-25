@@ -1,9 +1,13 @@
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../models/home/products/producto_model.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
+import '../../../../shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import '../../../products_detales_screen.dart';
 import 'custom_picture_container.dart';
 
@@ -17,6 +21,8 @@ class MainCardCarrusel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartBloc = context.read<CartBloc>();
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.r),
@@ -41,16 +47,9 @@ class MainCardCarrusel extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  context.pushNamed(
-                    ProductsDetails.name,
-                    queryParameters: {
-                      "name": producto.name,
-                      "price": producto.basePrice,
-                      "description": producto.description,
-                      "image": producto.image
-                    },
-                    //extra: producto
-                  );
+                  final args = producto;
+
+                  context.pushNamed(ProductsDetails.name, extra: args);
                 },
                 child: PictureContainer(pictureUrl: producto.image),
               ),
@@ -80,8 +79,17 @@ class MainCardCarrusel extends StatelessWidget {
               ),
               Center(
                   child: CusotmButtom(
+                onPressed: () {
+                  context.read<CartBloc>().add(CartEvent.addedProduct(
+                        product: producto,
+                      ));
+
+                  context.read<CheckBloc>().add(
+                      CheckEvent.updateList(productlist: cartBloc.productList));
+                },
+                //
                 ispraimary: true,
-                name: "Añadir al carrito",
+                name: context.loc.addToCart,
                 height: 35.h,
                 width: 160.w,
               ))
