@@ -20,12 +20,10 @@ class ShoppingCartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
-        return state.when(
-            initial: () => Container(),
-            loading: () => Container(),
+        return state.maybeWhen(
+            orElse: () => Container(),
             loaded: (cart) => MainWidget(cart: cart),
             error: ((message) => const Text("Error")),
-            successAddedToCart: () => Container(),
             addWarning: (cart) => MainWidget(cart: cart));
       },
     );

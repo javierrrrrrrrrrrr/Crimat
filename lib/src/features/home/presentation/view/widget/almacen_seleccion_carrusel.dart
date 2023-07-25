@@ -8,8 +8,8 @@ import '../../../../../models/home/almacen/almacen_model.dart';
 import 'almacen_selection_card.dart';
 import 'loading_widget/loading_container.dart';
 
-class AlmacenSeleccionCarusel extends StatelessWidget {
-  const AlmacenSeleccionCarusel({
+class AlmacenSeleccionCarrusel extends StatelessWidget {
+  const AlmacenSeleccionCarrusel({
     super.key,
   });
 

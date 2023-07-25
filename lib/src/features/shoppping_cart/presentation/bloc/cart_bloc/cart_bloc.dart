@@ -26,11 +26,11 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     await event.when(
       addedProduct: (ProductModel producto) async {
         emit(const CartState.loading());
-        if (_cartListProducts.isNotEmpty) {
-          //  if(_cartListProducts[0].==producto){
+        // if (_cartListProducts.isNotEmpty) {
+        //   //  if(_cartListProducts[0].==producto){
 
-          //  }
-        } else {}
+        //   //  }
+        // } else {}
         //compurbo si el producto que se va a adicionar pertenece al mismo almacen
         //si pertenece hago todo esto
         _cartListProducts = [..._cartListProducts, producto];

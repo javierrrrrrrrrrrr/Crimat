@@ -10,6 +10,7 @@ class CusotmButtom extends StatelessWidget {
     required this.ispraimary,
     this.onPressed,
     this.lettersize,
+    this.fontsize,
   });
 
   final double width;
@@ -18,6 +19,7 @@ class CusotmButtom extends StatelessWidget {
   final bool ispraimary;
   final void Function()? onPressed;
   final double? lettersize;
+  final double? fontsize;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,7 @@ class CusotmButtom extends StatelessWidget {
             child: Text(
               name,
               style: TextStyle(
-                  fontSize: 14.sp,
+                  fontSize: fontsize ?? 14.sp,
                   color: ispraimary == true
                       ? Colors.white
                       : Theme.of(context).primaryColor),
