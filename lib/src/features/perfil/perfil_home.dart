@@ -1,9 +1,9 @@
 import 'package:crimat_app/src/features/perfil/presentation/bloc/profile_bloc.dart';
 import 'package:crimat_app/src/features/perfil/presentation/view/delivery_address_view.dart';
 import 'package:crimat_app/src/features/perfil/presentation/view/widget/custom_line_widget.dart';
+import 'package:crimat_app/src/features/perfil/presentation/view/widget/custom_plane_widget.dart';
 import 'package:crimat_app/src/features/perfil/presentation/view/widget/perfil_option_widget.dart';
 import 'package:crimat_app/src/features/perfil/presentation/view/widget/personal_info_widget.dart';
-import 'package:crimat_app/src/features/perfil/view/widget/custom_plane_widget.dart';
 
 import 'package:crimat_app/src/shared/widgets/cusotm_buttom_product.dart';
 import 'package:flutter/material.dart';

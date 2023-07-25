@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../shared/utils/utils.dart';
+import '../../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../bloc/almacen_bloc/almacen_bloc.dart';
 
 import '../../bloc/product_bloc/product_bloc.dart';
@@ -50,24 +52,33 @@ class MainProdcutCarrusel extends StatelessWidget {
                   message:
                       "No hay productos que concidan con esa categoria en este almacen");
             } else {
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: GridView.builder(
-                  padding: EdgeInsets.only(top: 20.h, bottom: 20.h),
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: productos.length, // Número de elementos a mostrar
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 20.sp,
-                    crossAxisSpacing: 20.sp,
-                    childAspectRatio: 0.75,
+              return BlocListener<CartBloc, CartState>(
+                listener: (context, state) {
+                  state.whenOrNull(
+                      successAddedToCart: () => UtilFunctions.printToast(
+                          message: context.loc.productSuccessfullyAddedToCart,
+                          shorttime: true));
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: GridView.builder(
+                    padding: EdgeInsets.only(top: 20.h, bottom: 20.h),
+                    physics: const BouncingScrollPhysics(),
+                    itemCount:
+                        productos.length, // Número de elementos a mostrar
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 20.sp,
+                      crossAxisSpacing: 20.sp,
+                      childAspectRatio: 0.75,
+                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      // Construir cada celda de la cuadrícula
+                      return MainCardCarrusel(
+                        producto: productos[index],
+                      );
+                    },
                   ),
-                  itemBuilder: (BuildContext context, int index) {
-                    // Construir cada celda de la cuadrícula
-                    return MainCardCarrusel(
-                      producto: productos[index],
-                    );
-                  },
                 ),
               );
             }

@@ -44,6 +44,8 @@ class CustomBottonNavigationBar extends StatelessWidget {
               loaded: (cart) =>
                   customNavbar(layoutCubitState, context, cart.product.length),
               loading: () => customNavbar(layoutCubitState, context, 0),
+              successAddedToCart: () =>
+                  customNavbar(layoutCubitState, context, 0),
             ));
 
     // );

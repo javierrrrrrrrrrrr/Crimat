@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../models/home/products/producto_model.dart';
-import '../../../../../shared/utils/utils.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../../../shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
@@ -22,7 +21,8 @@ class MainCardCarrusel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cartBloc = BlocProvider.of<CartBloc>(context);
+    final cartBloc = context.read<CartBloc>();
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.r),
@@ -86,11 +86,8 @@ class MainCardCarrusel extends StatelessWidget {
 
                   context.read<CheckBloc>().add(
                       CheckEvent.updateList(productlist: cartBloc.productList));
-
-                  UtilFunctions.printToast(
-                      message: context.loc.productSuccessfullyAddedToCart,
-                      shorttime: true);
                 },
+                //
                 ispraimary: true,
                 name: context.loc.addToCart,
                 height: 35.h,

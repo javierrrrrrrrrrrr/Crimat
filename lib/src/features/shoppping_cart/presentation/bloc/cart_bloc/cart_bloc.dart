@@ -7,7 +7,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../models/home/products/producto_model.dart';
 
-
 part 'cart_event.dart';
 part 'cart_state.dart';
 part 'cart_bloc.freezed.dart';
@@ -26,14 +25,20 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     await event.when(
       addedProduct: (ProductModel producto) async {
         emit(const CartState.loading());
+        //compurbo si el producto que se va a adicionar pertenece al mismo almacen
+        //si pertenece hago todo esto
         _cartListProducts = [..._cartListProducts, producto];
-      
+        emit(const CartState.successAddedToCart());
         emit(
           CartState.loaded(
             productCartList: Cart(product: _cartListProducts),
           ),
+          //si no
+          //emito en estado que devuelva la mima lista sin adicionar el prodcuto  y de alguna manera llame el cartel de confimacion
         );
       },
+      //seria que  hacer cuando se llama el evento de vaciar la lista
+      //hcaer un evento nuevo de vaciar la lista y modificar la logica de el evenento de adicionar prodcyto
       removedProduct: (ProductModel producto) {
         emit(const CartState.loading());
         _cartListProducts.sort((a, b) => b.id.compareTo(a.id));
