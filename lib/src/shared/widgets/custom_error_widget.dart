@@ -44,14 +44,16 @@ class CustomErrorWidget extends StatelessWidget {
               style: TextStyle(fontSize: 16.sp),
             ),
             SizedBox(height: isproducterror == true ? 50.h : 250.h),
-            CusotmButtom(
-              onPressed: onPressed,
-              width: isproducterror == true ? 150.h : 380.w,
-              height: isproducterror == true ? 56.h : 56.h,
-              name: "Reintentar",
-              ispraimary: true,
-              fontsize: 16.sp,
-            )
+            isproducterror == true
+                ? Container()
+                : CusotmButtom(
+                    onPressed: onPressed,
+                    width: isproducterror == true ? 150.h : 380.w,
+                    height: isproducterror == true ? 56.h : 56.h,
+                    name: "Reintentar",
+                    ispraimary: true,
+                    fontsize: 16.sp,
+                  )
           ],
         ),
       ),
