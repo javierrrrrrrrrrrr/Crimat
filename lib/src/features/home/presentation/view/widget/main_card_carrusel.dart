@@ -80,9 +80,9 @@ class MainCardCarrusel extends StatelessWidget {
               Center(
                   child: CusotmButtom(
                 onPressed: () {
-                  context
-                      .read<CartBloc>()
-                      .add(CartEvent.addedProduct(product: producto));
+                  context.read<CartBloc>().add(CartEvent.addedProduct(
+                        product: producto,
+                      ));
 
                   context.read<CheckBloc>().add(
                       CheckEvent.updateList(productlist: cartBloc.productList));

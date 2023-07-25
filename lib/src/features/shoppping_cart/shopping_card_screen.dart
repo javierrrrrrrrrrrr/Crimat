@@ -25,7 +25,8 @@ class ShoppingCartView extends StatelessWidget {
             loading: () => Container(),
             loaded: (cart) => MainWidget(cart: cart),
             error: ((message) => const Text("Error")),
-            successAddedToCart: () => Container());
+            successAddedToCart: () => Container(),
+            addWarning: (cart) => MainWidget(cart: cart));
       },
     );
   }

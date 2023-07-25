@@ -52,9 +52,10 @@ class ShoppingCartWidget extends StatelessWidget {
               onPressedDelete: () => context
                   .read<CartBloc>()
                   .add(CartEvent.removedProduct(product: producto)),
-              onPressedAdd: () => context
-                  .read<CartBloc>()
-                  .add(CartEvent.addedProduct(product: producto)),
+              onPressedAdd: () =>
+                  context.read<CartBloc>().add(CartEvent.addedProduct(
+                        product: producto,
+                      )),
               carcantidad: carcantidad,
               image: producto.image,
               isshoppingCart: true,

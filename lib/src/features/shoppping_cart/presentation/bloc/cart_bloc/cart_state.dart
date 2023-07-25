@@ -10,4 +10,7 @@ abstract class CartState with _$CartState {
   }) = _CartLoadedState;
   const factory CartState.error({required String message}) = _CartErrorState;
   const factory CartState.successAddedToCart() = _SuccessAddedToCart;
+  const factory CartState.addWarning({
+    required Cart productCartList,
+  }) = _AddWarning;
 }
