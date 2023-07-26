@@ -11,13 +11,19 @@ class ProductDataSource {
 
   ProductDataSource(this.client);
 
-  Future<List<ProductModel>> getAllProduct(String id) async {
+  Future<List<ProductModel>> getAllProduct(String id, String? token) async {
     final Uri uri = Uri.https(Urls.api, Urls.getproducts, {
       'almacen': id,
     });
 
     try {
-      final response = await http.get(uri);
+      final http.Response response;
+      if (token != null) {
+        response =
+            await http.get(uri, headers: {'Authorization': 'Bearer $token'});
+      } else {
+        response = await http.get(uri);
+      }
 
       if (response.statusCode == 200) {
         final jsonMap = jsonDecode(response.body) as List<dynamic>;

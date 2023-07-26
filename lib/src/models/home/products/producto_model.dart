@@ -39,8 +39,10 @@ class ProductModel {
   final String minimumValue;
   @JsonKey(name: 'tipo_producto')
   final num productType;
+  @JsonKey(name: 'favorito')
+  final bool? favorite;
 
-  ProductModel(
+  ProductModel(this.favorite,
       {required this.id,
       required this.name,
       required this.description,

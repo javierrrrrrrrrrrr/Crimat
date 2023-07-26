@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../resources/app_icons.dart';
 import '../../../resources/general_styles.dart';
+import '../../features/favorites/presentation/bloc/favorite_bloc.dart';
 import '../../features/historial/presentation/bloc/historial_bloc/historial_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 
@@ -90,6 +91,9 @@ class CustomBottonNavigationBar extends StatelessWidget {
       onTap: (newIndex) {
         if (newIndex == 1) {
           context.read<HistorialBloc>().add(const HistorialEvent.load());
+        }
+        if (newIndex == 3) {
+          context.read<FavoriteBloc>().add(const FavoriteEvent.load());
         }
         onItemTapped(newIndex, context);
         BlocProvider.of<LayoutCubit>(context).changeScreen(newIndex);

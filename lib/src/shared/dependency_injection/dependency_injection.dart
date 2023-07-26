@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
+import '../../features/favorites/presentation/bloc/favorite_bloc.dart';
 import '../../features/historial/presentation/bloc/historial_bloc/historial_bloc.dart';
 import '../../features/home/presentation/bloc/categories_bloc/categories_bloc.dart';
 import '../../features/home/presentation/bloc/product_bloc/product_bloc.dart';
@@ -11,11 +12,13 @@ import '../../features/perfil/presentation/bloc/profile_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import '../../repositories/categorias_repository.dart';
+import '../../repositories/favorite_repository.dart';
 import '../../repositories/historial_repository.dart';
 import '../../repositories/product_repository.dart';
 import '../../repositories/profile_repository.dart';
 import '../../services/almacen_data_source.dart';
 import '../../services/categories_data_source.dart';
+import '../../services/favorite_source/favorite_data_source.dart';
 import '../../services/historial_sources/historial_local_data_source.dart';
 import '../../services/historial_sources/historial_online_data_source.dart';
 import '../../services/product_data_source.dart';
@@ -93,4 +96,15 @@ Future<void> init() async {
 
   //?? Blocs
   sl.registerFactory(() => ProfileBloc(sl.get<ProfileRepository>()));
+
+  ///Favorite
+  //?? DataSources.
+  sl.registerLazySingleton(() => FavoriteDataSurce(sl.get<http.Client>()));
+
+  //?? Repositories
+  sl.registerLazySingleton(
+      () => FavoriteRepository(sl.get<FavoriteDataSurce>()));
+
+  //?? Blocs
+  sl.registerFactory(() => FavoriteBloc(sl.get<FavoriteRepository>()));
 }

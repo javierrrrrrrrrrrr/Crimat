@@ -7,6 +7,7 @@ part of 'producto_model.dart';
 // **************************************************************************
 
 ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
+      json['favorito'] as bool?,
       id: json['id'] as int,
       name: json['nombre'] as String,
       description: json['descripcion'] as String,
@@ -47,4 +48,5 @@ Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
       'eliminado': instance.isDeleted,
       'minimo': instance.minimumValue,
       'tipo_producto': instance.productType,
+      'favorito': instance.favorite,
     };

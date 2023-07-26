@@ -11,6 +11,7 @@ class CusotmButtom extends StatelessWidget {
     this.onPressed,
     this.lettersize,
     this.fontsize,
+    this.haveicon,
   });
 
   final double width;
@@ -20,6 +21,7 @@ class CusotmButtom extends StatelessWidget {
   final void Function()? onPressed;
   final double? lettersize;
   final double? fontsize;
+  final bool? haveicon;
 
   @override
   Widget build(BuildContext context) {
@@ -43,18 +45,39 @@ class CusotmButtom extends StatelessWidget {
         onPressed: onPressed,
         child: Center(
             child: SizedBox(
-          height: 15.h,
+          height: haveicon == true ? 40.h : 15.h,
           width: lettersize ?? 90.w,
           child: FittedBox(
             fit: BoxFit.scaleDown,
-            child: Text(
-              name,
-              style: TextStyle(
-                  fontSize: fontsize ?? 14.sp,
-                  color: ispraimary == true
-                      ? Colors.white
-                      : Theme.of(context).primaryColor),
-            ),
+            child: haveicon == true
+                ? Row(
+                    children: [
+                      Icon(
+                        Icons.shopping_cart,
+                        size: 25.sp,
+                        color: Colors.grey,
+                      ),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      Text(
+                        name,
+                        style: TextStyle(
+                            fontSize: fontsize ?? 16.sp,
+                            color: ispraimary == true
+                                ? Colors.white
+                                : Theme.of(context).primaryColor),
+                      ),
+                    ],
+                  )
+                : Text(
+                    name,
+                    style: TextStyle(
+                        fontSize: fontsize ?? 14.sp,
+                        color: ispraimary == true
+                            ? Colors.white
+                            : Theme.of(context).primaryColor),
+                  ),
           ),
         )),
       ),

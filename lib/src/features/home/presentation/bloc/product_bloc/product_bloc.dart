@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:crimat_app/src/models/home/categories/categories_model.dart';
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../errors/failure.dart';
 import '../../../../../models/home/products/producto_model.dart';
 import '../../../../../repositories/product_repository.dart';
+import '../../../../../shared/app_info.dart';
 
 part 'product_event.dart';
 part 'product_state.dart';
@@ -13,6 +15,7 @@ part 'product_bloc.freezed.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final ProdcutRepository repository;
+  String? token = AppInfo().accessToken;
 
   ProductBloc(this.repository) : super(const ProductState.loading()) {
     on<ProductEvent>(eventHandler);
@@ -21,8 +24,11 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   FutureOr<void> eventHandler(ProductEvent event, Emitter emit) async {
     await event.when(
       loadProducts: (id) async {
+        final Either<Failure, List<ProductModel>> result;
         emit(const ProductState.loading());
-        final result = await repository.getAllProduct(id);
+      
+        result = await repository.getAllProduct(id: id, token: token);
+       
         result.fold((failure) {
           if (failure is ServerFailure) {
             emit(ProductState.failure(message: failure.message));

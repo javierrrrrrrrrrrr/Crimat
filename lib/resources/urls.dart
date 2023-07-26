@@ -15,4 +15,5 @@ class Urls {
   static String get getcategories => 'crimat-development/api/categorias/';
   static String get gethistorial => 'crimat-development/api/ordenes/';
   static String get getProfilData => 'crimat-development/api/user/';
+  static String get getFavorite => 'crimat-development/api/favoritos/';
 }
