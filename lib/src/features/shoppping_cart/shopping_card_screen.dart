@@ -1,5 +1,6 @@
 import 'package:crimat_app/src/features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'package:crimat_app/src/features/shoppping_cart/presentation/view/widget/direccion_address_row.dart';
+import 'package:crimat_app/src/features/shoppping_cart/presentation/view/widget/no_product_in_shopping_cart.dart';
 import 'package:crimat_app/src/features/shoppping_cart/presentation/view/widget/shopping_cart_widget.dart';
 import 'package:crimat_app/src/features/shoppping_cart/utils/shopping_card_aux.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,8 @@ class ShoppingCartView extends StatelessWidget {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         return state.maybeWhen(
-            orElse: () => Container(),
+            successAddedToCart: () => Container(),
+            orElse: () => const NoProductsInShoppingCart(),
             loaded: (cart) => MainWidget(cart: cart),
             error: ((message) => const Text("Error")),
             addWarning: (cart) => MainWidget(cart: cart));

@@ -15,7 +15,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(const CartState.initial()) {
     on<CartEvent>(eventHandler);
   }
-  List<ProductModel> _cartListProducts = [];
+  final List<ProductModel> _cartListProducts = [];
 
   List<ProductModel> get productList => _cartListProducts;
 
@@ -33,7 +33,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         // } else {}
         //compurbo si el producto que se va a adicionar pertenece al mismo almacen
         //si pertenece hago todo esto
-        _cartListProducts = [..._cartListProducts, producto];
+        _cartListProducts.add(producto);
         emit(const CartState.successAddedToCart());
         emit(
           CartState.loaded(
@@ -47,8 +47,13 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       //hcaer un evento nuevo de vaciar la lista y modificar la logica de el evenento de adicionar prodcyto
       removedProduct: (ProductModel producto) {
         emit(const CartState.loading());
-        _cartListProducts.sort((a, b) => b.id.compareTo(a.id));
-        _cartListProducts.remove(producto);
+        // _cartListProducts.sort((a, b) => a.name.compareTo(b.name));
+        for (int i = _cartListProducts.length - 1; i >= 0; i--) {
+          if (_cartListProducts[i].id == producto.id) {
+            _cartListProducts.removeAt(i);
+            break;
+          }
+        }
 
         emit(
           CartState.loaded(

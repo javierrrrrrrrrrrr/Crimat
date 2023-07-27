@@ -3,6 +3,7 @@ import 'package:crimat_app/src/features/layout/layout_state.dart';
 import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../resources/app_icons.dart';
 import '../../../resources/general_styles.dart';
@@ -54,80 +55,80 @@ class CustomBottonNavigationBar extends StatelessWidget {
     // );
   }
 
-  BottomNavigationBar customNavbar(
+  dynamic customNavbar(
       LayoutState layoutCubitState, BuildContext context, int index) {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      elevation: 0,
-      currentIndex: layoutCubitState.selectedIndex,
-      showSelectedLabels: true,
-      showUnselectedLabels: true,
-      items: [
-        BottomNavigationBarItem(
-          icon: Image.asset(layoutCubitState.selectedIndex == 0
-              ? AppIcons.homeSelected
-              : AppIcons.home),
-          label: context.loc.home,
+    return Stack(
+      children: [
+        BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          elevation: 0,
+          currentIndex: layoutCubitState.selectedIndex,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          items: [
+            BottomNavigationBarItem(
+              icon: Image.asset(layoutCubitState.selectedIndex == 0
+                  ? AppIcons.homeSelected
+                  : AppIcons.home),
+              label: context.loc.home,
+            ),
+            BottomNavigationBarItem(
+                icon: Image.asset(layoutCubitState.selectedIndex == 1
+                    ? AppIcons.historySelected
+                    : AppIcons.history),
+                label: context.loc.history),
+            BottomNavigationBarItem(
+                icon: buyingCar(index, layoutCubitState.selectedIndex),
+                label: context.loc.buy),
+            BottomNavigationBarItem(
+                icon: Image.asset(layoutCubitState.selectedIndex == 3
+                    ? AppIcons.favoriteSelected
+                    : AppIcons.favorite),
+                label: context.loc.favorites),
+            BottomNavigationBarItem(
+                icon: Image.asset(layoutCubitState.selectedIndex == 4
+                    ? AppIcons.profileSelected
+                    : AppIcons.profile),
+                label: context.loc.profile),
+          ],
+          onTap: (newIndex) {
+            if (newIndex == 1) {
+              context.read<HistorialBloc>().add(const HistorialEvent.load());
+            }
+            if (newIndex == 3) {
+              context.read<FavoriteBloc>().add(const FavoriteEvent.load());
+            }
+            onItemTapped(newIndex, context);
+            BlocProvider.of<LayoutCubit>(context).changeScreen(newIndex);
+          },
         ),
-        BottomNavigationBarItem(
-            icon: Image.asset(layoutCubitState.selectedIndex == 1
-                ? AppIcons.historySelected
-                : AppIcons.history),
-            label: context.loc.history),
-        BottomNavigationBarItem(
-            icon: buyingCar(index, layoutCubitState.selectedIndex),
-            label: context.loc.buy),
-        BottomNavigationBarItem(
-            icon: Image.asset(layoutCubitState.selectedIndex == 3
-                ? AppIcons.favoriteSelected
-                : AppIcons.favorite),
-            label: context.loc.favorites),
-        BottomNavigationBarItem(
-            icon: Image.asset(layoutCubitState.selectedIndex == 4
-                ? AppIcons.profileSelected
-                : AppIcons.profile),
-            label: context.loc.profile),
+        Positioned(
+          top: 2.h,
+          right: 205.r,
+          child: Container(
+            alignment: Alignment.center,
+            width: 18.w,
+            height: 18.h,
+            decoration: BoxDecoration(
+                color: GStyles.primaryColor,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.fromBorderSide(
+                    BorderSide(color: GStyles.primaryColor))),
+            child: Text(
+              index.toString(),
+              style: GStyles.normalTextStyle.copyWith(
+                  color: Colors.white,
+                  fontSize: 9,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        )
       ],
-      onTap: (newIndex) {
-        if (newIndex == 1) {
-          context.read<HistorialBloc>().add(const HistorialEvent.load());
-        }
-        if (newIndex == 3) {
-          context.read<FavoriteBloc>().add(const FavoriteEvent.load());
-        }
-        onItemTapped(newIndex, context);
-        BlocProvider.of<LayoutCubit>(context).changeScreen(newIndex);
-      },
     );
   }
 }
 
 Widget buyingCar(int elements, int selectedIndex) {
   bool isSelected = selectedIndex == 2;
-  return Stack(
-    children: [
-      Image.asset(isSelected ? AppIcons.buySelected : AppIcons.buy),
-      Positioned(
-        top: 0,
-        right: 0,
-        child: Container(
-          alignment: Alignment.center,
-          width: 12,
-          height: 12,
-          decoration: BoxDecoration(
-              color: isSelected ? Colors.white : GStyles.primaryColor,
-              borderRadius: BorderRadius.circular(50),
-              border: Border.fromBorderSide(
-                  BorderSide(color: GStyles.primaryColor))),
-          child: Text(
-            elements.toString(),
-            style: GStyles.normalTextStyle.copyWith(
-                color: isSelected ? GStyles.primaryColor : Colors.white,
-                fontSize: 10,
-                fontWeight: FontWeight.bold),
-          ),
-        ),
-      )
-    ],
-  );
+  return Image.asset(isSelected ? AppIcons.buySelected : AppIcons.buy);
 }
