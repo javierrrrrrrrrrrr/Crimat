@@ -98,7 +98,9 @@ class MainCardCarrusel extends StatelessWidget {
           Positioned(
             right: 10.w,
             top: 10.h,
-            child: const FavoriteCircle(),
+            child: FavoriteCircle(
+              isfavorite: producto.favorite ?? false,
+            ),
           )
         ],
       ),
@@ -109,7 +111,10 @@ class MainCardCarrusel extends StatelessWidget {
 class FavoriteCircle extends StatelessWidget {
   const FavoriteCircle({
     super.key,
+    this.isfavorite,
   });
+
+  final bool? isfavorite;
 
   @override
   Widget build(BuildContext context) {
@@ -128,10 +133,10 @@ class FavoriteCircle extends StatelessWidget {
           ),
         ],
       ),
-      child: const Center(
+      child: Center(
         child: Icon(
           Icons.favorite,
-          color: Colors.red,
+          color: isfavorite == true ? Colors.red : Colors.grey,
           size: 20,
         ),
       ),

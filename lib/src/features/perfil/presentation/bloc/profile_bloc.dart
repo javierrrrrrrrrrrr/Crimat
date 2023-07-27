@@ -23,17 +23,21 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ) async {
     await event.when(load: () async {
       emit(const ProfileState.loading());
-      dynamic result;
+      if (token != null) {
+        dynamic result;
 
-      result = await profile.getProfileData(token: token!);
+        result = await profile.getProfileData(token: token!);
 
-      result.fold((failure) {
-        if (failure is ServerFailure) {
-          emit(ProfileState.failure(message: failure.message));
-        }
-      }, (profile) {
-        emit(ProfileState.success(profile: profile));
-      });
+        result.fold((failure) {
+          if (failure is ServerFailure) {
+            emit(ProfileState.failure(message: failure.message));
+          }
+        }, (profile) {
+          emit(ProfileState.success(profile: profile));
+        });
+      } else {
+        emit(const ProfileState.noLogedUser());
+      }
     });
   }
 }

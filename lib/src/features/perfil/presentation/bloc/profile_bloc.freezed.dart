@@ -167,6 +167,7 @@ mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noLogedUser,
     required TResult Function() loading,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -175,6 +176,7 @@ mixin _$ProfileState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noLogedUser,
     TResult? Function()? loading,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -183,6 +185,7 @@ mixin _$ProfileState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noLogedUser,
     TResult Function()? loading,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -192,6 +195,7 @@ mixin _$ProfileState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUser,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
@@ -200,6 +204,7 @@ mixin _$ProfileState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUser,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -208,6 +213,7 @@ mixin _$ProfileState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUser,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -272,6 +278,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noLogedUser,
     required TResult Function() loading,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -283,6 +290,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noLogedUser,
     TResult? Function()? loading,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -294,6 +302,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noLogedUser,
     TResult Function()? loading,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -309,6 +318,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUser,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
@@ -320,6 +330,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUser,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -331,6 +342,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUser,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -345,6 +357,126 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements ProfileState {
   const factory _Initial() = _$_Initial;
+}
+
+/// @nodoc
+abstract class _$$_NoLogedUserStateCopyWith<$Res> {
+  factory _$$_NoLogedUserStateCopyWith(
+          _$_NoLogedUserState value, $Res Function(_$_NoLogedUserState) then) =
+      __$$_NoLogedUserStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_NoLogedUserStateCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$_NoLogedUserState>
+    implements _$$_NoLogedUserStateCopyWith<$Res> {
+  __$$_NoLogedUserStateCopyWithImpl(
+      _$_NoLogedUserState _value, $Res Function(_$_NoLogedUserState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_NoLogedUserState implements _NoLogedUserState {
+  const _$_NoLogedUserState();
+
+  @override
+  String toString() {
+    return 'ProfileState.noLogedUser()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_NoLogedUserState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() noLogedUser,
+    required TResult Function() loading,
+    required TResult Function(ProfileModel profile) success,
+    required TResult Function(String message) failure,
+  }) {
+    return noLogedUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? noLogedUser,
+    TResult? Function()? loading,
+    TResult? Function(ProfileModel profile)? success,
+    TResult? Function(String message)? failure,
+  }) {
+    return noLogedUser?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? noLogedUser,
+    TResult Function()? loading,
+    TResult Function(ProfileModel profile)? success,
+    TResult Function(String message)? failure,
+    required TResult orElse(),
+  }) {
+    if (noLogedUser != null) {
+      return noLogedUser();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUser,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return noLogedUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUser,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return noLogedUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUser,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (noLogedUser != null) {
+      return noLogedUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoLogedUserState implements ProfileState {
+  const factory _NoLogedUserState() = _$_NoLogedUserState;
 }
 
 /// @nodoc
@@ -385,6 +517,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noLogedUser,
     required TResult Function() loading,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -396,6 +529,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noLogedUser,
     TResult? Function()? loading,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -407,6 +541,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noLogedUser,
     TResult Function()? loading,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -422,6 +557,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUser,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
@@ -433,6 +569,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUser,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -444,6 +581,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUser,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -524,6 +662,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noLogedUser,
     required TResult Function() loading,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -535,6 +674,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noLogedUser,
     TResult? Function()? loading,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -546,6 +686,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noLogedUser,
     TResult Function()? loading,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -561,6 +702,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUser,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
@@ -572,6 +714,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUser,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -583,6 +726,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUser,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -668,6 +812,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noLogedUser,
     required TResult Function() loading,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -679,6 +824,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noLogedUser,
     TResult? Function()? loading,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -690,6 +836,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noLogedUser,
     TResult Function()? loading,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -705,6 +852,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUser,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
@@ -716,6 +864,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUser,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -727,6 +876,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUser,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
