@@ -3,6 +3,7 @@ part of 'favorite_bloc.dart';
 @freezed
 abstract class FavoriteState with _$FavoriteState {
   const factory FavoriteState.initial() = _Initial;
+  const factory FavoriteState.noLogedUserState() = _NoLogedUserState;
   const factory FavoriteState.loading() = _LoadingState;
   const factory FavoriteState.loaded({
     required List<ProductModel> productModelList,

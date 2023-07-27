@@ -23,17 +23,20 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   ) async {
     await event.when(
         load: () async {
+          dynamic result;
           emit(const FavoriteState.loading());
-
-          dynamic result = await favorite.getFavorite(token: token!);
-
-          result.fold((failure) {
-            if (failure is ServerFailure) {
-              emit(FavoriteState.error(message: failure.message));
-            }
-          }, (favoritelist) {
-            emit(FavoriteState.loaded(productModelList: favoritelist));
-          });
+          if (token != null) {
+            result = await favorite.getFavorite(token: token!);
+            result.fold((failure) {
+              if (failure is ServerFailure) {
+                emit(FavoriteState.error(message: failure.message));
+              }
+            }, (favoritelist) {
+              emit(FavoriteState.loaded(productModelList: favoritelist));
+            });
+          } else {
+            emit(const FavoriteState.noLogedUserState());
+          }
         },
         addedProduct: (ProductModel product) {},
         removedProduct: (ProductModel product) {});

@@ -210,10 +210,10 @@ class __$$_AddedProductToFavoriteEventCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? product = freezed,
+    Object? product = null,
   }) {
     return _then(_$_AddedProductToFavoriteEvent(
-      product: freezed == product
+      product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as ProductModel,
@@ -239,12 +239,11 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddedProductToFavoriteEvent &&
-            const DeepCollectionEquality().equals(other.product, product));
+            (identical(other.product, product) || other.product == product));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(product));
+  int get hashCode => Object.hash(runtimeType, product);
 
   @JsonKey(ignore: true)
   @override
@@ -355,10 +354,10 @@ class __$$_RemovedProductToFavoriteEventCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? product = freezed,
+    Object? product = null,
   }) {
     return _then(_$_RemovedProductToFavoriteEvent(
-      product: freezed == product
+      product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as ProductModel,
@@ -385,12 +384,11 @@ class _$_RemovedProductToFavoriteEvent
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RemovedProductToFavoriteEvent &&
-            const DeepCollectionEquality().equals(other.product, product));
+            (identical(other.product, product) || other.product == product));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(product));
+  int get hashCode => Object.hash(runtimeType, product);
 
   @JsonKey(ignore: true)
   @override
@@ -484,6 +482,7 @@ mixin _$FavoriteState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noLogedUserState,
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
@@ -492,6 +491,7 @@ mixin _$FavoriteState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noLogedUserState,
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
@@ -500,6 +500,7 @@ mixin _$FavoriteState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noLogedUserState,
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
@@ -509,6 +510,7 @@ mixin _$FavoriteState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUserState,
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
@@ -517,6 +519,7 @@ mixin _$FavoriteState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUserState,
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
@@ -525,6 +528,7 @@ mixin _$FavoriteState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUserState,
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
@@ -589,6 +593,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noLogedUserState,
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
@@ -600,6 +605,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noLogedUserState,
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
@@ -611,6 +617,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noLogedUserState,
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
@@ -626,6 +633,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUserState,
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
@@ -637,6 +645,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUserState,
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
@@ -648,6 +657,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUserState,
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
@@ -662,6 +672,126 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements FavoriteState {
   const factory _Initial() = _$_Initial;
+}
+
+/// @nodoc
+abstract class _$$_NoLogedUserStateCopyWith<$Res> {
+  factory _$$_NoLogedUserStateCopyWith(
+          _$_NoLogedUserState value, $Res Function(_$_NoLogedUserState) then) =
+      __$$_NoLogedUserStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_NoLogedUserStateCopyWithImpl<$Res>
+    extends _$FavoriteStateCopyWithImpl<$Res, _$_NoLogedUserState>
+    implements _$$_NoLogedUserStateCopyWith<$Res> {
+  __$$_NoLogedUserStateCopyWithImpl(
+      _$_NoLogedUserState _value, $Res Function(_$_NoLogedUserState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_NoLogedUserState implements _NoLogedUserState {
+  const _$_NoLogedUserState();
+
+  @override
+  String toString() {
+    return 'FavoriteState.noLogedUserState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_NoLogedUserState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() noLogedUserState,
+    required TResult Function() loading,
+    required TResult Function(List<ProductModel> productModelList) loaded,
+    required TResult Function(String message) error,
+  }) {
+    return noLogedUserState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? noLogedUserState,
+    TResult? Function()? loading,
+    TResult? Function(List<ProductModel> productModelList)? loaded,
+    TResult? Function(String message)? error,
+  }) {
+    return noLogedUserState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? noLogedUserState,
+    TResult Function()? loading,
+    TResult Function(List<ProductModel> productModelList)? loaded,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (noLogedUserState != null) {
+      return noLogedUserState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUserState,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadedState value) loaded,
+    required TResult Function(_ErrorState value) error,
+  }) {
+    return noLogedUserState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUserState,
+    TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(_ErrorState value)? error,
+  }) {
+    return noLogedUserState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUserState,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadedState value)? loaded,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
+  }) {
+    if (noLogedUserState != null) {
+      return noLogedUserState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoLogedUserState implements FavoriteState {
+  const factory _NoLogedUserState() = _$_NoLogedUserState;
 }
 
 /// @nodoc
@@ -703,6 +833,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noLogedUserState,
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
@@ -714,6 +845,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noLogedUserState,
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
@@ -725,6 +857,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noLogedUserState,
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
@@ -740,6 +873,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUserState,
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
@@ -751,6 +885,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUserState,
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
@@ -762,6 +897,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUserState,
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
@@ -852,6 +988,7 @@ class _$_LoadedState implements _LoadedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noLogedUserState,
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
@@ -863,6 +1000,7 @@ class _$_LoadedState implements _LoadedState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noLogedUserState,
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
@@ -874,6 +1012,7 @@ class _$_LoadedState implements _LoadedState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noLogedUserState,
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
@@ -889,6 +1028,7 @@ class _$_LoadedState implements _LoadedState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUserState,
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
@@ -900,6 +1040,7 @@ class _$_LoadedState implements _LoadedState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUserState,
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
@@ -911,6 +1052,7 @@ class _$_LoadedState implements _LoadedState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUserState,
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
@@ -998,6 +1140,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() noLogedUserState,
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
@@ -1009,6 +1152,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? noLogedUserState,
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
@@ -1020,6 +1164,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? noLogedUserState,
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
@@ -1035,6 +1180,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUserState,
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
@@ -1046,6 +1192,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUserState,
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
@@ -1057,6 +1204,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUserState,
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,

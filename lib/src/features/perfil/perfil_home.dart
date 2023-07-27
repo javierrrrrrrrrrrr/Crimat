@@ -31,6 +31,11 @@ class ProfileView extends StatelessWidget {
             loading: () => Container(),
             success: (profile) => ProfileMainWidget(
                   profil: profile,
+                ),
+            noLogedUser: () => Container(
+                  child: const Center(
+                    child: Text("Definir que poner aqui"),
+                  ),
                 )));
   }
 }
