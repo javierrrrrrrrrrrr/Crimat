@@ -9,7 +9,7 @@ class Cart extends Equatable {
   double get subtotal => product.fold(0, (total, current) {
         // ignore: unnecessary_null_comparison
         if (current.basePrice != null) {
-          return total + double.parse(current.basePrice);
+          return total + current.basePrice;
         } else {
           return total + 0;
         }

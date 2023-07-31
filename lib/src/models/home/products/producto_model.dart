@@ -22,13 +22,13 @@ class ProductModel {
   @JsonKey(name: 'tiempo_caducidad')
   final num validityPeriod;
   @JsonKey(name: 'precio_base')
-  final String basePrice;
+  final double basePrice;
   @JsonKey(name: 'producto_publicidad')
   final bool isAdvertised;
   @JsonKey(name: 'requiere_licencia')
   final bool isLicenceRequired;
   @JsonKey(name: 'descuento_expiracion')
-  final String expirationDiscount;
+  final double expirationDiscount;
   @JsonKey(name: 'meses_descuento')
   final num monthsDiscounted;
   @JsonKey(name: 'meses_invalidez')
@@ -36,9 +36,9 @@ class ProductModel {
   @JsonKey(name: 'eliminado')
   final bool isDeleted;
   @JsonKey(name: 'minimo')
-  final String minimumValue;
-  @JsonKey(name: 'tipo_producto')
-  final num productType;
+  final double minimumValue;
+  @JsonKey(name: 'tipo')
+  final String productType;
   @JsonKey(name: 'favorito')
   final bool? favorite;
 

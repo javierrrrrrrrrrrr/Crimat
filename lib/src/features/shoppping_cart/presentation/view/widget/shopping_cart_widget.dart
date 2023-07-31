@@ -62,7 +62,7 @@ class ShoppingCartWidget extends StatelessWidget {
               height: 120.h,
               width: 320.w,
               name: producto.name,
-              price: double.parse(producto.basePrice),
+              price: producto.basePrice,
               quantity: 0,
             ),
           ],

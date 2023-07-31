@@ -17,15 +17,15 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
       isVisible: json['visible'] as bool,
       expirationDate: json['fecha_expiracion'] as String,
       validityPeriod: json['tiempo_caducidad'] as num,
-      basePrice: json['precio_base'] as String,
+      basePrice: (json['precio_base'] as num).toDouble(),
       isAdvertised: json['producto_publicidad'] as bool,
       isLicenceRequired: json['requiere_licencia'] as bool,
-      expirationDiscount: json['descuento_expiracion'] as String,
+      expirationDiscount: (json['descuento_expiracion'] as num).toDouble(),
       monthsDiscounted: json['meses_descuento'] as num,
       invalidityPeriod: json['meses_invalidez'] as num,
       isDeleted: json['eliminado'] as bool,
-      minimumValue: json['minimo'] as String,
-      productType: json['tipo_producto'] as num,
+      minimumValue: (json['minimo'] as num).toDouble(),
+      productType: json['tipo'] as String,
     );
 
 Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
@@ -47,6 +47,6 @@ Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
       'meses_invalidez': instance.invalidityPeriod,
       'eliminado': instance.isDeleted,
       'minimo': instance.minimumValue,
-      'tipo_producto': instance.productType,
+      'tipo': instance.productType,
       'favorito': instance.favorite,
     };
