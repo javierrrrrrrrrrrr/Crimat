@@ -16,8 +16,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<CartEvent>(eventHandler);
   }
   final List<ProductModel> _cartListProducts = [];
+  late ProductModel? _selectedProduct;
 
   List<ProductModel> get productList => _cartListProducts;
+  ProductModel get selectedProduct => _selectedProduct!;
 
   FutureOr<void> eventHandler(
     CartEvent event,
@@ -26,15 +28,22 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     await event.when(
       addedProduct: (ProductModel producto) async {
         emit(const CartState.loading());
-        // if (_cartListProducts.isNotEmpty) {
-        //   //  if(_cartListProducts[0].==producto){
+        _selectedProduct = producto;
+        if (_cartListProducts.isNotEmpty) {
+          if (_cartListProducts[0].idAlmacen == producto.idAlmacen) {
+            _cartListProducts.add(_selectedProduct!);
 
-        //   //  }
-        // } else {}
+            emit(const CartState.successAddedToCart());
+          } else {
+            emit(const CartState.confirMassage());
+          }
+        } else {
+          _cartListProducts.add(producto);
+          emit(const CartState.successAddedToCart());
+        }
         //compurbo si el producto que se va a adicionar pertenece al mismo almacen
         //si pertenece hago todo esto
-        _cartListProducts.add(producto);
-        emit(const CartState.successAddedToCart());
+
         emit(
           CartState.loaded(
             productCartList: Cart(product: _cartListProducts),
@@ -47,7 +56,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       //hcaer un evento nuevo de vaciar la lista y modificar la logica de el evenento de adicionar prodcyto
       removedProduct: (ProductModel producto) {
         emit(const CartState.loading());
-        // _cartListProducts.sort((a, b) => a.name.compareTo(b.name));
+
         for (int i = _cartListProducts.length - 1; i >= 0; i--) {
           if (_cartListProducts[i].id == producto.id) {
             _cartListProducts.removeAt(i);
@@ -71,7 +80,11 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           ),
         );
       },
-      clearShoppingCart: () {},
+      addProductinDiferentAlmacen: (ProductModel product) {
+        emit(const CartState.loading());
+        _cartListProducts.clear();
+        add(CartEvent.addedProduct(product: product));
+      },
     );
   }
 }

@@ -5,6 +5,8 @@ part 'producto_model.g.dart';
 class ProductModel {
   @JsonKey(name: 'id')
   final int id;
+  @JsonKey(name: 'almacen')
+  final int idAlmacen;
   @JsonKey(name: 'nombre')
   final String name;
   @JsonKey(name: 'descripcion')
@@ -42,7 +44,7 @@ class ProductModel {
   @JsonKey(name: 'favorito')
   final bool? favorite;
 
-  ProductModel(this.favorite,
+  ProductModel(this.favorite, this.idAlmacen,
       {required this.id,
       required this.name,
       required this.description,

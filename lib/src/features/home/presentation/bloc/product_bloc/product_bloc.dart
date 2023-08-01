@@ -26,9 +26,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       loadProducts: (id) async {
         final Either<Failure, List<ProductModel>> result;
         emit(const ProductState.loading());
-      
+
         result = await repository.getAllProduct(id: id, token: token);
-       
+
         result.fold((failure) {
           if (failure is ServerFailure) {
             emit(ProductState.failure(message: failure.message));
@@ -51,7 +51,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
 
         for (var product in listProduct) {
           for (var tipo in category.tiposProducto) {
-            if (product.productType == tipo.id) {
+            if (product.productType == tipo.id.toString()) {
               aux = [...aux, product];
             }
           }

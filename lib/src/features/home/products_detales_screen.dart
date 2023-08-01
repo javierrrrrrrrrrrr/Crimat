@@ -18,6 +18,22 @@ class ProductsDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     // final ProductModel producto =
     //     ModalRoute.of(context)?.settings.arguments as ProductModel;
+    return MainWidget(
+      product: product,
+    );
+  }
+}
+
+class MainWidget extends StatelessWidget {
+  const MainWidget({
+    super.key,
+    required this.product,
+  });
+
+  final ProductModel product;
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 70.h),
       child: SingleChildScrollView(
