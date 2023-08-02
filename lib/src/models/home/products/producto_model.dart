@@ -40,7 +40,7 @@ class ProductModel {
   @JsonKey(name: 'minimo')
   final double minimumValue;
   @JsonKey(name: 'tipo')
-  final String productType;
+  final int productType;
   @JsonKey(name: 'favorito')
   final bool? favorite;
 

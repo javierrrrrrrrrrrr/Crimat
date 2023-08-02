@@ -26,7 +26,7 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
       invalidityPeriod: json['meses_invalidez'] as num,
       isDeleted: json['eliminado'] as bool,
       minimumValue: (json['minimo'] as num).toDouble(),
-      productType: json['tipo'] as String,
+      productType: json['tipo'] as int,
     );
 
 Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
