@@ -26,6 +26,8 @@ mixin _$ProductEvent {
             TipoProductoModel subCategory, List<ProductModel> listProduct)
         getProductsBySubCategories,
     required TResult Function() toInitialState,
+    required TResult Function(bool isfavorite, int productid)
+        updatePrductFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,6 +39,7 @@ mixin _$ProductEvent {
             TipoProductoModel subCategory, List<ProductModel> listProduct)?
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
+    TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +51,7 @@ mixin _$ProductEvent {
             TipoProductoModel subCategory, List<ProductModel> listProduct)?
         getProductsBySubCategories,
     TResult Function()? toInitialState,
+    TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +63,7 @@ mixin _$ProductEvent {
     required TResult Function(_GetProductsBySubCategories value)
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
+    required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +73,7 @@ mixin _$ProductEvent {
     TResult? Function(_GetProductsBySubCategories value)?
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
+    TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +83,7 @@ mixin _$ProductEvent {
     TResult Function(_GetProductsBySubCategories value)?
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
+    TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -172,6 +179,8 @@ class _$_LoadProducts implements _LoadProducts {
             TipoProductoModel subCategory, List<ProductModel> listProduct)
         getProductsBySubCategories,
     required TResult Function() toInitialState,
+    required TResult Function(bool isfavorite, int productid)
+        updatePrductFavorite,
   }) {
     return loadProducts(id);
   }
@@ -186,6 +195,7 @@ class _$_LoadProducts implements _LoadProducts {
             TipoProductoModel subCategory, List<ProductModel> listProduct)?
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
+    TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
   }) {
     return loadProducts?.call(id);
   }
@@ -200,6 +210,7 @@ class _$_LoadProducts implements _LoadProducts {
             TipoProductoModel subCategory, List<ProductModel> listProduct)?
         getProductsBySubCategories,
     TResult Function()? toInitialState,
+    TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -217,6 +228,7 @@ class _$_LoadProducts implements _LoadProducts {
     required TResult Function(_GetProductsBySubCategories value)
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
+    required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
   }) {
     return loadProducts(this);
   }
@@ -229,6 +241,7 @@ class _$_LoadProducts implements _LoadProducts {
     TResult? Function(_GetProductsBySubCategories value)?
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
+    TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
   }) {
     return loadProducts?.call(this);
   }
@@ -241,6 +254,7 @@ class _$_LoadProducts implements _LoadProducts {
     TResult Function(_GetProductsBySubCategories value)?
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
+    TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -351,6 +365,8 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
             TipoProductoModel subCategory, List<ProductModel> listProduct)
         getProductsBySubCategories,
     required TResult Function() toInitialState,
+    required TResult Function(bool isfavorite, int productid)
+        updatePrductFavorite,
   }) {
     return getProductsByCategories(category, listProduct);
   }
@@ -365,6 +381,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
             TipoProductoModel subCategory, List<ProductModel> listProduct)?
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
+    TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
   }) {
     return getProductsByCategories?.call(category, listProduct);
   }
@@ -379,6 +396,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
             TipoProductoModel subCategory, List<ProductModel> listProduct)?
         getProductsBySubCategories,
     TResult Function()? toInitialState,
+    TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
     required TResult orElse(),
   }) {
     if (getProductsByCategories != null) {
@@ -396,6 +414,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
     required TResult Function(_GetProductsBySubCategories value)
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
+    required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
   }) {
     return getProductsByCategories(this);
   }
@@ -408,6 +427,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
     TResult? Function(_GetProductsBySubCategories value)?
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
+    TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
   }) {
     return getProductsByCategories?.call(this);
   }
@@ -420,6 +440,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
     TResult Function(_GetProductsBySubCategories value)?
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
+    TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
     required TResult orElse(),
   }) {
     if (getProductsByCategories != null) {
@@ -536,6 +557,8 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
             TipoProductoModel subCategory, List<ProductModel> listProduct)
         getProductsBySubCategories,
     required TResult Function() toInitialState,
+    required TResult Function(bool isfavorite, int productid)
+        updatePrductFavorite,
   }) {
     return getProductsBySubCategories(subCategory, listProduct);
   }
@@ -550,6 +573,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
             TipoProductoModel subCategory, List<ProductModel> listProduct)?
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
+    TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
   }) {
     return getProductsBySubCategories?.call(subCategory, listProduct);
   }
@@ -564,6 +588,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
             TipoProductoModel subCategory, List<ProductModel> listProduct)?
         getProductsBySubCategories,
     TResult Function()? toInitialState,
+    TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
     required TResult orElse(),
   }) {
     if (getProductsBySubCategories != null) {
@@ -581,6 +606,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
     required TResult Function(_GetProductsBySubCategories value)
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
+    required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
   }) {
     return getProductsBySubCategories(this);
   }
@@ -593,6 +619,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
     TResult? Function(_GetProductsBySubCategories value)?
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
+    TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
   }) {
     return getProductsBySubCategories?.call(this);
   }
@@ -605,6 +632,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
     TResult Function(_GetProductsBySubCategories value)?
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
+    TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
     required TResult orElse(),
   }) {
     if (getProductsBySubCategories != null) {
@@ -673,6 +701,8 @@ class _$_ToInitialState implements _ToInitialState {
             TipoProductoModel subCategory, List<ProductModel> listProduct)
         getProductsBySubCategories,
     required TResult Function() toInitialState,
+    required TResult Function(bool isfavorite, int productid)
+        updatePrductFavorite,
   }) {
     return toInitialState();
   }
@@ -687,6 +717,7 @@ class _$_ToInitialState implements _ToInitialState {
             TipoProductoModel subCategory, List<ProductModel> listProduct)?
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
+    TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
   }) {
     return toInitialState?.call();
   }
@@ -701,6 +732,7 @@ class _$_ToInitialState implements _ToInitialState {
             TipoProductoModel subCategory, List<ProductModel> listProduct)?
         getProductsBySubCategories,
     TResult Function()? toInitialState,
+    TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
     required TResult orElse(),
   }) {
     if (toInitialState != null) {
@@ -718,6 +750,7 @@ class _$_ToInitialState implements _ToInitialState {
     required TResult Function(_GetProductsBySubCategories value)
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
+    required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
   }) {
     return toInitialState(this);
   }
@@ -730,6 +763,7 @@ class _$_ToInitialState implements _ToInitialState {
     TResult? Function(_GetProductsBySubCategories value)?
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
+    TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
   }) {
     return toInitialState?.call(this);
   }
@@ -742,6 +776,7 @@ class _$_ToInitialState implements _ToInitialState {
     TResult Function(_GetProductsBySubCategories value)?
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
+    TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
     required TResult orElse(),
   }) {
     if (toInitialState != null) {
@@ -753,6 +788,187 @@ class _$_ToInitialState implements _ToInitialState {
 
 abstract class _ToInitialState implements ProductEvent {
   const factory _ToInitialState() = _$_ToInitialState;
+}
+
+/// @nodoc
+abstract class _$$_UpdatePrductFavoriteCopyWith<$Res> {
+  factory _$$_UpdatePrductFavoriteCopyWith(_$_UpdatePrductFavorite value,
+          $Res Function(_$_UpdatePrductFavorite) then) =
+      __$$_UpdatePrductFavoriteCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isfavorite, int productid});
+}
+
+/// @nodoc
+class __$$_UpdatePrductFavoriteCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$_UpdatePrductFavorite>
+    implements _$$_UpdatePrductFavoriteCopyWith<$Res> {
+  __$$_UpdatePrductFavoriteCopyWithImpl(_$_UpdatePrductFavorite _value,
+      $Res Function(_$_UpdatePrductFavorite) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isfavorite = null,
+    Object? productid = null,
+  }) {
+    return _then(_$_UpdatePrductFavorite(
+      isfavorite: null == isfavorite
+          ? _value.isfavorite
+          : isfavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
+      productid: null == productid
+          ? _value.productid
+          : productid // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdatePrductFavorite implements _UpdatePrductFavorite {
+  const _$_UpdatePrductFavorite(
+      {required this.isfavorite, required this.productid});
+
+  @override
+  final bool isfavorite;
+  @override
+  final int productid;
+
+  @override
+  String toString() {
+    return 'ProductEvent.updatePrductFavorite(isfavorite: $isfavorite, productid: $productid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdatePrductFavorite &&
+            (identical(other.isfavorite, isfavorite) ||
+                other.isfavorite == isfavorite) &&
+            (identical(other.productid, productid) ||
+                other.productid == productid));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isfavorite, productid);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdatePrductFavoriteCopyWith<_$_UpdatePrductFavorite> get copyWith =>
+      __$$_UpdatePrductFavoriteCopyWithImpl<_$_UpdatePrductFavorite>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) loadProducts,
+    required TResult Function(
+            CategoriesModel category, List<ProductModel> listProduct)
+        getProductsByCategories,
+    required TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)
+        getProductsBySubCategories,
+    required TResult Function() toInitialState,
+    required TResult Function(bool isfavorite, int productid)
+        updatePrductFavorite,
+  }) {
+    return updatePrductFavorite(isfavorite, productid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? loadProducts,
+    TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
+    TResult? Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
+    TResult? Function()? toInitialState,
+    TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
+  }) {
+    return updatePrductFavorite?.call(isfavorite, productid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? loadProducts,
+    TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
+    TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
+    TResult Function()? toInitialState,
+    TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
+    required TResult orElse(),
+  }) {
+    if (updatePrductFavorite != null) {
+      return updatePrductFavorite(isfavorite, productid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_GetProductsByCategories value)
+        getProductsByCategories,
+    required TResult Function(_GetProductsBySubCategories value)
+        getProductsBySubCategories,
+    required TResult Function(_ToInitialState value) toInitialState,
+    required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
+  }) {
+    return updatePrductFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult? Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
+    TResult? Function(_ToInitialState value)? toInitialState,
+    TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+  }) {
+    return updatePrductFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
+    TResult Function(_ToInitialState value)? toInitialState,
+    TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    required TResult orElse(),
+  }) {
+    if (updatePrductFavorite != null) {
+      return updatePrductFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePrductFavorite implements ProductEvent {
+  const factory _UpdatePrductFavorite(
+      {required final bool isfavorite,
+      required final int productid}) = _$_UpdatePrductFavorite;
+
+  bool get isfavorite;
+  int get productid;
+  @JsonKey(ignore: true)
+  _$$_UpdatePrductFavoriteCopyWith<_$_UpdatePrductFavorite> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -16,8 +16,11 @@ part 'product_bloc.freezed.dart';
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final ProdcutRepository repository;
   String? token = AppInfo().accessToken;
+  List<ProductModel> _productslist = [];
 
-  ProductBloc(this.repository) : super(const ProductState.loading()) {
+  ProductBloc(
+    this.repository,
+  ) : super(const ProductState.loading()) {
     on<ProductEvent>(eventHandler);
   }
 
@@ -34,8 +37,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             emit(ProductState.failure(message: failure.message));
           }
         }, (productos) {
+          _productslist = productos;
           emit(ProductState.loadedSuccess(
-              productos: productos, originalProductList: productos));
+              productos: _productslist, originalProductList: _productslist));
         });
       },
       toInitialState: () {
@@ -78,6 +82,16 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           ProductState.loadedSuccess(
               productos: aux, originalProductList: listProduct),
         );
+      },
+      updatePrductFavorite: (bool isfavorite, int productid) {
+        emit(const ProductState.loading());
+        ProductModel auxproducto =
+            _productslist.firstWhere((element) => element.id == productid);
+        auxproducto.favorite == isfavorite;
+        emit(ProductState.loadedSuccess(
+            productos: _productslist, originalProductList: _productslist));
+
+        //auxproducto.
       },
     );
   }
