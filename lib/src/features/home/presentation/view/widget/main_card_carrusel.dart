@@ -24,6 +24,8 @@ class MainCardCarrusel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cartBloc = context.read<CartBloc>();
+    String? token = AppInfo().accessToken;
+    final productbloc = context.read<ProductBloc>();
 
     return Container(
       decoration: BoxDecoration(
@@ -53,7 +55,12 @@ class MainCardCarrusel extends StatelessWidget {
 
                   context.pushNamed(ProductsDetails.name, extra: args);
                 },
-                child: PictureContainer(pictureUrl: producto.image),
+                child: producto.image == ""
+                    ? const PictureContainer(
+                        isanotherurl:
+                            "https://via.placeholder.com/150x150.png?text=Imagen+no+disponible",
+                      )
+                    : PictureContainer(pictureUrl: producto.image),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 14.0.w, top: 15.h),
@@ -100,9 +107,21 @@ class MainCardCarrusel extends StatelessWidget {
           Positioned(
             right: 10.w,
             top: 10.h,
-            child: FavoriteCircle(
-              isfavorite: producto.favorite ?? false,
-              productid: producto.id,
+            child: GestureDetector(
+              onTap: () {
+                print("sss");
+                if (token != null) {
+                  print("ggg");
+                  productbloc.add(ProductEvent.updatePrductFavorite(
+                    isfavorite: !(producto.favorite!),
+                    productid: producto.id,
+                  ));
+                }
+              },
+              child: FavoriteCircle(
+                isfavorite: producto.favorite ?? false,
+                productid: producto.id,
+              ),
             ),
           )
         ],
@@ -123,36 +142,26 @@ class FavoriteCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? token = AppInfo().accessToken;
-    final productbloc = context.read<ProductBloc>();
-    return GestureDetector(
-      onTap: () {
-        if (token != null) {
-          productbloc.add(ProductEvent.updatePrductFavorite(
-              isfavorite: !isfavorite!, productid: productid));
-        }
-      },
-      child: Container(
-        width: 35.sp,
-        height: 35.sp,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
-        child: Center(
-          child: Icon(
-            Icons.favorite,
-            color: isfavorite == true ? Colors.red : Colors.grey,
-            size: 20,
+    return Container(
+      width: 35.sp,
+      height: 35.sp,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: const Offset(0, 3),
           ),
+        ],
+      ),
+      child: Center(
+        child: Icon(
+          Icons.favorite,
+          color: isfavorite == true ? Colors.red : Colors.grey,
+          size: 20,
         ),
       ),
     );

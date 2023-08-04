@@ -42,7 +42,7 @@ class ProductModel {
   @JsonKey(name: 'tipo')
   final int productType;
   @JsonKey(name: 'favorito')
-  final bool? favorite;
+  bool? favorite;
 
   ProductModel(this.favorite, this.idAlmacen,
       {required this.id,

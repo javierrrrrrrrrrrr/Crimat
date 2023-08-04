@@ -1,14 +1,15 @@
 class Urls {
   ///Whiletrue server
+  /////whiletruecu.com
   static const String host = 'whiletruecu.com';
   static const String api = 'whiletruecu.com';
-  static const String host_api = '/crimat-development/api';
+  static const String hostApi = '/crimat-development/api';
 
   ///Auth services
-  static String get login => '$host_api/token/';
-  static String get register => '$host_api/nuevo_cliente/';
-  static String get changePassword => '$host_api/change-password/';
-  static String get resetPassword => '$host_api/reset-password/';
+  static String get login => '$hostApi/token/';
+  static String get register => '$hostApi/nuevo_cliente/';
+  static String get changePassword => '$hostApi/change-password/';
+  static String get resetPassword => '$hostApi/reset-password/';
 
   static String get getAlmacen => 'crimat-development/api/almacenes/';
   static String get getproducts => 'crimat-development/api/productos';

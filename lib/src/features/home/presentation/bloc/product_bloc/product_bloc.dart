@@ -87,7 +87,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         emit(const ProductState.loading());
         ProductModel auxproducto =
             _productslist.firstWhere((element) => element.id == productid);
-        auxproducto.favorite == isfavorite;
+        auxproducto.favorite = isfavorite;
         emit(ProductState.loadedSuccess(
             productos: _productslist, originalProductList: _productslist));
 
