@@ -21,24 +21,29 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     FavoriteEvent event,
     Emitter emit,
   ) async {
-    await event.when(
-        load: () async {
-          dynamic result;
-          emit(const FavoriteState.loading());
-          if (token != null) {
-            result = await favorite.getFavorite(token: token!);
-            result.fold((failure) {
-              if (failure is ServerFailure) {
-                emit(FavoriteState.error(message: failure.message));
-              }
-            }, (favoritelist) {
-              emit(FavoriteState.loaded(productModelList: favoritelist));
-            });
-          } else {
-            emit(const FavoriteState.noLogedUserState());
+    await event.when(load: () async {
+      dynamic result;
+      emit(const FavoriteState.loading());
+      if (token != null) {
+        result = await favorite.getFavorite(token: token!);
+        result.fold((failure) {
+          if (failure is ServerFailure) {
+            emit(FavoriteState.error(message: failure.message));
           }
-        },
-        addedProduct: (ProductModel product) {},
-        removedProduct: (ProductModel product) {});
+        }, (favoritelist) {
+          emit(FavoriteState.loaded(productModelList: favoritelist));
+        });
+      } else {
+        emit(const FavoriteState.noLogedUserState());
+      }
+    }, addedProduct: (ProductModel product) {
+      if (token != null) {
+        favorite.addFavorite(token: token!, productid: product.id);
+      }
+    }, removedProduct: (ProductModel product) {
+      if (token != null) {
+        favorite.removeFavorite(token: token!, productid: product.id);
+      }
+    });
   }
 }

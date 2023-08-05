@@ -22,4 +22,30 @@ class FavoriteRepository {
       return Left(ServerFailure('Server failure'));
     }
   }
+
+  Future<Either<Failure, void>> addFavorite(
+      {required String token, required int productid}) async {
+    //TODO: Hacer la implementacion de si el dispositivo tiene internet.
+
+    try {
+      await favoriteDataSurce.addFavorite(token, productid);
+
+      return const Right(null);
+    } on ServerException {
+      return Left(ServerFailure('Server failure'));
+    }
+  }
+
+  Future<Either<Failure, void>> removeFavorite(
+      {required String token, required int productid}) async {
+    //TODO: Hacer la implementacion de si el dispositivo tiene internet.
+
+    try {
+      await favoriteDataSurce.removeFavorite(token, productid);
+
+      return const Right(null);
+    } on ServerException {
+      return Left(ServerFailure('Server failure'));
+    }
+  }
 }

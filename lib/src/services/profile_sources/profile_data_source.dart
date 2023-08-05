@@ -22,9 +22,28 @@ class ProfileDataSource {
           await http.get(uri, headers: {'Authorization': 'Bearer $token'});
 
       if (response.statusCode == 200) {
-        final jsonMap = jsonDecode(response.body);
-        final profilData = ProfileModel.fromJson(jsonMap);
-        return profilData;
+        print("responsebody ${response.body}");
+        final jsonMap = jsonDecode(response.body) as List<dynamic>;
+
+        print("jsonmapen0 ${jsonMap[0]}");
+       
+       
+        final profileData = ProfileModel.fromJson(jsonMap[0]);
+        return profileData;
+
+        // final jsonMap = jsonDecode(response.body) as List<dynamic>;
+
+        // final profilData = jsonMap
+        //     .map((profileData) => ProfileModel.fromJson(profileData))
+        //     .toList();
+        // return profilData[0];
+
+        //  final jsonMap = jsonDecode(response.body) as List<dynamic>;
+
+        //       final productList = jsonMap
+        //           .map((productData) => ProductModel.fromJson(productData))
+        //           .toList();
+        //       return productList;
       } else {
         return throw ServerException();
       }

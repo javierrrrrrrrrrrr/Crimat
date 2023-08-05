@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../models/home/products/producto_model.dart';
 import '../../../../../shared/app_info.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../../favorites/presentation/bloc/favorite_bloc.dart';
 import '../../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../../../shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import '../../../products_detales_screen.dart';
@@ -26,6 +27,7 @@ class MainCardCarrusel extends StatelessWidget {
     final cartBloc = context.read<CartBloc>();
     String? token = AppInfo().accessToken;
     final productbloc = context.read<ProductBloc>();
+    final favoritebloc = context.read<FavoriteBloc>();
 
     return Container(
       decoration: BoxDecoration(
@@ -111,11 +113,17 @@ class MainCardCarrusel extends StatelessWidget {
               onTap: () {
                 print("sss");
                 if (token != null) {
-                  print("ggg");
                   productbloc.add(ProductEvent.updatePrductFavorite(
                     isfavorite: !(producto.favorite!),
                     productid: producto.id,
                   ));
+                  if (producto.favorite == false) {
+                    favoritebloc
+                        .add(FavoriteEvent.addedProduct(product: producto));
+                  } else {
+                    favoritebloc
+                        .add(FavoriteEvent.removedProduct(product: producto));
+                  }
                 }
               },
               child: FavoriteCircle(
