@@ -1,5 +1,6 @@
 import 'package:crimat_app/src/features/favorites/presentation/bloc/favorite_bloc.dart';
 import 'package:crimat_app/src/features/favorites/presentation/view/widget/favorito_card.dart';
+import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,7 +25,10 @@ class FavoritesView extends StatelessWidget {
         state.maybeWhen(
             orElse: () => Container,
             confirMassage: () => UtilFunctions.alertCustomNotification(
-                context, blocCart.selectedProduct));
+                context, blocCart.selectedProduct),
+            successAddedToCart: () => UtilFunctions.printToast(
+                message: context.loc.productSuccessfullyAddedToCart,
+                shorttime: true));
       },
       builder: (context, state) {
         return BlocBuilder<FavoriteBloc, FavoriteState>(
