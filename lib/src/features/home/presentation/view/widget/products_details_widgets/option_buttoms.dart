@@ -9,10 +9,14 @@ class OptionButtoms extends StatelessWidget {
     super.key,
     this.isShopping,
     this.total,
+    this.onPressedPraimary,
+    this.onPressedSecondary,
   });
 
   final bool? isShopping;
   final double? total;
+  final void Function()? onPressedPraimary;
+  final void Function()? onPressedSecondary;
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +32,14 @@ class OptionButtoms extends StatelessWidget {
               )
             : Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 CusotmButtom(
+                  onPressed: onPressedPraimary,
                   height: 45,
                   width: 178,
                   name: context.loc.addToCart,
                   ispraimary: false,
                 ),
                 CusotmButtom(
+                  onPressed: onPressedSecondary,
                   height: 45,
                   width: 178,
                   name: context.loc.buyNow,
