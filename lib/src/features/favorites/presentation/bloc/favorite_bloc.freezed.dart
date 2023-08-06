@@ -21,6 +21,7 @@ mixin _$FavoriteEvent {
     required TResult Function() load,
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$FavoriteEvent {
     TResult? Function()? load,
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$FavoriteEvent {
     TResult Function()? load,
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$FavoriteEvent {
     required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
     required TResult Function(_RemovedProductToFavoriteEvent value)
         removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$FavoriteEvent {
     TResult? Function(_Load value)? load,
     TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$FavoriteEvent {
     TResult Function(_Load value)? load,
     TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,7 @@ class _$_Load implements _Load {
     required TResult Function() load,
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
   }) {
     return load();
   }
@@ -130,6 +137,7 @@ class _$_Load implements _Load {
     TResult? Function()? load,
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
   }) {
     return load?.call();
   }
@@ -140,6 +148,7 @@ class _$_Load implements _Load {
     TResult Function()? load,
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -155,6 +164,7 @@ class _$_Load implements _Load {
     required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
     required TResult Function(_RemovedProductToFavoriteEvent value)
         removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
   }) {
     return load(this);
   }
@@ -165,6 +175,7 @@ class _$_Load implements _Load {
     TResult? Function(_Load value)? load,
     TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
   }) {
     return load?.call(this);
   }
@@ -175,6 +186,7 @@ class _$_Load implements _Load {
     TResult Function(_Load value)? load,
     TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -258,6 +270,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     required TResult Function() load,
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
   }) {
     return addedProduct(product);
   }
@@ -268,6 +281,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     TResult? Function()? load,
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
   }) {
     return addedProduct?.call(product);
   }
@@ -278,6 +292,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     TResult Function()? load,
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
     required TResult orElse(),
   }) {
     if (addedProduct != null) {
@@ -293,6 +308,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
     required TResult Function(_RemovedProductToFavoriteEvent value)
         removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
   }) {
     return addedProduct(this);
   }
@@ -303,6 +319,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     TResult? Function(_Load value)? load,
     TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
   }) {
     return addedProduct?.call(this);
   }
@@ -313,6 +330,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     TResult Function(_Load value)? load,
     TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
     required TResult orElse(),
   }) {
     if (addedProduct != null) {
@@ -403,6 +421,7 @@ class _$_RemovedProductToFavoriteEvent
     required TResult Function() load,
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
   }) {
     return removedProduct(product);
   }
@@ -413,6 +432,7 @@ class _$_RemovedProductToFavoriteEvent
     TResult? Function()? load,
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
   }) {
     return removedProduct?.call(product);
   }
@@ -423,6 +443,7 @@ class _$_RemovedProductToFavoriteEvent
     TResult Function()? load,
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
     required TResult orElse(),
   }) {
     if (removedProduct != null) {
@@ -438,6 +459,7 @@ class _$_RemovedProductToFavoriteEvent
     required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
     required TResult Function(_RemovedProductToFavoriteEvent value)
         removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
   }) {
     return removedProduct(this);
   }
@@ -448,6 +470,7 @@ class _$_RemovedProductToFavoriteEvent
     TResult? Function(_Load value)? load,
     TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
   }) {
     return removedProduct?.call(this);
   }
@@ -458,6 +481,7 @@ class _$_RemovedProductToFavoriteEvent
     TResult Function(_Load value)? load,
     TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
     required TResult orElse(),
   }) {
     if (removedProduct != null) {
@@ -475,6 +499,154 @@ abstract class _RemovedProductToFavoriteEvent implements FavoriteEvent {
   @JsonKey(ignore: true)
   _$$_RemovedProductToFavoriteEventCopyWith<_$_RemovedProductToFavoriteEvent>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateFavoriteListCopyWith<$Res> {
+  factory _$$_UpdateFavoriteListCopyWith(_$_UpdateFavoriteList value,
+          $Res Function(_$_UpdateFavoriteList) then) =
+      __$$_UpdateFavoriteListCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProductModel product});
+}
+
+/// @nodoc
+class __$$_UpdateFavoriteListCopyWithImpl<$Res>
+    extends _$FavoriteEventCopyWithImpl<$Res, _$_UpdateFavoriteList>
+    implements _$$_UpdateFavoriteListCopyWith<$Res> {
+  __$$_UpdateFavoriteListCopyWithImpl(
+      _$_UpdateFavoriteList _value, $Res Function(_$_UpdateFavoriteList) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$_UpdateFavoriteList(
+      product: null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateFavoriteList implements _UpdateFavoriteList {
+  const _$_UpdateFavoriteList({required this.product});
+
+  @override
+  final ProductModel product;
+
+  @override
+  String toString() {
+    return 'FavoriteEvent.updateFavoriteList(product: $product)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateFavoriteList &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateFavoriteListCopyWith<_$_UpdateFavoriteList> get copyWith =>
+      __$$_UpdateFavoriteListCopyWithImpl<_$_UpdateFavoriteList>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(ProductModel product) addedProduct,
+    required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
+  }) {
+    return updateFavoriteList(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
+  }) {
+    return updateFavoriteList?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(ProductModel product)? addedProduct,
+    TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
+    required TResult orElse(),
+  }) {
+    if (updateFavoriteList != null) {
+      return updateFavoriteList(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
+    required TResult Function(_RemovedProductToFavoriteEvent value)
+        removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
+  }) {
+    return updateFavoriteList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
+    TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
+  }) {
+    return updateFavoriteList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
+    TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
+    required TResult orElse(),
+  }) {
+    if (updateFavoriteList != null) {
+      return updateFavoriteList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateFavoriteList implements FavoriteEvent {
+  const factory _UpdateFavoriteList({required final ProductModel product}) =
+      _$_UpdateFavoriteList;
+
+  ProductModel get product;
+  @JsonKey(ignore: true)
+  _$$_UpdateFavoriteListCopyWith<_$_UpdateFavoriteList> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

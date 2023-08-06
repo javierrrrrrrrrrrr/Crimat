@@ -8,4 +8,8 @@ abstract class FavoriteEvent with _$FavoriteEvent {
   }) = _AddedProductToFavoriteEvent;
   const factory FavoriteEvent.removedProduct({required ProductModel product}) =
       _RemovedProductToFavoriteEvent;
+
+  const factory FavoriteEvent.updateFavoriteList({
+    required ProductModel product,
+  }) = _UpdateFavoriteList;
 }
