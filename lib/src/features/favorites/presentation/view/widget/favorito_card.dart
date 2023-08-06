@@ -23,13 +23,15 @@ class FavoriteCard extends StatelessWidget {
           bottom: 9.h,
           top: 9.h,
           child: SizedBox(
-            height: 95.h,
-            width: 108.w,
-            child: PictureContainer(
-              pictureUrl: favorito.image,
-              height: 95.sp,
-            ),
-          ),
+              height: 95.h,
+              width: 108.w,
+              child: favorito.image == ""
+                  ? PictureContainer(pictureUrl: favorito.image, height: 95.sp)
+                  : PictureContainer(
+                      height: 95.sp,
+                      isanotherurl:
+                          "https://via.placeholder.com/150x150.png?text=Imagen+no+disponible",
+                    )),
         ),
         Positioned(
           left: 130.w,
