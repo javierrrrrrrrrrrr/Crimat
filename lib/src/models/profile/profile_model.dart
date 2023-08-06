@@ -10,38 +10,24 @@ class ProfileModel {
   final String firstName;
   @JsonKey(name: 'last_name')
   final String lastName;
-  @JsonKey(name: 'direccion')
-  final String direccion;
-  @JsonKey(name: 'ciudad')
-  final String ciudad;
-  @JsonKey(name: 'apartado')
-  final String apartado;
-  @JsonKey(name: 'estado')
-  final String estado;
-  @JsonKey(name: 'codigo_postal')
-  final String codigoPostal;
   @JsonKey(name: 'telefono')
   final String telefono;
   @JsonKey(name: 'licencia')
   final String licencia;
   @JsonKey(name: 'suscripcion')
   final SuscripcionModel suscripcion;
-  @JsonKey(name: 'salones')
-  final List<SalonModel> salones;
+  @JsonKey(name: 'direcciones')
+  final List<DireccionModel> direcciones;
 
   ProfileModel(
-      this.email,
-      this.firstName,
-      this.lastName,
-      this.direccion,
-      this.ciudad,
-      this.apartado,
-      this.estado,
-      this.codigoPostal,
-      this.telefono,
-      this.licencia,
-      this.suscripcion,
-      this.salones);
+    this.email,
+    this.firstName,
+    this.lastName,
+    this.telefono,
+    this.licencia,
+    this.suscripcion,
+    this.direcciones,
+  );
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) =>
       _$ProfileModelFromJson(json);
@@ -62,8 +48,13 @@ class SuscripcionModel {
   @JsonKey(name: 'valor')
   final double valor;
 
-  SuscripcionModel(this.tipo, this.descuento, this.diasVisibilidad,
-      this.cantSalones, this.valor);
+  SuscripcionModel(
+    this.tipo,
+    this.descuento,
+    this.diasVisibilidad,
+    this.cantSalones,
+    this.valor,
+  );
 
   factory SuscripcionModel.fromJson(Map<String, dynamic> json) =>
       _$SuscripcionModelFromJson(json);
@@ -72,23 +63,31 @@ class SuscripcionModel {
 }
 
 @JsonSerializable()
-class SalonModel {
-  @JsonKey(name: 'nombre')
-  final String nombre;
+class DireccionModel {
+  @JsonKey(name: 'id')
+  final int id;
   @JsonKey(name: 'direccion')
   final String direccion;
-  @JsonKey(name: 'apartado')
+  @JsonKey(name: 'aparatdo')
   final String apartado;
+  @JsonKey(name: 'ciudad')
+  final String ciudad;
   @JsonKey(name: 'estado')
   final String estado;
-  @JsonKey(name: 'codigo_postal')
-  final String codigoPostal;
+  @JsonKey(name: 'postal')
+  final String postal;
 
-  SalonModel(this.nombre, this.direccion, this.apartado, this.estado,
-      this.codigoPostal);
+  DireccionModel(
+    this.id,
+    this.direccion,
+    this.apartado,
+    this.ciudad,
+    this.estado,
+    this.postal,
+  );
 
-  factory SalonModel.fromJson(Map<String, dynamic> json) =>
-      _$SalonModelFromJson(json);
+  factory DireccionModel.fromJson(Map<String, dynamic> json) =>
+      _$DireccionModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SalonModelToJson(this);
+  Map<String, dynamic> toJson() => _$DireccionModelToJson(this);
 }

@@ -23,12 +23,9 @@ class ProfileDataSource {
 
       if (response.statusCode == 200) {
         print("responsebody ${response.body}");
-        final jsonMap = jsonDecode(response.body) as List<dynamic>;
+        final jsonMap = jsonDecode(response.body);
 
-        print("jsonmapen0 ${jsonMap[0]}");
-       
-       
-        final profileData = ProfileModel.fromJson(jsonMap[0]);
+        final profileData = ProfileModel.fromJson(jsonMap);
         return profileData;
 
         // final jsonMap = jsonDecode(response.body) as List<dynamic>;
