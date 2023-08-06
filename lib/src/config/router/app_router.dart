@@ -13,10 +13,12 @@ import '../../features/historial/historial_view.dart';
 import '../../features/historial/presentation/view/historial_details_screen.dart';
 import '../../features/home/products_detales_screen.dart';
 import '../../features/perfil/presentation/view/delivery_address_view.dart';
+import '../../features/perfil/presentation/view/plane_view.dart';
 import '../../features/shoppping_cart/shopping_card_screen.dart';
 import '../../features/splash/splash_screen.dart';
 import '../../models/historial/historial_model.dart';
 import '../../models/home/products/producto_model.dart';
+import '../../models/profile/profile_model.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [
   GoRoute(
@@ -94,10 +96,25 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
           builder: (context, state) => const Scaffold(body: ProfileView()),
           routes: [
             GoRoute(
-                path: 'profile/address',
-                name: DeliveryAddress.name,
+              path: 'profile/address',
+              name: DeliveryAddress.name,
+              builder: (context, state) {
+                final args = state.extra as ProfileModel;
+                return Scaffold(
+                  body: DeliveryAddress(
+                    datos: args,
+                    key: state.pageKey,
+                  ),
+                );
+              },
+            ),
+            GoRoute(
+                path: 'profile/planes',
+                name: PlanesView.name,
                 builder: (context, state) {
-                  return const Scaffold(body: DeliveryAddress());
+                  return const Scaffold(
+                    body: PlanesView(),
+                  );
                 }),
           ]),
     ],

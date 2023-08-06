@@ -32,10 +32,8 @@ class ProfileView extends StatelessWidget {
             success: (profile) => ProfileMainWidget(
                   profil: profile,
                 ),
-            noLogedUser: () => Container(
-                  child: const Center(
-                    child: Text("Definir que poner aqui"),
-                  ),
+            noLogedUser: () => const Center(
+                  child: Text("Definir que poner aqui"),
                 )));
   }
 }
@@ -63,8 +61,9 @@ class ProfileMainWidget extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
                     onTap: () {
+                      final args = profil;
                       if (index == 1) {
-                        context.pushNamed(DeliveryAddress.name);
+                        context.pushNamed(DeliveryAddress.name, extra: args);
                       }
                     },
                     child: Column(
@@ -96,10 +95,10 @@ class ProfileMainWidget extends StatelessWidget {
           left: 20,
           child: PersonalInfo(profile: profil),
         ),
-        const Positioned(
+         Positioned(
           top: 180,
           left: 20,
-          child: CustomPlane(),
+          child: CustomPlane(profile: profil),
         )
       ],
     );

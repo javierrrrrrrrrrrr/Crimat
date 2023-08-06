@@ -2,13 +2,16 @@ import 'package:crimat_app/src/features/perfil/presentation/view/widget/custom_d
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../models/profile/profile_model.dart';
 import '../../../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
 
 class DeliveryAddress extends StatelessWidget {
-  const DeliveryAddress({Key? key}) : super(key: key);
+  const DeliveryAddress({Key? key, required this.datos}) : super(key: key);
 
   static const String name = 'delivery_address';
+
+  final ProfileModel datos;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +20,13 @@ class DeliveryAddress extends StatelessWidget {
         height: 745.h,
         // color: Colors.red,
         child: CarruselListVerticalConfg(
-          itemcount: 8,
+          itemcount: datos.direcciones.length,
           title: "Direcciones de entrega",
           itemBuilder: (BuildContext context, int index) {
-            return const CustomDeliveryCard();
+            return CustomDeliveryCard(
+              datos: datos,
+              index:index
+            );
           },
         ),
       ),
