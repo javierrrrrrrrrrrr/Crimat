@@ -11,9 +11,11 @@ class OptionButtoms extends StatelessWidget {
     this.total,
     this.onPressedPraimary,
     this.onPressedSecondary,
+    this.isProductdetails,
   });
 
   final bool? isShopping;
+  final bool? isProductdetails;
   final double? total;
   final void Function()? onPressedPraimary;
   final void Function()? onPressedSecondary;
@@ -30,22 +32,35 @@ class OptionButtoms extends StatelessWidget {
             ? CustomCardSking(
                 total: double.parse(total!.toStringAsFixed(2)),
               )
-            : Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                CusotmButtom(
-                  onPressed: onPressedPraimary,
-                  height: 45,
-                  width: 178,
-                  name: context.loc.addToCart,
-                  ispraimary: false,
-                ),
-                CusotmButtom(
-                  onPressed: onPressedSecondary,
-                  height: 45,
-                  width: 178,
-                  name: context.loc.buyNow,
-                  ispraimary: true,
-                ),
-              ]),
+            : isProductdetails == true
+                ? Align(
+                    alignment: Alignment.center,
+                    child: CusotmButtom(
+                      onPressed: onPressedPraimary,
+                      height: 45,
+                      width: 150,
+                      name: context.loc.addToCart,
+                      ispraimary: false,
+                    ),
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                        CusotmButtom(
+                          onPressed: onPressedPraimary,
+                          height: 45,
+                          width: 178,
+                          name: context.loc.addToCart,
+                          ispraimary: false,
+                        ),
+                        CusotmButtom(
+                          onPressed: onPressedSecondary,
+                          height: 45,
+                          width: 178,
+                          name: context.loc.buyNow,
+                          ispraimary: true,
+                        ),
+                      ]),
       ),
     );
   }

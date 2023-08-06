@@ -53,6 +53,7 @@ class MainWidget extends StatelessWidget {
               price: product.basePrice,
             ),
             OptionButtoms(
+              isProductdetails: true,
               onPressedPraimary: () =>
                   cartbloc.add(CartEvent.addedProduct(product: product)),
             ),
