@@ -35,6 +35,7 @@ class FavoritesView extends StatelessWidget {
       builder: (context, state) {
         return BlocBuilder<FavoriteBloc, FavoriteState>(
           builder: (context, state) => state.when(
+              updatePositionCheck: (position) => Container(),
               initial: () => Container(),
               loading: () {
                 return const CustomLoadingFavoriteList();

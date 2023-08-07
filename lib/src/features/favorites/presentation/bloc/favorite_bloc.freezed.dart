@@ -1135,6 +1135,7 @@ mixin _$FavoriteState {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1144,6 +1145,7 @@ mixin _$FavoriteState {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1153,6 +1155,7 @@ mixin _$FavoriteState {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1163,6 +1166,8 @@ mixin _$FavoriteState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1172,6 +1177,7 @@ mixin _$FavoriteState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1181,6 +1187,7 @@ mixin _$FavoriteState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1246,6 +1253,7 @@ class _$_Initial implements _Initial {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) {
     return initial();
   }
@@ -1258,6 +1266,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) {
     return initial?.call();
   }
@@ -1270,6 +1279,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1286,6 +1296,8 @@ class _$_Initial implements _Initial {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) {
     return initial(this);
   }
@@ -1298,6 +1310,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) {
     return initial?.call(this);
   }
@@ -1310,6 +1323,7 @@ class _$_Initial implements _Initial {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1366,6 +1380,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) {
     return noLogedUserState();
   }
@@ -1378,6 +1393,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) {
     return noLogedUserState?.call();
   }
@@ -1390,6 +1406,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (noLogedUserState != null) {
@@ -1406,6 +1423,8 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) {
     return noLogedUserState(this);
   }
@@ -1418,6 +1437,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) {
     return noLogedUserState?.call(this);
   }
@@ -1430,6 +1450,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (noLogedUserState != null) {
@@ -1486,6 +1507,7 @@ class _$_LoadingState implements _LoadingState {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) {
     return loading();
   }
@@ -1498,6 +1520,7 @@ class _$_LoadingState implements _LoadingState {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) {
     return loading?.call();
   }
@@ -1510,6 +1533,7 @@ class _$_LoadingState implements _LoadingState {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1526,6 +1550,8 @@ class _$_LoadingState implements _LoadingState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) {
     return loading(this);
   }
@@ -1538,6 +1564,7 @@ class _$_LoadingState implements _LoadingState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) {
     return loading?.call(this);
   }
@@ -1550,6 +1577,7 @@ class _$_LoadingState implements _LoadingState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1641,6 +1669,7 @@ class _$_LoadedState implements _LoadedState {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) {
     return loaded(productModelList);
   }
@@ -1653,6 +1682,7 @@ class _$_LoadedState implements _LoadedState {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) {
     return loaded?.call(productModelList);
   }
@@ -1665,6 +1695,7 @@ class _$_LoadedState implements _LoadedState {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1681,6 +1712,8 @@ class _$_LoadedState implements _LoadedState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) {
     return loaded(this);
   }
@@ -1693,6 +1726,7 @@ class _$_LoadedState implements _LoadedState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) {
     return loaded?.call(this);
   }
@@ -1705,6 +1739,7 @@ class _$_LoadedState implements _LoadedState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1793,6 +1828,7 @@ class _$_ErrorState implements _ErrorState {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) {
     return error(message);
   }
@@ -1805,6 +1841,7 @@ class _$_ErrorState implements _ErrorState {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) {
     return error?.call(message);
   }
@@ -1817,6 +1854,7 @@ class _$_ErrorState implements _ErrorState {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1833,6 +1871,8 @@ class _$_ErrorState implements _ErrorState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) {
     return error(this);
   }
@@ -1845,6 +1885,7 @@ class _$_ErrorState implements _ErrorState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) {
     return error?.call(this);
   }
@@ -1857,6 +1898,7 @@ class _$_ErrorState implements _ErrorState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1873,4 +1915,166 @@ abstract class _ErrorState implements FavoriteState {
   @JsonKey(ignore: true)
   _$$_ErrorStateCopyWith<_$_ErrorState> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdatePositionCheckStateCopyWith<$Res> {
+  factory _$$_UpdatePositionCheckStateCopyWith(
+          _$_UpdatePositionCheckState value,
+          $Res Function(_$_UpdatePositionCheckState) then) =
+      __$$_UpdatePositionCheckStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int position});
+}
+
+/// @nodoc
+class __$$_UpdatePositionCheckStateCopyWithImpl<$Res>
+    extends _$FavoriteStateCopyWithImpl<$Res, _$_UpdatePositionCheckState>
+    implements _$$_UpdatePositionCheckStateCopyWith<$Res> {
+  __$$_UpdatePositionCheckStateCopyWithImpl(_$_UpdatePositionCheckState _value,
+      $Res Function(_$_UpdatePositionCheckState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? position = null,
+  }) {
+    return _then(_$_UpdatePositionCheckState(
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdatePositionCheckState implements _UpdatePositionCheckState {
+  const _$_UpdatePositionCheckState({required this.position});
+
+  @override
+  final int position;
+
+  @override
+  String toString() {
+    return 'FavoriteState.updatePositionCheck(position: $position)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdatePositionCheckState &&
+            (identical(other.position, position) ||
+                other.position == position));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, position);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdatePositionCheckStateCopyWith<_$_UpdatePositionCheckState>
+      get copyWith => __$$_UpdatePositionCheckStateCopyWithImpl<
+          _$_UpdatePositionCheckState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() noLogedUserState,
+    required TResult Function() loading,
+    required TResult Function(List<ProductModel> productModelList) loaded,
+    required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
+  }) {
+    return updatePositionCheck(position);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? noLogedUserState,
+    TResult? Function()? loading,
+    TResult? Function(List<ProductModel> productModelList)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
+  }) {
+    return updatePositionCheck?.call(position);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? noLogedUserState,
+    TResult Function()? loading,
+    TResult Function(List<ProductModel> productModelList)? loaded,
+    TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
+    required TResult orElse(),
+  }) {
+    if (updatePositionCheck != null) {
+      return updatePositionCheck(position);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUserState,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadedState value) loaded,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
+  }) {
+    return updatePositionCheck(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUserState,
+    TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
+  }) {
+    return updatePositionCheck?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUserState,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadedState value)? loaded,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
+    required TResult orElse(),
+  }) {
+    if (updatePositionCheck != null) {
+      return updatePositionCheck(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePositionCheckState implements FavoriteState {
+  const factory _UpdatePositionCheckState({required final int position}) =
+      _$_UpdatePositionCheckState;
+
+  int get position;
+  @JsonKey(ignore: true)
+  _$$_UpdatePositionCheckStateCopyWith<_$_UpdatePositionCheckState>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -15,6 +15,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   final FavoriteRepository favorite;
   List<ProductModel> favoriteProductList = [];
   ProductModel? selectedFavoriteProduct;
+
   FavoriteBloc(this.favorite) : super(const FavoriteState.initial()) {
     on<FavoriteEvent>(eventHandler);
   }

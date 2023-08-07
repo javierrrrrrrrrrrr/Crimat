@@ -9,4 +9,7 @@ abstract class FavoriteState with _$FavoriteState {
     required List<ProductModel> productModelList,
   }) = _LoadedState;
   const factory FavoriteState.error({required String message}) = _ErrorState;
+
+  const factory FavoriteState.updatePositionCheck({required int position}) =
+      _UpdatePositionCheckState;
 }

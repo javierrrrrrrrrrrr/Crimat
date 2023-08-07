@@ -90,92 +90,115 @@ class UtilFunctions {
     );
   }
 
-  static Future<dynamic> showConfimationAlmacen(
-    BuildContext context,
-  ) {
-    final cartbloc = context.read<CartBloc>();
-    final favoritobloc = context.read<FavoriteBloc>();
+  static Future<dynamic> showConfimationAlmacen(BuildContext context) {
+    final cartBloc = context.read<CartBloc>();
+    final favoriteBloc = context.read<FavoriteBloc>();
     String selectedOption = '';
+
+    List<bool> isCheckedList =
+        List.filled(cartBloc.selectedProduct.almacenList!.length, false);
+
     return showDialog(
       context: context,
-      builder: (BuildContext context) => AlertDialog(
-        content: SizedBox(
-          width: double.maxFinite,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              GestureDetector(
-                onTap: () => Navigator.of(context).pop(),
-                child: const Align(
-                    alignment: Alignment.topRight, child: CustomCloseDialog()),
-              ),
-              Image.asset("assets/images/warning.png"),
-              SizedBox(
-                height: 30.h,
-              ),
-              const WarningText(),
-              SizedBox(
-                height: 30.h,
-              ),
-              Text(
-                "Eliga el almacen desde el cual desea agregar el producto antes de continuar",
-                style: TextStyle(fontSize: 18.sp),
-              ),
-              SizedBox(
-                height: 50.h,
-              ),
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: cartbloc.selectedProduct.almacenList!.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    leading: Checkbox(
-                      value:
-                          false, // Reemplaza "isChecked" con tu lista de valores de marcado
-                      onChanged: (bool? value) {
-                        // Aquí debes manejar el cambio de valor del Checkbox
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return AlertDialog(
+              content: SizedBox(
+                width: double.maxFinite,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).pop(),
+                      child: const Align(
+                          alignment: Alignment.topRight,
+                          child: CustomCloseDialog()),
+                    ),
+                    Image.asset("assets/images/warning.png"),
+                    SizedBox(
+                      height: 30.h,
+                    ),
+                    const WarningText(),
+                    SizedBox(
+                      height: 30.h,
+                    ),
+                    Text(
+                      "Elige el almacén desde el cual deseas agregar el producto antes de continuar",
+                      style: TextStyle(fontSize: 18.sp),
+                    ),
+                    SizedBox(
+                      height: 50.h,
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: cartBloc.selectedProduct.almacenList!.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ListTile(
+                          leading: Checkbox(
+                            activeColor: Theme.of(context).primaryColor,
+                            value: isCheckedList[index],
+                            onChanged: (bool? value) {
+                              setState(() {
+                                // Actualizar el estado isCheckedList
+                                for (int i = 0; i < isCheckedList.length; i++) {
+                                  isCheckedList[i] =
+                                      i == index && value == true;
+                                }
+                              });
+                            },
+                          ),
+                          title: Text(
+                            cartBloc.selectedProduct.almacenList![index].name,
+                            style: TextStyle(fontSize: 16.sp),
+                          ),
+                          subtitle: Text(
+                            cartBloc.selectedProduct.almacenList![index]
+                                .direction.address,
+                            style: TextStyle(fontSize: 14.sp),
+                          ),
+                        );
                       },
                     ),
-                    title: Text(
-                      cartbloc.selectedProduct.almacenList![index].name,
-                      style: TextStyle(fontSize: 16.sp),
+                    SizedBox(
+                      height: 50.h,
                     ),
-                    subtitle: Text(
-                      cartbloc.selectedProduct.almacenList![index].direction
-                          .address,
-                      style: TextStyle(fontSize: 14.sp),
+                    CusotmButtom(
+                      onPressed: () {
+                        int selectedIndex = isCheckedList.indexOf(true);
+                        if (selectedIndex != -1) {
+                          favoriteBloc.add(
+                            FavoriteEvent.updateAlmacenIdInProductFavorite(
+                              idAlmacenForUpdate: cartBloc.selectedProduct
+                                  .almacenList![selectedIndex].id,
+                              productid:
+                                  favoriteBloc.selectedFavoriteProduct!.id,
+                            ),
+                          );
+                          cartBloc.add(
+                            CartEvent.addedProduct(
+                              product: favoriteBloc.selectedFavoriteProduct!,
+                            ),
+                          );
+                          Navigator.of(context).pop();
+                        } else {
+                          print('Debes seleccionar un almacén');
+                          // Mostrar mensaje de error o realizar otra acción
+                        }
+                      },
+                      height: 45.h,
+                      ispraimary: true,
+                      name: "Seleccionar",
+                      width: 250.w,
+                      fontsize: 16.sp,
                     ),
-                  );
-                },
+                  ],
+                ),
               ),
-              SizedBox(
-                height: 50.h,
-              ),
-              CusotmButtom(
-                onPressed: () {
-                  //provicional el id del primer elemnto de la lista hasta lograr que se sellecione en el dialog
-                  favoritobloc.add(
-                      FavoriteEvent.updateAlmacenIdInProductFavorite(
-                          idAlmacenForUpdate:
-                              cartbloc.selectedProduct.almacenList![0].id,
-                          productid: favoritobloc.selectedFavoriteProduct!.id));
-                  cartbloc.add(CartEvent.addedProduct(
-                      product: favoritobloc.selectedFavoriteProduct!));
-
-                  //llamar el evento de actulizar el valor del id del almacen
-                  print(favoritobloc.selectedFavoriteProduct!.name);
-                  Navigator.of(context).pop();
-                },
-                height: 45.h,
-                ispraimary: true,
-                name: "Seleccionar",
-                width: 250.w,
-                fontsize: 16.sp,
-              ),
-            ],
-          ),
-        ),
-      ),
+            );
+          },
+        );
+      },
     );
   }
 }
