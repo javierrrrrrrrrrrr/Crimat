@@ -10,14 +10,12 @@ ProfileModel _$ProfileModelFromJson(Map<String, dynamic> json) => ProfileModel(
       json['email'] as String,
       json['first_name'] as String,
       json['last_name'] as String,
-      json['suscripcion'] as String,
-      json['direccion'] as String,
-      json['ciudad'] as String,
-      json['apartado'] as String,
-      json['estado'] as String,
-      json['codigo_postal'] as String,
       json['telefono'] as String,
       json['licencia'] as String,
+      SuscripcionModel.fromJson(json['suscripcion'] as Map<String, dynamic>),
+      (json['direcciones'] as List<dynamic>)
+          .map((e) => DireccionModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$ProfileModelToJson(ProfileModel instance) =>
@@ -25,12 +23,46 @@ Map<String, dynamic> _$ProfileModelToJson(ProfileModel instance) =>
       'email': instance.email,
       'first_name': instance.firstName,
       'last_name': instance.lastName,
-      'suscripcion': instance.suscripcion,
-      'direccion': instance.direccion,
-      'ciudad': instance.ciudad,
-      'apartado': instance.apartado,
-      'estado': instance.estado,
-      'codigo_postal': instance.codigoPostal,
       'telefono': instance.telefono,
       'licencia': instance.licencia,
+      'suscripcion': instance.suscripcion,
+      'direcciones': instance.direcciones,
+    };
+
+SuscripcionModel _$SuscripcionModelFromJson(Map<String, dynamic> json) =>
+    SuscripcionModel(
+      json['tipo'] as String,
+      (json['descuento'] as num).toDouble(),
+      json['dias_visibilidad'] as int,
+      json['cant_salones'] as int,
+      (json['valor'] as num).toDouble(),
+    );
+
+Map<String, dynamic> _$SuscripcionModelToJson(SuscripcionModel instance) =>
+    <String, dynamic>{
+      'tipo': instance.tipo,
+      'descuento': instance.descuento,
+      'dias_visibilidad': instance.diasVisibilidad,
+      'cant_salones': instance.cantSalones,
+      'valor': instance.valor,
+    };
+
+DireccionModel _$DireccionModelFromJson(Map<String, dynamic> json) =>
+    DireccionModel(
+      json['id'] as int,
+      json['direccion'] as String,
+      json['aparatdo'] as String,
+      json['ciudad'] as String,
+      json['estado'] as String,
+      json['postal'] as String,
+    );
+
+Map<String, dynamic> _$DireccionModelToJson(DireccionModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'direccion': instance.direccion,
+      'aparatdo': instance.apartado,
+      'ciudad': instance.ciudad,
+      'estado': instance.estado,
+      'postal': instance.postal,
     };

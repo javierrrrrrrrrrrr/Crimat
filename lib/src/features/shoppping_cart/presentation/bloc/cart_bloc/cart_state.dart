@@ -13,4 +13,6 @@ abstract class CartState with _$CartState {
   const factory CartState.addWarning({
     required Cart productCartList,
   }) = _AddWarning;
+  const factory CartState.confirMassage() = _ConfirMassageState;
+  const factory CartState.selectIdalmacenToAdd() = _SelectIdalmacenToAdd;
 }

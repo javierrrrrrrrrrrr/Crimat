@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../resources/urls.dart';
 import '../../../../home/presentation/view/widget/custom_picture_container.dart';
 
 class DetailsCard extends StatelessWidget {
@@ -66,10 +65,12 @@ class DetailsCard extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(6.r),
-                      child: PictureContainer(
-                          isanotherurl: "https://${Urls.api}/$image"),
-                    ),
+                        borderRadius: BorderRadius.circular(6.r),
+                        child: image == ""
+                            ? const PictureContainer(
+                                isanotherurl:
+                                    "https://via.placeholder.com/150x150.png?text=Imagen+no+disponible")
+                            : PictureContainer(pictureUrl: image)),
                   ),
                 ),
               ),

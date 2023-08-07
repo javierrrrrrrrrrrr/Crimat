@@ -28,10 +28,10 @@ class ProductDataSource {
       if (response.statusCode == 200) {
         final jsonMap = jsonDecode(response.body) as List<dynamic>;
 
-        final almacenesList = jsonMap
-            .map((almacenData) => ProductModel.fromJson(almacenData))
+        final productList = jsonMap
+            .map((productData) => ProductModel.fromJson(productData))
             .toList();
-        return almacenesList;
+        return productList;
       } else {
         return throw ServerException();
       }

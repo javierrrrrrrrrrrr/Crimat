@@ -13,6 +13,9 @@ part 'favorite_bloc.freezed.dart';
 class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   String? token = AppInfo().accessToken;
   final FavoriteRepository favorite;
+  List<ProductModel> favoriteProductList = [];
+  ProductModel? selectedFavoriteProduct;
+
   FavoriteBloc(this.favorite) : super(const FavoriteState.initial()) {
     on<FavoriteEvent>(eventHandler);
   }
@@ -22,23 +25,50 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     Emitter emit,
   ) async {
     await event.when(
-        load: () async {
-          dynamic result;
-          emit(const FavoriteState.loading());
-          if (token != null) {
-            result = await favorite.getFavorite(token: token!);
-            result.fold((failure) {
-              if (failure is ServerFailure) {
-                emit(FavoriteState.error(message: failure.message));
-              }
-            }, (favoritelist) {
-              emit(FavoriteState.loaded(productModelList: favoritelist));
-            });
-          } else {
-            emit(const FavoriteState.noLogedUserState());
-          }
-        },
-        addedProduct: (ProductModel product) {},
-        removedProduct: (ProductModel product) {});
+      load: () async {
+        dynamic result;
+        emit(const FavoriteState.loading());
+        if (token != null) {
+          result = await favorite.getFavorite(token: token!);
+          result.fold((failure) {
+            if (failure is ServerFailure) {
+              emit(FavoriteState.error(message: failure.message));
+            }
+          }, (favoritelist) {
+            favoriteProductList = favoritelist;
+            emit(FavoriteState.loaded(productModelList: favoriteProductList));
+          });
+        } else {
+          emit(const FavoriteState.noLogedUserState());
+        }
+      },
+      addedProduct: (ProductModel product) {
+        if (token != null) {
+          favorite.addFavorite(token: token!, productid: product.id);
+        }
+      },
+      removedProduct: (ProductModel product) {
+        if (token != null) {
+          favorite.removeFavorite(token: token!, productid: product.id);
+        }
+      },
+      updateFavoriteList: (ProductModel product) {
+        emit(const FavoriteState.loading());
+        favoriteProductList.remove(product);
+        emit(FavoriteState.loaded(productModelList: favoriteProductList));
+      },
+      updateSelectedFavoriteProdcut: (ProductModel product) {
+        selectedFavoriteProduct = product;
+      },
+      updateAlmacenIdInProductFavorite:
+          (int idAlmacenForUpdate, int productid) {
+        emit(const FavoriteState.loading());
+        ProductModel aux = favoriteProductList
+            .firstWhere((element) => element.id == productid);
+        aux.idAlmacen = idAlmacenForUpdate;
+
+        emit(FavoriteState.loaded(productModelList: favoriteProductList));
+      },
+    );
   }
 }

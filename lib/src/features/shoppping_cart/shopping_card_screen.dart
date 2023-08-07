@@ -72,7 +72,12 @@ class MainWidget extends StatelessWidget {
         ),
         Positioned(
           bottom: 0,
-          child: OptionButtoms(isShopping: true, total: cart.subtotal),
+          child: OptionButtoms(
+              isShopping: true,
+              total: cart.subtotal,
+              onPressedPay: () {
+                print("Inicar checkout");
+              }),
         ),
       ],
     );

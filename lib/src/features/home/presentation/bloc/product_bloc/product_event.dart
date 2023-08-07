@@ -10,4 +10,8 @@ class ProductEvent with _$ProductEvent {
       {required TipoProductoModel subCategory,
       required List<ProductModel> listProduct}) = _GetProductsBySubCategories;
   const factory ProductEvent.toInitialState() = _ToInitialState;
+  const factory ProductEvent.updatePrductFavorite({
+    required bool isfavorite,
+    required int productid,
+  }) = _UpdatePrductFavorite;
 }

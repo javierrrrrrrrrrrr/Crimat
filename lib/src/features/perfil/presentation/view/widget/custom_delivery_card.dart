@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../models/profile/profile_model.dart';
 import '../../../../../shared/widgets/card_sking.dart';
 
 class CustomDeliveryCard extends StatelessWidget {
   const CustomDeliveryCard({
     super.key,
+    required this.datos,
+    required this.index,
   });
 
+  final ProfileModel datos;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -27,7 +32,7 @@ class CustomDeliveryCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Pablo Ruiz", style: TextStyle(fontSize: 16.sp)),
+                  Text(datos.firstName, style: TextStyle(fontSize: 16.sp)),
                   Text(
                     "Editar",
                     style: TextStyle(
@@ -36,13 +41,14 @@ class CustomDeliveryCard extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 10.h,
+                height: 5.h,
               ),
               SizedBox(
-                height: 50.h,
+                height: 80.h,
                 width: 250.w,
                 child: Text(
-                  "3 Newbridge Court Chino Hills, CA 91709, United States",
+                  maxLines: 3,
+                  '${datos.direcciones[index].id} ${datos.direcciones[index].direccion}, ${datos.direcciones[index].ciudad}, ${datos.direcciones[index].estado} ${datos.direcciones[index].postal}',
                   style: TextStyle(fontSize: 16.sp),
                 ),
               ),

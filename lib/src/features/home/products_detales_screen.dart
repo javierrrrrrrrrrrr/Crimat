@@ -3,9 +3,11 @@ import 'package:crimat_app/src/features/home/presentation/view/widget/products_d
 import 'package:crimat_app/src/features/home/presentation/view/widget/products_details_widgets/products_details_header.dart';
 import 'package:crimat_app/src/features/home/presentation/view/widget/products_details_widgets/products_picture_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../models/home/products/producto_model.dart';
+import '../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 
 class ProductsDetails extends StatelessWidget {
   const ProductsDetails({Key? key, required this.product}) : super(key: key);
@@ -18,6 +20,23 @@ class ProductsDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     // final ProductModel producto =
     //     ModalRoute.of(context)?.settings.arguments as ProductModel;
+    return MainWidget(
+      product: product,
+    );
+  }
+}
+
+class MainWidget extends StatelessWidget {
+  const MainWidget({
+    super.key,
+    required this.product,
+  });
+
+  final ProductModel product;
+
+  @override
+  Widget build(BuildContext context) {
+    final cartbloc = context.read<CartBloc>();
     return Padding(
       padding: EdgeInsets.only(top: 70.h),
       child: SingleChildScrollView(
@@ -33,7 +52,11 @@ class ProductsDetails extends StatelessWidget {
               name: product.name,
               price: product.basePrice,
             ),
-            const OptionButtoms(),
+            OptionButtoms(
+              isProductdetails: true,
+              onPressedPraimary: () =>
+                  cartbloc.add(CartEvent.addedProduct(product: product)),
+            ),
           ],
         ),
       ),

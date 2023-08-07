@@ -75,7 +75,10 @@ class AlmacenSeleccionCarrusel extends StatelessWidget {
 class LoadingAlmacenSeleccionCard extends StatelessWidget {
   const LoadingAlmacenSeleccionCard({
     super.key,
+    this.isfavoriteview,
   });
+
+  final bool? isfavoriteview;
 
   @override
   Widget build(BuildContext context) {
@@ -87,14 +90,16 @@ class LoadingAlmacenSeleccionCard extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.sp),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.6),
+                  color: isfavoriteview == true
+                      ? Colors.grey.withOpacity(0.6)
+                      : Colors.white.withOpacity(0.6),
                   width: 2.0,
                 ))),
         Positioned(
             top: 30.h,
             left: 50.w,
-            child: const SpinKitFadingCircle(
-              color: Colors.white,
+            child: SpinKitFadingCircle(
+              color: isfavoriteview == true ? Colors.grey : Colors.white,
             )),
         Positioned(
           top: 15.h,

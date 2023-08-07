@@ -21,6 +21,11 @@ mixin _$FavoriteEvent {
     required TResult Function() load,
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
+    required TResult Function(ProductModel product)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(int idAlmacenForUpdate, int productid)
+        updateAlmacenIdInProductFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +33,10 @@ mixin _$FavoriteEvent {
     TResult? Function()? load,
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
+    TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult? Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +44,10 @@ mixin _$FavoriteEvent {
     TResult Function()? load,
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
+    TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +57,11 @@ mixin _$FavoriteEvent {
     required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
     required TResult Function(_RemovedProductToFavoriteEvent value)
         removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
+    required TResult Function(_UpdateSelectedFavoriteProdcutEvent value)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
+        updateAlmacenIdInProductFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +69,11 @@ mixin _$FavoriteEvent {
     TResult? Function(_Load value)? load,
     TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult? Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +81,11 @@ mixin _$FavoriteEvent {
     TResult Function(_Load value)? load,
     TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +148,11 @@ class _$_Load implements _Load {
     required TResult Function() load,
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
+    required TResult Function(ProductModel product)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(int idAlmacenForUpdate, int productid)
+        updateAlmacenIdInProductFavorite,
   }) {
     return load();
   }
@@ -130,6 +163,10 @@ class _$_Load implements _Load {
     TResult? Function()? load,
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
+    TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult? Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
   }) {
     return load?.call();
   }
@@ -140,6 +177,10 @@ class _$_Load implements _Load {
     TResult Function()? load,
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
+    TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -155,6 +196,11 @@ class _$_Load implements _Load {
     required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
     required TResult Function(_RemovedProductToFavoriteEvent value)
         removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
+    required TResult Function(_UpdateSelectedFavoriteProdcutEvent value)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
+        updateAlmacenIdInProductFavorite,
   }) {
     return load(this);
   }
@@ -165,6 +211,11 @@ class _$_Load implements _Load {
     TResult? Function(_Load value)? load,
     TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult? Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
   }) {
     return load?.call(this);
   }
@@ -175,6 +226,11 @@ class _$_Load implements _Load {
     TResult Function(_Load value)? load,
     TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -258,6 +314,11 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     required TResult Function() load,
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
+    required TResult Function(ProductModel product)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(int idAlmacenForUpdate, int productid)
+        updateAlmacenIdInProductFavorite,
   }) {
     return addedProduct(product);
   }
@@ -268,6 +329,10 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     TResult? Function()? load,
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
+    TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult? Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
   }) {
     return addedProduct?.call(product);
   }
@@ -278,6 +343,10 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     TResult Function()? load,
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
+    TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
     required TResult orElse(),
   }) {
     if (addedProduct != null) {
@@ -293,6 +362,11 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
     required TResult Function(_RemovedProductToFavoriteEvent value)
         removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
+    required TResult Function(_UpdateSelectedFavoriteProdcutEvent value)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
+        updateAlmacenIdInProductFavorite,
   }) {
     return addedProduct(this);
   }
@@ -303,6 +377,11 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     TResult? Function(_Load value)? load,
     TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult? Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
   }) {
     return addedProduct?.call(this);
   }
@@ -313,6 +392,11 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     TResult Function(_Load value)? load,
     TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
     required TResult orElse(),
   }) {
     if (addedProduct != null) {
@@ -403,6 +487,11 @@ class _$_RemovedProductToFavoriteEvent
     required TResult Function() load,
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
+    required TResult Function(ProductModel product)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(int idAlmacenForUpdate, int productid)
+        updateAlmacenIdInProductFavorite,
   }) {
     return removedProduct(product);
   }
@@ -413,6 +502,10 @@ class _$_RemovedProductToFavoriteEvent
     TResult? Function()? load,
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
+    TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult? Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
   }) {
     return removedProduct?.call(product);
   }
@@ -423,6 +516,10 @@ class _$_RemovedProductToFavoriteEvent
     TResult Function()? load,
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
+    TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
     required TResult orElse(),
   }) {
     if (removedProduct != null) {
@@ -438,6 +535,11 @@ class _$_RemovedProductToFavoriteEvent
     required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
     required TResult Function(_RemovedProductToFavoriteEvent value)
         removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
+    required TResult Function(_UpdateSelectedFavoriteProdcutEvent value)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
+        updateAlmacenIdInProductFavorite,
   }) {
     return removedProduct(this);
   }
@@ -448,6 +550,11 @@ class _$_RemovedProductToFavoriteEvent
     TResult? Function(_Load value)? load,
     TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult? Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
   }) {
     return removedProduct?.call(this);
   }
@@ -458,6 +565,11 @@ class _$_RemovedProductToFavoriteEvent
     TResult Function(_Load value)? load,
     TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
     TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
     required TResult orElse(),
   }) {
     if (removedProduct != null) {
@@ -478,6 +590,543 @@ abstract class _RemovedProductToFavoriteEvent implements FavoriteEvent {
 }
 
 /// @nodoc
+abstract class _$$_UpdateFavoriteListCopyWith<$Res> {
+  factory _$$_UpdateFavoriteListCopyWith(_$_UpdateFavoriteList value,
+          $Res Function(_$_UpdateFavoriteList) then) =
+      __$$_UpdateFavoriteListCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProductModel product});
+}
+
+/// @nodoc
+class __$$_UpdateFavoriteListCopyWithImpl<$Res>
+    extends _$FavoriteEventCopyWithImpl<$Res, _$_UpdateFavoriteList>
+    implements _$$_UpdateFavoriteListCopyWith<$Res> {
+  __$$_UpdateFavoriteListCopyWithImpl(
+      _$_UpdateFavoriteList _value, $Res Function(_$_UpdateFavoriteList) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$_UpdateFavoriteList(
+      product: null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateFavoriteList implements _UpdateFavoriteList {
+  const _$_UpdateFavoriteList({required this.product});
+
+  @override
+  final ProductModel product;
+
+  @override
+  String toString() {
+    return 'FavoriteEvent.updateFavoriteList(product: $product)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateFavoriteList &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateFavoriteListCopyWith<_$_UpdateFavoriteList> get copyWith =>
+      __$$_UpdateFavoriteListCopyWithImpl<_$_UpdateFavoriteList>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(ProductModel product) addedProduct,
+    required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
+    required TResult Function(ProductModel product)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(int idAlmacenForUpdate, int productid)
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateFavoriteList(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
+    TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult? Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateFavoriteList?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(ProductModel product)? addedProduct,
+    TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
+    TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
+    required TResult orElse(),
+  }) {
+    if (updateFavoriteList != null) {
+      return updateFavoriteList(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
+    required TResult Function(_RemovedProductToFavoriteEvent value)
+        removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
+    required TResult Function(_UpdateSelectedFavoriteProdcutEvent value)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateFavoriteList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
+    TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult? Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateFavoriteList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
+    TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
+    required TResult orElse(),
+  }) {
+    if (updateFavoriteList != null) {
+      return updateFavoriteList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateFavoriteList implements FavoriteEvent {
+  const factory _UpdateFavoriteList({required final ProductModel product}) =
+      _$_UpdateFavoriteList;
+
+  ProductModel get product;
+  @JsonKey(ignore: true)
+  _$$_UpdateFavoriteListCopyWith<_$_UpdateFavoriteList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateSelectedFavoriteProdcutEventCopyWith<$Res> {
+  factory _$$_UpdateSelectedFavoriteProdcutEventCopyWith(
+          _$_UpdateSelectedFavoriteProdcutEvent value,
+          $Res Function(_$_UpdateSelectedFavoriteProdcutEvent) then) =
+      __$$_UpdateSelectedFavoriteProdcutEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProductModel product});
+}
+
+/// @nodoc
+class __$$_UpdateSelectedFavoriteProdcutEventCopyWithImpl<$Res>
+    extends _$FavoriteEventCopyWithImpl<$Res,
+        _$_UpdateSelectedFavoriteProdcutEvent>
+    implements _$$_UpdateSelectedFavoriteProdcutEventCopyWith<$Res> {
+  __$$_UpdateSelectedFavoriteProdcutEventCopyWithImpl(
+      _$_UpdateSelectedFavoriteProdcutEvent _value,
+      $Res Function(_$_UpdateSelectedFavoriteProdcutEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$_UpdateSelectedFavoriteProdcutEvent(
+      product: null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateSelectedFavoriteProdcutEvent
+    implements _UpdateSelectedFavoriteProdcutEvent {
+  const _$_UpdateSelectedFavoriteProdcutEvent({required this.product});
+
+  @override
+  final ProductModel product;
+
+  @override
+  String toString() {
+    return 'FavoriteEvent.updateSelectedFavoriteProdcut(product: $product)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateSelectedFavoriteProdcutEvent &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateSelectedFavoriteProdcutEventCopyWith<
+          _$_UpdateSelectedFavoriteProdcutEvent>
+      get copyWith => __$$_UpdateSelectedFavoriteProdcutEventCopyWithImpl<
+          _$_UpdateSelectedFavoriteProdcutEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(ProductModel product) addedProduct,
+    required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
+    required TResult Function(ProductModel product)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(int idAlmacenForUpdate, int productid)
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateSelectedFavoriteProdcut(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
+    TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult? Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateSelectedFavoriteProdcut?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(ProductModel product)? addedProduct,
+    TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
+    TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
+    required TResult orElse(),
+  }) {
+    if (updateSelectedFavoriteProdcut != null) {
+      return updateSelectedFavoriteProdcut(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
+    required TResult Function(_RemovedProductToFavoriteEvent value)
+        removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
+    required TResult Function(_UpdateSelectedFavoriteProdcutEvent value)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateSelectedFavoriteProdcut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
+    TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult? Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateSelectedFavoriteProdcut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
+    TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
+    required TResult orElse(),
+  }) {
+    if (updateSelectedFavoriteProdcut != null) {
+      return updateSelectedFavoriteProdcut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateSelectedFavoriteProdcutEvent implements FavoriteEvent {
+  const factory _UpdateSelectedFavoriteProdcutEvent(
+          {required final ProductModel product}) =
+      _$_UpdateSelectedFavoriteProdcutEvent;
+
+  ProductModel get product;
+  @JsonKey(ignore: true)
+  _$$_UpdateSelectedFavoriteProdcutEventCopyWith<
+          _$_UpdateSelectedFavoriteProdcutEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateAlmacenIdInProductFavoriteEventCopyWith<$Res> {
+  factory _$$_UpdateAlmacenIdInProductFavoriteEventCopyWith(
+          _$_UpdateAlmacenIdInProductFavoriteEvent value,
+          $Res Function(_$_UpdateAlmacenIdInProductFavoriteEvent) then) =
+      __$$_UpdateAlmacenIdInProductFavoriteEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int idAlmacenForUpdate, int productid});
+}
+
+/// @nodoc
+class __$$_UpdateAlmacenIdInProductFavoriteEventCopyWithImpl<$Res>
+    extends _$FavoriteEventCopyWithImpl<$Res,
+        _$_UpdateAlmacenIdInProductFavoriteEvent>
+    implements _$$_UpdateAlmacenIdInProductFavoriteEventCopyWith<$Res> {
+  __$$_UpdateAlmacenIdInProductFavoriteEventCopyWithImpl(
+      _$_UpdateAlmacenIdInProductFavoriteEvent _value,
+      $Res Function(_$_UpdateAlmacenIdInProductFavoriteEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idAlmacenForUpdate = null,
+    Object? productid = null,
+  }) {
+    return _then(_$_UpdateAlmacenIdInProductFavoriteEvent(
+      idAlmacenForUpdate: null == idAlmacenForUpdate
+          ? _value.idAlmacenForUpdate
+          : idAlmacenForUpdate // ignore: cast_nullable_to_non_nullable
+              as int,
+      productid: null == productid
+          ? _value.productid
+          : productid // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateAlmacenIdInProductFavoriteEvent
+    implements _UpdateAlmacenIdInProductFavoriteEvent {
+  const _$_UpdateAlmacenIdInProductFavoriteEvent(
+      {required this.idAlmacenForUpdate, required this.productid});
+
+  @override
+  final int idAlmacenForUpdate;
+  @override
+  final int productid;
+
+  @override
+  String toString() {
+    return 'FavoriteEvent.updateAlmacenIdInProductFavorite(idAlmacenForUpdate: $idAlmacenForUpdate, productid: $productid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateAlmacenIdInProductFavoriteEvent &&
+            (identical(other.idAlmacenForUpdate, idAlmacenForUpdate) ||
+                other.idAlmacenForUpdate == idAlmacenForUpdate) &&
+            (identical(other.productid, productid) ||
+                other.productid == productid));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idAlmacenForUpdate, productid);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateAlmacenIdInProductFavoriteEventCopyWith<
+          _$_UpdateAlmacenIdInProductFavoriteEvent>
+      get copyWith => __$$_UpdateAlmacenIdInProductFavoriteEventCopyWithImpl<
+          _$_UpdateAlmacenIdInProductFavoriteEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(ProductModel product) addedProduct,
+    required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
+    required TResult Function(ProductModel product)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(int idAlmacenForUpdate, int productid)
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateAlmacenIdInProductFavorite(idAlmacenForUpdate, productid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
+    TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult? Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateAlmacenIdInProductFavorite?.call(
+        idAlmacenForUpdate, productid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(ProductModel product)? addedProduct,
+    TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
+    TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
+    required TResult orElse(),
+  }) {
+    if (updateAlmacenIdInProductFavorite != null) {
+      return updateAlmacenIdInProductFavorite(idAlmacenForUpdate, productid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
+    required TResult Function(_RemovedProductToFavoriteEvent value)
+        removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
+    required TResult Function(_UpdateSelectedFavoriteProdcutEvent value)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateAlmacenIdInProductFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
+    TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult? Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
+  }) {
+    return updateAlmacenIdInProductFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
+    TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
+    required TResult orElse(),
+  }) {
+    if (updateAlmacenIdInProductFavorite != null) {
+      return updateAlmacenIdInProductFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateAlmacenIdInProductFavoriteEvent implements FavoriteEvent {
+  const factory _UpdateAlmacenIdInProductFavoriteEvent(
+      {required final int idAlmacenForUpdate,
+      required final int productid}) = _$_UpdateAlmacenIdInProductFavoriteEvent;
+
+  int get idAlmacenForUpdate;
+  int get productid;
+  @JsonKey(ignore: true)
+  _$$_UpdateAlmacenIdInProductFavoriteEventCopyWith<
+          _$_UpdateAlmacenIdInProductFavoriteEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$FavoriteState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -486,6 +1135,7 @@ mixin _$FavoriteState {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -495,6 +1145,7 @@ mixin _$FavoriteState {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -504,6 +1155,7 @@ mixin _$FavoriteState {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -514,6 +1166,8 @@ mixin _$FavoriteState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -523,6 +1177,7 @@ mixin _$FavoriteState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -532,6 +1187,7 @@ mixin _$FavoriteState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -597,6 +1253,7 @@ class _$_Initial implements _Initial {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) {
     return initial();
   }
@@ -609,6 +1266,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) {
     return initial?.call();
   }
@@ -621,6 +1279,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -637,6 +1296,8 @@ class _$_Initial implements _Initial {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) {
     return initial(this);
   }
@@ -649,6 +1310,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) {
     return initial?.call(this);
   }
@@ -661,6 +1323,7 @@ class _$_Initial implements _Initial {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -717,6 +1380,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) {
     return noLogedUserState();
   }
@@ -729,6 +1393,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) {
     return noLogedUserState?.call();
   }
@@ -741,6 +1406,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (noLogedUserState != null) {
@@ -757,6 +1423,8 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) {
     return noLogedUserState(this);
   }
@@ -769,6 +1437,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) {
     return noLogedUserState?.call(this);
   }
@@ -781,6 +1450,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (noLogedUserState != null) {
@@ -837,6 +1507,7 @@ class _$_LoadingState implements _LoadingState {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) {
     return loading();
   }
@@ -849,6 +1520,7 @@ class _$_LoadingState implements _LoadingState {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) {
     return loading?.call();
   }
@@ -861,6 +1533,7 @@ class _$_LoadingState implements _LoadingState {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -877,6 +1550,8 @@ class _$_LoadingState implements _LoadingState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) {
     return loading(this);
   }
@@ -889,6 +1564,7 @@ class _$_LoadingState implements _LoadingState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) {
     return loading?.call(this);
   }
@@ -901,6 +1577,7 @@ class _$_LoadingState implements _LoadingState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -992,6 +1669,7 @@ class _$_LoadedState implements _LoadedState {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) {
     return loaded(productModelList);
   }
@@ -1004,6 +1682,7 @@ class _$_LoadedState implements _LoadedState {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) {
     return loaded?.call(productModelList);
   }
@@ -1016,6 +1695,7 @@ class _$_LoadedState implements _LoadedState {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1032,6 +1712,8 @@ class _$_LoadedState implements _LoadedState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) {
     return loaded(this);
   }
@@ -1044,6 +1726,7 @@ class _$_LoadedState implements _LoadedState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) {
     return loaded?.call(this);
   }
@@ -1056,6 +1739,7 @@ class _$_LoadedState implements _LoadedState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1144,6 +1828,7 @@ class _$_ErrorState implements _ErrorState {
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productModelList) loaded,
     required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
   }) {
     return error(message);
   }
@@ -1156,6 +1841,7 @@ class _$_ErrorState implements _ErrorState {
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productModelList)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
   }) {
     return error?.call(message);
   }
@@ -1168,6 +1854,7 @@ class _$_ErrorState implements _ErrorState {
     TResult Function()? loading,
     TResult Function(List<ProductModel> productModelList)? loaded,
     TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1184,6 +1871,8 @@ class _$_ErrorState implements _ErrorState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_LoadedState value) loaded,
     required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
   }) {
     return error(this);
   }
@@ -1196,6 +1885,7 @@ class _$_ErrorState implements _ErrorState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_LoadedState value)? loaded,
     TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
   }) {
     return error?.call(this);
   }
@@ -1208,6 +1898,7 @@ class _$_ErrorState implements _ErrorState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_LoadedState value)? loaded,
     TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1224,4 +1915,166 @@ abstract class _ErrorState implements FavoriteState {
   @JsonKey(ignore: true)
   _$$_ErrorStateCopyWith<_$_ErrorState> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdatePositionCheckStateCopyWith<$Res> {
+  factory _$$_UpdatePositionCheckStateCopyWith(
+          _$_UpdatePositionCheckState value,
+          $Res Function(_$_UpdatePositionCheckState) then) =
+      __$$_UpdatePositionCheckStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int position});
+}
+
+/// @nodoc
+class __$$_UpdatePositionCheckStateCopyWithImpl<$Res>
+    extends _$FavoriteStateCopyWithImpl<$Res, _$_UpdatePositionCheckState>
+    implements _$$_UpdatePositionCheckStateCopyWith<$Res> {
+  __$$_UpdatePositionCheckStateCopyWithImpl(_$_UpdatePositionCheckState _value,
+      $Res Function(_$_UpdatePositionCheckState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? position = null,
+  }) {
+    return _then(_$_UpdatePositionCheckState(
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdatePositionCheckState implements _UpdatePositionCheckState {
+  const _$_UpdatePositionCheckState({required this.position});
+
+  @override
+  final int position;
+
+  @override
+  String toString() {
+    return 'FavoriteState.updatePositionCheck(position: $position)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdatePositionCheckState &&
+            (identical(other.position, position) ||
+                other.position == position));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, position);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdatePositionCheckStateCopyWith<_$_UpdatePositionCheckState>
+      get copyWith => __$$_UpdatePositionCheckStateCopyWithImpl<
+          _$_UpdatePositionCheckState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() noLogedUserState,
+    required TResult Function() loading,
+    required TResult Function(List<ProductModel> productModelList) loaded,
+    required TResult Function(String message) error,
+    required TResult Function(int position) updatePositionCheck,
+  }) {
+    return updatePositionCheck(position);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? noLogedUserState,
+    TResult? Function()? loading,
+    TResult? Function(List<ProductModel> productModelList)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function(int position)? updatePositionCheck,
+  }) {
+    return updatePositionCheck?.call(position);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? noLogedUserState,
+    TResult Function()? loading,
+    TResult Function(List<ProductModel> productModelList)? loaded,
+    TResult Function(String message)? error,
+    TResult Function(int position)? updatePositionCheck,
+    required TResult orElse(),
+  }) {
+    if (updatePositionCheck != null) {
+      return updatePositionCheck(position);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUserState,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadedState value) loaded,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_UpdatePositionCheckState value)
+        updatePositionCheck,
+  }) {
+    return updatePositionCheck(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUserState,
+    TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(_ErrorState value)? error,
+    TResult? Function(_UpdatePositionCheckState value)? updatePositionCheck,
+  }) {
+    return updatePositionCheck?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUserState,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadedState value)? loaded,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_UpdatePositionCheckState value)? updatePositionCheck,
+    required TResult orElse(),
+  }) {
+    if (updatePositionCheck != null) {
+      return updatePositionCheck(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePositionCheckState implements FavoriteState {
+  const factory _UpdatePositionCheckState({required final int position}) =
+      _$_UpdatePositionCheckState;
+
+  int get position;
+  @JsonKey(ignore: true)
+  _$$_UpdatePositionCheckStateCopyWith<_$_UpdatePositionCheckState>
+      get copyWith => throw _privateConstructorUsedError;
 }

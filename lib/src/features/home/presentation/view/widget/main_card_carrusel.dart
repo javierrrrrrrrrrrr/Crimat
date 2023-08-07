@@ -5,10 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../models/home/products/producto_model.dart';
+import '../../../../../shared/app_info.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../../favorites/presentation/bloc/favorite_bloc.dart';
 import '../../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../../../shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import '../../../products_detales_screen.dart';
+import '../../bloc/product_bloc/product_bloc.dart';
 import 'custom_picture_container.dart';
 
 class MainCardCarrusel extends StatelessWidget {
@@ -22,6 +25,9 @@ class MainCardCarrusel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cartBloc = context.read<CartBloc>();
+    String? token = AppInfo().accessToken;
+    final productbloc = context.read<ProductBloc>();
+    final favoritebloc = context.read<FavoriteBloc>();
 
     return Container(
       decoration: BoxDecoration(
@@ -51,7 +57,12 @@ class MainCardCarrusel extends StatelessWidget {
 
                   context.pushNamed(ProductsDetails.name, extra: args);
                 },
-                child: PictureContainer(pictureUrl: producto.image),
+                child: producto.image == ""
+                    ? const PictureContainer(
+                        isanotherurl:
+                            "https://via.placeholder.com/150x150.png?text=Imagen+no+disponible",
+                      )
+                    : PictureContainer(pictureUrl: producto.image),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 14.0.w, top: 15.h),
@@ -98,8 +109,27 @@ class MainCardCarrusel extends StatelessWidget {
           Positioned(
             right: 10.w,
             top: 10.h,
-            child: FavoriteCircle(
-              isfavorite: producto.favorite ?? false,
+            child: GestureDetector(
+              onTap: () {
+                print("sss");
+                if (token != null) {
+                  productbloc.add(ProductEvent.updatePrductFavorite(
+                    isfavorite: !(producto.favorite!),
+                    productid: producto.id,
+                  ));
+                  if (producto.favorite == false) {
+                    favoritebloc
+                        .add(FavoriteEvent.addedProduct(product: producto));
+                  } else {
+                    favoritebloc
+                        .add(FavoriteEvent.removedProduct(product: producto));
+                  }
+                }
+              },
+              child: FavoriteCircle(
+                isfavorite: producto.favorite ?? false,
+                productid: producto.id,
+              ),
             ),
           )
         ],
@@ -112,9 +142,11 @@ class FavoriteCircle extends StatelessWidget {
   const FavoriteCircle({
     super.key,
     this.isfavorite,
+    required this.productid,
   });
 
   final bool? isfavorite;
+  final int productid;
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,14 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 part 'producto_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class ProductModel {
   @JsonKey(name: 'id')
   final int id;
+  @JsonKey(name: 'almacen')
+  int idAlmacen;
+  @JsonKey(name: 'almacen_list')
+  final List<AlmacenModelFavorite>? almacenList;
   @JsonKey(name: 'nombre')
   final String name;
   @JsonKey(name: 'descripcion')
@@ -22,13 +26,13 @@ class ProductModel {
   @JsonKey(name: 'tiempo_caducidad')
   final num validityPeriod;
   @JsonKey(name: 'precio_base')
-  final String basePrice;
+  final double basePrice;
   @JsonKey(name: 'producto_publicidad')
   final bool isAdvertised;
   @JsonKey(name: 'requiere_licencia')
   final bool isLicenceRequired;
   @JsonKey(name: 'descuento_expiracion')
-  final String expirationDiscount;
+  final double expirationDiscount;
   @JsonKey(name: 'meses_descuento')
   final num monthsDiscounted;
   @JsonKey(name: 'meses_invalidez')
@@ -36,13 +40,13 @@ class ProductModel {
   @JsonKey(name: 'eliminado')
   final bool isDeleted;
   @JsonKey(name: 'minimo')
-  final String minimumValue;
-  @JsonKey(name: 'tipo_producto')
-  final num productType;
+  final double minimumValue;
+  @JsonKey(name: 'tipo')
+  final int productType;
   @JsonKey(name: 'favorito')
-  final bool? favorite;
+  bool? favorite;
 
-  ProductModel(this.favorite,
+  ProductModel(this.favorite, this.idAlmacen, this.almacenList,
       {required this.id,
       required this.name,
       required this.description,
@@ -66,4 +70,58 @@ class ProductModel {
       _$ProductModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProductModelToJson(this);
+}
+
+@JsonSerializable()
+class AlmacenModelFavorite {
+  @JsonKey(name: 'id')
+  final int id;
+  @JsonKey(name: 'nombre')
+  final String name;
+  @JsonKey(name: 'imagem')
+  final String image;
+  @JsonKey(name: 'direccion')
+  final DireccionModel direction;
+
+  AlmacenModelFavorite({
+    required this.id,
+    required this.name,
+    required this.image,
+    required this.direction,
+  });
+
+  factory AlmacenModelFavorite.fromJson(Map<String, dynamic> json) =>
+      _$AlmacenModelFavoriteFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AlmacenModelFavoriteToJson(this);
+}
+
+@JsonSerializable()
+class DireccionModel {
+  @JsonKey(name: 'id')
+  final int id;
+  @JsonKey(name: 'direccion')
+  final String address;
+  @JsonKey(name: 'apartado')
+  final String apartado;
+  @JsonKey(name: 'ciudad')
+  final String city;
+  @JsonKey(name: 'estado')
+  final String state;
+  @JsonKey(name: 'codigo_postal')
+  final String postalCode;
+
+  DireccionModel({
+    required this.id,
+    required this.address,
+    required this.apartado,
+    required this.city,
+    required this.state,
+    required this.postalCode,
+  });
+
+  factory DireccionModel.fromJson(Map<String, dynamic> json) =>
+      _$DireccionModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DireccionModelToJson(this);
 }

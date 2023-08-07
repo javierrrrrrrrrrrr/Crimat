@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../shared/utils/utils.dart';
 import '../../shared/widgets/custom_error_widget.dart';
+import '../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -17,16 +19,27 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AlmacenBloc, AlmacenState>(
+    final blocCart = context.read<CartBloc>();
+    return BlocConsumer<CartBloc, CartState>(
+      listener: (context, state) {
+        state.maybeWhen(
+            orElse: () => Container,
+            confirMassage: () => UtilFunctions.alertCustomNotification(
+                context, blocCart.selectedProduct));
+      },
       builder: (context, state) {
-        return state.maybeWhen(
-          orElse: () => const MainWidget(),
-          failure: (message) => CustomErrorWidget(
-              message: message,
-              onPressed: () {
-                context.read<AlmacenBloc>().add(const AlmacenEvent.load());
-              }),
-          selectedAlmacen: (almacenes, index) => const MainWidget(),
+        return BlocBuilder<AlmacenBloc, AlmacenState>(
+          builder: (context, state) {
+            return state.maybeWhen(
+              orElse: () => const MainWidget(),
+              failure: (message) => CustomErrorWidget(
+                  message: message,
+                  onPressed: () {
+                    context.read<AlmacenBloc>().add(const AlmacenEvent.load());
+                  }),
+              selectedAlmacen: (almacenes, index) => const MainWidget(),
+            );
+          },
         );
       },
     );

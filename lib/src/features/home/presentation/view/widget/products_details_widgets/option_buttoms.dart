@@ -9,10 +9,18 @@ class OptionButtoms extends StatelessWidget {
     super.key,
     this.isShopping,
     this.total,
+    this.onPressedPraimary,
+    this.onPressedSecondary,
+    this.isProductdetails,
+    this.onPressedPay,
   });
 
   final bool? isShopping;
+  final bool? isProductdetails;
   final double? total;
+  final void Function()? onPressedPraimary;
+  final void Function()? onPressedSecondary;
+  final void Function()? onPressedPay;
 
   @override
   Widget build(BuildContext context) {
@@ -24,22 +32,38 @@ class OptionButtoms extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: isShopping == true
             ? CustomCardSking(
+                onPressed: onPressedPay,
                 total: double.parse(total!.toStringAsFixed(2)),
               )
-            : Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                CusotmButtom(
-                  height: 45,
-                  width: 178,
-                  name: context.loc.addToCart,
-                  ispraimary: false,
-                ),
-                CusotmButtom(
-                  height: 45,
-                  width: 178,
-                  name: context.loc.buyNow,
-                  ispraimary: true,
-                ),
-              ]),
+            : isProductdetails == true
+                ? Align(
+                    alignment: Alignment.center,
+                    child: CusotmButtom(
+                      onPressed: onPressedPraimary,
+                      height: 45,
+                      width: 150,
+                      name: context.loc.addToCart,
+                      ispraimary: false,
+                    ),
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                        CusotmButtom(
+                          onPressed: onPressedPraimary,
+                          height: 45,
+                          width: 178,
+                          name: context.loc.addToCart,
+                          ispraimary: false,
+                        ),
+                        CusotmButtom(
+                          onPressed: onPressedSecondary,
+                          height: 45,
+                          width: 178,
+                          name: context.loc.buyNow,
+                          ispraimary: true,
+                        ),
+                      ]),
       ),
     );
   }
@@ -49,9 +73,11 @@ class CustomCardSking extends StatelessWidget {
   const CustomCardSking({
     super.key,
     this.total,
+    this.onPressed,
   });
 
   final double? total;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +89,7 @@ class CustomCardSking extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CusotmButtom(
+                onPressed: onPressed,
                 height: 55.h,
                 width: 290.w,
                 name: context.loc.continueToPayment,

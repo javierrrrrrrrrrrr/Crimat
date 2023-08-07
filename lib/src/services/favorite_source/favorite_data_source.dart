@@ -32,4 +32,30 @@ class FavoriteDataSurce {
       return throw ServerException();
     }
   }
+
+  Future<void> addFavorite(String token, int productid) async {
+    final Uri uri = Uri.https(Urls.api, Urls.addFavorite);
+
+    final response = await http.post(uri,
+        headers: {'Authorization': 'Bearer $token'},
+        body: {'producto': '$productid'});
+    if (response.statusCode == 200) {
+      print("Se agrego correctamente a favorito");
+    } else {
+      print("Error al intentar agregar producto  a favoritos");
+    }
+  }
+
+  Future<void> removeFavorite(String token, int productid) async {
+    final Uri uri = Uri.https(Urls.api, Urls.deleteFavorite);
+
+    final response = await http.post(uri,
+        headers: {'Authorization': 'Bearer $token'},
+        body: {'producto': '$productid'});
+    if (response.statusCode == 200) {
+      print("Se elimino correctamente a favorito");
+    } else {
+      print("Error al intentar agregar eliminar  a favoritos");
+    }
+  }
 }

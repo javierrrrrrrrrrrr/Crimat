@@ -40,16 +40,13 @@ class CustomBottonNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final layoutCubitState = context.watch<LayoutCubit>().state;
     return BlocBuilder<CartBloc, CartState>(
-        builder: (context, state) => state.when(
+        builder: (context, state) => state.maybeWhen(
               error: (message) => const SizedBox(),
-              initial: () => customNavbar(layoutCubitState, context, 0),
               loaded: (cart) =>
                   customNavbar(layoutCubitState, context, cart.product.length),
-              loading: () => customNavbar(layoutCubitState, context, 0),
-              successAddedToCart: () =>
-                  customNavbar(layoutCubitState, context, 0),
               addWarning: (cart) =>
                   customNavbar(layoutCubitState, context, cart.product.length),
+              orElse: () => customNavbar(layoutCubitState, context, 0),
             ));
 
     // );

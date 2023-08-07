@@ -10,7 +10,7 @@ class ProductDetailsColum extends StatelessWidget {
   });
 
   final String name;
-  final String price;
+  final double price;
   final String description;
 
   @override

@@ -10,5 +10,6 @@ abstract class CartEvent with _$CartEvent {
   const factory CartEvent.removedAllProduct({required ProductModel product}) =
       _RemovedProductAllToCartEvent;
 
-  const factory CartEvent.clearShoppingCart() = _ClearShoppingCart;
+  const factory CartEvent.addProductinDiferentAlmacen(
+      {required ProductModel product}) = _AddProductinDiferentAlmacenState;
 }
