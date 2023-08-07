@@ -28,7 +28,9 @@ class FavoritesView extends StatelessWidget {
                 context, blocCart.selectedProduct),
             successAddedToCart: () => UtilFunctions.printToast(
                 message: context.loc.productSuccessfullyAddedToCart,
-                shorttime: true));
+                shorttime: true),
+            selectIdalmacenToAdd: () =>
+                UtilFunctions.showConfimationAlmacen(context));
       },
       builder: (context, state) {
         return BlocBuilder<FavoriteBloc, FavoriteState>(

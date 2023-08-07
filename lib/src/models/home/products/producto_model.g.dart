@@ -10,7 +10,7 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
       json['favorito'] as bool?,
       json['almacen'] as int,
       (json['almacen_list'] as List<dynamic>?)
-          ?.map((e) => AlmacenModel.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => AlmacenModelFavorite.fromJson(e as Map<String, dynamic>))
           .toList(),
       id: json['id'] as int,
       name: json['nombre'] as String,
@@ -57,13 +57,16 @@ Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
       'favorito': instance.favorite,
     };
 
-AlmacenModel _$AlmacenModelFromJson(Map<String, dynamic> json) => AlmacenModel(
+AlmacenModelFavorite _$AlmacenModelFavoriteFromJson(
+        Map<String, dynamic> json) =>
+    AlmacenModelFavorite(
       id: json['id'] as int,
       name: json['nombre'] as String,
       image: json['imagem'] as String,
     );
 
-Map<String, dynamic> _$AlmacenModelToJson(AlmacenModel instance) =>
+Map<String, dynamic> _$AlmacenModelFavoriteToJson(
+        AlmacenModelFavorite instance) =>
     <String, dynamic>{
       'id': instance.id,
       'nombre': instance.name,

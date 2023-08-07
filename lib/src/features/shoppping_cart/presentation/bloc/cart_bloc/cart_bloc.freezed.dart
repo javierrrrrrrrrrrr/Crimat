@@ -751,6 +751,7 @@ mixin _$CartState {
     required TResult Function() successAddedToCart,
     required TResult Function(Cart productCartList) addWarning,
     required TResult Function() confirMassage,
+    required TResult Function() selectIdalmacenToAdd,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -762,6 +763,7 @@ mixin _$CartState {
     TResult? Function()? successAddedToCart,
     TResult? Function(Cart productCartList)? addWarning,
     TResult? Function()? confirMassage,
+    TResult? Function()? selectIdalmacenToAdd,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -773,6 +775,7 @@ mixin _$CartState {
     TResult Function()? successAddedToCart,
     TResult Function(Cart productCartList)? addWarning,
     TResult Function()? confirMassage,
+    TResult Function()? selectIdalmacenToAdd,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -785,6 +788,7 @@ mixin _$CartState {
     required TResult Function(_SuccessAddedToCart value) successAddedToCart,
     required TResult Function(_AddWarning value) addWarning,
     required TResult Function(_ConfirMassageState value) confirMassage,
+    required TResult Function(_SelectIdalmacenToAdd value) selectIdalmacenToAdd,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -796,6 +800,7 @@ mixin _$CartState {
     TResult? Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult? Function(_AddWarning value)? addWarning,
     TResult? Function(_ConfirMassageState value)? confirMassage,
+    TResult? Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -807,6 +812,7 @@ mixin _$CartState {
     TResult Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult Function(_AddWarning value)? addWarning,
     TResult Function(_ConfirMassageState value)? confirMassage,
+    TResult Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -874,6 +880,7 @@ class _$_CartInitial implements _CartInitial {
     required TResult Function() successAddedToCart,
     required TResult Function(Cart productCartList) addWarning,
     required TResult Function() confirMassage,
+    required TResult Function() selectIdalmacenToAdd,
   }) {
     return initial();
   }
@@ -888,6 +895,7 @@ class _$_CartInitial implements _CartInitial {
     TResult? Function()? successAddedToCart,
     TResult? Function(Cart productCartList)? addWarning,
     TResult? Function()? confirMassage,
+    TResult? Function()? selectIdalmacenToAdd,
   }) {
     return initial?.call();
   }
@@ -902,6 +910,7 @@ class _$_CartInitial implements _CartInitial {
     TResult Function()? successAddedToCart,
     TResult Function(Cart productCartList)? addWarning,
     TResult Function()? confirMassage,
+    TResult Function()? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -920,6 +929,7 @@ class _$_CartInitial implements _CartInitial {
     required TResult Function(_SuccessAddedToCart value) successAddedToCart,
     required TResult Function(_AddWarning value) addWarning,
     required TResult Function(_ConfirMassageState value) confirMassage,
+    required TResult Function(_SelectIdalmacenToAdd value) selectIdalmacenToAdd,
   }) {
     return initial(this);
   }
@@ -934,6 +944,7 @@ class _$_CartInitial implements _CartInitial {
     TResult? Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult? Function(_AddWarning value)? addWarning,
     TResult? Function(_ConfirMassageState value)? confirMassage,
+    TResult? Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
   }) {
     return initial?.call(this);
   }
@@ -948,6 +959,7 @@ class _$_CartInitial implements _CartInitial {
     TResult Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult Function(_AddWarning value)? addWarning,
     TResult Function(_ConfirMassageState value)? confirMassage,
+    TResult Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1006,6 +1018,7 @@ class _$_CartLoadingState implements _CartLoadingState {
     required TResult Function() successAddedToCart,
     required TResult Function(Cart productCartList) addWarning,
     required TResult Function() confirMassage,
+    required TResult Function() selectIdalmacenToAdd,
   }) {
     return loading();
   }
@@ -1020,6 +1033,7 @@ class _$_CartLoadingState implements _CartLoadingState {
     TResult? Function()? successAddedToCart,
     TResult? Function(Cart productCartList)? addWarning,
     TResult? Function()? confirMassage,
+    TResult? Function()? selectIdalmacenToAdd,
   }) {
     return loading?.call();
   }
@@ -1034,6 +1048,7 @@ class _$_CartLoadingState implements _CartLoadingState {
     TResult Function()? successAddedToCart,
     TResult Function(Cart productCartList)? addWarning,
     TResult Function()? confirMassage,
+    TResult Function()? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1052,6 +1067,7 @@ class _$_CartLoadingState implements _CartLoadingState {
     required TResult Function(_SuccessAddedToCart value) successAddedToCart,
     required TResult Function(_AddWarning value) addWarning,
     required TResult Function(_ConfirMassageState value) confirMassage,
+    required TResult Function(_SelectIdalmacenToAdd value) selectIdalmacenToAdd,
   }) {
     return loading(this);
   }
@@ -1066,6 +1082,7 @@ class _$_CartLoadingState implements _CartLoadingState {
     TResult? Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult? Function(_AddWarning value)? addWarning,
     TResult? Function(_ConfirMassageState value)? confirMassage,
+    TResult? Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
   }) {
     return loading?.call(this);
   }
@@ -1080,6 +1097,7 @@ class _$_CartLoadingState implements _CartLoadingState {
     TResult Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult Function(_AddWarning value)? addWarning,
     TResult Function(_ConfirMassageState value)? confirMassage,
+    TResult Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1165,6 +1183,7 @@ class _$_CartLoadedState implements _CartLoadedState {
     required TResult Function() successAddedToCart,
     required TResult Function(Cart productCartList) addWarning,
     required TResult Function() confirMassage,
+    required TResult Function() selectIdalmacenToAdd,
   }) {
     return loaded(productCartList);
   }
@@ -1179,6 +1198,7 @@ class _$_CartLoadedState implements _CartLoadedState {
     TResult? Function()? successAddedToCart,
     TResult? Function(Cart productCartList)? addWarning,
     TResult? Function()? confirMassage,
+    TResult? Function()? selectIdalmacenToAdd,
   }) {
     return loaded?.call(productCartList);
   }
@@ -1193,6 +1213,7 @@ class _$_CartLoadedState implements _CartLoadedState {
     TResult Function()? successAddedToCart,
     TResult Function(Cart productCartList)? addWarning,
     TResult Function()? confirMassage,
+    TResult Function()? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1211,6 +1232,7 @@ class _$_CartLoadedState implements _CartLoadedState {
     required TResult Function(_SuccessAddedToCart value) successAddedToCart,
     required TResult Function(_AddWarning value) addWarning,
     required TResult Function(_ConfirMassageState value) confirMassage,
+    required TResult Function(_SelectIdalmacenToAdd value) selectIdalmacenToAdd,
   }) {
     return loaded(this);
   }
@@ -1225,6 +1247,7 @@ class _$_CartLoadedState implements _CartLoadedState {
     TResult? Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult? Function(_AddWarning value)? addWarning,
     TResult? Function(_ConfirMassageState value)? confirMassage,
+    TResult? Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
   }) {
     return loaded?.call(this);
   }
@@ -1239,6 +1262,7 @@ class _$_CartLoadedState implements _CartLoadedState {
     TResult Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult Function(_AddWarning value)? addWarning,
     TResult Function(_ConfirMassageState value)? confirMassage,
+    TResult Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1329,6 +1353,7 @@ class _$_CartErrorState implements _CartErrorState {
     required TResult Function() successAddedToCart,
     required TResult Function(Cart productCartList) addWarning,
     required TResult Function() confirMassage,
+    required TResult Function() selectIdalmacenToAdd,
   }) {
     return error(message);
   }
@@ -1343,6 +1368,7 @@ class _$_CartErrorState implements _CartErrorState {
     TResult? Function()? successAddedToCart,
     TResult? Function(Cart productCartList)? addWarning,
     TResult? Function()? confirMassage,
+    TResult? Function()? selectIdalmacenToAdd,
   }) {
     return error?.call(message);
   }
@@ -1357,6 +1383,7 @@ class _$_CartErrorState implements _CartErrorState {
     TResult Function()? successAddedToCart,
     TResult Function(Cart productCartList)? addWarning,
     TResult Function()? confirMassage,
+    TResult Function()? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1375,6 +1402,7 @@ class _$_CartErrorState implements _CartErrorState {
     required TResult Function(_SuccessAddedToCart value) successAddedToCart,
     required TResult Function(_AddWarning value) addWarning,
     required TResult Function(_ConfirMassageState value) confirMassage,
+    required TResult Function(_SelectIdalmacenToAdd value) selectIdalmacenToAdd,
   }) {
     return error(this);
   }
@@ -1389,6 +1417,7 @@ class _$_CartErrorState implements _CartErrorState {
     TResult? Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult? Function(_AddWarning value)? addWarning,
     TResult? Function(_ConfirMassageState value)? confirMassage,
+    TResult? Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
   }) {
     return error?.call(this);
   }
@@ -1403,6 +1432,7 @@ class _$_CartErrorState implements _CartErrorState {
     TResult Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult Function(_AddWarning value)? addWarning,
     TResult Function(_ConfirMassageState value)? confirMassage,
+    TResult Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1467,6 +1497,7 @@ class _$_SuccessAddedToCart implements _SuccessAddedToCart {
     required TResult Function() successAddedToCart,
     required TResult Function(Cart productCartList) addWarning,
     required TResult Function() confirMassage,
+    required TResult Function() selectIdalmacenToAdd,
   }) {
     return successAddedToCart();
   }
@@ -1481,6 +1512,7 @@ class _$_SuccessAddedToCart implements _SuccessAddedToCart {
     TResult? Function()? successAddedToCart,
     TResult? Function(Cart productCartList)? addWarning,
     TResult? Function()? confirMassage,
+    TResult? Function()? selectIdalmacenToAdd,
   }) {
     return successAddedToCart?.call();
   }
@@ -1495,6 +1527,7 @@ class _$_SuccessAddedToCart implements _SuccessAddedToCart {
     TResult Function()? successAddedToCart,
     TResult Function(Cart productCartList)? addWarning,
     TResult Function()? confirMassage,
+    TResult Function()? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (successAddedToCart != null) {
@@ -1513,6 +1546,7 @@ class _$_SuccessAddedToCart implements _SuccessAddedToCart {
     required TResult Function(_SuccessAddedToCart value) successAddedToCart,
     required TResult Function(_AddWarning value) addWarning,
     required TResult Function(_ConfirMassageState value) confirMassage,
+    required TResult Function(_SelectIdalmacenToAdd value) selectIdalmacenToAdd,
   }) {
     return successAddedToCart(this);
   }
@@ -1527,6 +1561,7 @@ class _$_SuccessAddedToCart implements _SuccessAddedToCart {
     TResult? Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult? Function(_AddWarning value)? addWarning,
     TResult? Function(_ConfirMassageState value)? confirMassage,
+    TResult? Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
   }) {
     return successAddedToCart?.call(this);
   }
@@ -1541,6 +1576,7 @@ class _$_SuccessAddedToCart implements _SuccessAddedToCart {
     TResult Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult Function(_AddWarning value)? addWarning,
     TResult Function(_ConfirMassageState value)? confirMassage,
+    TResult Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (successAddedToCart != null) {
@@ -1626,6 +1662,7 @@ class _$_AddWarning implements _AddWarning {
     required TResult Function() successAddedToCart,
     required TResult Function(Cart productCartList) addWarning,
     required TResult Function() confirMassage,
+    required TResult Function() selectIdalmacenToAdd,
   }) {
     return addWarning(productCartList);
   }
@@ -1640,6 +1677,7 @@ class _$_AddWarning implements _AddWarning {
     TResult? Function()? successAddedToCart,
     TResult? Function(Cart productCartList)? addWarning,
     TResult? Function()? confirMassage,
+    TResult? Function()? selectIdalmacenToAdd,
   }) {
     return addWarning?.call(productCartList);
   }
@@ -1654,6 +1692,7 @@ class _$_AddWarning implements _AddWarning {
     TResult Function()? successAddedToCart,
     TResult Function(Cart productCartList)? addWarning,
     TResult Function()? confirMassage,
+    TResult Function()? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (addWarning != null) {
@@ -1672,6 +1711,7 @@ class _$_AddWarning implements _AddWarning {
     required TResult Function(_SuccessAddedToCart value) successAddedToCart,
     required TResult Function(_AddWarning value) addWarning,
     required TResult Function(_ConfirMassageState value) confirMassage,
+    required TResult Function(_SelectIdalmacenToAdd value) selectIdalmacenToAdd,
   }) {
     return addWarning(this);
   }
@@ -1686,6 +1726,7 @@ class _$_AddWarning implements _AddWarning {
     TResult? Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult? Function(_AddWarning value)? addWarning,
     TResult? Function(_ConfirMassageState value)? confirMassage,
+    TResult? Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
   }) {
     return addWarning?.call(this);
   }
@@ -1700,6 +1741,7 @@ class _$_AddWarning implements _AddWarning {
     TResult Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult Function(_AddWarning value)? addWarning,
     TResult Function(_ConfirMassageState value)? confirMassage,
+    TResult Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (addWarning != null) {
@@ -1764,6 +1806,7 @@ class _$_ConfirMassageState implements _ConfirMassageState {
     required TResult Function() successAddedToCart,
     required TResult Function(Cart productCartList) addWarning,
     required TResult Function() confirMassage,
+    required TResult Function() selectIdalmacenToAdd,
   }) {
     return confirMassage();
   }
@@ -1778,6 +1821,7 @@ class _$_ConfirMassageState implements _ConfirMassageState {
     TResult? Function()? successAddedToCart,
     TResult? Function(Cart productCartList)? addWarning,
     TResult? Function()? confirMassage,
+    TResult? Function()? selectIdalmacenToAdd,
   }) {
     return confirMassage?.call();
   }
@@ -1792,6 +1836,7 @@ class _$_ConfirMassageState implements _ConfirMassageState {
     TResult Function()? successAddedToCart,
     TResult Function(Cart productCartList)? addWarning,
     TResult Function()? confirMassage,
+    TResult Function()? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (confirMassage != null) {
@@ -1810,6 +1855,7 @@ class _$_ConfirMassageState implements _ConfirMassageState {
     required TResult Function(_SuccessAddedToCart value) successAddedToCart,
     required TResult Function(_AddWarning value) addWarning,
     required TResult Function(_ConfirMassageState value) confirMassage,
+    required TResult Function(_SelectIdalmacenToAdd value) selectIdalmacenToAdd,
   }) {
     return confirMassage(this);
   }
@@ -1824,6 +1870,7 @@ class _$_ConfirMassageState implements _ConfirMassageState {
     TResult? Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult? Function(_AddWarning value)? addWarning,
     TResult? Function(_ConfirMassageState value)? confirMassage,
+    TResult? Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
   }) {
     return confirMassage?.call(this);
   }
@@ -1838,6 +1885,7 @@ class _$_ConfirMassageState implements _ConfirMassageState {
     TResult Function(_SuccessAddedToCart value)? successAddedToCart,
     TResult Function(_AddWarning value)? addWarning,
     TResult Function(_ConfirMassageState value)? confirMassage,
+    TResult Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
     required TResult orElse(),
   }) {
     if (confirMassage != null) {
@@ -1849,4 +1897,142 @@ class _$_ConfirMassageState implements _ConfirMassageState {
 
 abstract class _ConfirMassageState implements CartState {
   const factory _ConfirMassageState() = _$_ConfirMassageState;
+}
+
+/// @nodoc
+abstract class _$$_SelectIdalmacenToAddCopyWith<$Res> {
+  factory _$$_SelectIdalmacenToAddCopyWith(_$_SelectIdalmacenToAdd value,
+          $Res Function(_$_SelectIdalmacenToAdd) then) =
+      __$$_SelectIdalmacenToAddCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SelectIdalmacenToAddCopyWithImpl<$Res>
+    extends _$CartStateCopyWithImpl<$Res, _$_SelectIdalmacenToAdd>
+    implements _$$_SelectIdalmacenToAddCopyWith<$Res> {
+  __$$_SelectIdalmacenToAddCopyWithImpl(_$_SelectIdalmacenToAdd _value,
+      $Res Function(_$_SelectIdalmacenToAdd) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SelectIdalmacenToAdd implements _SelectIdalmacenToAdd {
+  const _$_SelectIdalmacenToAdd();
+
+  @override
+  String toString() {
+    return 'CartState.selectIdalmacenToAdd()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SelectIdalmacenToAdd);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(Cart productCartList) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() successAddedToCart,
+    required TResult Function(Cart productCartList) addWarning,
+    required TResult Function() confirMassage,
+    required TResult Function() selectIdalmacenToAdd,
+  }) {
+    return selectIdalmacenToAdd();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(Cart productCartList)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? successAddedToCart,
+    TResult? Function(Cart productCartList)? addWarning,
+    TResult? Function()? confirMassage,
+    TResult? Function()? selectIdalmacenToAdd,
+  }) {
+    return selectIdalmacenToAdd?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(Cart productCartList)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? successAddedToCart,
+    TResult Function(Cart productCartList)? addWarning,
+    TResult Function()? confirMassage,
+    TResult Function()? selectIdalmacenToAdd,
+    required TResult orElse(),
+  }) {
+    if (selectIdalmacenToAdd != null) {
+      return selectIdalmacenToAdd();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CartInitial value) initial,
+    required TResult Function(_CartLoadingState value) loading,
+    required TResult Function(_CartLoadedState value) loaded,
+    required TResult Function(_CartErrorState value) error,
+    required TResult Function(_SuccessAddedToCart value) successAddedToCart,
+    required TResult Function(_AddWarning value) addWarning,
+    required TResult Function(_ConfirMassageState value) confirMassage,
+    required TResult Function(_SelectIdalmacenToAdd value) selectIdalmacenToAdd,
+  }) {
+    return selectIdalmacenToAdd(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CartInitial value)? initial,
+    TResult? Function(_CartLoadingState value)? loading,
+    TResult? Function(_CartLoadedState value)? loaded,
+    TResult? Function(_CartErrorState value)? error,
+    TResult? Function(_SuccessAddedToCart value)? successAddedToCart,
+    TResult? Function(_AddWarning value)? addWarning,
+    TResult? Function(_ConfirMassageState value)? confirMassage,
+    TResult? Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
+  }) {
+    return selectIdalmacenToAdd?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CartInitial value)? initial,
+    TResult Function(_CartLoadingState value)? loading,
+    TResult Function(_CartLoadedState value)? loaded,
+    TResult Function(_CartErrorState value)? error,
+    TResult Function(_SuccessAddedToCart value)? successAddedToCart,
+    TResult Function(_AddWarning value)? addWarning,
+    TResult Function(_ConfirMassageState value)? confirMassage,
+    TResult Function(_SelectIdalmacenToAdd value)? selectIdalmacenToAdd,
+    required TResult orElse(),
+  }) {
+    if (selectIdalmacenToAdd != null) {
+      return selectIdalmacenToAdd(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectIdalmacenToAdd implements CartState {
+  const factory _SelectIdalmacenToAdd() = _$_SelectIdalmacenToAdd;
 }

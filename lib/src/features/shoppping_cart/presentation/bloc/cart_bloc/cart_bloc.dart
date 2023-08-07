@@ -29,17 +29,23 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       addedProduct: (ProductModel producto) async {
         emit(const CartState.loading());
         _selectedProduct = producto;
-        if (_cartListProducts.isNotEmpty) {
-          if (_cartListProducts[0].idAlmacen == producto.idAlmacen) {
-            _cartListProducts.add(_selectedProduct!);
+        if (producto.idAlmacen == 0) {
+          emit(const CartState.selectIdalmacenToAdd());
 
-            emit(const CartState.successAddedToCart());
-          } else {
-            emit(const CartState.confirMassage());
-          }
+          //emitir el estado
         } else {
-          _cartListProducts.add(producto);
-          emit(const CartState.successAddedToCart());
+          if (_cartListProducts.isNotEmpty) {
+            if (_cartListProducts[0].idAlmacen == producto.idAlmacen) {
+              _cartListProducts.add(_selectedProduct!);
+
+              emit(const CartState.successAddedToCart());
+            } else {
+              emit(const CartState.confirMassage());
+            }
+          } else {
+            _cartListProducts.add(producto);
+            emit(const CartState.successAddedToCart());
+          }
         }
         //compurbo si el producto que se va a adicionar pertenece al mismo almacen
         //si pertenece hago todo esto

@@ -88,4 +88,40 @@ class UtilFunctions {
       ),
     );
   }
+
+  static Future<dynamic> showConfimationAlmacen(
+    BuildContext context,
+  ) {
+    final cartbloc = context.read<CartBloc>();
+    String selectedOption = '';
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(actions: <Widget>[
+              Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: cartbloc.selectedProduct.almacenList!.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Row(
+                            children: [
+                              RadioListTile(
+                                title: const Text('Option 1'),
+                                value: 'Option 1',
+                                groupValue: null,
+                                onChanged: (value) {
+                                  selectedOption = value as String;
+                                },
+                              ),
+                              Text(cartbloc
+                                  .selectedProduct.almacenList![index].name)
+                            ],
+                          );
+                        }),
+                  ),
+                ],
+              ),
+            ]));
+  }
 }
