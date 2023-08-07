@@ -161,10 +161,7 @@ class UtilFunctions {
                           productid: favoritobloc.selectedFavoriteProduct!.id));
                   cartbloc.add(CartEvent.addedProduct(
                       product: favoritobloc.selectedFavoriteProduct!));
-                  // cartbloc.add(CartEvent.updateAlmacenId(
-                  //     idAlmacenForUpdate:
-                  //         cartbloc.selectedProduct.almacenList![0].id,
-                  //     productid: cartbloc.selectedProduct.id));
+
                   //llamar el evento de actulizar el valor del id del almacen
                   print(favoritobloc.selectedFavoriteProduct!.name);
                   Navigator.of(context).pop();

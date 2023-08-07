@@ -91,16 +91,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         _cartListProducts.clear();
         add(CartEvent.addedProduct(product: product));
       },
-      // updateAlmacenId: (int idAlmacenForUpdate, int productid) {
-      //   emit(const CartState.loading());
-      //   ProductModel aux =
-      //       _cartListProducts.firstWhere((element) => element.id == productid);
-      //   aux.idAlmacen = idAlmacenForUpdate;
-
-      //   emit(CartState.loaded(
-      //     productCartList: Cart(product: _cartListProducts),
-      //   ));
-      // },
     );
   }
 }
