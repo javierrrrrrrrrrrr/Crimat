@@ -6,7 +6,9 @@ class ProductModel {
   @JsonKey(name: 'id')
   final int id;
   @JsonKey(name: 'almacen')
-  final int idAlmacen;
+  int idAlmacen;
+  @JsonKey(name: 'almacen_list')
+  final List<AlmacenModel>? almacenList;
   @JsonKey(name: 'nombre')
   final String name;
   @JsonKey(name: 'descripcion')
@@ -44,7 +46,7 @@ class ProductModel {
   @JsonKey(name: 'favorito')
   bool? favorite;
 
-  ProductModel(this.favorite, this.idAlmacen,
+  ProductModel(this.favorite, this.idAlmacen, this.almacenList,
       {required this.id,
       required this.name,
       required this.description,
@@ -68,4 +70,25 @@ class ProductModel {
       _$ProductModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProductModelToJson(this);
+}
+
+@JsonSerializable()
+class AlmacenModel {
+  @JsonKey(name: 'id')
+  final int id;
+  @JsonKey(name: 'nombre')
+  final String name;
+  @JsonKey(name: 'imagem')
+  final String image;
+
+  AlmacenModel({
+    required this.id,
+    required this.name,
+    required this.image,
+  });
+
+  factory AlmacenModel.fromJson(Map<String, dynamic> json) =>
+      _$AlmacenModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AlmacenModelToJson(this);
 }

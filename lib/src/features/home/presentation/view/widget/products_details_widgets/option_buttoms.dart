@@ -12,6 +12,7 @@ class OptionButtoms extends StatelessWidget {
     this.onPressedPraimary,
     this.onPressedSecondary,
     this.isProductdetails,
+    this.onPressedPay,
   });
 
   final bool? isShopping;
@@ -19,6 +20,7 @@ class OptionButtoms extends StatelessWidget {
   final double? total;
   final void Function()? onPressedPraimary;
   final void Function()? onPressedSecondary;
+  final void Function()? onPressedPay;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class OptionButtoms extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: isShopping == true
             ? CustomCardSking(
+                onPressed: onPressedPay,
                 total: double.parse(total!.toStringAsFixed(2)),
               )
             : isProductdetails == true
@@ -70,9 +73,11 @@ class CustomCardSking extends StatelessWidget {
   const CustomCardSking({
     super.key,
     this.total,
+    this.onPressed,
   });
 
   final double? total;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +89,7 @@ class CustomCardSking extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CusotmButtom(
+                onPressed: onPressed,
                 height: 55.h,
                 width: 290.w,
                 name: context.loc.continueToPayment,
