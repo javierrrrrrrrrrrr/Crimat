@@ -91,6 +91,16 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         _cartListProducts.clear();
         add(CartEvent.addedProduct(product: product));
       },
+      // updateAlmacenId: (int idAlmacenForUpdate, int productid) {
+      //   emit(const CartState.loading());
+      //   ProductModel aux =
+      //       _cartListProducts.firstWhere((element) => element.id == productid);
+      //   aux.idAlmacen = idAlmacenForUpdate;
+
+      //   emit(CartState.loaded(
+      //     productCartList: Cart(product: _cartListProducts),
+      //   ));
+      // },
     );
   }
 }
@@ -99,31 +109,3 @@ void removeProductsByMatch(
     ProductModel matchProduct, List<ProductModel> matchProductList) {
   matchProductList.removeWhere((product) => product.id == matchProduct.id);
 }
-//   FutureOr<void> _onAddProductToCartEventToState(
-//       AddedProductToCartEvent event, Emitter<CartState> emit) {
-//     emit(const CartLoadingState());
-//     try {
-//       _cartListProducts.add(event.product);
-
-//       emit(
-//         CartLoadedState(productCartList: _cartListProducts),
-//       );
-//     } catch (e) {
-//       emit(const CartState.error(
-//           message: "Error al adicionar producto al carrito"));
-//     }
-//   }
-
-//   FutureOr<void> _onRemoveProductToCartEventToState(
-//       RemovedProductToCartEvent event, Emitter<CartState> emit) {
-//     emit(const CartLoadingState());
-//     try {
-//       _cartListProducts.remove(event.product);
-
-//       emit(CartState.loaded(productCartList: _cartListProducts));
-//     } catch (e) {
-//       emit(const CartState.error(
-//           message: 'Error al eliminar el producto del carrito'));
-//     }
-//   }
-// }

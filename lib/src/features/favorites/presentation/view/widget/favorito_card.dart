@@ -79,8 +79,12 @@ class FavoriteCard extends StatelessWidget {
           bottom: 10.h,
           right: 10.w,
           child: CusotmButtom(
-            onPressed: () =>
-                cartbloc.add(CartEvent.addedProduct(product: favorito)),
+            onPressed: () {
+              cartbloc.add(CartEvent.addedProduct(product: favorito));
+              favoritebloc.add(
+                FavoriteEvent.updateSelectedFavoriteProdcut(product: favorito),
+              );
+            },
             lettersize: 150,
             haveicon: true,
             height: 40.h,

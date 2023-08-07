@@ -80,15 +80,48 @@ class AlmacenModelFavorite {
   final String name;
   @JsonKey(name: 'imagem')
   final String image;
+  @JsonKey(name: 'direccion')
+  final DireccionModel direction;
 
   AlmacenModelFavorite({
     required this.id,
     required this.name,
     required this.image,
+    required this.direction,
   });
 
   factory AlmacenModelFavorite.fromJson(Map<String, dynamic> json) =>
       _$AlmacenModelFavoriteFromJson(json);
 
   Map<String, dynamic> toJson() => _$AlmacenModelFavoriteToJson(this);
+}
+
+@JsonSerializable()
+class DireccionModel {
+  @JsonKey(name: 'id')
+  final int id;
+  @JsonKey(name: 'direccion')
+  final String address;
+  @JsonKey(name: 'apartado')
+  final String apartado;
+  @JsonKey(name: 'ciudad')
+  final String city;
+  @JsonKey(name: 'estado')
+  final String state;
+  @JsonKey(name: 'codigo_postal')
+  final String postalCode;
+
+  DireccionModel({
+    required this.id,
+    required this.address,
+    required this.apartado,
+    required this.city,
+    required this.state,
+    required this.postalCode,
+  });
+
+  factory DireccionModel.fromJson(Map<String, dynamic> json) =>
+      _$DireccionModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DireccionModelToJson(this);
 }

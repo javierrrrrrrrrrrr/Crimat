@@ -55,7 +55,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
 
         for (var product in listProduct) {
           for (var tipo in category.tiposProducto) {
-            if (product.productType == tipo.id.toString()) {
+            if (product.productType == tipo.id) {
               aux = [...aux, product];
             }
           }

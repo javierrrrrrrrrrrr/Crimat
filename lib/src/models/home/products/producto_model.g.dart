@@ -63,6 +63,8 @@ AlmacenModelFavorite _$AlmacenModelFavoriteFromJson(
       id: json['id'] as int,
       name: json['nombre'] as String,
       image: json['imagem'] as String,
+      direction:
+          DireccionModel.fromJson(json['direccion'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$AlmacenModelFavoriteToJson(
@@ -71,4 +73,25 @@ Map<String, dynamic> _$AlmacenModelFavoriteToJson(
       'id': instance.id,
       'nombre': instance.name,
       'imagem': instance.image,
+      'direccion': instance.direction,
+    };
+
+DireccionModel _$DireccionModelFromJson(Map<String, dynamic> json) =>
+    DireccionModel(
+      id: json['id'] as int,
+      address: json['direccion'] as String,
+      apartado: json['apartado'] as String,
+      city: json['ciudad'] as String,
+      state: json['estado'] as String,
+      postalCode: json['codigo_postal'] as String,
+    );
+
+Map<String, dynamic> _$DireccionModelToJson(DireccionModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'direccion': instance.address,
+      'apartado': instance.apartado,
+      'ciudad': instance.city,
+      'estado': instance.state,
+      'codigo_postal': instance.postalCode,
     };

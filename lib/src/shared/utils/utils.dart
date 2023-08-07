@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../../features/favorites/presentation/bloc/favorite_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../models/home/products/producto_model.dart';
 import '../widgets/cusotm_buttom_product.dart';
@@ -93,35 +94,91 @@ class UtilFunctions {
     BuildContext context,
   ) {
     final cartbloc = context.read<CartBloc>();
+    final favoritobloc = context.read<FavoriteBloc>();
     String selectedOption = '';
     return showDialog(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(actions: <Widget>[
-              Column(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: cartbloc.selectedProduct.almacenList!.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Row(
-                            children: [
-                              RadioListTile(
-                                title: const Text('Option 1'),
-                                value: 'Option 1',
-                                groupValue: null,
-                                onChanged: (value) {
-                                  selectedOption = value as String;
-                                },
-                              ),
-                              Text(cartbloc
-                                  .selectedProduct.almacenList![index].name)
-                            ],
-                          );
-                        }),
-                  ),
-                ],
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        content: SizedBox(
+          width: double.maxFinite,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              GestureDetector(
+                onTap: () => Navigator.of(context).pop(),
+                child: const Align(
+                    alignment: Alignment.topRight, child: CustomCloseDialog()),
               ),
-            ]));
+              Image.asset("assets/images/warning.png"),
+              SizedBox(
+                height: 30.h,
+              ),
+              const WarningText(),
+              SizedBox(
+                height: 30.h,
+              ),
+              Text(
+                "Eliga el almacen desde el cual desea agregar el producto antes de continuar",
+                style: TextStyle(fontSize: 18.sp),
+              ),
+              SizedBox(
+                height: 50.h,
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: cartbloc.selectedProduct.almacenList!.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                    leading: Checkbox(
+                      value:
+                          false, // Reemplaza "isChecked" con tu lista de valores de marcado
+                      onChanged: (bool? value) {
+                        // Aquí debes manejar el cambio de valor del Checkbox
+                      },
+                    ),
+                    title: Text(
+                      cartbloc.selectedProduct.almacenList![index].name,
+                      style: TextStyle(fontSize: 16.sp),
+                    ),
+                    subtitle: Text(
+                      cartbloc.selectedProduct.almacenList![index].direction
+                          .address,
+                      style: TextStyle(fontSize: 14.sp),
+                    ),
+                  );
+                },
+              ),
+              SizedBox(
+                height: 50.h,
+              ),
+              CusotmButtom(
+                onPressed: () {
+                  //provicional el id del primer elemnto de la lista hasta lograr que se sellecione en el dialog
+                  favoritobloc.add(
+                      FavoriteEvent.updateAlmacenIdInProductFavorite(
+                          idAlmacenForUpdate:
+                              cartbloc.selectedProduct.almacenList![0].id,
+                          productid: favoritobloc.selectedFavoriteProduct!.id));
+                  cartbloc.add(CartEvent.addedProduct(
+                      product: favoritobloc.selectedFavoriteProduct!));
+                  // cartbloc.add(CartEvent.updateAlmacenId(
+                  //     idAlmacenForUpdate:
+                  //         cartbloc.selectedProduct.almacenList![0].id,
+                  //     productid: cartbloc.selectedProduct.id));
+                  //llamar el evento de actulizar el valor del id del almacen
+                  print(favoritobloc.selectedFavoriteProduct!.name);
+                  Navigator.of(context).pop();
+                },
+                height: 45.h,
+                ispraimary: true,
+                name: "Seleccionar",
+                width: 250.w,
+                fontsize: 16.sp,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
