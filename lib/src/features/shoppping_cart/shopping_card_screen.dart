@@ -79,14 +79,14 @@ class MainWidget extends StatelessWidget {
               onPressedPay: () async {
                 print("Inicar checkout");
 
-                await initPaymentSheet();
-                try {
-                  dynamic repuesta =
-                      await Stripe.instance.presentPaymentSheet();
-                  //  print(repuesta.toString());
-                } catch (e) {
-                  print('erorrrrrrrrr$e');
-                }
+                await initPaymentSheet(context);
+                // try {
+                //   dynamic repuesta =
+                //       await Stripe.instance.presentPaymentSheet();
+                //   print(repuesta.toString());
+                // } catch (e) {
+                //   print('erorrrrrrrrr$e');
+                //    }
               }),
         ),
       ],
@@ -94,41 +94,41 @@ class MainWidget extends StatelessWidget {
   }
 }
 
-Future<void> initPaymentSheet() async {
+Future<void> initPaymentSheet(context) async {
   try {
     // 1. create payment intent on the server
 
     // 2. initialize the payment sheet
     await Stripe.instance.initPaymentSheet(
-      paymentSheetParameters: const SetupPaymentSheetParameters(
-        allowsDelayedPaymentMethods: false,
-        // Enable custom flow
-        customFlow: true,
-        // Main params
-        merchantDisplayName: 'Flutter Stripe Store Demo',
-        paymentIntentClientSecret:
-            "pi_3NctEkJ9WnJbugu50nu7UHde_secret_1zEJARKpYy1Pt2rzbkKNjkBIZ",
-        // // Customer keys
-        customerEphemeralKeySecret:
-            "ek_test_YWNjdF8xTjFCQkVKOVduSmJ1Z3U1LFlEQUxjaDQxTjZidTQ3UVg1T3M1VlJkSlh3UkRCdWI_00faNTE74v",
-        customerId: "cus_OPigY8op4TRUXN",
-
-        // Extra options
-
-        // applePay: PaymentSheetApplePay(
-        //   merchantCountryCode: "US",
-        // ),
-        // googlePay:
-        //     PaymentSheetGooglePay(merchantCountryCode: "US", testEnv: true),
-        style: ThemeMode.dark,
-
-        // setupIntentClientSecret:
-        //     "pi_3NctEkJ9WnJbugu50nu7UHde_secret_1zEJARKpYy1Pt2rzbkKNjkBIZ",
+        paymentSheetParameters: const SetupPaymentSheetParameters(
+      paymentIntentClientSecret:
+          "pi_3NctEkJ9WnJbugu50nu7UHde_secret_1zEJARKpYy1Pt2rzbkKNjkBIZ",
+      merchantDisplayName: 'Grocery Flutter course',
+      customerId: "cus_OPigY8op4TRUXN",
+      customerEphemeralKeySecret:
+          "ek_test_YWNjdF8xTjFCQkVKOVduSmJ1Z3U1LFlEQUxjaDQxTjZidTQ3UVg1T3M1VlJkSlh3UkRCdWI_00faNTE74v",
+      // testEnv: true,
+      // merchantCountryCode: 'SG',
+    ));
+    await Stripe.instance.presentPaymentSheet();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Payment is successful'),
       ),
     );
-  } catch (e) {
-    print(e);
-
-    rethrow;
+  } catch (errorr) {
+    if (errorr is StripeException) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('An error occured ${errorr.error.localizedMessage}'),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('An error occured $errorr'),
+        ),
+      );
+    }
   }
 }
