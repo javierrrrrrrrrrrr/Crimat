@@ -6,6 +6,7 @@ import 'package:crimat_app/src/features/shoppping_cart/utils/shopping_card_aux.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../home/presentation/view/widget/products_details_widgets/option_buttoms.dart';
@@ -75,11 +76,59 @@ class MainWidget extends StatelessWidget {
           child: OptionButtoms(
               isShopping: true,
               total: cart.subtotal,
-              onPressedPay: () {
+              onPressedPay: () async {
                 print("Inicar checkout");
+
+                await initPaymentSheet();
+                try {
+                  dynamic repuesta =
+                      await Stripe.instance.presentPaymentSheet();
+                  //  print(repuesta.toString());
+                } catch (e) {
+                  print('erorrrrrrrrr$e');
+                }
               }),
         ),
       ],
     );
+  }
+}
+
+Future<void> initPaymentSheet() async {
+  try {
+    // 1. create payment intent on the server
+
+    // 2. initialize the payment sheet
+    await Stripe.instance.initPaymentSheet(
+      paymentSheetParameters: const SetupPaymentSheetParameters(
+        allowsDelayedPaymentMethods: false,
+        // Enable custom flow
+        customFlow: true,
+        // Main params
+        merchantDisplayName: 'Flutter Stripe Store Demo',
+        paymentIntentClientSecret:
+            "pi_3NctEkJ9WnJbugu50nu7UHde_secret_1zEJARKpYy1Pt2rzbkKNjkBIZ",
+        // // Customer keys
+        customerEphemeralKeySecret:
+            "ek_test_YWNjdF8xTjFCQkVKOVduSmJ1Z3U1LFlEQUxjaDQxTjZidTQ3UVg1T3M1VlJkSlh3UkRCdWI_00faNTE74v",
+        customerId: "cus_OPigY8op4TRUXN",
+
+        // Extra options
+
+        // applePay: PaymentSheetApplePay(
+        //   merchantCountryCode: "US",
+        // ),
+        // googlePay:
+        //     PaymentSheetGooglePay(merchantCountryCode: "US", testEnv: true),
+        style: ThemeMode.dark,
+
+        // setupIntentClientSecret:
+        //     "pi_3NctEkJ9WnJbugu50nu7UHde_secret_1zEJARKpYy1Pt2rzbkKNjkBIZ",
+      ),
+    );
+  } catch (e) {
+    print(e);
+
+    rethrow;
   }
 }
