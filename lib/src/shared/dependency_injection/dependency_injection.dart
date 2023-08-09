@@ -113,10 +113,11 @@ Future<void> init() async {
 
   ///Payment
   //?? DataSources.
-  sl.registerLazySingleton(() => PaymentDataSurce(sl.get<http.Client>()));
+  sl.registerLazySingleton(() => PaymentDataSource(sl.get<http.Client>()));
 
   //?? Repositories
-  sl.registerLazySingleton(() => PaymentRepository(sl.get<PaymentDataSurce>()));
+  sl.registerLazySingleton(
+      () => PaymentRepository(sl.get<PaymentDataSource>()));
 
   //?? Blocs
   sl.registerFactory(() => PaymentBloc(sl.get<PaymentRepository>()));

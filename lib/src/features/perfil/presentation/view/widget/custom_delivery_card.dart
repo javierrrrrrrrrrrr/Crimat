@@ -7,11 +7,23 @@ import '../../../../../shared/widgets/card_sking.dart';
 class CustomDeliveryCard extends StatelessWidget {
   const CustomDeliveryCard({
     super.key,
-    required this.datos,
+    this.datos,
     required this.index,
+    this.isCheckout,
+    this.direccion,
+    this.ciudad,
+    this.apartado,
+    this.estado,
+    this.codigopostal,
   });
 
-  final ProfileModel datos;
+  final ProfileModel? datos;
+  final String? direccion;
+  final String? ciudad;
+  final String? apartado;
+  final String? estado;
+  final String? codigopostal;
+  final bool? isCheckout;
   final int index;
   @override
   Widget build(BuildContext context) {
@@ -19,7 +31,7 @@ class CustomDeliveryCard extends StatelessWidget {
       children: [
         CardSking(
           cardheight: 150.h,
-          cardwidth: 375.w,
+          cardwidth: isCheckout == true ? 450.w : 375.w,
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -32,7 +44,8 @@ class CustomDeliveryCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(datos.firstName, style: TextStyle(fontSize: 16.sp)),
+                  Text(isCheckout == true ? "Javier Diaz" : datos!.firstName,
+                      style: TextStyle(fontSize: 16.sp)),
                   Text(
                     "Editar",
                     style: TextStyle(
@@ -43,15 +56,25 @@ class CustomDeliveryCard extends StatelessWidget {
               SizedBox(
                 height: 5.h,
               ),
-              SizedBox(
-                height: 80.h,
-                width: 250.w,
-                child: Text(
-                  maxLines: 3,
-                  '${datos.direcciones[index].id} ${datos.direcciones[index].direccion}, ${datos.direcciones[index].ciudad}, ${datos.direcciones[index].estado} ${datos.direcciones[index].postal}',
-                  style: TextStyle(fontSize: 16.sp),
-                ),
-              ),
+              isCheckout == true
+                  ? SizedBox(
+                      height: 80.h,
+                      width: 250.w,
+                      child: Text(
+                        maxLines: 3,
+                        '$direccion$ciudad$apartado$estado$codigopostal',
+                        style: TextStyle(fontSize: 16.sp),
+                      ),
+                    )
+                  : SizedBox(
+                      height: 80.h,
+                      width: 250.w,
+                      child: Text(
+                        maxLines: 3,
+                        '${datos!.direcciones[index].id} ${datos!.direcciones[index].direccion}, ${datos!.direcciones[index].ciudad}, ${datos!.direcciones[index].estado} ${datos!.direcciones[index].postal}',
+                        style: TextStyle(fontSize: 16.sp),
+                      ),
+                    )
             ],
           ),
         ),

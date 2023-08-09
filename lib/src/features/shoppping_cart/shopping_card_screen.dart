@@ -33,8 +33,8 @@ class ShoppingCartView extends StatelessWidget {
                 child: CircularProgressIndicator()),
           ),
           phase1Complated: (paymentdata) {
-            context.pop();
             context.pushNamed(PaymentAuxView.name);
+            context.pop();
           },
           orElse: (() => Container()),
         );

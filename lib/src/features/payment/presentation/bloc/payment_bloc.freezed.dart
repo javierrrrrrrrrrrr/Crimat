@@ -20,7 +20,7 @@ mixin _$PaymentEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function(RequestModel datos) startedPhase1,
-    required TResult Function() startedPhase2,
+    required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
   }) =>
@@ -29,7 +29,7 @@ mixin _$PaymentEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(RequestModel datos)? startedPhase1,
-    TResult? Function()? startedPhase2,
+    TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
   }) =>
@@ -38,7 +38,7 @@ mixin _$PaymentEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(RequestModel datos)? startedPhase1,
-    TResult Function()? startedPhase2,
+    TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
     required TResult orElse(),
@@ -132,7 +132,7 @@ class _$_LoadEvent implements _LoadEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function(RequestModel datos) startedPhase1,
-    required TResult Function() startedPhase2,
+    required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
   }) {
@@ -144,7 +144,7 @@ class _$_LoadEvent implements _LoadEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(RequestModel datos)? startedPhase1,
-    TResult? Function()? startedPhase2,
+    TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
   }) {
@@ -156,7 +156,7 @@ class _$_LoadEvent implements _LoadEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(RequestModel datos)? startedPhase1,
-    TResult Function()? startedPhase2,
+    TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
     required TResult orElse(),
@@ -279,7 +279,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function(RequestModel datos) startedPhase1,
-    required TResult Function() startedPhase2,
+    required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
   }) {
@@ -291,7 +291,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(RequestModel datos)? startedPhase1,
-    TResult? Function()? startedPhase2,
+    TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
   }) {
@@ -303,7 +303,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(RequestModel datos)? startedPhase1,
-    TResult Function()? startedPhase2,
+    TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
     required TResult orElse(),
@@ -370,6 +370,8 @@ abstract class _$$_StartedPhase2EventCopyWith<$Res> {
   factory _$$_StartedPhase2EventCopyWith(_$_StartedPhase2Event value,
           $Res Function(_$_StartedPhase2Event) then) =
       __$$_StartedPhase2EventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
 }
 
 /// @nodoc
@@ -379,37 +381,63 @@ class __$$_StartedPhase2EventCopyWithImpl<$Res>
   __$$_StartedPhase2EventCopyWithImpl(
       _$_StartedPhase2Event _value, $Res Function(_$_StartedPhase2Event) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = freezed,
+  }) {
+    return _then(_$_StartedPhase2Event(
+      context: freezed == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_StartedPhase2Event implements _StartedPhase2Event {
-  const _$_StartedPhase2Event();
+  const _$_StartedPhase2Event({required this.context});
+
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'PaymentEvent.startedPhase2()';
+    return 'PaymentEvent.startedPhase2(context: $context)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_StartedPhase2Event);
+        (other.runtimeType == runtimeType &&
+            other is _$_StartedPhase2Event &&
+            const DeepCollectionEquality().equals(other.context, context));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(context));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_StartedPhase2EventCopyWith<_$_StartedPhase2Event> get copyWith =>
+      __$$_StartedPhase2EventCopyWithImpl<_$_StartedPhase2Event>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function(RequestModel datos) startedPhase1,
-    required TResult Function() startedPhase2,
+    required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
   }) {
-    return startedPhase2();
+    return startedPhase2(context);
   }
 
   @override
@@ -417,11 +445,11 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(RequestModel datos)? startedPhase1,
-    TResult? Function()? startedPhase2,
+    TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
   }) {
-    return startedPhase2?.call();
+    return startedPhase2?.call(context);
   }
 
   @override
@@ -429,13 +457,13 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(RequestModel datos)? startedPhase1,
-    TResult Function()? startedPhase2,
+    TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
     if (startedPhase2 != null) {
-      return startedPhase2();
+      return startedPhase2(context);
     }
     return orElse();
   }
@@ -482,7 +510,13 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
 }
 
 abstract class _StartedPhase2Event implements PaymentEvent {
-  const factory _StartedPhase2Event() = _$_StartedPhase2Event;
+  const factory _StartedPhase2Event({required final BuildContext context}) =
+      _$_StartedPhase2Event;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$_StartedPhase2EventCopyWith<_$_StartedPhase2Event> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -525,7 +559,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function(RequestModel datos) startedPhase1,
-    required TResult Function() startedPhase2,
+    required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
   }) {
@@ -537,7 +571,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(RequestModel datos)? startedPhase1,
-    TResult? Function()? startedPhase2,
+    TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
   }) {
@@ -549,7 +583,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(RequestModel datos)? startedPhase1,
-    TResult Function()? startedPhase2,
+    TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
     required TResult orElse(),
@@ -645,7 +679,7 @@ class _$_CompletedEvent implements _CompletedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function(RequestModel datos) startedPhase1,
-    required TResult Function() startedPhase2,
+    required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
   }) {
@@ -657,7 +691,7 @@ class _$_CompletedEvent implements _CompletedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(RequestModel datos)? startedPhase1,
-    TResult? Function()? startedPhase2,
+    TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
   }) {
@@ -669,7 +703,7 @@ class _$_CompletedEvent implements _CompletedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(RequestModel datos)? startedPhase1,
-    TResult Function()? startedPhase2,
+    TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
     required TResult orElse(),
@@ -1098,10 +1132,10 @@ class __$$_Phase1ComplatedStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? paymentdata = freezed,
+    Object? paymentdata = null,
   }) {
     return _then(_$_Phase1ComplatedState(
-      paymentdata: freezed == paymentdata
+      paymentdata: null == paymentdata
           ? _value.paymentdata
           : paymentdata // ignore: cast_nullable_to_non_nullable
               as PaymentModel,
@@ -1127,13 +1161,12 @@ class _$_Phase1ComplatedState implements _Phase1ComplatedState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Phase1ComplatedState &&
-            const DeepCollectionEquality()
-                .equals(other.paymentdata, paymentdata));
+            (identical(other.paymentdata, paymentdata) ||
+                other.paymentdata == paymentdata));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(paymentdata));
+  int get hashCode => Object.hash(runtimeType, paymentdata);
 
   @JsonKey(ignore: true)
   @override

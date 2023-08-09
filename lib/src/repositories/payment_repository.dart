@@ -9,7 +9,7 @@ import '../models/payment/request_data_model.dart';
 import '../services/payment_source/payment_data_source.dart';
 
 class PaymentRepository {
-  final PaymentDataSurce paymentDataSurce;
+  final PaymentDataSource paymentDataSurce;
 
   PaymentRepository(this.paymentDataSurce);
 
@@ -27,19 +27,22 @@ class PaymentRepository {
     }
   }
 
-  Future<void> initPaymentSheet(context) async {
+  Future<void> initPaymentSheet(
+      {required context,
+      required paymentIntentClientSecret,
+      required customerId,
+      required customerEphemeralKeySecret}) async {
     try {
       // 1. create payment intent on the server
 
       // 2. initialize the payment sheet
       await Stripe.instance.initPaymentSheet(
-          paymentSheetParameters: const SetupPaymentSheetParameters(
-        paymentIntentClientSecret:
-            "pi_3NctEkJ9WnJbugu50nu7UHde_secret_1zEJARKpYy1Pt2rzbkKNjkBIZ",
+          paymentSheetParameters: SetupPaymentSheetParameters(
+        paymentIntentClientSecret: paymentIntentClientSecret,
         merchantDisplayName: 'Grocery Flutter course',
-        customerId: "cus_OPigY8op4TRUXN",
-        customerEphemeralKeySecret:
-            "ek_test_YWNjdF8xTjFCQkVKOVduSmJ1Z3U1LFlEQUxjaDQxTjZidTQ3UVg1T3M1VlJkSlh3UkRCdWI_00faNTE74v",
+        customerId: customerId,
+        customerEphemeralKeySecret: customerEphemeralKeySecret,
+
         // testEnv: true,
         // merchantCountryCode: 'SG',
       ));

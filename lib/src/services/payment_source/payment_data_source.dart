@@ -7,10 +7,10 @@ import 'package:http/http.dart' as http;
 import '../../../resources/urls.dart';
 import '../../models/payment/payment_model.dart';
 
-class PaymentDataSurce {
+class PaymentDataSource {
   final http.Client client;
 
-  PaymentDataSurce(this.client);
+  PaymentDataSource(this.client);
 
   Future<PaymentModel> getPaymentData(String? token, RequestModel data) async {
     final Uri uri = Uri.https(Urls.api, Urls.getPaymentData);
@@ -29,7 +29,9 @@ class PaymentDataSurce {
         final paymentData = PaymentModel.fromJson(jsonMap);
         return paymentData;
       } else {
-        return throw ServerException();
+        final errorMessage =
+            'Ocurrió un problema en el servidor: ${response.statusCode}';
+        throw ServerException(errorMessage);
       }
     } catch (e) {
       return throw ServerException();

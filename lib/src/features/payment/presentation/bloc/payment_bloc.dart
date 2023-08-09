@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../errors/failure.dart';
@@ -14,6 +15,8 @@ part 'payment_bloc.freezed.dart';
 class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
   String? token = AppInfo().accessToken;
   final PaymentRepository paymentdata;
+  PaymentModel? paymentdatos;
+
   PaymentBloc(this.paymentdata) : super(const PaymentState.initial()) {
     on<PaymentEvent>(eventHandler);
   }
@@ -27,19 +30,28 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
           emit(const PaymentState.phase1InProgress());
 
           if (token != null) {
-            dynamic result =
-                await paymentdata.getPaymentData(token: token!, datos: datos);
+            dynamic result = await paymentdata.getPaymentData(
+              token: token!,
+              datos: datos,
+            );
 
             result.fold((failure) {
               if (failure is ServerFailure) {
                 emit(PaymentState.error(message: failure.message));
               }
             }, (paymentdata) {
+              paymentdatos = paymentdata;
               emit(PaymentState.phase1Complated(paymentdata: paymentdata!));
             });
           }
         },
-        startedPhase2: () {},
+        startedPhase2: (context) async {
+          await paymentdata.initPaymentSheet(
+              context: context,
+              customerId: paymentdatos!.customer,
+              customerEphemeralKeySecret: paymentdatos!.ephemeralKey,
+              paymentIntentClientSecret: paymentdatos!.paymentIntent);
+        },
         erroroccurred: () {},
         completed: () {},
         load: () {});
