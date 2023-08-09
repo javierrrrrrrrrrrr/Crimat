@@ -36,8 +36,11 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
             );
 
             result.fold((failure) {
+              print('Este es el error $failure');
               if (failure is ServerFailure) {
-                emit(PaymentState.error(message: failure.message));
+                emit(const PaymentState.error(
+                    message:
+                        "Estamos presentando problemas para procesar su solicitud"));
               }
             }, (paymentdata) {
               paymentdatos = paymentdata;

@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../models/payment/request_data_model.dart';
+import '../../shared/utils/utils.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../home/presentation/view/widget/products_details_widgets/option_buttoms.dart';
 import '../payment/presentation/bloc/payment_bloc.dart';
@@ -25,6 +26,10 @@ class ShoppingCartView extends StatelessWidget {
     return BlocConsumer<PaymentBloc, PaymentState>(
       listener: (context, state) {
         state.maybeWhen(
+          error: (message) {
+            context.pop();
+            UtilFunctions.printToast(message: message, shorttime: false);
+          },
           phase1InProgress: () => showDialog(
             barrierDismissible: false,
             context: context,

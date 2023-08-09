@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,18 +15,28 @@ class PaymentAuxView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PaymentBloc, PaymentState>(
+    return BlocConsumer<PaymentBloc, PaymentState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          orElse: () => Container(),
+          error: (message) => UtilFunctions.printToast(message: message),
+        );
+      },
       builder: (context, state) {
-        return state.when(
-            initial: () => Container(),
-            phase1InProgress: () => Container(),
-            phase2InProgress: () => Container(),
-            completed: () => Container(),
-            cancelled: () => Container(),
-            error: (messege) => Container(),
-            phase1Complated: (paymentdata) => CheckoutView(
-                  paymentdata: paymentdata,
-                ));
+        return BlocBuilder<PaymentBloc, PaymentState>(
+          builder: (context, state) {
+            return state.when(
+                initial: () => Container(),
+                phase1InProgress: () => Container(),
+                phase2InProgress: () => Container(),
+                completed: () => Container(),
+                cancelled: () => Container(),
+                error: (messege) => Container(),
+                phase1Complated: (paymentdata) => CheckoutView(
+                      paymentdata: paymentdata,
+                    ));
+          },
+        );
       },
     );
   }
