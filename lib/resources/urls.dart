@@ -19,4 +19,5 @@ class Urls {
   static String get getFavorite => 'crimat-development/api/favoritos/';
   static String get addFavorite => 'crimat-development/api/add_favorito/';
   static String get deleteFavorite => 'crimat-development/api/remove_favorito/';
+  static String get getPaymentData => 'crimat-development/api/nueva_orden/';
 }

@@ -12,6 +12,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/historial/historial_view.dart';
 import '../../features/historial/presentation/view/historial_details_screen.dart';
 import '../../features/home/products_detales_screen.dart';
+import '../../features/payment/presentation/view/payment_aux_view.dart';
 import '../../features/perfil/presentation/view/delivery_address_view.dart';
 import '../../features/perfil/presentation/view/plane_view.dart';
 import '../../features/shoppping_cart/shopping_card_screen.dart';
@@ -78,13 +79,23 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
                 }),
           ]),
       GoRoute(
-        path: '/cart',
-        name: ShoppingCartView.name,
-        builder: (context, state) => const Scaffold(
-            body: Scaffold(
-          body: ShoppingCartView(),
-        )),
-      ),
+          path: '/cart',
+          name: ShoppingCartView.name,
+          builder: (context, state) => const Scaffold(
+                  body: Scaffold(
+                body: ShoppingCartView(),
+              )),
+          routes: [
+            GoRoute(
+              path: 'cart/auxpayment',
+              name: PaymentAuxView.name,
+              builder: (context, state) {
+                return const Scaffold(
+                  body: PaymentAuxView(),
+                );
+              },
+            ),
+          ]),
       GoRoute(
         path: '/favotites',
         name: FavoritesView.name,

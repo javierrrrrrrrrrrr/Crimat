@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PaymentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() startedPhase1,
+    required TResult Function() load,
+    required TResult Function(RequestModel datos) startedPhase1,
     required TResult Function() startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
@@ -26,7 +27,8 @@ mixin _$PaymentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startedPhase1,
+    TResult? Function()? load,
+    TResult? Function(RequestModel datos)? startedPhase1,
     TResult? Function()? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
@@ -34,7 +36,8 @@ mixin _$PaymentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startedPhase1,
+    TResult Function()? load,
+    TResult Function(RequestModel datos)? startedPhase1,
     TResult Function()? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
@@ -43,6 +46,7 @@ mixin _$PaymentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
     required TResult Function(_StartedPhase1Event value) startedPhase1,
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
@@ -51,6 +55,7 @@ mixin _$PaymentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
     TResult? Function(_StartedPhase1Event value)? startedPhase1,
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
@@ -59,6 +64,7 @@ mixin _$PaymentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
     TResult Function(_StartedPhase1Event value)? startedPhase1,
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
@@ -87,10 +93,132 @@ class _$PaymentEventCopyWithImpl<$Res, $Val extends PaymentEvent>
 }
 
 /// @nodoc
+abstract class _$$_LoadEventCopyWith<$Res> {
+  factory _$$_LoadEventCopyWith(
+          _$_LoadEvent value, $Res Function(_$_LoadEvent) then) =
+      __$$_LoadEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadEventCopyWithImpl<$Res>
+    extends _$PaymentEventCopyWithImpl<$Res, _$_LoadEvent>
+    implements _$$_LoadEventCopyWith<$Res> {
+  __$$_LoadEventCopyWithImpl(
+      _$_LoadEvent _value, $Res Function(_$_LoadEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadEvent implements _LoadEvent {
+  const _$_LoadEvent();
+
+  @override
+  String toString() {
+    return 'PaymentEvent.load()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(RequestModel datos) startedPhase1,
+    required TResult Function() startedPhase2,
+    required TResult Function() erroroccurred,
+    required TResult Function() completed,
+  }) {
+    return load();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(RequestModel datos)? startedPhase1,
+    TResult? Function()? startedPhase2,
+    TResult? Function()? erroroccurred,
+    TResult? Function()? completed,
+  }) {
+    return load?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(RequestModel datos)? startedPhase1,
+    TResult Function()? startedPhase2,
+    TResult Function()? erroroccurred,
+    TResult Function()? completed,
+    required TResult orElse(),
+  }) {
+    if (load != null) {
+      return load();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_StartedPhase1Event value) startedPhase1,
+    required TResult Function(_StartedPhase2Event value) startedPhase2,
+    required TResult Function(_ErroroccurredEvent value) erroroccurred,
+    required TResult Function(_CompletedEvent value) completed,
+  }) {
+    return load(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_StartedPhase1Event value)? startedPhase1,
+    TResult? Function(_StartedPhase2Event value)? startedPhase2,
+    TResult? Function(_ErroroccurredEvent value)? erroroccurred,
+    TResult? Function(_CompletedEvent value)? completed,
+  }) {
+    return load?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_StartedPhase1Event value)? startedPhase1,
+    TResult Function(_StartedPhase2Event value)? startedPhase2,
+    TResult Function(_ErroroccurredEvent value)? erroroccurred,
+    TResult Function(_CompletedEvent value)? completed,
+    required TResult orElse(),
+  }) {
+    if (load != null) {
+      return load(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadEvent implements PaymentEvent {
+  const factory _LoadEvent() = _$_LoadEvent;
+}
+
+/// @nodoc
 abstract class _$$_StartedPhase1EventCopyWith<$Res> {
   factory _$$_StartedPhase1EventCopyWith(_$_StartedPhase1Event value,
           $Res Function(_$_StartedPhase1Event) then) =
       __$$_StartedPhase1EventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({RequestModel datos});
 }
 
 /// @nodoc
@@ -100,60 +228,88 @@ class __$$_StartedPhase1EventCopyWithImpl<$Res>
   __$$_StartedPhase1EventCopyWithImpl(
       _$_StartedPhase1Event _value, $Res Function(_$_StartedPhase1Event) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? datos = null,
+  }) {
+    return _then(_$_StartedPhase1Event(
+      datos: null == datos
+          ? _value.datos
+          : datos // ignore: cast_nullable_to_non_nullable
+              as RequestModel,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_StartedPhase1Event implements _StartedPhase1Event {
-  const _$_StartedPhase1Event();
+  const _$_StartedPhase1Event({required this.datos});
+
+  @override
+  final RequestModel datos;
 
   @override
   String toString() {
-    return 'PaymentEvent.startedPhase1()';
+    return 'PaymentEvent.startedPhase1(datos: $datos)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_StartedPhase1Event);
+        (other.runtimeType == runtimeType &&
+            other is _$_StartedPhase1Event &&
+            (identical(other.datos, datos) || other.datos == datos));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, datos);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_StartedPhase1EventCopyWith<_$_StartedPhase1Event> get copyWith =>
+      __$$_StartedPhase1EventCopyWithImpl<_$_StartedPhase1Event>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() startedPhase1,
+    required TResult Function() load,
+    required TResult Function(RequestModel datos) startedPhase1,
     required TResult Function() startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
   }) {
-    return startedPhase1();
+    return startedPhase1(datos);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startedPhase1,
+    TResult? Function()? load,
+    TResult? Function(RequestModel datos)? startedPhase1,
     TResult? Function()? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
   }) {
-    return startedPhase1?.call();
+    return startedPhase1?.call(datos);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startedPhase1,
+    TResult Function()? load,
+    TResult Function(RequestModel datos)? startedPhase1,
     TResult Function()? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
     if (startedPhase1 != null) {
-      return startedPhase1();
+      return startedPhase1(datos);
     }
     return orElse();
   }
@@ -161,6 +317,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
     required TResult Function(_StartedPhase1Event value) startedPhase1,
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
@@ -172,6 +329,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
     TResult? Function(_StartedPhase1Event value)? startedPhase1,
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
@@ -183,6 +341,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
     TResult Function(_StartedPhase1Event value)? startedPhase1,
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
@@ -197,7 +356,13 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
 }
 
 abstract class _StartedPhase1Event implements PaymentEvent {
-  const factory _StartedPhase1Event() = _$_StartedPhase1Event;
+  const factory _StartedPhase1Event({required final RequestModel datos}) =
+      _$_StartedPhase1Event;
+
+  RequestModel get datos;
+  @JsonKey(ignore: true)
+  _$$_StartedPhase1EventCopyWith<_$_StartedPhase1Event> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -238,7 +403,8 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() startedPhase1,
+    required TResult Function() load,
+    required TResult Function(RequestModel datos) startedPhase1,
     required TResult Function() startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
@@ -249,7 +415,8 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startedPhase1,
+    TResult? Function()? load,
+    TResult? Function(RequestModel datos)? startedPhase1,
     TResult? Function()? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
@@ -260,7 +427,8 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startedPhase1,
+    TResult Function()? load,
+    TResult Function(RequestModel datos)? startedPhase1,
     TResult Function()? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
@@ -275,6 +443,7 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
     required TResult Function(_StartedPhase1Event value) startedPhase1,
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
@@ -286,6 +455,7 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
     TResult? Function(_StartedPhase1Event value)? startedPhase1,
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
@@ -297,6 +467,7 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
     TResult Function(_StartedPhase1Event value)? startedPhase1,
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
@@ -352,7 +523,8 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() startedPhase1,
+    required TResult Function() load,
+    required TResult Function(RequestModel datos) startedPhase1,
     required TResult Function() startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
@@ -363,7 +535,8 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startedPhase1,
+    TResult? Function()? load,
+    TResult? Function(RequestModel datos)? startedPhase1,
     TResult? Function()? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
@@ -374,7 +547,8 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startedPhase1,
+    TResult Function()? load,
+    TResult Function(RequestModel datos)? startedPhase1,
     TResult Function()? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
@@ -389,6 +563,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
     required TResult Function(_StartedPhase1Event value) startedPhase1,
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
@@ -400,6 +575,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
     TResult? Function(_StartedPhase1Event value)? startedPhase1,
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
@@ -411,6 +587,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
     TResult Function(_StartedPhase1Event value)? startedPhase1,
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
@@ -466,7 +643,8 @@ class _$_CompletedEvent implements _CompletedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() startedPhase1,
+    required TResult Function() load,
+    required TResult Function(RequestModel datos) startedPhase1,
     required TResult Function() startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
@@ -477,7 +655,8 @@ class _$_CompletedEvent implements _CompletedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startedPhase1,
+    TResult? Function()? load,
+    TResult? Function(RequestModel datos)? startedPhase1,
     TResult? Function()? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
@@ -488,7 +667,8 @@ class _$_CompletedEvent implements _CompletedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startedPhase1,
+    TResult Function()? load,
+    TResult Function(RequestModel datos)? startedPhase1,
     TResult Function()? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
@@ -503,6 +683,7 @@ class _$_CompletedEvent implements _CompletedEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
     required TResult Function(_StartedPhase1Event value) startedPhase1,
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
@@ -514,6 +695,7 @@ class _$_CompletedEvent implements _CompletedEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
     TResult? Function(_StartedPhase1Event value)? startedPhase1,
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
@@ -525,6 +707,7 @@ class _$_CompletedEvent implements _CompletedEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
     TResult Function(_StartedPhase1Event value)? startedPhase1,
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
@@ -548,6 +731,7 @@ mixin _$PaymentState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() phase1InProgress,
+    required TResult Function(PaymentModel paymentdata) phase1Complated,
     required TResult Function() phase2InProgress,
     required TResult Function() completed,
     required TResult Function() cancelled,
@@ -558,6 +742,7 @@ mixin _$PaymentState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? phase1InProgress,
+    TResult? Function(PaymentModel paymentdata)? phase1Complated,
     TResult? Function()? phase2InProgress,
     TResult? Function()? completed,
     TResult? Function()? cancelled,
@@ -568,6 +753,7 @@ mixin _$PaymentState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? phase1InProgress,
+    TResult Function(PaymentModel paymentdata)? phase1Complated,
     TResult Function()? phase2InProgress,
     TResult Function()? completed,
     TResult Function()? cancelled,
@@ -579,6 +765,7 @@ mixin _$PaymentState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Phase1InProgressState value) phase1InProgress,
+    required TResult Function(_Phase1ComplatedState value) phase1Complated,
     required TResult Function(_Phase2InProgressState value) phase2InProgress,
     required TResult Function(_CompletedState value) completed,
     required TResult Function(_CancelledState value) cancelled,
@@ -589,6 +776,7 @@ mixin _$PaymentState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult? Function(_Phase1ComplatedState value)? phase1Complated,
     TResult? Function(_Phase2InProgressState value)? phase2InProgress,
     TResult? Function(_CompletedState value)? completed,
     TResult? Function(_CancelledState value)? cancelled,
@@ -599,6 +787,7 @@ mixin _$PaymentState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult Function(_Phase1ComplatedState value)? phase1Complated,
     TResult Function(_Phase2InProgressState value)? phase2InProgress,
     TResult Function(_CompletedState value)? completed,
     TResult Function(_CancelledState value)? cancelled,
@@ -665,6 +854,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() phase1InProgress,
+    required TResult Function(PaymentModel paymentdata) phase1Complated,
     required TResult Function() phase2InProgress,
     required TResult Function() completed,
     required TResult Function() cancelled,
@@ -678,6 +868,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? phase1InProgress,
+    TResult? Function(PaymentModel paymentdata)? phase1Complated,
     TResult? Function()? phase2InProgress,
     TResult? Function()? completed,
     TResult? Function()? cancelled,
@@ -691,6 +882,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? phase1InProgress,
+    TResult Function(PaymentModel paymentdata)? phase1Complated,
     TResult Function()? phase2InProgress,
     TResult Function()? completed,
     TResult Function()? cancelled,
@@ -708,6 +900,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Phase1InProgressState value) phase1InProgress,
+    required TResult Function(_Phase1ComplatedState value) phase1Complated,
     required TResult Function(_Phase2InProgressState value) phase2InProgress,
     required TResult Function(_CompletedState value) completed,
     required TResult Function(_CancelledState value) cancelled,
@@ -721,6 +914,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult? Function(_Phase1ComplatedState value)? phase1Complated,
     TResult? Function(_Phase2InProgressState value)? phase2InProgress,
     TResult? Function(_CompletedState value)? completed,
     TResult? Function(_CancelledState value)? cancelled,
@@ -734,6 +928,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult Function(_Phase1ComplatedState value)? phase1Complated,
     TResult Function(_Phase2InProgressState value)? phase2InProgress,
     TResult Function(_CompletedState value)? completed,
     TResult Function(_CancelledState value)? cancelled,
@@ -791,6 +986,7 @@ class _$_Phase1InProgressState implements _Phase1InProgressState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() phase1InProgress,
+    required TResult Function(PaymentModel paymentdata) phase1Complated,
     required TResult Function() phase2InProgress,
     required TResult Function() completed,
     required TResult Function() cancelled,
@@ -804,6 +1000,7 @@ class _$_Phase1InProgressState implements _Phase1InProgressState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? phase1InProgress,
+    TResult? Function(PaymentModel paymentdata)? phase1Complated,
     TResult? Function()? phase2InProgress,
     TResult? Function()? completed,
     TResult? Function()? cancelled,
@@ -817,6 +1014,7 @@ class _$_Phase1InProgressState implements _Phase1InProgressState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? phase1InProgress,
+    TResult Function(PaymentModel paymentdata)? phase1Complated,
     TResult Function()? phase2InProgress,
     TResult Function()? completed,
     TResult Function()? cancelled,
@@ -834,6 +1032,7 @@ class _$_Phase1InProgressState implements _Phase1InProgressState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Phase1InProgressState value) phase1InProgress,
+    required TResult Function(_Phase1ComplatedState value) phase1Complated,
     required TResult Function(_Phase2InProgressState value) phase2InProgress,
     required TResult Function(_CompletedState value) completed,
     required TResult Function(_CancelledState value) cancelled,
@@ -847,6 +1046,7 @@ class _$_Phase1InProgressState implements _Phase1InProgressState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult? Function(_Phase1ComplatedState value)? phase1Complated,
     TResult? Function(_Phase2InProgressState value)? phase2InProgress,
     TResult? Function(_CompletedState value)? completed,
     TResult? Function(_CancelledState value)? cancelled,
@@ -860,6 +1060,7 @@ class _$_Phase1InProgressState implements _Phase1InProgressState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult Function(_Phase1ComplatedState value)? phase1Complated,
     TResult Function(_Phase2InProgressState value)? phase2InProgress,
     TResult Function(_CompletedState value)? completed,
     TResult Function(_CancelledState value)? cancelled,
@@ -875,6 +1076,173 @@ class _$_Phase1InProgressState implements _Phase1InProgressState {
 
 abstract class _Phase1InProgressState implements PaymentState {
   const factory _Phase1InProgressState() = _$_Phase1InProgressState;
+}
+
+/// @nodoc
+abstract class _$$_Phase1ComplatedStateCopyWith<$Res> {
+  factory _$$_Phase1ComplatedStateCopyWith(_$_Phase1ComplatedState value,
+          $Res Function(_$_Phase1ComplatedState) then) =
+      __$$_Phase1ComplatedStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PaymentModel paymentdata});
+}
+
+/// @nodoc
+class __$$_Phase1ComplatedStateCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res, _$_Phase1ComplatedState>
+    implements _$$_Phase1ComplatedStateCopyWith<$Res> {
+  __$$_Phase1ComplatedStateCopyWithImpl(_$_Phase1ComplatedState _value,
+      $Res Function(_$_Phase1ComplatedState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? paymentdata = freezed,
+  }) {
+    return _then(_$_Phase1ComplatedState(
+      paymentdata: freezed == paymentdata
+          ? _value.paymentdata
+          : paymentdata // ignore: cast_nullable_to_non_nullable
+              as PaymentModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Phase1ComplatedState implements _Phase1ComplatedState {
+  const _$_Phase1ComplatedState({required this.paymentdata});
+
+  @override
+  final PaymentModel paymentdata;
+
+  @override
+  String toString() {
+    return 'PaymentState.phase1Complated(paymentdata: $paymentdata)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Phase1ComplatedState &&
+            const DeepCollectionEquality()
+                .equals(other.paymentdata, paymentdata));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(paymentdata));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_Phase1ComplatedStateCopyWith<_$_Phase1ComplatedState> get copyWith =>
+      __$$_Phase1ComplatedStateCopyWithImpl<_$_Phase1ComplatedState>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() phase1InProgress,
+    required TResult Function(PaymentModel paymentdata) phase1Complated,
+    required TResult Function() phase2InProgress,
+    required TResult Function() completed,
+    required TResult Function() cancelled,
+    required TResult Function(String message) error,
+  }) {
+    return phase1Complated(paymentdata);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? phase1InProgress,
+    TResult? Function(PaymentModel paymentdata)? phase1Complated,
+    TResult? Function()? phase2InProgress,
+    TResult? Function()? completed,
+    TResult? Function()? cancelled,
+    TResult? Function(String message)? error,
+  }) {
+    return phase1Complated?.call(paymentdata);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? phase1InProgress,
+    TResult Function(PaymentModel paymentdata)? phase1Complated,
+    TResult Function()? phase2InProgress,
+    TResult Function()? completed,
+    TResult Function()? cancelled,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (phase1Complated != null) {
+      return phase1Complated(paymentdata);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Phase1InProgressState value) phase1InProgress,
+    required TResult Function(_Phase1ComplatedState value) phase1Complated,
+    required TResult Function(_Phase2InProgressState value) phase2InProgress,
+    required TResult Function(_CompletedState value) completed,
+    required TResult Function(_CancelledState value) cancelled,
+    required TResult Function(_ErrorState value) error,
+  }) {
+    return phase1Complated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult? Function(_Phase1ComplatedState value)? phase1Complated,
+    TResult? Function(_Phase2InProgressState value)? phase2InProgress,
+    TResult? Function(_CompletedState value)? completed,
+    TResult? Function(_CancelledState value)? cancelled,
+    TResult? Function(_ErrorState value)? error,
+  }) {
+    return phase1Complated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult Function(_Phase1ComplatedState value)? phase1Complated,
+    TResult Function(_Phase2InProgressState value)? phase2InProgress,
+    TResult Function(_CompletedState value)? completed,
+    TResult Function(_CancelledState value)? cancelled,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
+  }) {
+    if (phase1Complated != null) {
+      return phase1Complated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Phase1ComplatedState implements PaymentState {
+  const factory _Phase1ComplatedState(
+      {required final PaymentModel paymentdata}) = _$_Phase1ComplatedState;
+
+  PaymentModel get paymentdata;
+  @JsonKey(ignore: true)
+  _$$_Phase1ComplatedStateCopyWith<_$_Phase1ComplatedState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -917,6 +1285,7 @@ class _$_Phase2InProgressState implements _Phase2InProgressState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() phase1InProgress,
+    required TResult Function(PaymentModel paymentdata) phase1Complated,
     required TResult Function() phase2InProgress,
     required TResult Function() completed,
     required TResult Function() cancelled,
@@ -930,6 +1299,7 @@ class _$_Phase2InProgressState implements _Phase2InProgressState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? phase1InProgress,
+    TResult? Function(PaymentModel paymentdata)? phase1Complated,
     TResult? Function()? phase2InProgress,
     TResult? Function()? completed,
     TResult? Function()? cancelled,
@@ -943,6 +1313,7 @@ class _$_Phase2InProgressState implements _Phase2InProgressState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? phase1InProgress,
+    TResult Function(PaymentModel paymentdata)? phase1Complated,
     TResult Function()? phase2InProgress,
     TResult Function()? completed,
     TResult Function()? cancelled,
@@ -960,6 +1331,7 @@ class _$_Phase2InProgressState implements _Phase2InProgressState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Phase1InProgressState value) phase1InProgress,
+    required TResult Function(_Phase1ComplatedState value) phase1Complated,
     required TResult Function(_Phase2InProgressState value) phase2InProgress,
     required TResult Function(_CompletedState value) completed,
     required TResult Function(_CancelledState value) cancelled,
@@ -973,6 +1345,7 @@ class _$_Phase2InProgressState implements _Phase2InProgressState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult? Function(_Phase1ComplatedState value)? phase1Complated,
     TResult? Function(_Phase2InProgressState value)? phase2InProgress,
     TResult? Function(_CompletedState value)? completed,
     TResult? Function(_CancelledState value)? cancelled,
@@ -986,6 +1359,7 @@ class _$_Phase2InProgressState implements _Phase2InProgressState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult Function(_Phase1ComplatedState value)? phase1Complated,
     TResult Function(_Phase2InProgressState value)? phase2InProgress,
     TResult Function(_CompletedState value)? completed,
     TResult Function(_CancelledState value)? cancelled,
@@ -1043,6 +1417,7 @@ class _$_CompletedState implements _CompletedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() phase1InProgress,
+    required TResult Function(PaymentModel paymentdata) phase1Complated,
     required TResult Function() phase2InProgress,
     required TResult Function() completed,
     required TResult Function() cancelled,
@@ -1056,6 +1431,7 @@ class _$_CompletedState implements _CompletedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? phase1InProgress,
+    TResult? Function(PaymentModel paymentdata)? phase1Complated,
     TResult? Function()? phase2InProgress,
     TResult? Function()? completed,
     TResult? Function()? cancelled,
@@ -1069,6 +1445,7 @@ class _$_CompletedState implements _CompletedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? phase1InProgress,
+    TResult Function(PaymentModel paymentdata)? phase1Complated,
     TResult Function()? phase2InProgress,
     TResult Function()? completed,
     TResult Function()? cancelled,
@@ -1086,6 +1463,7 @@ class _$_CompletedState implements _CompletedState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Phase1InProgressState value) phase1InProgress,
+    required TResult Function(_Phase1ComplatedState value) phase1Complated,
     required TResult Function(_Phase2InProgressState value) phase2InProgress,
     required TResult Function(_CompletedState value) completed,
     required TResult Function(_CancelledState value) cancelled,
@@ -1099,6 +1477,7 @@ class _$_CompletedState implements _CompletedState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult? Function(_Phase1ComplatedState value)? phase1Complated,
     TResult? Function(_Phase2InProgressState value)? phase2InProgress,
     TResult? Function(_CompletedState value)? completed,
     TResult? Function(_CancelledState value)? cancelled,
@@ -1112,6 +1491,7 @@ class _$_CompletedState implements _CompletedState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult Function(_Phase1ComplatedState value)? phase1Complated,
     TResult Function(_Phase2InProgressState value)? phase2InProgress,
     TResult Function(_CompletedState value)? completed,
     TResult Function(_CancelledState value)? cancelled,
@@ -1169,6 +1549,7 @@ class _$_CancelledState implements _CancelledState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() phase1InProgress,
+    required TResult Function(PaymentModel paymentdata) phase1Complated,
     required TResult Function() phase2InProgress,
     required TResult Function() completed,
     required TResult Function() cancelled,
@@ -1182,6 +1563,7 @@ class _$_CancelledState implements _CancelledState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? phase1InProgress,
+    TResult? Function(PaymentModel paymentdata)? phase1Complated,
     TResult? Function()? phase2InProgress,
     TResult? Function()? completed,
     TResult? Function()? cancelled,
@@ -1195,6 +1577,7 @@ class _$_CancelledState implements _CancelledState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? phase1InProgress,
+    TResult Function(PaymentModel paymentdata)? phase1Complated,
     TResult Function()? phase2InProgress,
     TResult Function()? completed,
     TResult Function()? cancelled,
@@ -1212,6 +1595,7 @@ class _$_CancelledState implements _CancelledState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Phase1InProgressState value) phase1InProgress,
+    required TResult Function(_Phase1ComplatedState value) phase1Complated,
     required TResult Function(_Phase2InProgressState value) phase2InProgress,
     required TResult Function(_CompletedState value) completed,
     required TResult Function(_CancelledState value) cancelled,
@@ -1225,6 +1609,7 @@ class _$_CancelledState implements _CancelledState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult? Function(_Phase1ComplatedState value)? phase1Complated,
     TResult? Function(_Phase2InProgressState value)? phase2InProgress,
     TResult? Function(_CompletedState value)? completed,
     TResult? Function(_CancelledState value)? cancelled,
@@ -1238,6 +1623,7 @@ class _$_CancelledState implements _CancelledState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult Function(_Phase1ComplatedState value)? phase1Complated,
     TResult Function(_Phase2InProgressState value)? phase2InProgress,
     TResult Function(_CompletedState value)? completed,
     TResult Function(_CancelledState value)? cancelled,
@@ -1321,6 +1707,7 @@ class _$_ErrorState implements _ErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() phase1InProgress,
+    required TResult Function(PaymentModel paymentdata) phase1Complated,
     required TResult Function() phase2InProgress,
     required TResult Function() completed,
     required TResult Function() cancelled,
@@ -1334,6 +1721,7 @@ class _$_ErrorState implements _ErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? phase1InProgress,
+    TResult? Function(PaymentModel paymentdata)? phase1Complated,
     TResult? Function()? phase2InProgress,
     TResult? Function()? completed,
     TResult? Function()? cancelled,
@@ -1347,6 +1735,7 @@ class _$_ErrorState implements _ErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? phase1InProgress,
+    TResult Function(PaymentModel paymentdata)? phase1Complated,
     TResult Function()? phase2InProgress,
     TResult Function()? completed,
     TResult Function()? cancelled,
@@ -1364,6 +1753,7 @@ class _$_ErrorState implements _ErrorState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Phase1InProgressState value) phase1InProgress,
+    required TResult Function(_Phase1ComplatedState value) phase1Complated,
     required TResult Function(_Phase2InProgressState value) phase2InProgress,
     required TResult Function(_CompletedState value) completed,
     required TResult Function(_CancelledState value) cancelled,
@@ -1377,6 +1767,7 @@ class _$_ErrorState implements _ErrorState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult? Function(_Phase1ComplatedState value)? phase1Complated,
     TResult? Function(_Phase2InProgressState value)? phase2InProgress,
     TResult? Function(_CompletedState value)? completed,
     TResult? Function(_CancelledState value)? cancelled,
@@ -1390,6 +1781,7 @@ class _$_ErrorState implements _ErrorState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Phase1InProgressState value)? phase1InProgress,
+    TResult Function(_Phase1ComplatedState value)? phase1Complated,
     TResult Function(_Phase2InProgressState value)? phase2InProgress,
     TResult Function(_CompletedState value)? completed,
     TResult Function(_CancelledState value)? cancelled,

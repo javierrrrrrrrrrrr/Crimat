@@ -93,7 +93,7 @@ class UtilFunctions {
   static Future<dynamic> showConfimationAlmacen(BuildContext context) {
     final cartBloc = context.read<CartBloc>();
     final favoriteBloc = context.read<FavoriteBloc>();
-    String selectedOption = '';
+    //  String selectedOption = '';
 
     List<bool> isCheckedList =
         List.filled(cartBloc.selectedProduct.almacenList!.length, false);

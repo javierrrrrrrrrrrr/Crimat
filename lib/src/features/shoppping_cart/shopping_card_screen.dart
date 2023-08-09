@@ -6,10 +6,12 @@ import 'package:crimat_app/src/features/shoppping_cart/utils/shopping_card_aux.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
-
+import 'package:go_router/go_router.dart';
+import '../../models/payment/request_data_model.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../home/presentation/view/widget/products_details_widgets/option_buttoms.dart';
+import '../payment/presentation/bloc/payment_bloc.dart';
+import '../payment/presentation/view/payment_aux_view.dart';
 
 class ShoppingCartView extends StatelessWidget {
   const ShoppingCartView({
@@ -20,14 +22,34 @@ class ShoppingCartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CartBloc, CartState>(
+    return BlocConsumer<PaymentBloc, PaymentState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          phase1InProgress: () => showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (context) => const Align(
+                alignment: Alignment.center,
+                child: CircularProgressIndicator()),
+          ),
+          phase1Complated: (paymentdata) {
+            context.pop();
+            context.pushNamed(PaymentAuxView.name);
+          },
+          orElse: (() => Container()),
+        );
+      },
       builder: (context, state) {
-        return state.maybeWhen(
-            successAddedToCart: () => Container(),
-            orElse: () => const NoProductsInShoppingCart(),
-            loaded: (cart) => MainWidget(cart: cart),
-            error: ((message) => const Text("Error")),
-            addWarning: (cart) => MainWidget(cart: cart));
+        return BlocBuilder<CartBloc, CartState>(
+          builder: (context, state) {
+            return state.maybeWhen(
+                successAddedToCart: () => Container(),
+                orElse: () => const NoProductsInShoppingCart(),
+                loaded: (cart) => MainWidget(cart: cart),
+                error: ((message) => const Text("Error")),
+                addWarning: (cart) => MainWidget(cart: cart));
+          },
+        );
       },
     );
   }
@@ -43,6 +65,7 @@ class MainWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final paymentbloc = context.read<PaymentBloc>();
     return Stack(
       children: [
         Positioned(
@@ -77,58 +100,28 @@ class MainWidget extends StatelessWidget {
               isShopping: true,
               total: cart.subtotal,
               onPressedPay: () async {
-                print("Inicar checkout");
+                //datos de pruebas
+                RequestModel fillRequestModel() {
+                  List<ProductoCantidadModel> productos = [
+                    ProductoCantidadModel(producto: 1, cantidad: 5),
+                  ];
+                  int almacen = 2;
+                  int tipoEnvio = 1;
+                  List<int> direcciones = [5];
 
-                await initPaymentSheet(context);
-                // try {
-                //   dynamic repuesta =
-                //       await Stripe.instance.presentPaymentSheet();
-                //   print(repuesta.toString());
-                // } catch (e) {
-                //   print('erorrrrrrrrr$e');
-                //    }
+                  return RequestModel(
+                    productos: productos,
+                    almacen: almacen,
+                    tipoEnvio: tipoEnvio,
+                    direcciones: direcciones,
+                  );
+                }
+
+                paymentbloc
+                    .add(PaymentEvent.startedPhase1(datos: fillRequestModel()));
               }),
         ),
       ],
     );
-  }
-}
-
-Future<void> initPaymentSheet(context) async {
-  try {
-    // 1. create payment intent on the server
-
-    // 2. initialize the payment sheet
-    await Stripe.instance.initPaymentSheet(
-        paymentSheetParameters: const SetupPaymentSheetParameters(
-      paymentIntentClientSecret:
-          "pi_3NctEkJ9WnJbugu50nu7UHde_secret_1zEJARKpYy1Pt2rzbkKNjkBIZ",
-      merchantDisplayName: 'Grocery Flutter course',
-      customerId: "cus_OPigY8op4TRUXN",
-      customerEphemeralKeySecret:
-          "ek_test_YWNjdF8xTjFCQkVKOVduSmJ1Z3U1LFlEQUxjaDQxTjZidTQ3UVg1T3M1VlJkSlh3UkRCdWI_00faNTE74v",
-      // testEnv: true,
-      // merchantCountryCode: 'SG',
-    ));
-    await Stripe.instance.presentPaymentSheet();
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Payment is successful'),
-      ),
-    );
-  } catch (errorr) {
-    if (errorr is StripeException) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('An error occured ${errorr.error.localizedMessage}'),
-        ),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('An error occured $errorr'),
-        ),
-      );
-    }
   }
 }
