@@ -12,6 +12,7 @@ import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../home/presentation/view/widget/products_details_widgets/option_buttoms.dart';
 import '../payment/presentation/bloc/payment_bloc.dart';
 import '../payment/presentation/view/payment_aux_view.dart';
+import '../perfil/presentation/bloc/profile_bloc.dart';
 
 class ShoppingCartView extends StatelessWidget {
   const ShoppingCartView({
@@ -75,6 +76,7 @@ class MainWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final paymentbloc = context.read<PaymentBloc>();
+    final profilebloc = context.read<ProfileBloc>();
 
     return Stack(
       children: [
@@ -110,6 +112,7 @@ class MainWidget extends StatelessWidget {
               isShopping: true,
               total: cart.subtotal,
               onPressedPay: () async {
+                profilebloc.add(const ProfileEvent.load());
                 paymentbloc.add(const PaymentEvent.startedPhase0());
               }),
         ),

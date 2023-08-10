@@ -56,25 +56,15 @@ class CustomDeliveryCard extends StatelessWidget {
               SizedBox(
                 height: 5.h,
               ),
-              isCheckout == true
-                  ? SizedBox(
-                      height: 80.h,
-                      width: 250.w,
-                      child: Text(
-                        maxLines: 3,
-                        '$direccion$ciudad$apartado$estado$codigopostal',
-                        style: TextStyle(fontSize: 16.sp),
-                      ),
-                    )
-                  : SizedBox(
-                      height: 80.h,
-                      width: 250.w,
-                      child: Text(
-                        maxLines: 3,
-                        '${datos!.direcciones[index].id} ${datos!.direcciones[index].direccion}, ${datos!.direcciones[index].ciudad}, ${datos!.direcciones[index].estado} ${datos!.direcciones[index].postal}',
-                        style: TextStyle(fontSize: 16.sp),
-                      ),
-                    )
+              SizedBox(
+                height: 80.h,
+                width: 250.w,
+                child: Text(
+                  maxLines: 3,
+                  '${datos!.direcciones[index].id} ${datos!.direcciones[index].direccion}, ${datos!.direcciones[index].ciudad}, ${datos!.direcciones[index].estado} ${datos!.direcciones[index].postal}',
+                  style: TextStyle(fontSize: 16.sp),
+                ),
+              )
             ],
           ),
         ),

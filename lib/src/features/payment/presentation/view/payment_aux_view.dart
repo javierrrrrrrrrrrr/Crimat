@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../models/payment/payment_model.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
-import '../../../perfil/presentation/view/widget/custom_delivery_card.dart';
 import '../bloc/payment_bloc.dart';
 
 class PaymentAuxView extends StatelessWidget {
@@ -100,20 +99,18 @@ class CheckoutView extends StatelessWidget {
             CusotmRowInfo(
                 info: "Costo de envio",
                 valor: paymentdata.orden.costoEnvio.toString()),
-            CusotmRowInfo(
-                info: "Total", valor: paymentdata.orden.montoTotal.toString()),
+            SizedBox(
+              height: 100.w,
+            ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: CustomDeliveryCard(
-                isCheckout: true,
-                index: 1,
-                apartado: paymentdata.orden.direcciones[0].apartado,
-                codigopostal: paymentdata.orden.direcciones[0].codigoPostal,
-                ciudad: paymentdata.orden.direcciones[0].ciudad,
-                direccion: paymentdata.orden.direcciones[0].direccion,
-                estado: paymentdata.orden.direcciones[0].estado,
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              child: Divider(
+                color: Colors.black.withOpacity(0.3),
+                thickness: 1,
               ),
             ),
+            CusotmRowInfo(
+                info: "Total", valor: paymentdata.orden.montoTotal.toString()),
             SizedBox(
               height: 20.w,
             ),
