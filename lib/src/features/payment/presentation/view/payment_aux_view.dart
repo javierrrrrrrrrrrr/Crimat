@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/features/payment/presentation/view/payment_select_envio_tipe_widget.dart';
 import 'package:crimat_app/src/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,7 +35,9 @@ class PaymentAuxView extends StatelessWidget {
                 error: (messege) => Container(),
                 phase1Complated: (paymentdata) => CheckoutView(
                       paymentdata: paymentdata,
-                    ));
+                    ),
+                phase0Complated: (data) => TipoEnvioDireccion(data: data),
+                phase0InProgress: () => Container());
           },
         );
       },

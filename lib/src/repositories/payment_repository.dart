@@ -6,6 +6,7 @@ import '../errors/expetion.dart';
 import '../errors/failure.dart';
 import '../models/payment/payment_model.dart';
 import '../models/payment/request_data_model.dart';
+import '../models/payment/shipping_model.dart';
 import '../services/payment_source/payment_data_source.dart';
 
 class PaymentRepository {
@@ -20,6 +21,19 @@ class PaymentRepository {
     final PaymentModel data;
     try {
       data = await paymentDataSurce.getPaymentData(token, datos);
+
+      return Right(data);
+    } on ServerException {
+      return Left(ServerFailure('Server failure'));
+    }
+  }
+
+//getShippingMethods
+  Future<Either<Failure, List<ShippingModel>>> getShippingMethods(
+      {required String token}) async {
+    try {
+      List<ShippingModel> data =
+          await paymentDataSurce.getShippingMethods(token);
 
       return Right(data);
     } on ServerException {

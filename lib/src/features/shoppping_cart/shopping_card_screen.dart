@@ -1,5 +1,4 @@
 import 'package:crimat_app/src/features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
-import 'package:crimat_app/src/features/shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import 'package:crimat_app/src/features/shoppping_cart/presentation/view/widget/direccion_address_row.dart';
 import 'package:crimat_app/src/features/shoppping_cart/presentation/view/widget/no_product_in_shopping_cart.dart';
 import 'package:crimat_app/src/features/shoppping_cart/presentation/view/widget/shopping_cart_widget.dart';
@@ -8,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import '../../models/payment/request_data_model.dart';
 import '../../shared/utils/utils.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../home/presentation/view/widget/products_details_widgets/option_buttoms.dart';
@@ -31,17 +29,13 @@ class ShoppingCartView extends StatelessWidget {
             context.pop();
             UtilFunctions.printToast(message: message, shorttime: false);
           },
-          phase1InProgress: () => showDialog(
-            barrierDismissible: false,
-            context: context,
-            builder: (context) => const Align(
-                alignment: Alignment.center,
-                child: CircularProgressIndicator()),
-          ),
-          phase1Complated: (paymentdata) {
+          phase0InProgress: () => loading(context),
+          phase1InProgress: () => loading(context),
+          phase0Complated: (paymentdata) {
             context.pushNamed(PaymentAuxView.name);
             context.pop();
           },
+          phase1Complated: (data) => context.pop(),
           orElse: (() => Container()),
         );
       },
@@ -59,6 +53,15 @@ class ShoppingCartView extends StatelessWidget {
       },
     );
   }
+
+  Future<dynamic> loading(BuildContext context) {
+    return showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => const Align(
+          alignment: Alignment.center, child: CircularProgressIndicator()),
+    );
+  }
 }
 
 class MainWidget extends StatelessWidget {
@@ -71,10 +74,8 @@ class MainWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<ProductoCantidadModel> productoslistcart = [];
     final paymentbloc = context.read<PaymentBloc>();
-    final checkbloc = context.read<CheckBloc>();
-    final cartbloc = context.read<CartBloc>();
+
     return Stack(
       children: [
         Positioned(
@@ -88,24 +89,6 @@ class MainWidget extends StatelessWidget {
               title: "Tu Carrito",
               itemcount: cart.productQuantity(cart.product).keys.length,
               itemBuilder: (BuildContext context, int index) {
-                productoslistcart.add(
-                  ProductoCantidadModel(
-                      producto: cart
-                          .productQuantity(cart.product)
-                          .keys
-                          .elementAt(index)
-                          .id,
-                      cantidad: cart
-                          .productQuantity(cart.product)
-                          .values
-                          .elementAt(index)),
-                );
-
-                // print(productos[index].cantidad);
-                print(productoslistcart[index].producto);
-                print(
-                    'Esta son las selecionadas${checkbloc.checklist[index]}}');
-                // List<ProductModel> product = [];
                 return ShoppingCartWidget(
                   carcantidad: cart
                       .productQuantity(cart.product)
@@ -127,29 +110,7 @@ class MainWidget extends StatelessWidget {
               isShopping: true,
               total: cart.subtotal,
               onPressedPay: () async {
-                //datos de pruebas
-                //comprobar si estan selecionados
-                List<ProductoCantidadModel> auxproductoslistcart = [];
-                for (int i = 0; i < checkbloc.checklist.length - 1; i++) {
-                  if (checkbloc.checklist[i] == true) {
-                    auxproductoslistcart.add(productoslistcart[i]);
-                  }
-                }
-                RequestModel fillRequestModel() {
-                  int almacen = cartbloc.productList[0].idAlmacen;
-                  int tipoEnvio = 1;
-                  List<int> direcciones = [5];
-
-                  return RequestModel(
-                    productos: auxproductoslistcart,
-                    almacen: almacen,
-                    tipoEnvio: tipoEnvio,
-                    direcciones: direcciones,
-                  );
-                }
-
-                paymentbloc
-                    .add(PaymentEvent.startedPhase1(datos: fillRequestModel()));
+                paymentbloc.add(const PaymentEvent.startedPhase0());
               }),
         ),
       ],
