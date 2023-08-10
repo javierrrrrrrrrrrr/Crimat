@@ -71,6 +71,7 @@ class MainWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final paymentbloc = context.read<PaymentBloc>();
+    final cartbloc = context.read<CartBloc>();
     return Stack(
       children: [
         Positioned(
@@ -107,10 +108,12 @@ class MainWidget extends StatelessWidget {
               onPressedPay: () async {
                 //datos de pruebas
                 RequestModel fillRequestModel() {
+                   
+                    
                   List<ProductoCantidadModel> productos = [
                     ProductoCantidadModel(producto: 1, cantidad: 5),
                   ];
-                  int almacen = 2;
+                  int almacen = cartbloc.productList[0].idAlmacen;
                   int tipoEnvio = 1;
                   List<int> direcciones = [5];
 
