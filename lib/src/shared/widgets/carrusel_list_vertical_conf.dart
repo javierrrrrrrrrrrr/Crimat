@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../features/home/presentation/view/widget/custom_title.dart';
 
@@ -14,6 +15,7 @@ class CarruselListVerticalConfg extends StatelessWidget {
     this.padding,
     this.isperfil,
     this.havesubtitle,
+    this.ischeckout,
   });
 
   final String title;
@@ -23,6 +25,7 @@ class CarruselListVerticalConfg extends StatelessWidget {
   final double? cardWidthPadding;
   final bool? isperfil;
   final bool? havesubtitle;
+  final bool? ischeckout;
 
   final Widget Function(BuildContext, int) itemBuilder;
 
@@ -31,16 +34,39 @@ class CarruselListVerticalConfg extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: padding ??
-              EdgeInsets.only(
-                bottom: 0.w,
-                right: 0.w,
-                left: 25.w,
-                top: 60.h,
+        ischeckout == true
+            ? Padding(
+                padding: padding ??
+                    EdgeInsets.only(
+                      bottom: 0.w,
+                      right: 0.w,
+                      left: 10.w,
+                      top: 60.h,
+                    ),
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () {
+                        context.pop();
+                        // Acción cuando se presiona el botón de flecha hacia atrás
+                      },
+                    ),
+                    SizedBox(width: 60.w),
+                    CustomTitle(title: title),
+                  ],
+                ),
+              )
+            : Padding(
+                padding: padding ??
+                    EdgeInsets.only(
+                      bottom: 0.w,
+                      right: 0.w,
+                      left: 25.w,
+                      top: 60.h,
+                    ),
+                child: CustomTitle(title: title),
               ),
-          child: CustomTitle(title: title),
-        ),
         SizedBox(height: isperfil == true ? 230.h : 0.h),
         SizedBox(height: havesubtitle == true ? 50.h : 0.h),
         Expanded(

@@ -124,7 +124,6 @@ class MainWidget extends StatelessWidget {
                 );
               });
             },
-            //  profilebloc.add(const ProfileEvent.readDireccion());
           ),
         ),
       ],
