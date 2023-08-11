@@ -20,7 +20,6 @@ class LoginScreen extends StatelessWidget {
     return BlocProvider<LoginCubit>(
       create: (context) => LoginCubit(),
       child: BlocBuilder<LoginCubit, AuthState>(builder: (context, state) {
-        //   final profilebloc = context.read<ProfileBloc>();
         LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
         return Scaffold(
           body: SafeArea(

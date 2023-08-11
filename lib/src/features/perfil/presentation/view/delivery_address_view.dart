@@ -23,10 +23,7 @@ class DeliveryAddress extends StatelessWidget {
           itemcount: datos.direcciones.length,
           title: "Direcciones de entrega",
           itemBuilder: (BuildContext context, int index) {
-            return CustomDeliveryCard(
-              datos: datos,
-              index:index
-            );
+            return CustomDeliveryCard(datos: datos, index: index);
           },
         ),
       ),

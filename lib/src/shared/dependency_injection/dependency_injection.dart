@@ -91,7 +91,8 @@ Future<void> init() async {
 
   ///Profile
   //?? DataSources.
-  sl.registerLazySingleton(() => ProfileDataSource(sl.get<http.Client>()));
+  sl.registerLazySingleton(() =>
+      ProfileDataSource(sl.get<http.Client>(), sl.get<SharedPreferences>()));
 
   //?? Repositories
   sl.registerLazySingleton(

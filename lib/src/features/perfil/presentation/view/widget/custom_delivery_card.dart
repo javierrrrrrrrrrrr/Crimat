@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../models/profile/profile_model.dart';
 import '../../../../../shared/widgets/card_sking.dart';
+import '../../bloc/profile_bloc.dart';
 
 class CustomDeliveryCard extends StatelessWidget {
   const CustomDeliveryCard({
@@ -27,6 +29,7 @@ class CustomDeliveryCard extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
+    final profilebloc = context.read<ProfileBloc>();
     return Stack(
       children: [
         CardSking(
@@ -71,19 +74,30 @@ class CustomDeliveryCard extends StatelessWidget {
         Positioned(
           bottom: 0,
           left: 5.w,
-          child: Row(
-            children: [
-              Checkbox(
-                activeColor: Theme.of(context).primaryColor,
-                value: true,
-                onChanged: (value) {},
-                materialTapTargetSize: MaterialTapTargetSize.padded,
-              ),
-              Text(
-                "Usar esta dirección",
-                style: TextStyle(fontSize: 16.sp),
-              )
-            ],
+          child: BlocBuilder<ProfileBloc, ProfileState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                  orElse: () => Container(),
+                  changeCheckSuccess: (id, profile) => Row(
+                        children: [
+                          Checkbox(
+                            activeColor: Theme.of(context).primaryColor,
+                            value: datos!.direcciones[index].id == id
+                                ? true
+                                : false,
+                            onChanged: (value) {
+                              profilebloc.add(ProfileEvent.saveDireccion(
+                                  id: datos!.direcciones[index].id));
+                            },
+                            materialTapTargetSize: MaterialTapTargetSize.padded,
+                          ),
+                          Text(
+                            "Usar esta dirección",
+                            style: TextStyle(fontSize: 16.sp),
+                          )
+                        ],
+                      ));
+            },
           ),
         )
       ],
