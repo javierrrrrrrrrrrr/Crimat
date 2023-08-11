@@ -33,11 +33,11 @@ class ProfileRepository {
   }
 
   Future<int?> readHistorial() async {
-    try {
+    
       return await profileDataSurce.readHistorial();
-    } catch (e) {
+   
       // Manejar cualquier error o lanzar una excepción personalizada
-      return null;
-    }
+     
+   
   }
 }

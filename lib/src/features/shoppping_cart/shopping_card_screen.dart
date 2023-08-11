@@ -111,9 +111,16 @@ class MainWidget extends StatelessWidget {
           child: OptionButtoms(
               isShopping: true,
               total: cart.subtotal,
-              onPressedPay: () async {
+              onPressedPay: () {
                 profilebloc.add(const ProfileEvent.load());
-                paymentbloc.add(const PaymentEvent.startedPhase0());
+                BlocListener<ProfileBloc, ProfileState>(
+                    listener: (context, state) {
+                  state.maybeWhen(
+                      orElse: () => Container(),
+                      success: (profile) =>
+                          paymentbloc.add(const PaymentEvent.startedPhase0()));
+                });
+                  profilebloc.add(const ProfileEvent.readDireccion());
               }),
         ),
       ],

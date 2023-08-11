@@ -60,7 +60,7 @@ class ProfileDataSource {
     }
   }
 
-  Future<int?> readHistorial() async {
+  Future<int> readHistorial() async {
     try {
       final jsonString = sharedPreferences.getString(_historialKey);
       if (jsonString != null) {
@@ -74,6 +74,6 @@ class ProfileDataSource {
     } catch (e) {
       throw CacheException();
     }
-    return null; // Si no se encuentra ninguna selección guardada, devuelve null
+    return 0; // Si no se encuentra ninguna selección guardada, devuelve null
   }
 }

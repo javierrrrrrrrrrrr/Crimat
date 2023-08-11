@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../models/payment/request_data_model.dart';
 import '../../../../models/payment/shipping_model.dart';
+import '../../../../models/profile/profile_model.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../perfil/presentation/bloc/profile_bloc.dart';
+import '../../../perfil/presentation/view/delivery_address_view.dart';
 import '../../../perfil/presentation/view/widget/custom_delivery_card.dart';
 import '../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../../shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
@@ -49,19 +52,33 @@ class CustomDireccionSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final profilebloc = context.read<ProfileBloc>();
     return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
       return state.maybeWhen(
         orElse: () => Container(),
         success: (profile) => Padding(
           padding: EdgeInsets.symmetric(horizontal: 15.w),
           child: CustomDeliveryCard(
+            cambiaronTap: () {
+              context.pushNamed(DeliveryAddress.name, extra: profile);
+            },
             isCheckout: true,
             datos: profile,
-            index: 0,
+            index: findData(context, profile, profilebloc.selectedId!),
           ),
         ),
       );
     });
+  }
+
+  int findData(context, ProfileModel profile, int selectedid) {
+    int index = 0;
+    for (int i = 0; i < profile.direcciones.length; i++) {
+      if (selectedid == profile.direcciones[i].id) {
+        index = i;
+      }
+    }
+    return index;
   }
 }
 

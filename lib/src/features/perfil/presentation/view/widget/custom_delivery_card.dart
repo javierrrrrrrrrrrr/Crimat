@@ -17,6 +17,7 @@ class CustomDeliveryCard extends StatelessWidget {
     this.apartado,
     this.estado,
     this.codigopostal,
+    this.cambiaronTap,
   });
 
   final ProfileModel? datos;
@@ -26,6 +27,7 @@ class CustomDeliveryCard extends StatelessWidget {
   final String? estado;
   final String? codigopostal;
   final bool? isCheckout;
+  final void Function()? cambiaronTap;
   final int index;
   @override
   Widget build(BuildContext context) {
@@ -49,10 +51,14 @@ class CustomDeliveryCard extends StatelessWidget {
                 children: [
                   Text(isCheckout == true ? "Javier Diaz" : datos!.firstName,
                       style: TextStyle(fontSize: 16.sp)),
-                  Text(
-                    "Editar",
-                    style: TextStyle(
-                        fontSize: 16.sp, color: Theme.of(context).primaryColor),
+                  GestureDetector(
+                    onTap: cambiaronTap,
+                    child: Text(
+                      isCheckout == true ? "Cambiar" : "Editar",
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          color: Theme.of(context).primaryColor),
+                    ),
                   ),
                 ],
               ),
@@ -77,28 +83,54 @@ class CustomDeliveryCard extends StatelessWidget {
           child: BlocBuilder<ProfileBloc, ProfileState>(
             builder: (context, state) {
               return state.maybeWhen(
-                  orElse: () => Container(),
-                  changeCheckSuccess: (id, profile) => Row(
-                        children: [
-                          Checkbox(
-                            activeColor: Theme.of(context).primaryColor,
-                            value: datos!.direcciones[index].id == id
-                                ? true
-                                : false,
-                            onChanged: (value) {
-                              profilebloc.add(ProfileEvent.saveDireccion(
-                                  id: datos!.direcciones[index].id));
-                            },
-                            materialTapTargetSize: MaterialTapTargetSize.padded,
-                          ),
-                          Text(
-                            "Usar esta dirección",
-                            style: TextStyle(fontSize: 16.sp),
-                          )
-                        ],
+                  orElse: () => Container(
+                        child: const Text("sss"),
+                      ),
+                  // initial:() => CustomMainRowWidget(datos: datos, index: index, profilebloc: profilebloc, id: id,),
+                  changeCheckSuccess: (id, profile) => CustomMainRowWidget(
+                        datos: datos,
+                        index: index,
+                        profilebloc: profilebloc,
+                        id: id,
                       ));
             },
           ),
+        )
+      ],
+    );
+  }
+}
+
+class CustomMainRowWidget extends StatelessWidget {
+  const CustomMainRowWidget({
+    super.key,
+    required this.datos,
+    required this.index,
+    required this.profilebloc,
+    required this.id,
+  });
+
+  final ProfileModel? datos;
+  final int id;
+  final int index;
+  final ProfileBloc profilebloc;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Checkbox(
+          activeColor: Theme.of(context).primaryColor,
+          value: datos!.direcciones[index].id == id ? true : false,
+          onChanged: (value) {
+            profilebloc.add(
+                ProfileEvent.saveDireccion(id: datos!.direcciones[index].id));
+          },
+          materialTapTargetSize: MaterialTapTargetSize.padded,
+        ),
+        Text(
+          "Usar esta dirección",
+          style: TextStyle(fontSize: 16.sp),
         )
       ],
     );

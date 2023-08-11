@@ -30,6 +30,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     Emitter emit,
   ) async {
     await event.when(load: () async {
+      // _selectedId = await profilerepo.readHistorial();
       emit(const ProfileState.loading());
       if (token != null) {
         dynamic result;
@@ -50,6 +51,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       }
     }, readDireccion: () async {
       _selectedId = await profilerepo.readHistorial();
+
       emit(ProfileState.changeCheckSuccess(
           id: _selectedId!, profile: _profiledata!));
     }, saveDireccion: (int id) async {
