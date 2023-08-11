@@ -56,7 +56,7 @@ class CustomDireccionSelection extends StatelessWidget {
     return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
       return state.maybeWhen(
         orElse: () => Container(),
-        success: (profile) => Padding(
+        changeCheckSuccess: (data, profile) => Padding(
           padding: EdgeInsets.symmetric(horizontal: 15.w),
           child: CustomDeliveryCard(
             cambiaronTap: () {
