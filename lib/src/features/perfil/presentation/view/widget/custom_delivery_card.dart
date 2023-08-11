@@ -35,7 +35,7 @@ class CustomDeliveryCard extends StatelessWidget {
     return Stack(
       children: [
         CardSking(
-          cardheight: 150.h,
+          cardheight: 160.h,
           cardwidth: isCheckout == true ? 450.w : 375.w,
         ),
         Padding(
@@ -92,6 +92,12 @@ class CustomDeliveryCard extends StatelessWidget {
                         index: index,
                         profilebloc: profilebloc,
                         id: id,
+                      ),
+                  updateDeliveryTypeSeleccion: (_) => CustomMainRowWidget(
+                        datos: datos,
+                        index: index,
+                        profilebloc: profilebloc,
+                        id: profilebloc.selectedId!,
                       ));
             },
           ),

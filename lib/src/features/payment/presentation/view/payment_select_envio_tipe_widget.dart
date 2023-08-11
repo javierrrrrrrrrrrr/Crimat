@@ -10,6 +10,7 @@ import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../perfil/presentation/bloc/profile_bloc.dart';
 import '../../../perfil/presentation/view/delivery_address_view.dart';
 import '../../../perfil/presentation/view/widget/custom_delivery_card.dart';
+import '../../../perfil/presentation/view/widget/custom_delivery_type.dart';
 import '../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../../shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import '../../../shoppping_cart/utils/shopping_card_aux.dart';
@@ -28,19 +29,44 @@ class TipoEnvioDireccion extends StatelessWidget {
     final paymentbloc = context.read<PaymentBloc>();
     final checkbloc = context.read<CheckBloc>();
     final cartbloc = context.read<CartBloc>();
+    final profilebloc = context.read<ProfileBloc>();
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(data[0].nombre),
-        const CustomDireccionSelection(),
-        //pasar,le la direcion y el tipo de envio
-        CustomOptionButtom(
-            cartbloc: cartbloc,
-            productoslistcart: productoslistcart,
-            checkbloc: checkbloc,
-            paymentbloc: paymentbloc),
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          BlocBuilder<ProfileBloc, ProfileState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                  orElse: () => Container(),
+                  changeCheckSuccess: (_, __) => CustomDeliveryType(
+                      model: data,
+                      modelselected: data[data.indexWhere((shipping) =>
+                              shipping.id ==
+                              profilebloc.selectedShippingTypeid) +
+                          1]),
+                  updateDeliveryTypeSeleccion: (id) => CustomDeliveryType(
+                      model: data,
+                      modelselected: data[
+                          data.indexWhere((shipping) => shipping.id == id) +
+                              1]));
+            },
+          ),
+          SizedBox(
+            height: 30.h,
+          ),
+          const CustomDireccionSelection(),
+          SizedBox(
+            height: 120.h,
+          ),
+          CustomOptionButtom(
+              cartbloc: cartbloc,
+              productoslistcart: productoslistcart,
+              checkbloc: checkbloc,
+              paymentbloc: paymentbloc),
+        ],
+      ),
     );
   }
 }
@@ -56,16 +82,23 @@ class CustomDireccionSelection extends StatelessWidget {
     return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
       return state.maybeWhen(
         orElse: () => Container(),
-        changeCheckSuccess: (data, profile) => Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.w),
-          child: CustomDeliveryCard(
-            cambiaronTap: () {
-              context.pushNamed(DeliveryAddress.name, extra: profile);
-            },
-            isCheckout: true,
-            datos: profile,
-            index: findData(context, profile, profilebloc.selectedId!),
-          ),
+        updateDeliveryTypeSeleccion: (updatedId) => CustomDeliveryCard(
+          cambiaronTap: () {
+            context.pushNamed(DeliveryAddress.name,
+                extra: profilebloc.profiledata);
+          },
+          isCheckout: true,
+          datos: profilebloc.profiledata,
+          index: findData(
+              context, profilebloc.profiledata!, profilebloc.selectedId!),
+        ),
+        changeCheckSuccess: (data, profile) => CustomDeliveryCard(
+          cambiaronTap: () {
+            context.pushNamed(DeliveryAddress.name, extra: profile);
+          },
+          isCheckout: true,
+          datos: profile,
+          index: findData(context, profile, profilebloc.selectedId!),
         ),
       );
     });
@@ -98,6 +131,7 @@ class CustomOptionButtom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final profileBloc = context.read<ProfileBloc>();
     return CusotmButtom(
       onPressed: () {
         final Cart cart = Cart(product: cartbloc.productList);
@@ -121,13 +155,14 @@ class CustomOptionButtom extends StatelessWidget {
         }
         RequestModel fillRequestModel() {
           int almacen = cartbloc.productList[0].idAlmacen;
-          int tipoEnvio = 1;
-          List<int> direcciones = [5];
+
+          List<int> direcciones = [];
+          direcciones.add(profileBloc.selectedId!);
 
           return RequestModel(
             productos: auxproductoslistcart,
             almacen: almacen,
-            tipoEnvio: tipoEnvio,
+            tipoEnvio: profileBloc.selectedShippingTypeid!,
             direcciones: direcciones,
           );
         }

@@ -7,6 +7,8 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.changeCheckSuccess(
       {required int id,
       required ProfileModel profile}) = _ChangeCheckSuccessState;
+  const factory ProfileState.updateDeliveryTypeSeleccion(
+      {required int updatedId}) = _UpdateDeliveryTypeSeleccionState;
   const factory ProfileState.loading() = _Loading;
   const factory ProfileState.success({
     required ProfileModel profile,

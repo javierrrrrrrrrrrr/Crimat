@@ -38,6 +38,7 @@ class ProfileView extends StatelessWidget {
               changeCheckSuccess: (id, profile) => ProfileMainWidget(
                 profil: profile,
               ),
+              updateDeliveryTypeSeleccion: (data) => Container(),
             ));
   }
 }

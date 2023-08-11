@@ -17,8 +17,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileModel? _profiledata;
   ProfileModel? get profiledata => _profiledata;
 
-  int? _selectedId;
-  int? get selectedId => _selectedId;
+  int? _selectedDeliveryAdressId;
+  int? get selectedId => _selectedDeliveryAdressId;
+
+  int? _selectedShippingTypeid;
+  int? get selectedShippingTypeid => _selectedShippingTypeid;
   ProfileBloc(
     this.profilerepo,
   ) : super(const ProfileState.initial()) {
@@ -50,15 +53,20 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         emit(const ProfileState.noLogedUser());
       }
     }, readDireccion: () async {
-      _selectedId = await profilerepo.readHistorial();
+      _selectedDeliveryAdressId = await profilerepo.readHistorial();
 
       emit(ProfileState.changeCheckSuccess(
-          id: _selectedId!, profile: _profiledata!));
+          id: _selectedDeliveryAdressId!, profile: _profiledata!));
     }, saveDireccion: (int id) async {
       await profilerepo.saveSeleccion(id);
-      _selectedId = id;
+      _selectedDeliveryAdressId = id;
       emit(ProfileState.changeCheckSuccess(
-          id: _selectedId!, profile: _profiledata!));
+          id: _selectedDeliveryAdressId!, profile: _profiledata!));
+    }, updateShippingType: (int id) {
+      _selectedShippingTypeid = id;
+
+      emit(ProfileState.updateDeliveryTypeSeleccion(
+          updatedId: _selectedShippingTypeid!));
     });
   }
 }
