@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../models/payment/payment_model.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../bloc/payment_bloc.dart';
 
 class PaymentAuxView extends StatelessWidget {
@@ -16,12 +17,13 @@ class PaymentAuxView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartbloc = context.read<CartBloc>();
     return BlocConsumer<PaymentBloc, PaymentState>(
       listener: (context, state) {
         state.maybeWhen(
-          orElse: () => Container(),
-          error: (message) => UtilFunctions.printToast(message: message),
-        );
+            orElse: () => Container(),
+            error: (message) => UtilFunctions.printToast(message: message),
+            completed: () => cartbloc.add(const CartEvent.clearShoppingCart()));
       },
       builder: (context, state) {
         return BlocBuilder<PaymentBloc, PaymentState>(

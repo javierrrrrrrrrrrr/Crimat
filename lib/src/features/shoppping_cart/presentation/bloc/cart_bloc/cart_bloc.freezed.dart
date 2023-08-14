@@ -16,12 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CartEvent {
-  ProductModel get product => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
+    required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,6 +30,7 @@ mixin _$CartEvent {
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
+    TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,6 +39,7 @@ mixin _$CartEvent {
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
+    TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
     required TResult orElse(),
   }) =>
@@ -48,6 +50,7 @@ mixin _$CartEvent {
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
+    required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
   }) =>
@@ -57,6 +60,7 @@ mixin _$CartEvent {
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
   }) =>
@@ -66,14 +70,11 @@ mixin _$CartEvent {
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CartEventCopyWith<CartEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -81,8 +82,6 @@ mixin _$CartEvent {
 abstract class $CartEventCopyWith<$Res> {
   factory $CartEventCopyWith(CartEvent value, $Res Function(CartEvent) then) =
       _$CartEventCopyWithImpl<$Res, CartEvent>;
-  @useResult
-  $Res call({ProductModel product});
 }
 
 /// @nodoc
@@ -94,28 +93,13 @@ class _$CartEventCopyWithImpl<$Res, $Val extends CartEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? product = null,
-  }) {
-    return _then(_value.copyWith(
-      product: null == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as ProductModel,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_AddedProductToCartEventCopyWith<$Res>
-    implements $CartEventCopyWith<$Res> {
+abstract class _$$_AddedProductToCartEventCopyWith<$Res> {
   factory _$$_AddedProductToCartEventCopyWith(_$_AddedProductToCartEvent value,
           $Res Function(_$_AddedProductToCartEvent) then) =
       __$$_AddedProductToCartEventCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({ProductModel product});
 }
@@ -180,6 +164,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
+    required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
   }) {
     return addedProduct(product);
@@ -191,6 +176,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
+    TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
   }) {
     return addedProduct?.call(product);
@@ -202,6 +188,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
+    TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
     required TResult orElse(),
   }) {
@@ -218,6 +205,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
+    required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
   }) {
@@ -230,6 +218,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
   }) {
@@ -242,6 +231,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
     required TResult orElse(),
@@ -257,22 +247,18 @@ abstract class _AddedProductToCartEvent implements CartEvent {
   const factory _AddedProductToCartEvent(
       {required final ProductModel product}) = _$_AddedProductToCartEvent;
 
-  @override
   ProductModel get product;
-  @override
   @JsonKey(ignore: true)
   _$$_AddedProductToCartEventCopyWith<_$_AddedProductToCartEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_RemovedProductToCartEventCopyWith<$Res>
-    implements $CartEventCopyWith<$Res> {
+abstract class _$$_RemovedProductToCartEventCopyWith<$Res> {
   factory _$$_RemovedProductToCartEventCopyWith(
           _$_RemovedProductToCartEvent value,
           $Res Function(_$_RemovedProductToCartEvent) then) =
       __$$_RemovedProductToCartEventCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({ProductModel product});
 }
@@ -337,6 +323,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
+    required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
   }) {
     return removedProduct(product);
@@ -348,6 +335,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
+    TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
   }) {
     return removedProduct?.call(product);
@@ -359,6 +347,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
+    TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
     required TResult orElse(),
   }) {
@@ -375,6 +364,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
+    required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
   }) {
@@ -387,6 +377,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
   }) {
@@ -399,6 +390,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
     required TResult orElse(),
@@ -414,22 +406,18 @@ abstract class _RemovedProductToCartEvent implements CartEvent {
   const factory _RemovedProductToCartEvent(
       {required final ProductModel product}) = _$_RemovedProductToCartEvent;
 
-  @override
   ProductModel get product;
-  @override
   @JsonKey(ignore: true)
   _$$_RemovedProductToCartEventCopyWith<_$_RemovedProductToCartEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_RemovedProductAllToCartEventCopyWith<$Res>
-    implements $CartEventCopyWith<$Res> {
+abstract class _$$_RemovedProductAllToCartEventCopyWith<$Res> {
   factory _$$_RemovedProductAllToCartEventCopyWith(
           _$_RemovedProductAllToCartEvent value,
           $Res Function(_$_RemovedProductAllToCartEvent) then) =
       __$$_RemovedProductAllToCartEventCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({ProductModel product});
 }
@@ -494,6 +482,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
+    required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
   }) {
     return removedAllProduct(product);
@@ -505,6 +494,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
+    TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
   }) {
     return removedAllProduct?.call(product);
@@ -516,6 +506,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
+    TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
     required TResult orElse(),
   }) {
@@ -532,6 +523,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
+    required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
   }) {
@@ -544,6 +536,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
   }) {
@@ -556,6 +549,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
     required TResult orElse(),
@@ -571,22 +565,143 @@ abstract class _RemovedProductAllToCartEvent implements CartEvent {
   const factory _RemovedProductAllToCartEvent(
       {required final ProductModel product}) = _$_RemovedProductAllToCartEvent;
 
-  @override
   ProductModel get product;
-  @override
   @JsonKey(ignore: true)
   _$$_RemovedProductAllToCartEventCopyWith<_$_RemovedProductAllToCartEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AddProductinDiferentAlmacenStateCopyWith<$Res>
-    implements $CartEventCopyWith<$Res> {
+abstract class _$$_ClearShoppingCartEventCopyWith<$Res> {
+  factory _$$_ClearShoppingCartEventCopyWith(_$_ClearShoppingCartEvent value,
+          $Res Function(_$_ClearShoppingCartEvent) then) =
+      __$$_ClearShoppingCartEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ClearShoppingCartEventCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_ClearShoppingCartEvent>
+    implements _$$_ClearShoppingCartEventCopyWith<$Res> {
+  __$$_ClearShoppingCartEventCopyWithImpl(_$_ClearShoppingCartEvent _value,
+      $Res Function(_$_ClearShoppingCartEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
+  const _$_ClearShoppingCartEvent();
+
+  @override
+  String toString() {
+    return 'CartEvent.clearShoppingCart()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ClearShoppingCartEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ProductModel product) addedProduct,
+    required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) removedAllProduct,
+    required TResult Function() clearShoppingCart,
+    required TResult Function(ProductModel product) addProductinDiferentAlmacen,
+  }) {
+    return clearShoppingCart();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? removedAllProduct,
+    TResult? Function()? clearShoppingCart,
+    TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
+  }) {
+    return clearShoppingCart?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ProductModel product)? addedProduct,
+    TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? removedAllProduct,
+    TResult Function()? clearShoppingCart,
+    TResult Function(ProductModel product)? addProductinDiferentAlmacen,
+    required TResult orElse(),
+  }) {
+    if (clearShoppingCart != null) {
+      return clearShoppingCart();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AddedProductToCartEvent value) addedProduct,
+    required TResult Function(_RemovedProductToCartEvent value) removedProduct,
+    required TResult Function(_RemovedProductAllToCartEvent value)
+        removedAllProduct,
+    required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
+    required TResult Function(_AddProductinDiferentAlmacenState value)
+        addProductinDiferentAlmacen,
+  }) {
+    return clearShoppingCart(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
+    TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
+    TResult? Function(_AddProductinDiferentAlmacenState value)?
+        addProductinDiferentAlmacen,
+  }) {
+    return clearShoppingCart?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult Function(_RemovedProductToCartEvent value)? removedProduct,
+    TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
+    TResult Function(_AddProductinDiferentAlmacenState value)?
+        addProductinDiferentAlmacen,
+    required TResult orElse(),
+  }) {
+    if (clearShoppingCart != null) {
+      return clearShoppingCart(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ClearShoppingCartEvent implements CartEvent {
+  const factory _ClearShoppingCartEvent() = _$_ClearShoppingCartEvent;
+}
+
+/// @nodoc
+abstract class _$$_AddProductinDiferentAlmacenStateCopyWith<$Res> {
   factory _$$_AddProductinDiferentAlmacenStateCopyWith(
           _$_AddProductinDiferentAlmacenState value,
           $Res Function(_$_AddProductinDiferentAlmacenState) then) =
       __$$_AddProductinDiferentAlmacenStateCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({ProductModel product});
 }
@@ -653,6 +768,7 @@ class _$_AddProductinDiferentAlmacenState
     required TResult Function(ProductModel product) addedProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
+    required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
   }) {
     return addProductinDiferentAlmacen(product);
@@ -664,6 +780,7 @@ class _$_AddProductinDiferentAlmacenState
     TResult? Function(ProductModel product)? addedProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
+    TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
   }) {
     return addProductinDiferentAlmacen?.call(product);
@@ -675,6 +792,7 @@ class _$_AddProductinDiferentAlmacenState
     TResult Function(ProductModel product)? addedProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
+    TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
     required TResult orElse(),
   }) {
@@ -691,6 +809,7 @@ class _$_AddProductinDiferentAlmacenState
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
+    required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
   }) {
@@ -703,6 +822,7 @@ class _$_AddProductinDiferentAlmacenState
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
   }) {
@@ -715,6 +835,7 @@ class _$_AddProductinDiferentAlmacenState
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
     required TResult orElse(),
@@ -731,9 +852,7 @@ abstract class _AddProductinDiferentAlmacenState implements CartEvent {
           {required final ProductModel product}) =
       _$_AddProductinDiferentAlmacenState;
 
-  @override
   ProductModel get product;
-  @override
   @JsonKey(ignore: true)
   _$$_AddProductinDiferentAlmacenStateCopyWith<
           _$_AddProductinDiferentAlmacenState>
