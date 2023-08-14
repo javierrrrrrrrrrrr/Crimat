@@ -63,12 +63,12 @@ class ProfileMainWidget extends StatelessWidget {
               child: CarruselListVerticalConfg(
                 isperfil: true,
                 title: "Mi Perfil",
-                itemcount: 2,
+                itemcount: 1,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
                     onTap: () {
                       final args = profil;
-                      if (index == 1) {
+                      if (index == 0) {
                         profilebloc.add(const ProfileEvent.readDireccion());
                         context.pushNamed(DeliveryAddress.name, extra: args);
                       }
@@ -76,8 +76,8 @@ class ProfileMainWidget extends StatelessWidget {
                     child: Column(
                       children: [
                         PerfilOption(
-                          title: opciones[index].value1,
-                          subtitle: opciones[index].value2,
+                          title: opciones[1].value1,
+                          subtitle: opciones[1].value2,
                         ),
                         SizedBox(
                           height: 10.h,

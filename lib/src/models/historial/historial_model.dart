@@ -13,7 +13,7 @@ class OrdenModel {
   @JsonKey(name: 'cantidad')
   final int quantity;
   @JsonKey(name: 'descuento')
-  final double discount;
+  final double? discount;
   @JsonKey(name: 'impuesto')
   final double tax;
   @JsonKey(name: 'costo_envio')
