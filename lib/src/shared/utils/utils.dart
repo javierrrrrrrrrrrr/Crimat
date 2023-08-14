@@ -14,6 +14,15 @@ import '../../models/payment/shipping_model.dart';
 import '../widgets/cusotm_buttom_product.dart';
 
 class UtilFunctions {
+  static Future<dynamic> loading(BuildContext context) {
+    return showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => const Align(
+          alignment: Alignment.center, child: CircularProgressIndicator()),
+    );
+  }
+
   static void printToast(
       {required String message, Color? color, bool? shorttime}) {
     Fluttertoast.showToast(

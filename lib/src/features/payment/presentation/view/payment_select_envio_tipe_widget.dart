@@ -36,21 +36,31 @@ class TipoEnvioDireccion extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BlocBuilder<ProfileBloc, ProfileState>(
+          BlocConsumer<ProfileBloc, ProfileState>(
+            listener: (context, state) {
+              state.maybeWhen(
+                orElse: () => Container(),
+              );
+              // loading: () => UtilFunctions.loading(context));
+            },
             builder: (context, state) {
-              return state.maybeWhen(
-                  orElse: () => Container(),
-                  changeCheckSuccess: (_, __) => CustomDeliveryType(
-                      model: data,
-                      modelselected: data[data.indexWhere((shipping) =>
-                              shipping.id ==
-                              profilebloc.selectedShippingTypeid) +
-                          1]),
-                  updateDeliveryTypeSeleccion: (id) => CustomDeliveryType(
-                      model: data,
-                      modelselected: data[
-                          data.indexWhere((shipping) => shipping.id == id) +
-                              1]));
+              return BlocBuilder<ProfileBloc, ProfileState>(
+                builder: (context, state) {
+                  return state.maybeWhen(
+                      orElse: () => Container(),
+                      changeCheckSuccess: (_, __) => CustomDeliveryType(
+                          model: data,
+                          modelselected: data[data.indexWhere((shipping) =>
+                                  shipping.id ==
+                                  profilebloc.selectedShippingTypeid) +
+                              1]),
+                      updateDeliveryTypeSeleccion: (id) => CustomDeliveryType(
+                          model: data,
+                          modelselected: data[
+                              data.indexWhere((shipping) => shipping.id == id) +
+                                  1]));
+                },
+              );
             },
           ),
           SizedBox(
@@ -60,11 +70,21 @@ class TipoEnvioDireccion extends StatelessWidget {
           SizedBox(
             height: 120.h,
           ),
-          CustomOptionButtom(
-              cartbloc: cartbloc,
-              productoslistcart: productoslistcart,
-              checkbloc: checkbloc,
-              paymentbloc: paymentbloc),
+          BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
+            return state.maybeWhen(
+              orElse: () => Container(),
+              changeCheckSuccess: (_, __) => CustomOptionButtom(
+                  cartbloc: cartbloc,
+                  productoslistcart: productoslistcart,
+                  checkbloc: checkbloc,
+                  paymentbloc: paymentbloc),
+              updateDeliveryTypeSeleccion: (_) => CustomOptionButtom(
+                  cartbloc: cartbloc,
+                  productoslistcart: productoslistcart,
+                  checkbloc: checkbloc,
+                  paymentbloc: paymentbloc),
+            );
+          }),
         ],
       ),
     );

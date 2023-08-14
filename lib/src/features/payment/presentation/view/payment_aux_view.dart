@@ -74,6 +74,7 @@ class CheckoutView extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.arrow_back),
                   onPressed: () {
+                    paymentbloc.add(const PaymentEvent.startedPhase0());
                     // Acción cuando se presiona el botón de flecha hacia atrás
                   },
                 ),
