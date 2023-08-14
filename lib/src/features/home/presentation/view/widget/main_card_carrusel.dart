@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../models/home/products/producto_model.dart';
 import '../../../../../shared/app_info.dart';
+import '../../../../../shared/utils/utils.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../../favorites/presentation/bloc/favorite_bloc.dart';
 import '../../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
@@ -122,9 +123,13 @@ class MainCardCarrusel extends StatelessWidget {
                   if (producto.favorite == false) {
                     favoritebloc
                         .add(FavoriteEvent.addedProduct(product: producto));
+                    UtilFunctions.printToast(
+                        message: 'Producto agregado a favorito');
                   } else {
                     favoritebloc
                         .add(FavoriteEvent.removedProduct(product: producto));
+                    UtilFunctions.printToast(
+                        message: 'Producto eliminado de favorito');
                   }
                 }
               },
