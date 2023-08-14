@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/features/payment/presentation/view/payment_completed_widget.dart';
 import 'package:crimat_app/src/features/payment/presentation/view/payment_select_envio_tipe_widget.dart';
 import 'package:crimat_app/src/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class PaymentAuxView extends StatelessWidget {
                 initial: () => Container(),
                 phase1InProgress: () => Container(),
                 phase2InProgress: () => Container(),
-                completed: () => Container(),
+                completed: () => const CompletedWidget(),
                 cancelled: () => Container(),
                 error: (messege) => Container(),
                 phase1Complated: (paymentdata) => CheckoutView(

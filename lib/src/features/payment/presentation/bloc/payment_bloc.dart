@@ -17,6 +17,8 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
   String? token = AppInfo().accessToken;
   final PaymentRepository paymentdata;
   PaymentModel? paymentdatos;
+  List<ShippingModel>? _shippingMethods;
+  List<ShippingModel>? get shippingMethods => _shippingMethods;
 
   PaymentBloc(this.paymentdata) : super(const PaymentState.initial()) {
     on<PaymentEvent>(eventHandler);
@@ -37,6 +39,7 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
                   message: "Error al cargar los datos"));
             }
           }, (paymentdata) {
+            _shippingMethods = paymentdata;
             emit(PaymentState.phase0Complated(paymentdata: paymentdata));
           });
         },
@@ -63,11 +66,17 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
           }
         },
         startedPhase2: (context) async {
-          await paymentdata.initPaymentSheet(
-              context: context,
-              customerId: paymentdatos!.customer,
-              customerEphemeralKeySecret: paymentdatos!.ephemeralKey,
-              paymentIntentClientSecret: paymentdatos!.paymentIntent);
+          try {
+            await paymentdata.initPaymentSheet(
+                context: context,
+                customerId: paymentdatos!.customer,
+                customerEphemeralKeySecret: paymentdatos!.ephemeralKey,
+                paymentIntentClientSecret: paymentdatos!.paymentIntent);
+
+            emit(const PaymentState.completed());
+          } catch (error) {
+            emit(PaymentState.error(message: error.toString()));
+          }
         },
         erroroccurred: () {},
         completed: () {},

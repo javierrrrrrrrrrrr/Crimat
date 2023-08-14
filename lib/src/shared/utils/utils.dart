@@ -266,17 +266,9 @@ class UtilFunctions {
                 ),
                 TextButton(
                   onPressed: () {
-                    // Lógica para aplicar el nuevo tipo de envío seleccionado
-                    ShippingModel selectedShipping =
-                        model[selectedShippingIndex];
-                    // Aquí puedes utilizar la variable selectedShipping para realizar acciones necesarias
-
-                    Navigator.pop(context); // Cerrar el diálogo
+                    Navigator.pop(context);
                     profilebloc.add(ProfileEvent.updateShippingType(
                         id: selectedShippingIndex));
-                    // Redibujar la interfaz de usuario con los datos seleccionados
-                    // Puedes llamar a una función o método en tu página para realizar esto
-                    // Ejemplo: myPage.redrawUI(selectedShipping);
                   },
                   child: const Text('Aceptar'),
                 ),

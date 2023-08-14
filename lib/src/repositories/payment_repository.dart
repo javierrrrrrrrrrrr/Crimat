@@ -61,11 +61,12 @@ class PaymentRepository {
         // merchantCountryCode: 'SG',
       ));
       await Stripe.instance.presentPaymentSheet();
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Payment is successful'),
-        ),
-      );
+
+      // ScaffoldMessenger.of(context).showSnackBar(
+      // const SnackBar(
+      //   content: Text('Payment is successful'),
+      // ),
+      //    );
     } catch (errorr) {
       if (errorr is StripeException) {
         ScaffoldMessenger.of(context).showSnackBar(

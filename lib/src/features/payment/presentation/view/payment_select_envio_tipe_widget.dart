@@ -162,7 +162,9 @@ class CustomOptionButtom extends StatelessWidget {
           return RequestModel(
             productos: auxproductoslistcart,
             almacen: almacen,
-            tipoEnvio: profileBloc.selectedShippingTypeid!,
+            tipoEnvio: profileBloc.selectedShippingTypeid == null
+                ? paymentbloc.shippingMethods![0].id
+                : profileBloc.selectedShippingTypeid!,
             direcciones: direcciones,
           );
         }
