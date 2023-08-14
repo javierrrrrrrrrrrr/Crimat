@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../../models/historial/historial_model.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
+import '../../shared/widgets/custom_error_widget.dart';
 
 class HistorialView extends StatelessWidget {
   const HistorialView({
@@ -13,14 +14,16 @@ class HistorialView extends StatelessWidget {
   static const String name = 'hisorial_view';
   @override
   Widget build(BuildContext context) {
+    final histrialbloc = context.read<HistorialBloc>();
     return BlocBuilder<HistorialBloc, HistorialState>(
         builder: (context, state) => state.when(
               initial: () => const SizedBox(),
               loading: () => const SpinKitFadingCircle(
                 color: Colors.white,
               ),
-              failure: (error) => SizedBox(
-                child: Text(error),
+              failure: (error) => CustomErrorWidget(
+                message: error,
+                onPressed: () => histrialbloc.add(const HistorialEvent.load()),
               ),
               success: (List<OrdenModel> li) {
                 return CarruselListVerticalConfg(
