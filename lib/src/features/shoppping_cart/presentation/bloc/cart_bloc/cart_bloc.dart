@@ -91,6 +91,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         _cartListProducts.clear();
         add(CartEvent.addedProduct(product: product));
       },
+      clearShoppingCart: () {
+        _cartListProducts.clear();
+        _selectedProduct = null;
+
+        emit(const CartState.initial());
+      },
     );
   }
 }

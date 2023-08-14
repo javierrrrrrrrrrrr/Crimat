@@ -6,9 +6,13 @@ import 'package:crimat_app/src/features/shoppping_cart/utils/shopping_card_aux.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:go_router/go_router.dart';
+import '../../shared/utils/utils.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../home/presentation/view/widget/products_details_widgets/option_buttoms.dart';
+import '../payment/presentation/bloc/payment_bloc.dart';
+import '../payment/presentation/view/payment_aux_view.dart';
+import '../perfil/presentation/bloc/profile_bloc.dart';
 
 class ShoppingCartView extends StatelessWidget {
   const ShoppingCartView({
@@ -19,15 +23,44 @@ class ShoppingCartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CartBloc, CartState>(
-      builder: (context, state) {
-        return state.maybeWhen(
-            successAddedToCart: () => Container(),
-            orElse: () => const NoProductsInShoppingCart(),
-            loaded: (cart) => MainWidget(cart: cart),
-            error: ((message) => const Text("Error")),
-            addWarning: (cart) => MainWidget(cart: cart));
+    return BlocConsumer<PaymentBloc, PaymentState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          error: (message) {
+            context.pop();
+            UtilFunctions.printToast(message: message, shorttime: false);
+          },
+          phase0InProgress: () => loading(context),
+          phase1InProgress: () => loading(context),
+          phase0Complated: (paymentdata) {
+            context.pushNamed(PaymentAuxView.name);
+            context.pop();
+          },
+          phase1Complated: (data) => context.pop(),
+          orElse: (() => Container()),
+        );
       },
+      builder: (context, state) {
+        return BlocBuilder<CartBloc, CartState>(
+          builder: (context, state) {
+            return state.maybeWhen(
+                successAddedToCart: () => Container(),
+                orElse: () => const NoProductsInShoppingCart(),
+                loaded: (cart) => MainWidget(cart: cart),
+                error: ((message) => const Text("Error")),
+                addWarning: (cart) => MainWidget(cart: cart));
+          },
+        );
+      },
+    );
+  }
+
+  Future<dynamic> loading(BuildContext context) {
+    return showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => const Align(
+          alignment: Alignment.center, child: CircularProgressIndicator()),
     );
   }
 }
@@ -42,6 +75,9 @@ class MainWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final paymentbloc = context.read<PaymentBloc>();
+    final profilebloc = context.read<ProfileBloc>();
+
     return Stack(
       children: [
         Positioned(
@@ -73,11 +109,22 @@ class MainWidget extends StatelessWidget {
         Positioned(
           bottom: 0,
           child: OptionButtoms(
-              isShopping: true,
-              total: cart.subtotal,
-              onPressedPay: () {
-                print("Inicar checkout");
-              }),
+            isShopping: true,
+            total: cart.subtotal,
+            onPressedPay: () {
+              profilebloc.add(const ProfileEvent.load());
+              paymentbloc.add(const PaymentEvent.startedPhase0());
+
+              profilebloc.stream.listen((state) {
+                state.maybeWhen(
+                  orElse: () {},
+                  success: (_) {
+                    profilebloc.add(const ProfileEvent.readDireccion());
+                  },
+                );
+              });
+            },
+          ),
         ),
       ],
     );

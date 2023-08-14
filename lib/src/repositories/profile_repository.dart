@@ -23,4 +23,21 @@ class ProfileRepository {
       return Left(ServerFailure('Server failure'));
     }
   }
+
+  Future<void> saveSeleccion(int id) async {
+    try {
+      await profileDataSurce.saveSeleccion(id);
+    } catch (e) {
+      // Manejar cualquier error o lanzar una excepción personalizada
+    }
+  }
+
+  Future<int?> readHistorial() async {
+    
+      return await profileDataSurce.readHistorial();
+   
+      // Manejar cualquier error o lanzar una excepción personalizada
+     
+   
+  }
 }

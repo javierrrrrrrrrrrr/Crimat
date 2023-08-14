@@ -53,6 +53,8 @@ class MainCardCarrusel extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
+                  String? token = AppInfo().accessToken;
+                  print(token);
                   final args = producto;
 
                   context.pushNamed(ProductsDetails.name, extra: args);

@@ -20,13 +20,11 @@ class DeliveryAddress extends StatelessWidget {
         height: 745.h,
         // color: Colors.red,
         child: CarruselListVerticalConfg(
+          ischeckout: true,
           itemcount: datos.direcciones.length,
           title: "Direcciones de entrega",
           itemBuilder: (BuildContext context, int index) {
-            return CustomDeliveryCard(
-              datos: datos,
-              index:index
-            );
+            return CustomDeliveryCard(datos: datos, index: index);
           },
         ),
       ),

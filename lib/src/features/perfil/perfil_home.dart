@@ -26,15 +26,20 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, state) => state.when(
-            failure: (message) => Container(),
-            initial: () => Container(),
-            loading: () => Container(),
-            success: (profile) => ProfileMainWidget(
-                  profil: profile,
-                ),
-            noLogedUser: () => const Center(
-                  child: Text("Definir que poner aqui"),
-                )));
+              failure: (message) => Container(),
+              initial: () => Container(),
+              loading: () => Container(),
+              success: (profile) => ProfileMainWidget(
+                profil: profile,
+              ),
+              noLogedUser: () => const Center(
+                child: Text("Definir que poner aqui"),
+              ),
+              changeCheckSuccess: (id, profile) => ProfileMainWidget(
+                profil: profile,
+              ),
+              updateDeliveryTypeSeleccion: (data) => Container(),
+            ));
   }
 }
 
@@ -48,6 +53,7 @@ class ProfileMainWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final profilebloc = context.read<ProfileBloc>();
     return Stack(
       children: [
         Column(
@@ -63,6 +69,7 @@ class ProfileMainWidget extends StatelessWidget {
                     onTap: () {
                       final args = profil;
                       if (index == 1) {
+                        profilebloc.add(const ProfileEvent.readDireccion());
                         context.pushNamed(DeliveryAddress.name, extra: args);
                       }
                     },
@@ -95,7 +102,7 @@ class ProfileMainWidget extends StatelessWidget {
           left: 20,
           child: PersonalInfo(profile: profil),
         ),
-         Positioned(
+        Positioned(
           top: 180,
           left: 20,
           child: CustomPlane(profile: profil),

@@ -16,6 +16,9 @@ class CheckBloc extends Bloc<CheckEvent, CheckState> {
   }
   List<bool> _checklist = [];
 
+  List<bool> get checklist =>
+      _checklist; // Getter público para acceder a _checklist
+
   FutureOr<void> eventHandler(
     CheckEvent event,
     Emitter emit,

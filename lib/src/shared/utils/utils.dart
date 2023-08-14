@@ -1,4 +1,5 @@
 import 'package:crimat_app/resources/general_styles.dart';
+import 'package:crimat_app/src/features/perfil/presentation/bloc/profile_bloc.dart';
 import 'package:crimat_app/src/shared/utils/widget/warning_custom_mesaege.dart';
 import 'package:crimat_app/src/shared/utils/widget/warning_text.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../../features/favorites/presentation/bloc/favorite_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../models/home/products/producto_model.dart';
+import '../../models/payment/shipping_model.dart';
 import '../widgets/cusotm_buttom_product.dart';
 
 class UtilFunctions {
@@ -93,7 +95,7 @@ class UtilFunctions {
   static Future<dynamic> showConfimationAlmacen(BuildContext context) {
     final cartBloc = context.read<CartBloc>();
     final favoriteBloc = context.read<FavoriteBloc>();
-    String selectedOption = '';
+    //  String selectedOption = '';
 
     List<bool> isCheckedList =
         List.filled(cartBloc.selectedProduct.almacenList!.length, false);
@@ -182,7 +184,6 @@ class UtilFunctions {
                           );
                           Navigator.of(context).pop();
                         } else {
-                          print('Debes seleccionar un almacén');
                           // Mostrar mensaje de error o realizar otra acción
                         }
                       },
@@ -195,6 +196,83 @@ class UtilFunctions {
                   ],
                 ),
               ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  static Future<dynamic> showDireccionChoise(
+      BuildContext context, List<ShippingModel> model) {
+    int selectedShippingIndex = 0; // Índice del envío seleccionado
+    final profilebloc = context.read<ProfileBloc>();
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return AlertDialog(
+              title: const Text('Selecciona otro tipo de envío'),
+              content: SizedBox(
+                width: double.maxFinite,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: model.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        ShippingModel shipping = model[index];
+                        return ListTile(
+                          title: Text(
+                            shipping.nombre,
+                            style: TextStyle(fontSize: 18.sp),
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Llega en ${shipping.tiempoEntrega.toString()} días',
+                                style: TextStyle(fontSize: 16.sp),
+                              ),
+                              Text(
+                                'Precio de envío: \$${shipping.costo}',
+                                style: TextStyle(fontSize: 16.sp),
+                              ),
+                            ],
+                          ),
+                          leading: Radio(
+                            value: index,
+                            groupValue: selectedShippingIndex,
+                            onChanged: (int? value) {
+                              setState(() {
+                                selectedShippingIndex = value!;
+                              });
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Cancelar'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    profilebloc.add(ProfileEvent.updateShippingType(
+                        id: selectedShippingIndex));
+                  },
+                  child: const Text('Aceptar'),
+                ),
+              ],
             );
           },
         );

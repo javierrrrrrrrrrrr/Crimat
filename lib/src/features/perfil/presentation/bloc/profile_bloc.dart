@@ -12,8 +12,19 @@ part 'profile_bloc.freezed.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   String? token = AppInfo().accessToken;
-  final ProfileRepository profile;
-  ProfileBloc(this.profile) : super(const ProfileState.initial()) {
+  final ProfileRepository profilerepo;
+
+  ProfileModel? _profiledata;
+  ProfileModel? get profiledata => _profiledata;
+
+  int? _selectedDeliveryAdressId;
+  int? get selectedId => _selectedDeliveryAdressId;
+
+  int? _selectedShippingTypeid;
+  int? get selectedShippingTypeid => _selectedShippingTypeid;
+  ProfileBloc(
+    this.profilerepo,
+  ) : super(const ProfileState.initial()) {
     on<ProfileEvent>(eventHandler);
   }
 
@@ -22,22 +33,40 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     Emitter emit,
   ) async {
     await event.when(load: () async {
+      // _selectedId = await profilerepo.readHistorial();
       emit(const ProfileState.loading());
       if (token != null) {
         dynamic result;
 
-        result = await profile.getProfileData(token: token!);
+        result = await profilerepo.getProfileData(token: token!);
 
         result.fold((failure) {
           if (failure is ServerFailure) {
             emit(ProfileState.failure(message: failure.message));
           }
-        }, (profile) {
-          emit(ProfileState.success(profile: profile));
+        }, (profile) async {
+          _profiledata = profile;
+          emit(ProfileState.success(profile: _profiledata!));
+          // _selectedId = await profilerepo.readHistorial();
         });
       } else {
         emit(const ProfileState.noLogedUser());
       }
+    }, readDireccion: () async {
+      _selectedDeliveryAdressId = await profilerepo.readHistorial();
+
+      emit(ProfileState.changeCheckSuccess(
+          id: _selectedDeliveryAdressId!, profile: _profiledata!));
+    }, saveDireccion: (int id) async {
+      await profilerepo.saveSeleccion(id);
+      _selectedDeliveryAdressId = id;
+      emit(ProfileState.changeCheckSuccess(
+          id: _selectedDeliveryAdressId!, profile: _profiledata!));
+    }, updateShippingType: (int id) {
+      _selectedShippingTypeid = id;
+
+      emit(ProfileState.updateDeliveryTypeSeleccion(
+          updatedId: _selectedShippingTypeid!));
     });
   }
 }
