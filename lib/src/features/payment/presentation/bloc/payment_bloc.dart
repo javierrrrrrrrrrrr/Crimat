@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../errors/failure.dart';
@@ -7,14 +8,14 @@ import '../../../../models/payment/payment_model.dart';
 import '../../../../models/payment/request_data_model.dart';
 import '../../../../models/payment/shipping_model.dart';
 import '../../../../repositories/payment_repository.dart';
-import '../../../../shared/app_info.dart';
+import '../../../../shared/app_info.dart' as info;
 
 part 'payment_event.dart';
 part 'payment_state.dart';
 part 'payment_bloc.freezed.dart';
 
 class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
-  String? token = AppInfo().accessToken;
+  String? token = info.AppInfo().accessToken;
   final PaymentRepository paymentdata;
   PaymentModel? paymentdatos;
   List<ShippingModel>? _shippingMethods;
@@ -73,9 +74,13 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
                 customerEphemeralKeySecret: paymentdatos!.ephemeralKey,
                 paymentIntentClientSecret: paymentdatos!.paymentIntent);
 
+            await Stripe.instance.presentPaymentSheet();
+
             emit(const PaymentState.completed());
           } catch (error) {
-            emit(PaymentState.error(message: error.toString()));
+            emit(const PaymentState.error(
+                message:
+                    "Estamos presentando problemas para procesar su solicitud"));
           }
         },
         erroroccurred: () {},

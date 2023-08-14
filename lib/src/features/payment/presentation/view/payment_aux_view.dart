@@ -1,6 +1,5 @@
 import 'package:crimat_app/src/features/payment/presentation/view/payment_completed_widget.dart';
 import 'package:crimat_app/src/features/payment/presentation/view/payment_select_envio_tipe_widget.dart';
-import 'package:crimat_app/src/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +21,8 @@ class PaymentAuxView extends StatelessWidget {
       listener: (context, state) {
         state.maybeWhen(
             orElse: () => Container(),
-            error: (message) => UtilFunctions.printToast(message: message),
+            error: (message) =>
+                Container(), //UtilFunctions.printToast(message: message),
             completed: () => cartbloc.add(const CartEvent.clearShoppingCart()));
       },
       builder: (context, state) {
