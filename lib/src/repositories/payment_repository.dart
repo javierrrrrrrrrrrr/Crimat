@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 import '../errors/expetion.dart';
@@ -46,41 +45,33 @@ class PaymentRepository {
       required paymentIntentClientSecret,
       required customerId,
       required customerEphemeralKeySecret}) async {
-    try {
-      // 1. create payment intent on the server
+    // 1. create payment intent on the server
 
-      // 2. initialize the payment sheet
-      await Stripe.instance.initPaymentSheet(
-          paymentSheetParameters: SetupPaymentSheetParameters(
-        paymentIntentClientSecret: paymentIntentClientSecret,
-        merchantDisplayName: 'Grocery Flutter course',
-        customerId: customerId,
-        customerEphemeralKeySecret: customerEphemeralKeySecret,
+    // 2. initialize the payment sheet
+    await Stripe.instance.initPaymentSheet(
+        paymentSheetParameters: SetupPaymentSheetParameters(
+      paymentIntentClientSecret: paymentIntentClientSecret,
+      merchantDisplayName: 'Grocery Flutter course',
+      customerId: customerId,
+      customerEphemeralKeySecret: customerEphemeralKeySecret,
 
-        // testEnv: true,
-        // merchantCountryCode: 'SG',
-      ));
-      await Stripe.instance.presentPaymentSheet();
+      // testEnv: true,
+      // merchantCountryCode: 'SG',
+    ));
 
-      // ScaffoldMessenger.of(context).showSnackBar(
-      // const SnackBar(
-      //   content: Text('Payment is successful'),
-      // ),
-      //    );
-    } catch (errorr) {
-      if (errorr is StripeException) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('An error occured ${errorr.error.localizedMessage}'),
-          ),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('An error occured $errorr'),
-          ),
-        );
-      }
-    }
+    //  bloc.add(const PaymentEvent.completed());
+
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   const SnackBar(
+    //     content: Text('Payment is successful'),
+    //   ),
+    //);
+
+    // //   bloc.add(const PaymentEvent.erroroccurred());
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(
+    //     content: Text('An error occured $errorr'),
+    //   ),
+    //   );
   }
 }

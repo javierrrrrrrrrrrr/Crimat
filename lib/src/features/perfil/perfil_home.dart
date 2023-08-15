@@ -76,9 +76,9 @@ class ProfileMainWidget extends StatelessWidget {
                     child: Column(
                       children: [
                         PerfilOption(
-                          title: opciones[1].value1,
-                          subtitle: opciones[1].value2,
-                        ),
+                            title: opciones[1].value1,
+                            subtitle:
+                                " ${profil.direcciones.length} direcciones"),
                         SizedBox(
                           height: 10.h,
                         ),

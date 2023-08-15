@@ -17,7 +17,7 @@ class DeliveryAddress extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       SizedBox(
-        height: 745.h,
+        height: 660.h,
         // color: Colors.red,
         child: CarruselListVerticalConfg(
           ischeckout: true,

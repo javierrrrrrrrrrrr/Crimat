@@ -127,13 +127,17 @@ class MainWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CarruselListVerticalConfg(
-        title: "Tus Favoritos",
-        itemcount: listfavorite.length,
-        itemBuilder: (BuildContext context, int index) {
-          return FavoriteCard(
-            favorito: listfavorite[index],
-          );
-        });
+    return listfavorite.isEmpty
+        ? const Center(
+            child: Text("No hay productos favoritos para mostrar"),
+          )
+        : CarruselListVerticalConfg(
+            title: "Tus Favoritos",
+            itemcount: listfavorite.length,
+            itemBuilder: (BuildContext context, int index) {
+              return FavoriteCard(
+                favorito: listfavorite[index],
+              );
+            });
   }
 }

@@ -30,8 +30,8 @@ class ShoppingCartView extends StatelessWidget {
             context.pop();
             UtilFunctions.printToast(message: message, shorttime: false);
           },
-          phase0InProgress: () => loading(context),
-          phase1InProgress: () => loading(context),
+          phase0InProgress: () => UtilFunctions.loading(context),
+          phase1InProgress: () => UtilFunctions.loading(context),
           phase0Complated: (paymentdata) {
             context.pushNamed(PaymentAuxView.name);
             context.pop();
@@ -52,15 +52,6 @@ class ShoppingCartView extends StatelessWidget {
           },
         );
       },
-    );
-  }
-
-  Future<dynamic> loading(BuildContext context) {
-    return showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (context) => const Align(
-          alignment: Alignment.center, child: CircularProgressIndicator()),
     );
   }
 }
