@@ -49,8 +49,7 @@ class CustomDeliveryCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(isCheckout == true ? "Javier Diaz" : datos!.firstName,
-                      style: TextStyle(fontSize: 16.sp)),
+                  Text(datos!.firstName, style: TextStyle(fontSize: 16.sp)),
                   GestureDetector(
                     onTap: cambiaronTap,
                     child: Text(
