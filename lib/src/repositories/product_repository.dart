@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import '../errors/expetion.dart';
 import '../errors/failure.dart';
 import '../models/home/products/producto_model.dart';
-import '../services/product_data_source.dart';
+import '../services/home/product_data_source.dart';
 
 class ProdcutRepository {
   final ProductDataSource productDataSurce;

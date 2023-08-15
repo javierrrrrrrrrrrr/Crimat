@@ -12,6 +12,7 @@ class CusotmButtom extends StatelessWidget {
     this.lettersize,
     this.fontsize,
     this.haveicon,
+    this.isEnable,
   });
 
   final double width;
@@ -22,6 +23,7 @@ class CusotmButtom extends StatelessWidget {
   final double? lettersize;
   final double? fontsize;
   final bool? haveicon;
+  final bool? isEnable;
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,13 @@
 import 'package:crimat_app/src/features/perfil/presentation/view/widget/custom_delivery_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../models/profile/profile_model.dart';
 import '../../../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../bloc/profile_bloc.dart';
+import 'add_address_view.dart';
 
 class DeliveryAddress extends StatelessWidget {
   const DeliveryAddress({Key? key, required this.datos}) : super(key: key);
@@ -15,6 +18,28 @@ class DeliveryAddress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<ProfileBloc, ProfileState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          orElse: () => MainDeliveryAddress(datos: datos),
+          goaddAddress: () => const AddAddressView(),
+        );
+      },
+    );
+  }
+}
+
+class MainDeliveryAddress extends StatelessWidget {
+  const MainDeliveryAddress({
+    super.key,
+    required this.datos,
+  });
+
+  final ProfileModel datos;
+
+  @override
+  Widget build(BuildContext context) {
+    final profilebloc = context.read<ProfileBloc>();
     return Stack(children: [
       SizedBox(
         height: 660.h,
@@ -42,6 +67,9 @@ class DeliveryAddress extends StatelessWidget {
                 color: const Color(0xFFD63E30).withOpacity(0.4),
               ),
               CusotmButtom(
+                onPressed: () {
+                  profilebloc.add(const ProfileEvent.goNewAddress());
+                },
                 name: "Agregar dirección",
                 height: 45.h,
                 width: 280.w,

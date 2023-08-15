@@ -18,13 +18,13 @@ import '../../repositories/historial_repository.dart';
 import '../../repositories/payment_repository.dart';
 import '../../repositories/product_repository.dart';
 import '../../repositories/profile_repository.dart';
-import '../../services/almacen_data_source.dart';
-import '../../services/categories_data_source.dart';
+import '../../services/home/almacen_data_source.dart';
+import '../../services/home/categories_data_source.dart';
 import '../../services/favorite_source/favorite_data_source.dart';
 import '../../services/historial_sources/historial_local_data_source.dart';
 import '../../services/historial_sources/historial_online_data_source.dart';
 import '../../services/payment_source/payment_data_source.dart';
-import '../../services/product_data_source.dart';
+import '../../services/home/product_data_source.dart';
 import '../../services/profile_sources/profile_data_source.dart';
 
 final sl = GetIt.instance;

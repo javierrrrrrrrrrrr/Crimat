@@ -1,10 +1,15 @@
 import 'package:bloc/bloc.dart';
+import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../errors/failure.dart';
+import '../../../../models/profile/add_new_salon_model.dart';
 import '../../../../models/profile/profile_model.dart';
 import '../../../../repositories/profile_repository.dart';
 import '../../../../shared/app_info.dart';
+import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart'
+    as model;
 
 part 'profile_event.dart';
 part 'profile_state.dart';
@@ -15,6 +20,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final ProfileRepository profilerepo;
 
   ProfileModel? _profiledata;
+
   ProfileModel? get profiledata => _profiledata;
 
   int? _selectedDeliveryAdressId;
@@ -67,6 +73,65 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
       emit(ProfileState.updateDeliveryTypeSeleccion(
           updatedId: _selectedShippingTypeid!));
+    }, goNewAddress: () {
+      emit(const ProfileState.goaddAddress());
+    }, addNewAddress: (requestdata) async {
+      // emit(const ProfileState.loading());
+      dynamic result =
+          await profilerepo.createdNewSalon(token: token!, datos: requestdata);
+
+      result.fold((failure) {
+        if (failure is ServerFailure) {
+          emit(ProfileState.failure(message: failure.message));
+        }
+      }, (salondata) async {
+        dynamic aux = convertir(salonmodel: salondata);
+        _profiledata!.direcciones.add(aux);
+        emit(const ProfileState.addAddress());
+      });
     });
+  }
+
+  FormGroup addAddressForm = FormGroup({
+    'nombre': FormControl<String>(
+      validators: [
+        Validators.required,
+      ],
+    ),
+    'direccion': FormControl<String>(
+      validators: [
+        Validators.required,
+      ],
+    ),
+    'apartado': FormControl<String>(
+      validators: [
+        Validators.required,
+      ],
+    ),
+    'ciudad': FormControl<String>(
+      validators: [
+        Validators.required,
+      ],
+    ),
+    'estado': FormControl<String>(
+      validators: [
+        Validators.required,
+      ],
+    ),
+    'codigo_postal': FormControl<String>(
+      validators: [
+        Validators.required,
+      ],
+    ),
+  });
+
+  model.DireccionModel convertir({required final SalonModel salonmodel}) {
+    model.DireccionModel direccion = model.DireccionModel(
+        direccion: salonmodel.direccion,
+        apartado: salonmodel.apartado,
+        ciudad: salonmodel.ciudad,
+        estado: salonmodel.estado,
+        codigoPostal: salonmodel.codigoPostal);
+    return direccion;
   }
 }

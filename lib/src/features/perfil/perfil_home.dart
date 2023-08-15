@@ -24,11 +24,15 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final profilebloc = context.read<ProfileBloc>();
     return BlocBuilder<ProfileBloc, ProfileState>(
-        builder: (context, state) => state.when(
-              failure: (message) => Container(),
+        builder: (context, state) => state.maybeWhen(
+              orElse: () => ProfileMainWidget(
+                profil: profilebloc.profiledata!,
+              ),
               initial: () => Container(),
               loading: () => Container(),
+              failure: (message) => Container(),
               success: (profile) => ProfileMainWidget(
                 profil: profile,
               ),
@@ -70,7 +74,10 @@ class ProfileMainWidget extends StatelessWidget {
                       final args = profil;
                       if (index == 0) {
                         profilebloc.add(const ProfileEvent.readDireccion());
-                        context.pushNamed(DeliveryAddress.name, extra: args);
+                        context.pushNamed(
+                          DeliveryAddress.name,
+                          extra: args,
+                        );
                       }
                     },
                     child: Column(

@@ -1,10 +1,12 @@
 import 'dart:convert';
 
+import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../resources/urls.dart';
 import '../../errors/expetion.dart';
+import '../../models/profile/add_new_salon_model.dart';
 import '../../models/profile/profile_model.dart';
 
 class ProfileDataSource {
@@ -29,20 +31,6 @@ class ProfileDataSource {
 
         final profileData = ProfileModel.fromJson(jsonMap);
         return profileData;
-
-        // final jsonMap = jsonDecode(response.body) as List<dynamic>;
-
-        // final profilData = jsonMap
-        //     .map((profileData) => ProfileModel.fromJson(profileData))
-        //     .toList();
-        // return profilData[0];
-
-        //  final jsonMap = jsonDecode(response.body) as List<dynamic>;
-
-        //       final productList = jsonMap
-        //           .map((productData) => ProductModel.fromJson(productData))
-        //           .toList();
-        //       return productList;
       } else {
         return throw ServerException();
       }
@@ -66,14 +54,37 @@ class ProfileDataSource {
       if (jsonString != null) {
         final id = json.decode(jsonString) as int;
 
-        // Realizar las operaciones necesarias con el ID guardado
-        // para marcar la selección guardada.
-
         return id;
       }
     } catch (e) {
       throw CacheException();
     }
-    return 0; // Si no se encuentra ninguna selección guardada, devuelve null
+    return 0;
+  }
+
+  Future<SalonModel> createSalon(String? token, SalonRequestModel data) async {
+    final Uri uri = Uri.https(Urls.api, Urls.createNewSalon);
+
+    try {
+      final response = await http.post(uri,
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Content-Type': 'application/json',
+          },
+          body: jsonEncode(data.toJson()));
+
+      if (response.statusCode == 201) {
+        final jsonMap = jsonDecode(response.body);
+
+        final salondata = SalonModel.fromJson(jsonMap);
+        return salondata;
+      } else {
+        final errorMessage =
+            'Ocurrió un problema en el servidor: ${response.statusCode}';
+        throw ServerException(errorMessage);
+      }
+    } catch (e) {
+      return throw ServerException();
+    }
   }
 }

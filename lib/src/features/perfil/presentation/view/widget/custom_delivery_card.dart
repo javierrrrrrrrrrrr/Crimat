@@ -51,7 +51,11 @@ class CustomDeliveryCard extends StatelessWidget {
                 children: [
                   Text(datos!.firstName, style: TextStyle(fontSize: 16.sp)),
                   GestureDetector(
-                    onTap: cambiaronTap,
+                    onTap: isCheckout == true
+                        ? cambiaronTap
+                        : () {
+                            //navegar a la pagina de editar direccion de entrega
+                          },
                     child: Text(
                       isCheckout == true ? "Cambiar" : "Editar",
                       style: TextStyle(
@@ -82,22 +86,26 @@ class CustomDeliveryCard extends StatelessWidget {
           child: BlocBuilder<ProfileBloc, ProfileState>(
             builder: (context, state) {
               return state.maybeWhen(
-                  orElse: () => Container(
-                        child: const Text("sss"),
-                      ),
-                  // initial:() => CustomMainRowWidget(datos: datos, index: index, profilebloc: profilebloc, id: id,),
-                  changeCheckSuccess: (id, profile) => CustomMainRowWidget(
-                        datos: datos,
-                        index: index,
-                        profilebloc: profilebloc,
-                        id: id,
-                      ),
-                  updateDeliveryTypeSeleccion: (_) => CustomMainRowWidget(
-                        datos: datos,
-                        index: index,
-                        profilebloc: profilebloc,
-                        id: profilebloc.selectedId!,
-                      ));
+                orElse: () => CustomMainRowWidget(
+                  datos: datos,
+                  index: index,
+                  profilebloc: profilebloc,
+                  id: profilebloc.selectedId!,
+                ),
+                // initial:() => CustomMainRowWidget(datos: datos, index: index, profilebloc: profilebloc, id: id,),
+                changeCheckSuccess: (id, profile) => CustomMainRowWidget(
+                  datos: datos,
+                  index: index,
+                  profilebloc: profilebloc,
+                  id: id,
+                ),
+                // updateDeliveryTypeSeleccion: (_) => CustomMainRowWidget(
+                //       datos: datos,
+                //       index: index,
+                //       profilebloc: profilebloc,
+                //       id: profilebloc.selectedId!,
+                // )
+              );
             },
           ),
         )

@@ -1,3 +1,5 @@
+import 'package:crimat_app/src/models/profile/add_new_salon_model.dart';
+import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../errors/expetion.dart';
@@ -12,8 +14,6 @@ class ProfileRepository {
 
   Future<Either<Failure, ProfileModel>> getProfileData(
       {required String token}) async {
-    //TODO: Hacer la implementacion de si el dispositivo tiene internet.
-
     final ProfileModel profile;
     try {
       profile = await profileDataSurce.getProfileData(token);
@@ -33,11 +33,20 @@ class ProfileRepository {
   }
 
   Future<int?> readHistorial() async {
-    
-      return await profileDataSurce.readHistorial();
-   
-      // Manejar cualquier error o lanzar una excepción personalizada
-     
-   
+    return await profileDataSurce.readHistorial();
+
+    // Manejar cualquier error o lanzar una excepción personalizada
+  }
+
+  Future<Either<Failure, SalonModel>> createdNewSalon(
+      {required String token, required SalonRequestModel datos}) async {
+    final SalonModel data;
+    try {
+      data = await profileDataSurce.createSalon(token, datos);
+
+      return Right(data);
+    } on ServerException {
+      return Left(ServerFailure('Server failure'));
+    }
   }
 }
