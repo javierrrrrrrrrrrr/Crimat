@@ -137,7 +137,7 @@ class CustomMainRowWidget extends StatelessWidget {
           value: datos!.direcciones[index].id == id ? true : false,
           onChanged: (value) {
             profilebloc.add(
-                ProfileEvent.saveDireccion(id: datos!.direcciones[index].id));
+                ProfileEvent.saveDireccion(id: datos!.direcciones[index].id!));
           },
           materialTapTargetSize: MaterialTapTargetSize.padded,
         ),

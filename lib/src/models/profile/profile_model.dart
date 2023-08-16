@@ -17,7 +17,7 @@ class ProfileModel {
   @JsonKey(name: 'suscripcion')
   final SuscripcionModel suscripcion;
   @JsonKey(name: 'direcciones')
-  final List<DireccionModel> direcciones;
+  final List<AddressModel> direcciones;
 
   ProfileModel(
     this.email,
@@ -63,9 +63,9 @@ class SuscripcionModel {
 }
 
 @JsonSerializable()
-class DireccionModel {
+class AddressModel {
   @JsonKey(name: 'id')
-  final int id;
+  final int? id;
   @JsonKey(name: 'direccion')
   final String direccion;
   @JsonKey(name: 'aparatdo')
@@ -77,17 +77,17 @@ class DireccionModel {
   @JsonKey(name: 'postal')
   final String postal;
 
-  DireccionModel(
+  AddressModel({
     this.id,
-    this.direccion,
-    this.apartado,
-    this.ciudad,
-    this.estado,
-    this.postal,
-  );
+    required this.direccion,
+    required this.apartado,
+    required this.ciudad,
+    required this.estado,
+    required this.postal,
+  });
 
-  factory DireccionModel.fromJson(Map<String, dynamic> json) =>
-      _$DireccionModelFromJson(json);
+  factory AddressModel.fromJson(Map<String, dynamic> json) =>
+      _$AddressModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DireccionModelToJson(this);
+  Map<String, dynamic> toJson() => _$AddressModelToJson(this);
 }

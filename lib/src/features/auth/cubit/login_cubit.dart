@@ -23,7 +23,8 @@ class LoginCubit extends Cubit<AuthState> {
 
   LoginCubit() : super(const AuthState(onLoading: false));
 
-  Future<void> login({required VoidCallback onLoginSuccess}) async {
+  Future<void> login({required VoidCallback 
+  onLoginSuccess}) async {
     if (!isClosed) emit(const AuthState(onLoading: true));
     loginForm.markAsDisabled();
     try {

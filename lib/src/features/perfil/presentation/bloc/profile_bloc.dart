@@ -8,8 +8,6 @@ import '../../../../models/profile/add_new_salon_model.dart';
 import '../../../../models/profile/profile_model.dart';
 import '../../../../repositories/profile_repository.dart';
 import '../../../../shared/app_info.dart';
-import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart'
-    as model;
 
 part 'profile_event.dart';
 part 'profile_state.dart';
@@ -85,11 +83,23 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           emit(ProfileState.failure(message: failure.message));
         }
       }, (salondata) async {
-        dynamic aux = convertir(salonmodel: salondata);
-        _profiledata!.direcciones.add(aux);
+        //  dynamic aux = convertir(salonmodel: salondata);
+        //  _profiledata!.direcciones.add(aux);
         emit(const ProfileState.addAddress());
       });
     });
+  }
+//cambiar cuanod rigoberto modifique la repuesta 
+//usar un solo modleo que es el mismo del profile
+  AddressModel convertir({required final SalonModel salonmodel}) {
+    AddressModel direccion = AddressModel(
+      direccion: salonmodel.direccion,
+      apartado: salonmodel.apartado,
+      ciudad: salonmodel.ciudad,
+      estado: salonmodel.estado,
+      postal: salonmodel.codigoPostal,
+    );
+    return direccion;
   }
 
   FormGroup addAddressForm = FormGroup({
@@ -124,14 +134,4 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       ],
     ),
   });
-
-  model.DireccionModel convertir({required final SalonModel salonmodel}) {
-    model.DireccionModel direccion = model.DireccionModel(
-        direccion: salonmodel.direccion,
-        apartado: salonmodel.apartado,
-        ciudad: salonmodel.ciudad,
-        estado: salonmodel.estado,
-        codigoPostal: salonmodel.codigoPostal);
-    return direccion;
-  }
 }
