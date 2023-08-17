@@ -117,9 +117,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       ],
     ),
     'codigo_postal': FormControl<String>(
-      validators: [
-        Validators.required,
-      ],
+      validators: [Validators.required, Validators.number],
     ),
   });
 }
