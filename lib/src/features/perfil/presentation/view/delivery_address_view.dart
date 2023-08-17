@@ -2,8 +2,10 @@ import 'package:crimat_app/src/features/perfil/presentation/view/widget/custom_d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../models/profile/profile_model.dart';
+import '../../../../shared/utils/utils.dart';
 import '../../../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../bloc/profile_bloc.dart';
@@ -18,11 +20,25 @@ class DeliveryAddress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileBloc, ProfileState>(
+    return BlocConsumer<ProfileBloc, ProfileState>(
+      listener: (context, state) {
+        state.maybeWhen(
+            orElse: () => Container(),
+            loading: () => UtilFunctions.loading(context),
+            addAddress: () => context.pop(),
+            failure: (massage) {
+              context.pop();
+              UtilFunctions.printToast(message: massage);
+            });
+      },
       builder: (context, state) {
-        return state.maybeWhen(
-          orElse: () => MainDeliveryAddress(datos: datos),
-          goaddAddress: () => const AddAddressView(),
+        return BlocBuilder<ProfileBloc, ProfileState>(
+          builder: (context, state) {
+            return state.maybeWhen(
+              orElse: () => MainDeliveryAddress(datos: datos),
+              goaddAddress: () => const AddAddressView(),
+            );
+          },
         );
       },
     );
@@ -56,27 +72,30 @@ class MainDeliveryAddress extends StatelessWidget {
       const SizedBox(
         height: double.infinity,
       ),
-      Positioned(
-          bottom: 0,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                height: 127.h,
-                width: MediaQuery.of(context).size.width,
-                color: const Color(0xFFD63E30).withOpacity(0.4),
-              ),
-              CusotmButtom(
-                onPressed: () {
-                  profilebloc.add(const ProfileEvent.goNewAddress());
-                },
-                name: "Agregar dirección",
-                height: 45.h,
-                width: 280.w,
-                ispraimary: true,
-              ),
-            ],
-          ))
+      profilebloc.profiledata!.suscripcion.cantSalones >
+              profilebloc.profiledata!.direcciones.length
+          ? Positioned(
+              bottom: 0,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    height: 127.h,
+                    width: MediaQuery.of(context).size.width,
+                    color: const Color(0xFFD63E30).withOpacity(0.4),
+                  ),
+                  CusotmButtom(
+                    onPressed: () {
+                      profilebloc.add(const ProfileEvent.goNewAddress());
+                    },
+                    name: "Agregar dirección",
+                    height: 45.h,
+                    width: 280.w,
+                    ispraimary: true,
+                  ),
+                ],
+              ))
+          : Container()
     ]);
   }
 }

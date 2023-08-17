@@ -73,7 +73,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     }, goNewAddress: () {
       emit(const ProfileState.goaddAddress());
     }, addNewAddress: (requestdata) async {
-      // emit(const ProfileState.loading());
+      emit(const ProfileState.loading());
       dynamic result =
           await profilerepo.createdNewSalon(token: token!, datos: requestdata);
 
@@ -84,22 +84,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       }, (salondata) async {
         //  dynamic aux = convertir(salonmodel: salondata);
         _profiledata!.direcciones.add(salondata);
+
         emit(const ProfileState.addAddress());
       });
     });
   }
-//cambiar cuanod rigoberto modifique la repuesta
-//usar un solo modleo que es el mismo del profile
-  // AddressModel convertir({required final SalonModel salonmodel}) {
-  //   AddressModel direccion = AddressModel(
-  //     direccion: salonmodel.direccion,
-  //     apartado: salonmodel.apartado,
-  //     ciudad: salonmodel.ciudad,
-  //     estado: salonmodel.estado,
-  //     postal: salonmodel.codigoPostal,
-  //   );
-  //   return direccion;
-  // }
 
   FormGroup addAddressForm = FormGroup({
     'nombre': FormControl<String>(

@@ -100,6 +100,7 @@ class AddAddressView extends StatelessWidget {
               );
               //print('Este es el nombre${salon.nombre}');
               profilebloc.add(ProfileEvent.addNewAddress(requestdata: salon));
+              profilebloc.addAddressForm.reset();
             },
             name: "Agregar Direccion",
             height: 60.h,
