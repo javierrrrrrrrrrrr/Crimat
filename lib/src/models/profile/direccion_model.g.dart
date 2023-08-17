@@ -8,6 +8,7 @@ part of 'direccion_model.dart';
 
 DireccionModel _$DireccionModelFromJson(Map<String, dynamic> json) =>
     DireccionModel(
+      nombre: json['nombre'] as String?,
       id: json['id'] as int?,
       direccion: json['direccion'] as String,
       apartado: json['aparatdo'] as String,
@@ -19,6 +20,7 @@ DireccionModel _$DireccionModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$DireccionModelToJson(DireccionModel instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'nombre': instance.nombre,
       'direccion': instance.direccion,
       'aparatdo': instance.apartado,
       'ciudad': instance.ciudad,

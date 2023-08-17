@@ -6,6 +6,8 @@ part 'direccion_model.g.dart';
 class DireccionModel {
   @JsonKey(name: 'id')
   final int? id;
+  @JsonKey(name: 'nombre')
+  final String? nombre;
   @JsonKey(name: 'direccion')
   final String direccion;
   @JsonKey(name: 'aparatdo')
@@ -18,6 +20,7 @@ class DireccionModel {
   final String postal;
 
   DireccionModel({
+    this.nombre,
     this.id,
     required this.direccion,
     required this.apartado,
