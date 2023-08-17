@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../errors/failure.dart';
-import '../../../../models/profile/add_new_salon_model.dart';
 import '../../../../models/profile/profile_model.dart';
 import '../../../../repositories/profile_repository.dart';
 import '../../../../shared/app_info.dart';
@@ -89,18 +88,18 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       });
     });
   }
-//cambiar cuanod rigoberto modifique la repuesta 
+//cambiar cuanod rigoberto modifique la repuesta
 //usar un solo modleo que es el mismo del profile
-  AddressModel convertir({required final SalonModel salonmodel}) {
-    AddressModel direccion = AddressModel(
-      direccion: salonmodel.direccion,
-      apartado: salonmodel.apartado,
-      ciudad: salonmodel.ciudad,
-      estado: salonmodel.estado,
-      postal: salonmodel.codigoPostal,
-    );
-    return direccion;
-  }
+  // AddressModel convertir({required final SalonModel salonmodel}) {
+  //   AddressModel direccion = AddressModel(
+  //     direccion: salonmodel.direccion,
+  //     apartado: salonmodel.apartado,
+  //     ciudad: salonmodel.ciudad,
+  //     estado: salonmodel.estado,
+  //     postal: salonmodel.codigoPostal,
+  //   );
+  //   return direccion;
+  // }
 
   FormGroup addAddressForm = FormGroup({
     'nombre': FormControl<String>(

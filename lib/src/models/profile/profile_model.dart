@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'direccion_model.dart';
+
 part 'profile_model.g.dart';
 
 @JsonSerializable()
@@ -17,7 +19,7 @@ class ProfileModel {
   @JsonKey(name: 'suscripcion')
   final SuscripcionModel suscripcion;
   @JsonKey(name: 'direcciones')
-  final List<AddressModel> direcciones;
+  final List<DireccionModel> direcciones;
 
   ProfileModel(
     this.email,
@@ -60,34 +62,4 @@ class SuscripcionModel {
       _$SuscripcionModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SuscripcionModelToJson(this);
-}
-
-@JsonSerializable()
-class AddressModel {
-  @JsonKey(name: 'id')
-  final int? id;
-  @JsonKey(name: 'direccion')
-  final String direccion;
-  @JsonKey(name: 'aparatdo')
-  final String apartado;
-  @JsonKey(name: 'ciudad')
-  final String ciudad;
-  @JsonKey(name: 'estado')
-  final String estado;
-  @JsonKey(name: 'postal')
-  final String postal;
-
-  AddressModel({
-    this.id,
-    required this.direccion,
-    required this.apartado,
-    required this.ciudad,
-    required this.estado,
-    required this.postal,
-  });
-
-  factory AddressModel.fromJson(Map<String, dynamic> json) =>
-      _$AddressModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$AddressModelToJson(this);
 }

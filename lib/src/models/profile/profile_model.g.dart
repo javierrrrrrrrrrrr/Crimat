@@ -14,7 +14,7 @@ ProfileModel _$ProfileModelFromJson(Map<String, dynamic> json) => ProfileModel(
       json['licencia'] as String,
       SuscripcionModel.fromJson(json['suscripcion'] as Map<String, dynamic>),
       (json['direcciones'] as List<dynamic>)
-          .map((e) => AddressModel.fromJson(e as Map<String, dynamic>))
+          .map((e) => DireccionModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -45,23 +45,4 @@ Map<String, dynamic> _$SuscripcionModelToJson(SuscripcionModel instance) =>
       'dias_visibilidad': instance.diasVisibilidad,
       'cant_salones': instance.cantSalones,
       'valor': instance.valor,
-    };
-
-AddressModel _$AddressModelFromJson(Map<String, dynamic> json) => AddressModel(
-      id: json['id'] as int?,
-      direccion: json['direccion'] as String,
-      apartado: json['aparatdo'] as String,
-      ciudad: json['ciudad'] as String,
-      estado: json['estado'] as String,
-      postal: json['postal'] as String,
-    );
-
-Map<String, dynamic> _$AddressModelToJson(AddressModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'direccion': instance.direccion,
-      'aparatdo': instance.apartado,
-      'ciudad': instance.ciudad,
-      'estado': instance.estado,
-      'postal': instance.postal,
     };
