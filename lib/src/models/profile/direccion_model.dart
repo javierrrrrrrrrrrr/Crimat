@@ -10,7 +10,7 @@ class DireccionModel {
   final String? nombre;
   @JsonKey(name: 'direccion')
   final String direccion;
-  @JsonKey(name: 'aparatdo')
+  @JsonKey(name: 'apartado')
   final String apartado;
   @JsonKey(name: 'ciudad')
   final String ciudad;

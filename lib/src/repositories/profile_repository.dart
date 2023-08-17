@@ -1,9 +1,9 @@
-import 'package:crimat_app/src/models/profile/add_new_salon_model.dart';
-import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../errors/expetion.dart';
 import '../errors/failure.dart';
+import '../models/profile/direccion_model.dart' as model;
+import '../models/profile/new_salon_request_data_model.dart';
 import '../models/profile/profile_model.dart';
 import '../services/profile_sources/profile_data_source.dart';
 
@@ -38,9 +38,9 @@ class ProfileRepository {
     // Manejar cualquier error o lanzar una excepción personalizada
   }
 
-  Future<Either<Failure, SalonModel>> createdNewSalon(
+  Future<Either<Failure, model.DireccionModel>> createdNewSalon(
       {required String token, required SalonRequestModel datos}) async {
-    final SalonModel data;
+    final model.DireccionModel data;
     try {
       data = await profileDataSurce.createSalon(token, datos);
 

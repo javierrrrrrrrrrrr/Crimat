@@ -83,7 +83,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         }
       }, (salondata) async {
         //  dynamic aux = convertir(salonmodel: salondata);
-        //  _profiledata!.direcciones.add(aux);
+        _profiledata!.direcciones.add(salondata);
         emit(const ProfileState.addAddress());
       });
     });

@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart';
+import 'package:crimat_app/src/models/profile/direccion_model.dart' as model;
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../resources/urls.dart';
 import '../../errors/expetion.dart';
-import '../../models/profile/add_new_salon_model.dart';
+import '../../models/profile/new_salon_request_data_model.dart';
 import '../../models/profile/profile_model.dart';
 
 class ProfileDataSource {
@@ -62,7 +62,8 @@ class ProfileDataSource {
     return 0;
   }
 
-  Future<SalonModel> createSalon(String? token, SalonRequestModel data) async {
+  Future<model.DireccionModel> createSalon(
+      String? token, SalonRequestModel data) async {
     final Uri uri = Uri.https(Urls.api, Urls.createNewSalon);
 
     try {
@@ -76,7 +77,7 @@ class ProfileDataSource {
       if (response.statusCode == 201) {
         final jsonMap = jsonDecode(response.body);
 
-        final salondata = SalonModel.fromJson(jsonMap);
+        final salondata = model.DireccionModel.fromJson(jsonMap);
         return salondata;
       } else {
         final errorMessage =
