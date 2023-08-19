@@ -13,4 +13,8 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.goNewAddress() = _GoNewAddressEvent;
   const factory ProfileEvent.addNewAddress(
       {required SalonRequestModel requestdata}) = _AddNewAddressEvent;
+
+  const factory ProfileEvent.goEditAddress() = _GoEditAddressEvent;
+  const factory ProfileEvent.editNewAddress(
+      {required SalonRequestModel requestdata}) = _EditNewAddressEvent;
 }

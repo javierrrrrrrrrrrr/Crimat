@@ -109,36 +109,36 @@ class MainCardCarrusel extends StatelessWidget {
               ))
             ],
           ),
-          Positioned(
-            right: 10.w,
-            top: 10.h,
-            child: GestureDetector(
-              onTap: () {
-                print("sss");
-                if (token != null) {
-                  productbloc.add(ProductEvent.updatePrductFavorite(
-                    isfavorite: !(producto.favorite!),
-                    productid: producto.id,
-                  ));
-                  if (producto.favorite == false) {
-                    favoritebloc
-                        .add(FavoriteEvent.addedProduct(product: producto));
-                    UtilFunctions.printToast(
-                        message: 'Producto agregado a favorito');
-                  } else {
-                    favoritebloc
-                        .add(FavoriteEvent.removedProduct(product: producto));
-                    UtilFunctions.printToast(
-                        message: 'Producto eliminado de favorito');
-                  }
-                }
-              },
-              child: FavoriteCircle(
-                isfavorite: producto.favorite ?? false,
-                productid: producto.id,
-              ),
-            ),
-          )
+          token == null
+              ? Container()
+              : Positioned(
+                  right: 10.w,
+                  top: 10.h,
+                  child: GestureDetector(
+                    onTap: () {
+                      print("sss");
+                      productbloc.add(ProductEvent.updatePrductFavorite(
+                        isfavorite: !(producto.favorite!),
+                        productid: producto.id,
+                      ));
+                      if (producto.favorite == false) {
+                        favoritebloc
+                            .add(FavoriteEvent.addedProduct(product: producto));
+                        UtilFunctions.printToast(
+                            message: 'Producto agregado a favorito');
+                      } else {
+                        favoritebloc.add(
+                            FavoriteEvent.removedProduct(product: producto));
+                        UtilFunctions.printToast(
+                            message: 'Producto eliminado de favorito');
+                      }
+                    },
+                    child: FavoriteCircle(
+                      isfavorite: producto.favorite ?? false,
+                      productid: producto.id,
+                    ),
+                  ),
+                )
         ],
       ),
     );

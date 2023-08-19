@@ -35,59 +35,69 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     ProfileEvent event,
     Emitter emit,
   ) async {
-    await event.when(load: () async {
-      // _selectedId = await profilerepo.readHistorial();
-      emit(const ProfileState.loading());
-      if (token != null) {
-        dynamic result;
-
-        result = await profilerepo.getProfileData(token: token!);
-
-        result.fold((failure) {
-          if (failure is ServerFailure) {
-            emit(ProfileState.failure(message: failure.message));
-          }
-        }, (profile) async {
-          _profiledata = profile;
-          emit(ProfileState.success(profile: _profiledata!));
+    await event.when(
+        load: () async {
           // _selectedId = await profilerepo.readHistorial();
-        });
-      } else {
-        emit(const ProfileState.noLogedUser());
-      }
-    }, readDireccion: () async {
-      _selectedDeliveryAdressId = await profilerepo.readHistorial();
+          emit(const ProfileState.loading());
+          if (token != null) {
+            dynamic result;
 
-      emit(ProfileState.changeCheckSuccess(
-          id: _selectedDeliveryAdressId!, profile: _profiledata!));
-    }, saveDireccion: (int id) async {
-      await profilerepo.saveSeleccion(id);
-      _selectedDeliveryAdressId = id;
-      emit(ProfileState.changeCheckSuccess(
-          id: _selectedDeliveryAdressId!, profile: _profiledata!));
-    }, updateShippingType: (int id) {
-      _selectedShippingTypeid = id;
+            result = await profilerepo.getProfileData(token: token!);
 
-      emit(ProfileState.updateDeliveryTypeSeleccion(
-          updatedId: _selectedShippingTypeid!));
-    }, goNewAddress: () {
-      emit(const ProfileState.goaddAddress());
-    }, addNewAddress: (requestdata) async {
-      emit(const ProfileState.loading());
-      dynamic result =
-          await profilerepo.createdNewSalon(token: token!, datos: requestdata);
+            result.fold((failure) {
+              if (failure is ServerFailure) {
+                emit(ProfileState.failure(message: failure.message));
+              }
+            }, (profile) async {
+              _profiledata = profile;
+              emit(ProfileState.success(profile: _profiledata!));
+              // _selectedId = await profilerepo.readHistorial();
+            });
+          } else {
+            emit(const ProfileState.noLogedUser());
+          }
+        },
+        readDireccion: () async {
+          _selectedDeliveryAdressId = await profilerepo.readHistorial();
 
-      result.fold((failure) {
-        if (failure is ServerFailure) {
-          emit(ProfileState.failure(message: failure.message));
-        }
-      }, (salondata) async {
-        //  dynamic aux = convertir(salonmodel: salondata);
-        _profiledata!.direcciones.add(salondata);
+          emit(ProfileState.changeCheckSuccess(
+              id: _selectedDeliveryAdressId!, profile: _profiledata!));
+        },
+        saveDireccion: (int id) async {
+          await profilerepo.saveSeleccion(id);
+          _selectedDeliveryAdressId = id;
+          emit(ProfileState.changeCheckSuccess(
+              id: _selectedDeliveryAdressId!, profile: _profiledata!));
+        },
+        updateShippingType: (int id) {
+          _selectedShippingTypeid = id;
 
-        emit(const ProfileState.addAddress());
-      });
-    });
+          emit(ProfileState.updateDeliveryTypeSeleccion(
+              updatedId: _selectedShippingTypeid!));
+        },
+        goNewAddress: () {
+          emit(const ProfileState.goaddAddress());
+        },
+        addNewAddress: (requestdata) async {
+          emit(const ProfileState.loading());
+          dynamic result = await profilerepo.createdNewSalon(
+              token: token!, datos: requestdata);
+
+          result.fold((failure) {
+            if (failure is ServerFailure) {
+              emit(ProfileState.failure(message: failure.message));
+            }
+          }, (salondata) async {
+            //  dynamic aux = convertir(salonmodel: salondata);
+            _profiledata!.direcciones.add(salondata);
+
+            emit(const ProfileState.addAddress());
+          });
+        },
+        goEditAddress: () {
+          emit(const ProfileState.goEditAddress());
+        },
+        editNewAddress: (SalonRequestModel requestdata) {});
   }
 
   FormGroup addAddressForm = FormGroup({

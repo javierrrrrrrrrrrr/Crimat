@@ -74,10 +74,15 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
                 customerEphemeralKeySecret: paymentdatos!.ephemeralKey,
                 paymentIntentClientSecret: paymentdatos!.paymentIntent);
 
+            print("customerId ${paymentdatos!.customer}");
+            print("customerEphemeralKeySecret ${paymentdatos!.ephemeralKey}");
+            print("paymentIntentClientSecret ${paymentdatos!.paymentIntent}");
+
             await Stripe.instance.presentPaymentSheet();
 
             emit(const PaymentState.completed());
           } catch (error) {
+            print('Este es el error de stripe $error');
             emit(const PaymentState.error(
                 message:
                     "Estamos presentando problemas para procesar su solicitud"));

@@ -12,6 +12,8 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.loading() = _Loading;
   const factory ProfileState.addAddress() = _AddAddressState;
   const factory ProfileState.goaddAddress() = _GoAddAddressState;
+  const factory ProfileState.goEditAddress() = _GoEditAddressState;
+  const factory ProfileState.editAddress() = _EditAddressState;
   const factory ProfileState.success({
     required ProfileModel profile,
   }) = _Success;

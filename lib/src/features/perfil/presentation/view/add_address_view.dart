@@ -9,7 +9,9 @@ import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../../shared/widgets/custom_reactive_text_field.dart';
 
 class AddAddressView extends StatelessWidget {
-  const AddAddressView({super.key});
+  const AddAddressView({super.key, this.isEditView});
+
+  final bool? isEditView;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class AddAddressView extends StatelessWidget {
             height: 30.h,
           ),
           Text(
-            "Nueva Dirección",
+            isEditView == true ? "Editar Dirección" : "Nueva Dirección",
             style: TextStyle(fontSize: 21.sp, fontWeight: FontWeight.bold),
           ),
           SizedBox(
@@ -103,7 +105,7 @@ class AddAddressView extends StatelessWidget {
               }
               //actulizar los falores del modelo
             },
-            name: "Agregar Direccion",
+            name: isEditView == true ? "Editar Direccion" : "Agregar Direccion",
             height: 60.h,
             width: 400.w,
             ispraimary: true,

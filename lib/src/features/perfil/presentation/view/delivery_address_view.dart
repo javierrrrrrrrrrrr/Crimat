@@ -10,6 +10,7 @@ import '../../../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../bloc/profile_bloc.dart';
 import 'add_address_view.dart';
+import 'edit_address_view.dart';
 
 class DeliveryAddress extends StatelessWidget {
   const DeliveryAddress({Key? key, required this.datos}) : super(key: key);
@@ -37,6 +38,7 @@ class DeliveryAddress extends StatelessWidget {
             return state.maybeWhen(
               orElse: () => MainDeliveryAddress(datos: datos),
               goaddAddress: () => const AddAddressView(),
+              goEditAddress: () => const EditAddressView(),
             );
           },
         );

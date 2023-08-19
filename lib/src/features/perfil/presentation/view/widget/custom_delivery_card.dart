@@ -55,6 +55,11 @@ class CustomDeliveryCard extends StatelessWidget {
                         ? cambiaronTap
                         : () {
                             //navegar a la pagina de editar direccion de entrega
+                            //actulizar el controlador con los valores de la direcion selecionada
+
+                            actulizarControladores(context, index);
+
+                            profilebloc.add(const ProfileEvent.goEditAddress());
                           },
                     child: Text(
                       isCheckout == true ? "Cambiar" : "Editar",
@@ -111,6 +116,24 @@ class CustomDeliveryCard extends StatelessWidget {
         )
       ],
     );
+  }
+
+  void actulizarControladores(BuildContext context, index) {
+    final profilebloc = context.read<ProfileBloc>();
+    final idselectedadrress = profilebloc.profiledata!.direcciones[index].id;
+
+    final data = profilebloc.profiledata!.direcciones.firstWhere(
+      (direccion) => direccion.id == idselectedadrress,
+    );
+
+    profilebloc.addAddressForm.control('nombre').updateValue(data.nombre);
+    profilebloc.addAddressForm.control('direccion').updateValue(data.direccion);
+    profilebloc.addAddressForm.control('apartado').updateValue(data.apartado);
+    profilebloc.addAddressForm.control('ciudad').updateValue(data.ciudad);
+    profilebloc.addAddressForm.control('estado').updateValue(data.estado);
+    profilebloc.addAddressForm
+        .control('codigo_postal')
+        .updateValue(data.postal);
   }
 }
 
