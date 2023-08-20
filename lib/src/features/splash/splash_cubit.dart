@@ -2,6 +2,9 @@ import 'package:crimat_app/src/features/splash/splash_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../models/auth/login_response_model.dart';
+import '../../repositories/auth_repository.dart';
+
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(const SplashState(status: SplashStatus.loading));
 
@@ -18,15 +21,41 @@ class SplashCubit extends Cubit<SplashState> {
             'isFirstTime', false); // Marcar que ya se mostró el onboarding
         emit(state.copyWith(
           status: SplashStatus.leaded,
-          isLogin: false,
+          isLogin: 1,
         ));
       } else {
-        // Usuario ya ingresó antes
-        emit(state.copyWith(
-          status: SplashStatus.leaded,
-          isLogin: true, // Puedes ajustar esto según tu lógica de autenticación
-        ));
+        bool repuesta = await checkLogin();
+        if (repuesta == false) {
+          emit(state.copyWith(
+            status: SplashStatus.leaded,
+            isLogin: 2,
+          ));
+        } else {
+          emit(state.copyWith(
+            status: SplashStatus.leaded,
+            isLogin: 3,
+          ));
+        }
       }
     }
   }
+}
+
+Future<bool> checkLogin() async {
+  bool value = false;
+  final prefs = await SharedPreferences.getInstance();
+  //String? token = AppInfo().accessToken;
+  final savedEmail = prefs.getString('email');
+  final savedPassword = prefs.getString('password');
+
+  if (savedEmail != null && savedPassword != null) {
+    LoginResponseModel resp =
+        await AuthRepository().login(savedEmail, savedPassword);
+    if (resp.accessToken.isNotEmpty) {
+      value = true;
+    } else {
+      value = false;
+    }
+  }
+  return value;
 }

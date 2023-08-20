@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import '../../../resources/app_images.dart';
 import '../../shared/widgets/error_dialog.dart';
 import '../auth/screens/login_screen.dart';
+import '../home/home.dart';
 import 'intro_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -23,10 +24,14 @@ class SplashScreen extends StatelessWidget {
       child: BlocConsumer<SplashCubit, SplashState>(
         listener: (context, state) async {
           if (state.status == SplashStatus.leaded) {
-            if (state.isLogin == false) {
+            if (state.isLogin == 1) {
               context.pushReplacementNamed(IntroScreen.name);
-            } else {
+            }
+            if (state.isLogin == 2) {
               context.pushReplacementNamed(LoginScreen.name);
+            }
+            if (state.isLogin == 3) {
+              context.pushReplacementNamed(HomeView.name);
             }
           }
 
