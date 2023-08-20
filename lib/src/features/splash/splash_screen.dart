@@ -9,7 +9,6 @@ import 'package:go_router/go_router.dart';
 import '../../../resources/app_images.dart';
 import '../../shared/widgets/error_dialog.dart';
 import '../auth/screens/login_screen.dart';
-import '../home/home.dart';
 import 'intro_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -31,7 +30,7 @@ class SplashScreen extends StatelessWidget {
               context.pushReplacementNamed(LoginScreen.name);
             }
             if (state.isLogin == 3) {
-              context.pushReplacementNamed(HomeView.name);
+              context.go('/home');
             }
           }
 

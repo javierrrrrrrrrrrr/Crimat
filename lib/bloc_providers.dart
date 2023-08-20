@@ -1,4 +1,5 @@
 import 'package:crimat_app/src/app/app.dart';
+import 'package:crimat_app/src/features/auth/cubit/login_cubit.dart';
 import 'package:crimat_app/src/features/favorites/presentation/bloc/favorite_bloc.dart';
 import 'package:crimat_app/src/features/historial/presentation/bloc/historial_bloc/historial_bloc.dart';
 import 'package:crimat_app/src/features/home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
@@ -15,7 +16,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 MultiBlocProvider blocProviders() {
   return MultiBlocProvider(
     providers: [
-      BlocProvider(create: (_) => LayoutCubit()),
+      BlocProvider(create: (_) {
+        return sl<LayoutCubit>();
+      }),
+      BlocProvider(create: (_) {
+        return sl<LoginCubit>();
+      }),
       BlocProvider(
           create: (_) => sl<AlmacenBloc>()..add(const AlmacenEvent.load())),
       BlocProvider(create: (_) => sl<ProductBloc>()),
