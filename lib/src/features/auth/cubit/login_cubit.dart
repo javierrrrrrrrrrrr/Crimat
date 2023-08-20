@@ -23,8 +23,7 @@ class LoginCubit extends Cubit<AuthState> {
 
   LoginCubit() : super(const AuthState(onLoading: false));
 
-  Future<void> login({required VoidCallback 
-  onLoginSuccess}) async {
+  Future<void> login({required VoidCallback onLoginSuccess}) async {
     if (!isClosed) emit(const AuthState(onLoading: true));
     loginForm.markAsDisabled();
     try {
@@ -37,7 +36,9 @@ class LoginCubit extends Cubit<AuthState> {
         ..accessToken = loginResponse.accessToken
         ..refreshToken = loginResponse.refreshToken;
       onLoginSuccess.call();
+      emit(const AuthState(onLoading: false));
     } catch (e) {
+      emit(const AuthState(onLoading: false));
       UtilFunctions.printToast(
           message: e.toString(), color: GStyles.alertColor);
       if (!isClosed) emit(const AuthState(onLoading: false));

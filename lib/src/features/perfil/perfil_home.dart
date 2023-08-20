@@ -11,10 +11,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/profile/profile_model.dart';
 import '../../shared/utils/const.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
+import '../auth/cubit/login_cubit.dart';
+import '../auth/screens/login_screen.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({
@@ -62,6 +65,7 @@ class ProfileMainWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     final profilebloc = context.read<ProfileBloc>();
     return Stack(
       children: [
@@ -102,6 +106,15 @@ class ProfileMainWidget extends StatelessWidget {
               ),
             ),
             CusotmButtom(
+              onPressed: () async {
+                //cubit.(const AuthState(onLoading: false));
+                cubit.loginForm.control('email').updateValue('');
+                cubit.loginForm.control('password').updateValue('');
+                context.pushReplacementNamed(LoginScreen.name);
+                final prefs = await SharedPreferences.getInstance();
+                prefs.remove('email');
+                prefs.remove('password');
+              },
               width: 280.w,
               height: 45.h,
               name: "Cerrar sesión",
