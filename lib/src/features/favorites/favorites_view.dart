@@ -4,6 +4,7 @@ import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../../models/home/products/producto_model.dart';
 import '../../shared/utils/utils.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
@@ -37,9 +38,14 @@ class FavoritesView extends StatelessWidget {
           builder: (context, state) => state.when(
               updatePositionCheck: (position) => Container(),
               initial: () => Container(),
-              loading: () {
-                return const CustomLoadingFavoriteList();
-              },
+              loading: () => Center(
+                    child: SpinKitFadingCircle(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+              //  UtilFunctions.loading(context),
+              // return const CustomLoadingFavoriteList();
+
               loaded: (list) => MainWidget(listfavorite: list),
               error: (message) => Container(),
               noLogedUserState: () => const NoUserLogedWidget()),

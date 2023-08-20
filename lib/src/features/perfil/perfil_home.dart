@@ -9,6 +9,7 @@ import 'package:crimat_app/src/shared/widgets/cusotm_buttom_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../models/profile/profile_model.dart';
@@ -31,7 +32,11 @@ class ProfileView extends StatelessWidget {
                 profil: profilebloc.profiledata!,
               ),
               initial: () => Container(),
-              loading: () => Container(),
+              loading: () => Center(
+                child: SpinKitFadingCircle(
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
               failure: (message) => Container(),
               success: (profile) => ProfileMainWidget(
                 profil: profile,
