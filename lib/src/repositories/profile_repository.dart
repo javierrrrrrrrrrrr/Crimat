@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 
 import '../errors/expetion.dart';
 import '../errors/failure.dart';
-import '../models/profile/direccion_model.dart' as model;
 import '../models/profile/new_salon_request_data_model.dart';
 import '../models/profile/profile_model.dart';
 import '../services/profile_sources/profile_data_source.dart';
@@ -38,9 +37,9 @@ class ProfileRepository {
     // Manejar cualquier error o lanzar una excepción personalizada
   }
 
-  Future<Either<Failure, model.DireccionModel>> createdNewSalon(
+  Future<Either<Failure, SalonModel>> createdNewSalon(
       {required String token, required SalonRequestModel datos}) async {
-    final model.DireccionModel data;
+    final SalonModel data;
     try {
       data = await profileDataSurce.createSalon(token, datos);
 

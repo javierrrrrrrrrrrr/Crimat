@@ -49,7 +49,8 @@ class CustomDeliveryCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(datos!.firstName, style: TextStyle(fontSize: 16.sp)),
+                  Text(datos!.salones[index].nombre,
+                      style: TextStyle(fontSize: 16.sp)),
                   GestureDetector(
                     onTap: isCheckout == true
                         ? cambiaronTap
@@ -76,9 +77,10 @@ class CustomDeliveryCard extends StatelessWidget {
               SizedBox(
                 height: 80.h,
                 width: 250.w,
+                // {datos!.salones[index].direccion.id}
                 child: Text(
                   maxLines: 3,
-                  '${datos!.direcciones[index].id} ${datos!.direcciones[index].direccion}, ${datos!.direcciones[index].ciudad}, ${datos!.direcciones[index].estado} ${datos!.direcciones[index].postal}',
+                  '${datos!.salones[index].direccion.direccion}, ${datos!.salones[index].direccion.ciudad}, ${datos!.salones[index].direccion.estado} ${datos!.salones[index].direccion.postal}',
                   style: TextStyle(fontSize: 16.sp),
                 ),
               )
@@ -120,20 +122,39 @@ class CustomDeliveryCard extends StatelessWidget {
 
   void actulizarControladores(BuildContext context, index) {
     final profilebloc = context.read<ProfileBloc>();
-    final idselectedadrress = profilebloc.profiledata!.direcciones[index].id;
+    final idselectedadrress =
+        profilebloc.profiledata!.salones[index].direccion.id;
 
-    final data = profilebloc.profiledata!.direcciones.firstWhere(
-      (direccion) => direccion.id == idselectedadrress,
-    );
+    SalonModel? data;
 
-    profilebloc.addAddressForm.control('nombre').updateValue(data.nombre);
-    profilebloc.addAddressForm.control('direccion').updateValue(data.direccion);
-    profilebloc.addAddressForm.control('apartado').updateValue(data.apartado);
-    profilebloc.addAddressForm.control('ciudad').updateValue(data.ciudad);
-    profilebloc.addAddressForm.control('estado').updateValue(data.estado);
+    for (int i = 0; i < profilebloc.profiledata!.salones.length; i++) {
+      if (profilebloc.profiledata!.salones[i].direccion.id ==
+          idselectedadrress) {
+        data = profilebloc.profiledata!.salones[i];
+      }
+    }
+
+    // final data =
+    //     profilebloc.profiledata!.salones.direccion.firstWhere(
+    //   (direccion) => direccion.id == idselectedadrress,
+    // );
+
+    profilebloc.addAddressForm.control('nombre').updateValue(data!.nombre);
+    profilebloc.addAddressForm
+        .control('direccion')
+        .updateValue(data.direccion.direccion);
+    profilebloc.addAddressForm
+        .control('apartado')
+        .updateValue(data.direccion.apartado);
+    profilebloc.addAddressForm
+        .control('ciudad')
+        .updateValue(data.direccion.ciudad);
+    profilebloc.addAddressForm
+        .control('estado')
+        .updateValue(data.direccion.estado);
     profilebloc.addAddressForm
         .control('codigo_postal')
-        .updateValue(data.postal);
+        .updateValue(data.direccion.postal);
   }
 }
 
@@ -157,10 +178,10 @@ class CustomMainRowWidget extends StatelessWidget {
       children: [
         Checkbox(
           activeColor: Theme.of(context).primaryColor,
-          value: datos!.direcciones[index].id == id ? true : false,
+          value: datos!.salones[index].direccion.id == id ? true : false,
           onChanged: (value) {
-            profilebloc.add(
-                ProfileEvent.saveDireccion(id: datos!.direcciones[index].id!));
+            profilebloc.add(ProfileEvent.saveDireccion(
+                id: datos!.salones[index].direccion.id));
           },
           materialTapTargetSize: MaterialTapTargetSize.padded,
         ),

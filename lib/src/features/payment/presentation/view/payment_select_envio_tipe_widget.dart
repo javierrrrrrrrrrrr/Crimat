@@ -126,8 +126,9 @@ class CustomDireccionSelection extends StatelessWidget {
 
   int findData(context, ProfileModel profile, int selectedid) {
     int index = 0;
-    for (int i = 0; i < profile.direcciones.length; i++) {
-      if (selectedid == profile.direcciones[i].id) {
+    //ajustar esto tambien
+    for (int i = 0; i < profile.salones.length; i++) {
+      if (selectedid == profile.salones[i].id) {
         index = i;
       }
     }

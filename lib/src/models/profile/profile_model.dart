@@ -1,6 +1,5 @@
+import 'package:crimat_app/src/models/profile/direccion_model.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'direccion_model.dart';
 
 part 'profile_model.g.dart';
 
@@ -18,8 +17,8 @@ class ProfileModel {
   final String licencia;
   @JsonKey(name: 'suscripcion')
   final SuscripcionModel suscripcion;
-  @JsonKey(name: 'direcciones')
-  final List<DireccionModel> direcciones;
+  @JsonKey(name: 'salones')
+  final List<SalonModel> salones;
 
   ProfileModel(
     this.email,
@@ -28,7 +27,7 @@ class ProfileModel {
     this.telefono,
     this.licencia,
     this.suscripcion,
-    this.direcciones,
+    this.salones,
   );
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) =>
@@ -62,4 +61,25 @@ class SuscripcionModel {
       _$SuscripcionModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SuscripcionModelToJson(this);
+}
+
+@JsonSerializable()
+class SalonModel {
+  @JsonKey(name: 'id')
+  final int id;
+  @JsonKey(name: 'nombre')
+  final String nombre;
+  @JsonKey(name: 'direccion')
+  final DireccionModel direccion;
+
+  SalonModel(
+    this.id,
+    this.nombre,
+    this.direccion,
+  );
+
+  factory SalonModel.fromJson(Map<String, dynamic> json) =>
+      _$SalonModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SalonModelToJson(this);
 }

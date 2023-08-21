@@ -64,7 +64,7 @@ class MainDeliveryAddress extends StatelessWidget {
         // color: Colors.red,
         child: CarruselListVerticalConfg(
           ischeckout: true,
-          itemcount: datos.direcciones.length,
+          itemcount: datos.salones.length,
           title: "Direcciones de entrega",
           itemBuilder: (BuildContext context, int index) {
             return CustomDeliveryCard(datos: datos, index: index);
@@ -75,7 +75,7 @@ class MainDeliveryAddress extends StatelessWidget {
         height: double.infinity,
       ),
       profilebloc.profiledata!.suscripcion.cantSalones >
-              profilebloc.profiledata!.direcciones.length
+              profilebloc.profiledata!.salones.length
           ? Positioned(
               bottom: 0,
               child: Stack(

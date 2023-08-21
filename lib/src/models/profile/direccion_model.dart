@@ -5,9 +5,7 @@ part 'direccion_model.g.dart';
 @JsonSerializable()
 class DireccionModel {
   @JsonKey(name: 'id')
-  final int? id;
-  @JsonKey(name: 'nombre')
-  final String? nombre;
+  final int id;
   @JsonKey(name: 'direccion')
   final String direccion;
   @JsonKey(name: 'apartado')
@@ -19,15 +17,14 @@ class DireccionModel {
   @JsonKey(name: 'postal')
   final String postal;
 
-  DireccionModel({
-    this.nombre,
+  DireccionModel(
     this.id,
-    required this.direccion,
-    required this.apartado,
-    required this.ciudad,
-    required this.estado,
-    required this.postal,
-  });
+    this.direccion,
+    this.apartado,
+    this.ciudad,
+    this.estado,
+    this.postal,
+  );
 
   factory DireccionModel.fromJson(Map<String, dynamic> json) =>
       _$DireccionModelFromJson(json);
