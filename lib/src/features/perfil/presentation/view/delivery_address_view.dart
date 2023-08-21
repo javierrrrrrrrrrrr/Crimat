@@ -38,7 +38,7 @@ class DeliveryAddress extends StatelessWidget {
             return state.maybeWhen(
               orElse: () => MainDeliveryAddress(datos: datos),
               goaddAddress: () => const AddAddressView(),
-              goEditAddress: () => const EditAddressView(),
+              goEditAddress: (data) => EditAddressView(selectedSalon: data),
             );
           },
         );

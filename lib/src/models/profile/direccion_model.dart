@@ -15,16 +15,19 @@ class DireccionModel {
   @JsonKey(name: 'estado')
   final String estado;
   @JsonKey(name: 'postal')
-  final String postal;
+  final String? postal;
+  @JsonKey(name: 'codigo_postal')
+  final String? codigoPostal;
 
-  DireccionModel(
-    this.id,
-    this.direccion,
-    this.apartado,
-    this.ciudad,
-    this.estado,
+  DireccionModel({
+    this.codigoPostal,
+    required this.id,
+    required this.direccion,
+    required this.apartado,
+    required this.ciudad,
+    required this.estado,
     this.postal,
-  );
+  });
 
   factory DireccionModel.fromJson(Map<String, dynamic> json) =>
       _$DireccionModelFromJson(json);

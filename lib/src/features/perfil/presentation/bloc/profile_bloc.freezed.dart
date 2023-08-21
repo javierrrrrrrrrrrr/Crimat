@@ -24,8 +24,9 @@ mixin _$ProfileEvent {
     required TResult Function(int id) updateShippingType,
     required TResult Function() goNewAddress,
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
-    required TResult Function() goEditAddress,
-    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
     required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,8 +38,8 @@ mixin _$ProfileEvent {
     TResult? Function(int id)? updateShippingType,
     TResult? Function()? goNewAddress,
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult? Function()? goEditAddress,
-    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -50,8 +51,8 @@ mixin _$ProfileEvent {
     TResult Function(int id)? updateShippingType,
     TResult Function()? goNewAddress,
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult Function()? goEditAddress,
-    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? signOut,
     required TResult orElse(),
   }) =>
@@ -159,8 +160,9 @@ class _$_Load implements _Load {
     required TResult Function(int id) updateShippingType,
     required TResult Function() goNewAddress,
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
-    required TResult Function() goEditAddress,
-    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
     required TResult Function() signOut,
   }) {
     return load();
@@ -175,8 +177,8 @@ class _$_Load implements _Load {
     TResult? Function(int id)? updateShippingType,
     TResult? Function()? goNewAddress,
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult? Function()? goEditAddress,
-    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? signOut,
   }) {
     return load?.call();
@@ -191,8 +193,8 @@ class _$_Load implements _Load {
     TResult Function(int id)? updateShippingType,
     TResult Function()? goNewAddress,
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult Function()? goEditAddress,
-    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -331,8 +333,9 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     required TResult Function(int id) updateShippingType,
     required TResult Function() goNewAddress,
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
-    required TResult Function() goEditAddress,
-    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
     required TResult Function() signOut,
   }) {
     return saveDireccion(id);
@@ -347,8 +350,8 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult? Function(int id)? updateShippingType,
     TResult? Function()? goNewAddress,
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult? Function()? goEditAddress,
-    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? signOut,
   }) {
     return saveDireccion?.call(id);
@@ -363,8 +366,8 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult Function(int id)? updateShippingType,
     TResult Function()? goNewAddress,
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult Function()? goEditAddress,
-    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -482,8 +485,9 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     required TResult Function(int id) updateShippingType,
     required TResult Function() goNewAddress,
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
-    required TResult Function() goEditAddress,
-    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
     required TResult Function() signOut,
   }) {
     return readDireccion();
@@ -498,8 +502,8 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult? Function(int id)? updateShippingType,
     TResult? Function()? goNewAddress,
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult? Function()? goEditAddress,
-    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? signOut,
   }) {
     return readDireccion?.call();
@@ -514,8 +518,8 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult Function(int id)? updateShippingType,
     TResult Function()? goNewAddress,
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult Function()? goEditAddress,
-    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -655,8 +659,9 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     required TResult Function(int id) updateShippingType,
     required TResult Function() goNewAddress,
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
-    required TResult Function() goEditAddress,
-    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
     required TResult Function() signOut,
   }) {
     return updateShippingType(id);
@@ -671,8 +676,8 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult? Function(int id)? updateShippingType,
     TResult? Function()? goNewAddress,
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult? Function()? goEditAddress,
-    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? signOut,
   }) {
     return updateShippingType?.call(id);
@@ -687,8 +692,8 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult Function(int id)? updateShippingType,
     TResult Function()? goNewAddress,
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult Function()? goEditAddress,
-    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -806,8 +811,9 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     required TResult Function(int id) updateShippingType,
     required TResult Function() goNewAddress,
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
-    required TResult Function() goEditAddress,
-    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
     required TResult Function() signOut,
   }) {
     return goNewAddress();
@@ -822,8 +828,8 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult? Function(int id)? updateShippingType,
     TResult? Function()? goNewAddress,
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult? Function()? goEditAddress,
-    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? signOut,
   }) {
     return goNewAddress?.call();
@@ -838,8 +844,8 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult Function(int id)? updateShippingType,
     TResult Function()? goNewAddress,
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult Function()? goEditAddress,
-    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -979,8 +985,9 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     required TResult Function(int id) updateShippingType,
     required TResult Function() goNewAddress,
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
-    required TResult Function() goEditAddress,
-    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
     required TResult Function() signOut,
   }) {
     return addNewAddress(requestdata);
@@ -995,8 +1002,8 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult? Function(int id)? updateShippingType,
     TResult? Function()? goNewAddress,
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult? Function()? goEditAddress,
-    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? signOut,
   }) {
     return addNewAddress?.call(requestdata);
@@ -1011,8 +1018,8 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult Function(int id)? updateShippingType,
     TResult Function()? goNewAddress,
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult Function()? goEditAddress,
-    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1091,6 +1098,8 @@ abstract class _$$_GoEditAddressEventCopyWith<$Res> {
   factory _$$_GoEditAddressEventCopyWith(_$_GoEditAddressEvent value,
           $Res Function(_$_GoEditAddressEvent) then) =
       __$$_GoEditAddressEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SalonModel selectedsalon});
 }
 
 /// @nodoc
@@ -1100,26 +1109,52 @@ class __$$_GoEditAddressEventCopyWithImpl<$Res>
   __$$_GoEditAddressEventCopyWithImpl(
       _$_GoEditAddressEvent _value, $Res Function(_$_GoEditAddressEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedsalon = null,
+  }) {
+    return _then(_$_GoEditAddressEvent(
+      selectedsalon: null == selectedsalon
+          ? _value.selectedsalon
+          : selectedsalon // ignore: cast_nullable_to_non_nullable
+              as SalonModel,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_GoEditAddressEvent implements _GoEditAddressEvent {
-  const _$_GoEditAddressEvent();
+  const _$_GoEditAddressEvent({required this.selectedsalon});
+
+  @override
+  final SalonModel selectedsalon;
 
   @override
   String toString() {
-    return 'ProfileEvent.goEditAddress()';
+    return 'ProfileEvent.goEditAddress(selectedsalon: $selectedsalon)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GoEditAddressEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$_GoEditAddressEvent &&
+            (identical(other.selectedsalon, selectedsalon) ||
+                other.selectedsalon == selectedsalon));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, selectedsalon);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GoEditAddressEventCopyWith<_$_GoEditAddressEvent> get copyWith =>
+      __$$_GoEditAddressEventCopyWithImpl<_$_GoEditAddressEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1130,11 +1165,12 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     required TResult Function(int id) updateShippingType,
     required TResult Function() goNewAddress,
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
-    required TResult Function() goEditAddress,
-    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
     required TResult Function() signOut,
   }) {
-    return goEditAddress();
+    return goEditAddress(selectedsalon);
   }
 
   @override
@@ -1146,11 +1182,11 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult? Function(int id)? updateShippingType,
     TResult? Function()? goNewAddress,
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult? Function()? goEditAddress,
-    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? signOut,
   }) {
-    return goEditAddress?.call();
+    return goEditAddress?.call(selectedsalon);
   }
 
   @override
@@ -1162,13 +1198,13 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult Function(int id)? updateShippingType,
     TResult Function()? goNewAddress,
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult Function()? goEditAddress,
-    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (goEditAddress != null) {
-      return goEditAddress();
+      return goEditAddress(selectedsalon);
     }
     return orElse();
   }
@@ -1228,7 +1264,13 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
 }
 
 abstract class _GoEditAddressEvent implements ProfileEvent {
-  const factory _GoEditAddressEvent() = _$_GoEditAddressEvent;
+  const factory _GoEditAddressEvent({required final SalonModel selectedsalon}) =
+      _$_GoEditAddressEvent;
+
+  SalonModel get selectedsalon;
+  @JsonKey(ignore: true)
+  _$$_GoEditAddressEventCopyWith<_$_GoEditAddressEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1237,7 +1279,7 @@ abstract class _$$_EditNewAddressEventCopyWith<$Res> {
           $Res Function(_$_EditNewAddressEvent) then) =
       __$$_EditNewAddressEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({SalonRequestModel requestdata});
+  $Res call({EditSalonResponseModel requestdata});
 }
 
 /// @nodoc
@@ -1257,7 +1299,7 @@ class __$$_EditNewAddressEventCopyWithImpl<$Res>
       requestdata: null == requestdata
           ? _value.requestdata
           : requestdata // ignore: cast_nullable_to_non_nullable
-              as SalonRequestModel,
+              as EditSalonResponseModel,
     ));
   }
 }
@@ -1268,7 +1310,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
   const _$_EditNewAddressEvent({required this.requestdata});
 
   @override
-  final SalonRequestModel requestdata;
+  final EditSalonResponseModel requestdata;
 
   @override
   String toString() {
@@ -1303,8 +1345,9 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     required TResult Function(int id) updateShippingType,
     required TResult Function() goNewAddress,
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
-    required TResult Function() goEditAddress,
-    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
     required TResult Function() signOut,
   }) {
     return editNewAddress(requestdata);
@@ -1319,8 +1362,8 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult? Function(int id)? updateShippingType,
     TResult? Function()? goNewAddress,
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult? Function()? goEditAddress,
-    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? signOut,
   }) {
     return editNewAddress?.call(requestdata);
@@ -1335,8 +1378,8 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult Function(int id)? updateShippingType,
     TResult Function()? goNewAddress,
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult Function()? goEditAddress,
-    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1402,9 +1445,10 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
 
 abstract class _EditNewAddressEvent implements ProfileEvent {
   const factory _EditNewAddressEvent(
-      {required final SalonRequestModel requestdata}) = _$_EditNewAddressEvent;
+          {required final EditSalonResponseModel requestdata}) =
+      _$_EditNewAddressEvent;
 
-  SalonRequestModel get requestdata;
+  EditSalonResponseModel get requestdata;
   @JsonKey(ignore: true)
   _$$_EditNewAddressEventCopyWith<_$_EditNewAddressEvent> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1453,8 +1497,9 @@ class _$_SignOut implements _SignOut {
     required TResult Function(int id) updateShippingType,
     required TResult Function() goNewAddress,
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
-    required TResult Function() goEditAddress,
-    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
     required TResult Function() signOut,
   }) {
     return signOut();
@@ -1469,8 +1514,8 @@ class _$_SignOut implements _SignOut {
     TResult? Function(int id)? updateShippingType,
     TResult? Function()? goNewAddress,
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult? Function()? goEditAddress,
-    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? signOut,
   }) {
     return signOut?.call();
@@ -1485,8 +1530,8 @@ class _$_SignOut implements _SignOut {
     TResult Function(int id)? updateShippingType,
     TResult Function()? goNewAddress,
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
-    TResult Function()? goEditAddress,
-    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1565,7 +1610,7 @@ mixin _$ProfileState {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -1580,7 +1625,7 @@ mixin _$ProfileState {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -1595,7 +1640,7 @@ mixin _$ProfileState {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -1716,7 +1761,7 @@ class _$_Initial implements _Initial {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -1734,7 +1779,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -1752,7 +1797,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -1876,7 +1921,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -1894,7 +1939,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -1912,7 +1957,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2072,7 +2117,7 @@ class _$_ChangeCheckSuccessState implements _ChangeCheckSuccessState {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -2090,7 +2135,7 @@ class _$_ChangeCheckSuccessState implements _ChangeCheckSuccessState {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2108,7 +2153,7 @@ class _$_ChangeCheckSuccessState implements _ChangeCheckSuccessState {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2273,7 +2318,7 @@ class _$_UpdateDeliveryTypeSeleccionState
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -2291,7 +2336,7 @@ class _$_UpdateDeliveryTypeSeleccionState
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2309,7 +2354,7 @@ class _$_UpdateDeliveryTypeSeleccionState
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2439,7 +2484,7 @@ class _$_Loading implements _Loading {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -2457,7 +2502,7 @@ class _$_Loading implements _Loading {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2475,7 +2520,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2599,7 +2644,7 @@ class _$_AddAddressState implements _AddAddressState {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -2617,7 +2662,7 @@ class _$_AddAddressState implements _AddAddressState {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2635,7 +2680,7 @@ class _$_AddAddressState implements _AddAddressState {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2759,7 +2804,7 @@ class _$_GoAddAddressState implements _GoAddAddressState {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -2777,7 +2822,7 @@ class _$_GoAddAddressState implements _GoAddAddressState {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2795,7 +2840,7 @@ class _$_GoAddAddressState implements _GoAddAddressState {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2879,6 +2924,8 @@ abstract class _$$_GoEditAddressStateCopyWith<$Res> {
   factory _$$_GoEditAddressStateCopyWith(_$_GoEditAddressState value,
           $Res Function(_$_GoEditAddressState) then) =
       __$$_GoEditAddressStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SalonModel data});
 }
 
 /// @nodoc
@@ -2888,26 +2935,51 @@ class __$$_GoEditAddressStateCopyWithImpl<$Res>
   __$$_GoEditAddressStateCopyWithImpl(
       _$_GoEditAddressState _value, $Res Function(_$_GoEditAddressState) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GoEditAddressState(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SalonModel,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_GoEditAddressState implements _GoEditAddressState {
-  const _$_GoEditAddressState();
+  const _$_GoEditAddressState({required this.data});
+
+  @override
+  final SalonModel data;
 
   @override
   String toString() {
-    return 'ProfileState.goEditAddress()';
+    return 'ProfileState.goEditAddress(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GoEditAddressState);
+        (other.runtimeType == runtimeType &&
+            other is _$_GoEditAddressState &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GoEditAddressStateCopyWith<_$_GoEditAddressState> get copyWith =>
+      __$$_GoEditAddressStateCopyWithImpl<_$_GoEditAddressState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2919,12 +2991,12 @@ class _$_GoEditAddressState implements _GoEditAddressState {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
   }) {
-    return goEditAddress();
+    return goEditAddress(data);
   }
 
   @override
@@ -2937,12 +3009,12 @@ class _$_GoEditAddressState implements _GoEditAddressState {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
   }) {
-    return goEditAddress?.call();
+    return goEditAddress?.call(data);
   }
 
   @override
@@ -2955,14 +3027,14 @@ class _$_GoEditAddressState implements _GoEditAddressState {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
     if (goEditAddress != null) {
-      return goEditAddress();
+      return goEditAddress(data);
     }
     return orElse();
   }
@@ -3031,7 +3103,13 @@ class _$_GoEditAddressState implements _GoEditAddressState {
 }
 
 abstract class _GoEditAddressState implements ProfileState {
-  const factory _GoEditAddressState() = _$_GoEditAddressState;
+  const factory _GoEditAddressState({required final SalonModel data}) =
+      _$_GoEditAddressState;
+
+  SalonModel get data;
+  @JsonKey(ignore: true)
+  _$$_GoEditAddressStateCopyWith<_$_GoEditAddressState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3079,7 +3157,7 @@ class _$_EditAddressState implements _EditAddressState {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -3097,7 +3175,7 @@ class _$_EditAddressState implements _EditAddressState {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -3115,7 +3193,7 @@ class _$_EditAddressState implements _EditAddressState {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -3264,7 +3342,7 @@ class _$_Success implements _Success {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -3282,7 +3360,7 @@ class _$_Success implements _Success {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -3300,7 +3378,7 @@ class _$_Success implements _Success {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -3454,7 +3532,7 @@ class _$_Failure implements _Failure {
     required TResult Function() loading,
     required TResult Function() addAddress,
     required TResult Function() goaddAddress,
-    required TResult Function() goEditAddress,
+    required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
     required TResult Function(ProfileModel profile) success,
     required TResult Function(String message) failure,
@@ -3472,7 +3550,7 @@ class _$_Failure implements _Failure {
     TResult? Function()? loading,
     TResult? Function()? addAddress,
     TResult? Function()? goaddAddress,
-    TResult? Function()? goEditAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -3490,7 +3568,7 @@ class _$_Failure implements _Failure {
     TResult Function()? loading,
     TResult Function()? addAddress,
     TResult Function()? goaddAddress,
-    TResult Function()? goEditAddress,
+    TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,

@@ -60,7 +60,9 @@ class CustomDeliveryCard extends StatelessWidget {
 
                             actulizarControladores(context, index);
 
-                            profilebloc.add(const ProfileEvent.goEditAddress());
+                            profilebloc.add(ProfileEvent.goEditAddress(
+                                selectedsalon:
+                                    profilebloc.profiledata!.salones[index]));
                           },
                     child: Text(
                       isCheckout == true ? "Cambiar" : "Editar",

@@ -1,17 +1,22 @@
 import 'package:crimat_app/src/features/perfil/presentation/bloc/profile_bloc.dart';
-import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart';
+import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart'
+    as model;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
+import '../../../../models/profile/direccion_model.dart';
+import '../../../../models/profile/edit_salon_request_data_model.dart';
+import '../../../../models/profile/profile_model.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../../shared/widgets/custom_reactive_text_field.dart';
 
 class AddAddressView extends StatelessWidget {
-  const AddAddressView({super.key, this.isEditView});
+  const AddAddressView({super.key, this.isEditView, this.selectedSalon});
 
   final bool? isEditView;
+  final SalonModel? selectedSalon;
 
   @override
   Widget build(BuildContext context) {
@@ -86,23 +91,46 @@ class AddAddressView extends StatelessWidget {
           CusotmButtom(
             onPressed: () {
               final formValue = profilebloc.addAddressForm.value;
-              if (profilebloc.addAddressForm.valid) {
-                final direccion = DireccionModel(
-                  direccion: formValue['direccion'].toString(),
-                  apartado: formValue['apartado'].toString(),
-                  ciudad: formValue['ciudad'].toString(),
-                  estado: formValue['estado'].toString(),
-                  codigoPostal: formValue['codigo_postal'].toString(),
-                );
+              if (isEditView == true) {
+                if (profilebloc.addAddressForm.valid) {
+                  final direccionn = DireccionModel(
+                    id: selectedSalon!.direccion.id,
+                    direccion: formValue['direccion'].toString(),
+                    apartado: formValue['apartado'].toString(),
+                    ciudad: formValue['ciudad'].toString(),
+                    estado: formValue['estado'].toString(),
+                    codigoPostal: formValue['codigo_postal'].toString(),
+                  );
+                  final salon = EditSalonResponseModel(
+                    nombre: formValue['nombre'].toString(),
+                    direccion: direccionn,
+                    id: selectedSalon!.id,
+                  );
+                  profilebloc
+                      .add(ProfileEvent.editNewAddress(requestdata: salon));
+                  profilebloc.addAddressForm.reset();
+                }
+              } else {
+                if (profilebloc.addAddressForm.valid) {
+                  final direccion = model.DireccionModel(
+                    direccion: formValue['direccion'].toString(),
+                    apartado: formValue['apartado'].toString(),
+                    ciudad: formValue['ciudad'].toString(),
+                    estado: formValue['estado'].toString(),
+                    codigoPostal: formValue['codigo_postal'].toString(),
+                  );
 
-                final salon = SalonRequestModel(
-                  nombre: formValue['nombre'].toString(),
-                  direccion: direccion,
-                );
-                //print('Este es el nombre${salon.nombre}');
-                profilebloc.add(ProfileEvent.addNewAddress(requestdata: salon));
-                profilebloc.addAddressForm.reset();
+                  final salon = model.SalonRequestModel(
+                    nombre: formValue['nombre'].toString(),
+                    direccion: direccion,
+                  );
+                  //print('Este es el nombre${salon.nombre}');
+                  profilebloc
+                      .add(ProfileEvent.addNewAddress(requestdata: salon));
+                  profilebloc.addAddressForm.reset();
+                }
               }
+
               //actulizar los falores del modelo
             },
             name: isEditView == true ? "Editar Direccion" : "Agregar Direccion",
