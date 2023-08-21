@@ -8,14 +8,15 @@ import '../../../../models/payment/payment_model.dart';
 import '../../../../models/payment/request_data_model.dart';
 import '../../../../models/payment/shipping_model.dart';
 import '../../../../repositories/payment_repository.dart';
-import '../../../../shared/app_info.dart' as info;
+import '../../../../shared/app_info.dart';
+import '../../../../shared/dependency_injection/dependency_injection.dart';
 
 part 'payment_event.dart';
 part 'payment_state.dart';
 part 'payment_bloc.freezed.dart';
 
 class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
-  String? token = info.AppInfo().accessToken;
+  String? token = sl<AppUtilInfo>().accessToken;
   final PaymentRepository paymentdata;
   PaymentModel? paymentdatos;
   List<ShippingModel>? _shippingMethods;

@@ -16,7 +16,7 @@ class CustomAdvertinceWidget extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: const Center(
           child: Text(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet arcu id tincidunt tellus arcu rhoncus, turpis nisl!"),
+              "Si deseas agregar un producto desde otro almacén, ten en cuenta que si prosigues, el producto deseado será agregado después de vaciar el carrito actual."),
         ),
       ),
     );

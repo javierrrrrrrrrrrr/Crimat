@@ -8,6 +8,7 @@ import '../../../../../errors/failure.dart';
 import '../../../../../models/home/products/producto_model.dart';
 import '../../../../../repositories/product_repository.dart';
 import '../../../../../shared/app_info.dart';
+import '../../../../../shared/dependency_injection/dependency_injection.dart';
 
 part 'product_event.dart';
 part 'product_state.dart';
@@ -15,7 +16,7 @@ part 'product_bloc.freezed.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final ProdcutRepository repository;
-  String? token = AppInfo().accessToken;
+  String? token = sl<AppUtilInfo>().accessToken;
   List<ProductModel> _productslist = [];
 
   ProductBloc(

@@ -4,13 +4,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../../models/historial/historial_model.dart';
 import '../../../../../repositories/historial_repository.dart';
 import '../../../../../shared/app_info.dart';
+import '../../../../../shared/dependency_injection/dependency_injection.dart';
 
 part 'historial_event.dart';
 part 'historial_state.dart';
 part 'historial_bloc.freezed.dart';
 
 class HistorialBloc extends Bloc<HistorialEvent, HistorialState> {
-  String? token = AppInfo().accessToken;
+  String? token = sl<AppUtilInfo>().accessToken;
   final HistorialRepository historial;
   HistorialBloc(this.historial) : super(const HistorialState.initial()) {
     on<HistorialEvent>(eventHandler);

@@ -107,9 +107,12 @@ class LoginScreen extends StatelessWidget {
                     text: context.loc.login,
                     loading: state.onLoading,
                     onPressed: () {
+                     
                       if (!state.onLoading && cubit.loginForm.valid) {
                         cubit.login(onLoginSuccess: () {
-                          //   profilebloc.add(const ProfileEvent.load());
+                      
+
+                      
                           context.go('/home');
                         });
                       }

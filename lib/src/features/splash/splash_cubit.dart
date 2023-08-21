@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/auth/login_response_model.dart';
 import '../../repositories/auth_repository.dart';
 import '../../shared/app_info.dart';
+import '../../shared/dependency_injection/dependency_injection.dart';
 
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(const SplashState(status: SplashStatus.loading));
@@ -53,10 +54,10 @@ Future<bool> checkLogin() async {
     LoginResponseModel resp =
         await AuthRepository().login(savedEmail, savedPassword);
     if (resp.accessToken.isNotEmpty) {
-      AppInfo appInfo = AppInfo();
-      appInfo
-        ..accessToken = resp.accessToken
-        ..refreshToken = resp.refreshToken;
+      AppUtilInfo appInfo = sl<AppUtilInfo>();
+      appInfo.accessToken = resp.accessToken;
+      appInfo.refreshToken = resp.refreshToken;
+
       value = true;
     } else {
       value = false;

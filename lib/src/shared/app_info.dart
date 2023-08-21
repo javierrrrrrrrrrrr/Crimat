@@ -1,16 +1,14 @@
 ///This class is a singleton for sharing information through the whole app
 
-class AppInfo{
+class AppUtilInfo {
   String? accessToken;
   String? refreshToken;
 
-  static final AppInfo _appInfo = AppInfo._internal();
+  static final AppUtilInfo _appInfo = AppUtilInfo._internal();
 
-  factory AppInfo() {
+  factory AppUtilInfo() {
     return _appInfo;
   }
 
-  AppInfo._internal();
-
-
+  AppUtilInfo._internal();
 }

@@ -7,6 +7,7 @@ import 'package:crimat_app/src/shared/app_info.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
+import '../../../shared/dependency_injection/dependency_injection.dart';
 import '../auth_state.dart';
 
 class LoginCubit extends Cubit<AuthState> {
@@ -31,13 +32,15 @@ class LoginCubit extends Cubit<AuthState> {
       String password = loginForm.control('password').value;
       LoginResponseModel loginResponse =
           await AuthRepository().login(email, password);
-      AppInfo appInfo = AppInfo();
+      AppUtilInfo appInfo = sl<AppUtilInfo>();
       appInfo
         ..accessToken = loginResponse.accessToken
         ..refreshToken = loginResponse.refreshToken;
       onLoginSuccess.call();
+      loginForm.markAsEnabled();
       emit(const AuthState(onLoading: false));
     } catch (e) {
+      loginForm.markAsEnabled();
       emit(const AuthState(onLoading: false));
       UtilFunctions.printToast(
           message: e.toString(), color: GStyles.alertColor);

@@ -17,4 +17,6 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.goEditAddress() = _GoEditAddressEvent;
   const factory ProfileEvent.editNewAddress(
       {required SalonRequestModel requestdata}) = _EditNewAddressEvent;
+
+  const factory ProfileEvent.signOut() = _SignOut;
 }

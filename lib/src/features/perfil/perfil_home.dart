@@ -14,10 +14,14 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/profile/profile_model.dart';
+import '../../shared/app_info.dart';
+import '../../shared/dependency_injection/dependency_injection.dart';
 import '../../shared/utils/const.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../auth/cubit/login_cubit.dart';
 import '../auth/screens/login_screen.dart';
+import '../favorites/presentation/bloc/favorite_bloc.dart';
+import '../layout/layout_cubit.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({
@@ -65,7 +69,6 @@ class ProfileMainWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     final profilebloc = context.read<ProfileBloc>();
     return Stack(
       children: [
@@ -107,13 +110,8 @@ class ProfileMainWidget extends StatelessWidget {
             ),
             CusotmButtom(
               onPressed: () async {
-                //cubit.(const AuthState(onLoading: false));
-                cubit.loginForm.control('email').updateValue('');
-                cubit.loginForm.control('password').updateValue('');
-                context.pushReplacementNamed(LoginScreen.name);
-                final prefs = await SharedPreferences.getInstance();
-                prefs.remove('email');
-                prefs.remove('password');
+                //restablecer todos los valores
+                clearAllValues(context);
               },
               width: 280.w,
               height: 45.h,
@@ -134,5 +132,27 @@ class ProfileMainWidget extends StatelessWidget {
         )
       ],
     );
+  }
+
+  void clearAllValues(BuildContext context) async {
+    ProfileBloc profileBloc = context.read<ProfileBloc>();
+    FavoriteBloc favoriteBloc = context.read<FavoriteBloc>();
+    LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
+    LayoutCubit layoutcubit = BlocProvider.of<LayoutCubit>(context);
+    AppUtilInfo appInfo = sl<AppUtilInfo>();
+
+    ///////
+    appInfo.accessToken = null;
+    appInfo.refreshToken = null;
+    favoriteBloc.add(const FavoriteEvent.signOut());
+    profileBloc.add(const ProfileEvent.signOut());
+    layoutcubit.changeScreen(0);
+
+    cubit.loginForm.control('email').updateValue('');
+    cubit.loginForm.control('password').updateValue('');
+    context.pushReplacementNamed(LoginScreen.name);
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove('email');
+    prefs.remove('password');
   }
 }

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:crimat_app/src/shared/dependency_injection/dependency_injection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../errors/failure.dart';
@@ -11,7 +12,7 @@ part 'favorite_state.dart';
 part 'favorite_bloc.freezed.dart';
 
 class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
-  String? token = AppInfo().accessToken;
+  String? token = sl<AppUtilInfo>().accessToken;
   final FavoriteRepository favorite;
   List<ProductModel> favoriteProductList = [];
   ProductModel? selectedFavoriteProduct;
@@ -29,6 +30,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
         dynamic result;
         emit(const FavoriteState.loading());
         if (token != null) {
+          print('Este es tokken de favorito $token');
           result = await favorite.getFavorite(token: token!);
           result.fold((failure) {
             if (failure is ServerFailure) {
@@ -36,6 +38,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
             }
           }, (favoritelist) {
             favoriteProductList = favoritelist;
+            print(favoriteProductList.length);
             emit(FavoriteState.loaded(productModelList: favoriteProductList));
           });
         } else {
@@ -69,6 +72,18 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
 
         emit(FavoriteState.loaded(productModelList: favoriteProductList));
       },
+      signOut: () {
+        resetVariable();
+        emit(const FavoriteState.initial());
+      },
     );
+  }
+
+  void resetVariable() {
+    favoriteProductList = [];
+    selectedFavoriteProduct = null;
+    AppUtilInfo().accessToken = null;
+    AppUtilInfo().refreshToken = null;
+    token = null;
   }
 }

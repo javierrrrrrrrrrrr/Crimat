@@ -13,11 +13,10 @@ part 'profile_state.dart';
 part 'profile_bloc.freezed.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  String? token = AppInfo().accessToken;
+  String? token = AppUtilInfo().accessToken;
   final ProfileRepository profilerepo;
 
   ProfileModel? _profiledata;
-
   ProfileModel? get profiledata => _profiledata;
 
   int? _selectedDeliveryAdressId;
@@ -25,6 +24,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   int? _selectedShippingTypeid;
   int? get selectedShippingTypeid => _selectedShippingTypeid;
+
   ProfileBloc(
     this.profilerepo,
   ) : super(const ProfileState.initial()) {
@@ -40,6 +40,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           // _selectedId = await profilerepo.readHistorial();
           emit(const ProfileState.loading());
           if (token != null) {
+            print('Este es tokken de profile $token');
             dynamic result;
 
             result = await profilerepo.getProfileData(token: token!);
@@ -97,7 +98,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         goEditAddress: () {
           emit(const ProfileState.goEditAddress());
         },
-        editNewAddress: (SalonRequestModel requestdata) {});
+        editNewAddress: (SalonRequestModel requestdata) {},
+        signOut: () {
+          restVariable();
+          emit(const ProfileState.initial());
+        });
   }
 
   FormGroup addAddressForm = FormGroup({
@@ -130,4 +135,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       validators: [Validators.required, Validators.number],
     ),
   });
+
+  void restVariable() {
+    _selectedDeliveryAdressId = null;
+    _profiledata = null;
+    _selectedShippingTypeid = null;
+  }
 }

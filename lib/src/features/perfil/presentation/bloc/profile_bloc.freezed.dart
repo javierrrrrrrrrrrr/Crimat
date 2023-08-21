@@ -26,6 +26,7 @@ mixin _$ProfileEvent {
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
     required TResult Function() goEditAddress,
     required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +39,7 @@ mixin _$ProfileEvent {
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
     TResult? Function()? goEditAddress,
     TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +52,7 @@ mixin _$ProfileEvent {
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
     TResult Function()? goEditAddress,
     TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +67,7 @@ mixin _$ProfileEvent {
     required TResult Function(_AddNewAddressEvent value) addNewAddress,
     required TResult Function(_GoEditAddressEvent value) goEditAddress,
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +80,7 @@ mixin _$ProfileEvent {
     TResult? Function(_AddNewAddressEvent value)? addNewAddress,
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +93,7 @@ mixin _$ProfileEvent {
     TResult Function(_AddNewAddressEvent value)? addNewAddress,
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +161,7 @@ class _$_Load implements _Load {
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
     required TResult Function() goEditAddress,
     required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function() signOut,
   }) {
     return load();
   }
@@ -170,6 +177,7 @@ class _$_Load implements _Load {
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
     TResult? Function()? goEditAddress,
     TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function()? signOut,
   }) {
     return load?.call();
   }
@@ -185,6 +193,7 @@ class _$_Load implements _Load {
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
     TResult Function()? goEditAddress,
     TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -205,6 +214,7 @@ class _$_Load implements _Load {
     required TResult Function(_AddNewAddressEvent value) addNewAddress,
     required TResult Function(_GoEditAddressEvent value) goEditAddress,
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return load(this);
   }
@@ -220,6 +230,7 @@ class _$_Load implements _Load {
     TResult? Function(_AddNewAddressEvent value)? addNewAddress,
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return load?.call(this);
   }
@@ -235,6 +246,7 @@ class _$_Load implements _Load {
     TResult Function(_AddNewAddressEvent value)? addNewAddress,
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -321,6 +333,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
     required TResult Function() goEditAddress,
     required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function() signOut,
   }) {
     return saveDireccion(id);
   }
@@ -336,6 +349,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
     TResult? Function()? goEditAddress,
     TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function()? signOut,
   }) {
     return saveDireccion?.call(id);
   }
@@ -351,6 +365,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
     TResult Function()? goEditAddress,
     TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (saveDireccion != null) {
@@ -371,6 +386,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     required TResult Function(_AddNewAddressEvent value) addNewAddress,
     required TResult Function(_GoEditAddressEvent value) goEditAddress,
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return saveDireccion(this);
   }
@@ -386,6 +402,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult? Function(_AddNewAddressEvent value)? addNewAddress,
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return saveDireccion?.call(this);
   }
@@ -401,6 +418,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult Function(_AddNewAddressEvent value)? addNewAddress,
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (saveDireccion != null) {
@@ -466,6 +484,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
     required TResult Function() goEditAddress,
     required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function() signOut,
   }) {
     return readDireccion();
   }
@@ -481,6 +500,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
     TResult? Function()? goEditAddress,
     TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function()? signOut,
   }) {
     return readDireccion?.call();
   }
@@ -496,6 +516,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
     TResult Function()? goEditAddress,
     TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (readDireccion != null) {
@@ -516,6 +537,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     required TResult Function(_AddNewAddressEvent value) addNewAddress,
     required TResult Function(_GoEditAddressEvent value) goEditAddress,
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return readDireccion(this);
   }
@@ -531,6 +553,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult? Function(_AddNewAddressEvent value)? addNewAddress,
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return readDireccion?.call(this);
   }
@@ -546,6 +569,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult Function(_AddNewAddressEvent value)? addNewAddress,
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (readDireccion != null) {
@@ -633,6 +657,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
     required TResult Function() goEditAddress,
     required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function() signOut,
   }) {
     return updateShippingType(id);
   }
@@ -648,6 +673,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
     TResult? Function()? goEditAddress,
     TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function()? signOut,
   }) {
     return updateShippingType?.call(id);
   }
@@ -663,6 +689,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
     TResult Function()? goEditAddress,
     TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (updateShippingType != null) {
@@ -683,6 +710,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     required TResult Function(_AddNewAddressEvent value) addNewAddress,
     required TResult Function(_GoEditAddressEvent value) goEditAddress,
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return updateShippingType(this);
   }
@@ -698,6 +726,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult? Function(_AddNewAddressEvent value)? addNewAddress,
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return updateShippingType?.call(this);
   }
@@ -713,6 +742,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult Function(_AddNewAddressEvent value)? addNewAddress,
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (updateShippingType != null) {
@@ -778,6 +808,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
     required TResult Function() goEditAddress,
     required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function() signOut,
   }) {
     return goNewAddress();
   }
@@ -793,6 +824,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
     TResult? Function()? goEditAddress,
     TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function()? signOut,
   }) {
     return goNewAddress?.call();
   }
@@ -808,6 +840,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
     TResult Function()? goEditAddress,
     TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (goNewAddress != null) {
@@ -828,6 +861,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     required TResult Function(_AddNewAddressEvent value) addNewAddress,
     required TResult Function(_GoEditAddressEvent value) goEditAddress,
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return goNewAddress(this);
   }
@@ -843,6 +877,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult? Function(_AddNewAddressEvent value)? addNewAddress,
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return goNewAddress?.call(this);
   }
@@ -858,6 +893,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult Function(_AddNewAddressEvent value)? addNewAddress,
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (goNewAddress != null) {
@@ -945,6 +981,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
     required TResult Function() goEditAddress,
     required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function() signOut,
   }) {
     return addNewAddress(requestdata);
   }
@@ -960,6 +997,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
     TResult? Function()? goEditAddress,
     TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function()? signOut,
   }) {
     return addNewAddress?.call(requestdata);
   }
@@ -975,6 +1013,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
     TResult Function()? goEditAddress,
     TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (addNewAddress != null) {
@@ -995,6 +1034,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     required TResult Function(_AddNewAddressEvent value) addNewAddress,
     required TResult Function(_GoEditAddressEvent value) goEditAddress,
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return addNewAddress(this);
   }
@@ -1010,6 +1050,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult? Function(_AddNewAddressEvent value)? addNewAddress,
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return addNewAddress?.call(this);
   }
@@ -1025,6 +1066,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult Function(_AddNewAddressEvent value)? addNewAddress,
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (addNewAddress != null) {
@@ -1090,6 +1132,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
     required TResult Function() goEditAddress,
     required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function() signOut,
   }) {
     return goEditAddress();
   }
@@ -1105,6 +1148,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
     TResult? Function()? goEditAddress,
     TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function()? signOut,
   }) {
     return goEditAddress?.call();
   }
@@ -1120,6 +1164,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
     TResult Function()? goEditAddress,
     TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (goEditAddress != null) {
@@ -1140,6 +1185,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     required TResult Function(_AddNewAddressEvent value) addNewAddress,
     required TResult Function(_GoEditAddressEvent value) goEditAddress,
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return goEditAddress(this);
   }
@@ -1155,6 +1201,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult? Function(_AddNewAddressEvent value)? addNewAddress,
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return goEditAddress?.call(this);
   }
@@ -1170,6 +1217,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult Function(_AddNewAddressEvent value)? addNewAddress,
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (goEditAddress != null) {
@@ -1257,6 +1305,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     required TResult Function(SalonRequestModel requestdata) addNewAddress,
     required TResult Function() goEditAddress,
     required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function() signOut,
   }) {
     return editNewAddress(requestdata);
   }
@@ -1272,6 +1321,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult? Function(SalonRequestModel requestdata)? addNewAddress,
     TResult? Function()? goEditAddress,
     TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function()? signOut,
   }) {
     return editNewAddress?.call(requestdata);
   }
@@ -1287,6 +1337,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult Function(SalonRequestModel requestdata)? addNewAddress,
     TResult Function()? goEditAddress,
     TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (editNewAddress != null) {
@@ -1307,6 +1358,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     required TResult Function(_AddNewAddressEvent value) addNewAddress,
     required TResult Function(_GoEditAddressEvent value) goEditAddress,
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return editNewAddress(this);
   }
@@ -1322,6 +1374,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult? Function(_AddNewAddressEvent value)? addNewAddress,
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return editNewAddress?.call(this);
   }
@@ -1337,6 +1390,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult Function(_AddNewAddressEvent value)? addNewAddress,
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (editNewAddress != null) {
@@ -1354,6 +1408,150 @@ abstract class _EditNewAddressEvent implements ProfileEvent {
   @JsonKey(ignore: true)
   _$$_EditNewAddressEventCopyWith<_$_EditNewAddressEvent> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SignOutCopyWith<$Res> {
+  factory _$$_SignOutCopyWith(
+          _$_SignOut value, $Res Function(_$_SignOut) then) =
+      __$$_SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignOutCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_SignOut>
+    implements _$$_SignOutCopyWith<$Res> {
+  __$$_SignOutCopyWithImpl(_$_SignOut _value, $Res Function(_$_SignOut) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignOut implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(int id) saveDireccion,
+    required TResult Function() readDireccion,
+    required TResult Function(int id) updateShippingType,
+    required TResult Function() goNewAddress,
+    required TResult Function(SalonRequestModel requestdata) addNewAddress,
+    required TResult Function() goEditAddress,
+    required TResult Function(SalonRequestModel requestdata) editNewAddress,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(int id)? saveDireccion,
+    TResult? Function()? readDireccion,
+    TResult? Function(int id)? updateShippingType,
+    TResult? Function()? goNewAddress,
+    TResult? Function(SalonRequestModel requestdata)? addNewAddress,
+    TResult? Function()? goEditAddress,
+    TResult? Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult? Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(int id)? saveDireccion,
+    TResult Function()? readDireccion,
+    TResult Function(int id)? updateShippingType,
+    TResult Function()? goNewAddress,
+    TResult Function(SalonRequestModel requestdata)? addNewAddress,
+    TResult Function()? goEditAddress,
+    TResult Function(SalonRequestModel requestdata)? editNewAddress,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_SaveDireccionEvent value) saveDireccion,
+    required TResult Function(_ReadDireccionEvent value) readDireccion,
+    required TResult Function(_UpdateShippingTypeEvent value)
+        updateShippingType,
+    required TResult Function(_GoNewAddressEvent value) goNewAddress,
+    required TResult Function(_AddNewAddressEvent value) addNewAddress,
+    required TResult Function(_GoEditAddressEvent value) goEditAddress,
+    required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_SaveDireccionEvent value)? saveDireccion,
+    TResult? Function(_ReadDireccionEvent value)? readDireccion,
+    TResult? Function(_UpdateShippingTypeEvent value)? updateShippingType,
+    TResult? Function(_GoNewAddressEvent value)? goNewAddress,
+    TResult? Function(_AddNewAddressEvent value)? addNewAddress,
+    TResult? Function(_GoEditAddressEvent value)? goEditAddress,
+    TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_SaveDireccionEvent value)? saveDireccion,
+    TResult Function(_ReadDireccionEvent value)? readDireccion,
+    TResult Function(_UpdateShippingTypeEvent value)? updateShippingType,
+    TResult Function(_GoNewAddressEvent value)? goNewAddress,
+    TResult Function(_AddNewAddressEvent value)? addNewAddress,
+    TResult Function(_GoEditAddressEvent value)? goEditAddress,
+    TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements ProfileEvent {
+  const factory _SignOut() = _$_SignOut;
 }
 
 /// @nodoc
