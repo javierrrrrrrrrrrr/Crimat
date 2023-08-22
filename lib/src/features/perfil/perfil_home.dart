@@ -51,7 +51,7 @@ class ProfileView extends StatelessWidget {
                 profil: profile,
               ),
               noLogedUser: () => const Center(
-                child: Text("Definir que poner aqui"),
+                child: Text("usted no está registrado en la aplicación"),
               ),
               changeCheckSuccess: (id, profile) => ProfileMainWidget(
                 profil: profile,
