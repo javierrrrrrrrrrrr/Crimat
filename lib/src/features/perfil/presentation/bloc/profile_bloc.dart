@@ -2,19 +2,19 @@ import 'package:bloc/bloc.dart';
 import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../errors/failure.dart';
 import '../../../../models/profile/edit_salon_request_data_model.dart';
 import '../../../../models/profile/profile_model.dart';
 import '../../../../repositories/profile_repository.dart';
-import '../../../../shared/app_info.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';
 part 'profile_bloc.freezed.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  String? token = AppUtilInfo().accessToken;
+  // String? token = AppUtilInfo().accessToken;
   final ProfileRepository profilerepo;
 
   ProfileModel? _profiledata;
@@ -36,10 +36,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     ProfileEvent event,
     Emitter emit,
   ) async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
     await event.when(load: () async {
       // _selectedId = await profilerepo.readHistorial();
       emit(const ProfileState.loading());
-      if (token != null) {
+      if (token != '') {
         print('Este es tokken de profile $token');
         dynamic result;
 

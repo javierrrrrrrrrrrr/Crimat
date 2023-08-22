@@ -14,4 +14,5 @@ class ProductEvent with _$ProductEvent {
     required bool isfavorite,
     required int productid,
   }) = _UpdatePrductFavorite;
+  const factory ProductEvent.signOut() = _SignOut;
 }

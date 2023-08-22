@@ -23,6 +23,7 @@ mixin _$CategoriesEvent {
     required TResult Function(
             int categorySelectedIndex, int subCategorySelectedIndex)
         selectSubCategory,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +32,7 @@ mixin _$CategoriesEvent {
     TResult? Function(int? categorySelectedIndex)? selectCategory,
     TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
+    TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +41,7 @@ mixin _$CategoriesEvent {
     TResult Function(int? categorySelectedIndex)? selectCategory,
     TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$CategoriesEvent {
     required TResult Function(_Load value) load,
     required TResult Function(_SelectCategory value) selectCategory,
     required TResult Function(_SelectSubCategory value) selectSubCategory,
+    required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +58,7 @@ mixin _$CategoriesEvent {
     TResult? Function(_Load value)? load,
     TResult? Function(_SelectCategory value)? selectCategory,
     TResult? Function(_SelectSubCategory value)? selectSubCategory,
+    TResult? Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +66,7 @@ mixin _$CategoriesEvent {
     TResult Function(_Load value)? load,
     TResult Function(_SelectCategory value)? selectCategory,
     TResult Function(_SelectSubCategory value)? selectSubCategory,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,6 +131,7 @@ class _$_Load implements _Load {
     required TResult Function(
             int categorySelectedIndex, int subCategorySelectedIndex)
         selectSubCategory,
+    required TResult Function() signOut,
   }) {
     return load();
   }
@@ -136,6 +143,7 @@ class _$_Load implements _Load {
     TResult? Function(int? categorySelectedIndex)? selectCategory,
     TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
+    TResult? Function()? signOut,
   }) {
     return load?.call();
   }
@@ -147,6 +155,7 @@ class _$_Load implements _Load {
     TResult Function(int? categorySelectedIndex)? selectCategory,
     TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -161,6 +170,7 @@ class _$_Load implements _Load {
     required TResult Function(_Load value) load,
     required TResult Function(_SelectCategory value) selectCategory,
     required TResult Function(_SelectSubCategory value) selectSubCategory,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return load(this);
   }
@@ -171,6 +181,7 @@ class _$_Load implements _Load {
     TResult? Function(_Load value)? load,
     TResult? Function(_SelectCategory value)? selectCategory,
     TResult? Function(_SelectSubCategory value)? selectSubCategory,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return load?.call(this);
   }
@@ -181,6 +192,7 @@ class _$_Load implements _Load {
     TResult Function(_Load value)? load,
     TResult Function(_SelectCategory value)? selectCategory,
     TResult Function(_SelectSubCategory value)? selectSubCategory,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -264,6 +276,7 @@ class _$_SelectCategory implements _SelectCategory {
     required TResult Function(
             int categorySelectedIndex, int subCategorySelectedIndex)
         selectSubCategory,
+    required TResult Function() signOut,
   }) {
     return selectCategory(categorySelectedIndex);
   }
@@ -275,6 +288,7 @@ class _$_SelectCategory implements _SelectCategory {
     TResult? Function(int? categorySelectedIndex)? selectCategory,
     TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
+    TResult? Function()? signOut,
   }) {
     return selectCategory?.call(categorySelectedIndex);
   }
@@ -286,6 +300,7 @@ class _$_SelectCategory implements _SelectCategory {
     TResult Function(int? categorySelectedIndex)? selectCategory,
     TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (selectCategory != null) {
@@ -300,6 +315,7 @@ class _$_SelectCategory implements _SelectCategory {
     required TResult Function(_Load value) load,
     required TResult Function(_SelectCategory value) selectCategory,
     required TResult Function(_SelectSubCategory value) selectSubCategory,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return selectCategory(this);
   }
@@ -310,6 +326,7 @@ class _$_SelectCategory implements _SelectCategory {
     TResult? Function(_Load value)? load,
     TResult? Function(_SelectCategory value)? selectCategory,
     TResult? Function(_SelectSubCategory value)? selectSubCategory,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return selectCategory?.call(this);
   }
@@ -320,6 +337,7 @@ class _$_SelectCategory implements _SelectCategory {
     TResult Function(_Load value)? load,
     TResult Function(_SelectCategory value)? selectCategory,
     TResult Function(_SelectSubCategory value)? selectSubCategory,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (selectCategory != null) {
@@ -423,6 +441,7 @@ class _$_SelectSubCategory implements _SelectSubCategory {
     required TResult Function(
             int categorySelectedIndex, int subCategorySelectedIndex)
         selectSubCategory,
+    required TResult Function() signOut,
   }) {
     return selectSubCategory(categorySelectedIndex, subCategorySelectedIndex);
   }
@@ -434,6 +453,7 @@ class _$_SelectSubCategory implements _SelectSubCategory {
     TResult? Function(int? categorySelectedIndex)? selectCategory,
     TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
+    TResult? Function()? signOut,
   }) {
     return selectSubCategory?.call(
         categorySelectedIndex, subCategorySelectedIndex);
@@ -446,6 +466,7 @@ class _$_SelectSubCategory implements _SelectSubCategory {
     TResult Function(int? categorySelectedIndex)? selectCategory,
     TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
         selectSubCategory,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (selectSubCategory != null) {
@@ -460,6 +481,7 @@ class _$_SelectSubCategory implements _SelectSubCategory {
     required TResult Function(_Load value) load,
     required TResult Function(_SelectCategory value) selectCategory,
     required TResult Function(_SelectSubCategory value) selectSubCategory,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return selectSubCategory(this);
   }
@@ -470,6 +492,7 @@ class _$_SelectSubCategory implements _SelectSubCategory {
     TResult? Function(_Load value)? load,
     TResult? Function(_SelectCategory value)? selectCategory,
     TResult? Function(_SelectSubCategory value)? selectSubCategory,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return selectSubCategory?.call(this);
   }
@@ -480,6 +503,7 @@ class _$_SelectSubCategory implements _SelectSubCategory {
     TResult Function(_Load value)? load,
     TResult Function(_SelectCategory value)? selectCategory,
     TResult Function(_SelectSubCategory value)? selectSubCategory,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (selectSubCategory != null) {
@@ -499,6 +523,123 @@ abstract class _SelectSubCategory implements CategoriesEvent {
   @JsonKey(ignore: true)
   _$$_SelectSubCategoryCopyWith<_$_SelectSubCategory> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SignOutCopyWith<$Res> {
+  factory _$$_SignOutCopyWith(
+          _$_SignOut value, $Res Function(_$_SignOut) then) =
+      __$$_SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignOutCopyWithImpl<$Res>
+    extends _$CategoriesEventCopyWithImpl<$Res, _$_SignOut>
+    implements _$$_SignOutCopyWith<$Res> {
+  __$$_SignOutCopyWithImpl(_$_SignOut _value, $Res Function(_$_SignOut) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignOut implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString() {
+    return 'CategoriesEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(int? categorySelectedIndex) selectCategory,
+    required TResult Function(
+            int categorySelectedIndex, int subCategorySelectedIndex)
+        selectSubCategory,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(int? categorySelectedIndex)? selectCategory,
+    TResult? Function(int categorySelectedIndex, int subCategorySelectedIndex)?
+        selectSubCategory,
+    TResult? Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(int? categorySelectedIndex)? selectCategory,
+    TResult Function(int categorySelectedIndex, int subCategorySelectedIndex)?
+        selectSubCategory,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_SelectCategory value) selectCategory,
+    required TResult Function(_SelectSubCategory value) selectSubCategory,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_SelectCategory value)? selectCategory,
+    TResult? Function(_SelectSubCategory value)? selectSubCategory,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_SelectCategory value)? selectCategory,
+    TResult Function(_SelectSubCategory value)? selectSubCategory,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements CategoriesEvent {
+  const factory _SignOut() = _$_SignOut;
 }
 
 /// @nodoc

@@ -28,7 +28,6 @@ import '../../services/historial_sources/historial_online_data_source.dart';
 import '../../services/payment_source/payment_data_source.dart';
 import '../../services/home/product_data_source.dart';
 import '../../services/profile_sources/profile_data_source.dart';
-import '../app_info.dart';
 
 final sl = GetIt.instance;
 
@@ -41,7 +40,6 @@ Future<void> init() async {
   final pref = await SharedPreferences.getInstance();
   sl.registerLazySingleton<SharedPreferences>(() => pref);
 
-  sl.registerLazySingleton(() => AppUtilInfo());
   sl.registerLazySingleton(() => LayoutCubit());
   sl.registerLazySingleton(() => LoginCubit());
 

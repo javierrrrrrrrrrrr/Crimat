@@ -18,7 +18,7 @@ class ProductDataSource {
 
     try {
       final http.Response response;
-      if (token != null) {
+      if (token != '') {
         response =
             await http.get(uri, headers: {'Authorization': 'Bearer $token'});
       } else {

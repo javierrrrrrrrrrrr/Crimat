@@ -4,14 +4,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/auth/login_response_model.dart';
 import '../../repositories/auth_repository.dart';
-import '../../shared/app_info.dart';
-import '../../shared/dependency_injection/dependency_injection.dart';
 
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(const SplashState(status: SplashStatus.loading));
 
   void init() async {
     final prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', '');
+
     final isFirstTime = prefs.getBool('isFirstTime');
 
     await Future.delayed(const Duration(seconds: 2));
@@ -51,17 +51,21 @@ Future<bool> checkLogin() async {
   final savedPassword = prefs.getString('password');
 
   if (savedEmail != null && savedPassword != null) {
-    LoginResponseModel resp =
-        await AuthRepository().login(savedEmail, savedPassword);
-    if (resp.accessToken.isNotEmpty) {
-      AppUtilInfo appInfo = sl<AppUtilInfo>();
-      appInfo.accessToken = resp.accessToken;
-      appInfo.refreshToken = resp.refreshToken;
+    try {
+      LoginResponseModel resp =
+          await AuthRepository().login(savedEmail, savedPassword);
 
-      value = true;
-    } else {
-      value = false;
+      if (resp.accessToken.isNotEmpty) {
+        prefs.setString('token', resp.accessToken);
+
+        value = true;
+      } else {
+        value = false;
+      }
+    } catch (error) {
+      prefs.setString('token', '');
     }
   }
+
   return value;
 }

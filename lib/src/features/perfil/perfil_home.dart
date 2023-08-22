@@ -14,14 +14,16 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/profile/profile_model.dart';
-import '../../shared/app_info.dart';
-import '../../shared/dependency_injection/dependency_injection.dart';
 import '../../shared/utils/const.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../auth/cubit/login_cubit.dart';
 import '../auth/screens/login_screen.dart';
 import '../favorites/presentation/bloc/favorite_bloc.dart';
+import '../home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
+import '../home/presentation/bloc/categories_bloc/categories_bloc.dart';
+import '../home/presentation/bloc/product_bloc/product_bloc.dart';
 import '../layout/layout_cubit.dart';
+import '../payment/presentation/bloc/payment_bloc.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({
@@ -134,23 +136,34 @@ class ProfileMainWidget extends StatelessWidget {
   }
 
   void clearAllValues(BuildContext context) async {
+    CategoriesBloc categoribloc = context.read<CategoriesBloc>();
+    AlmacenBloc almacenbloc = context.read<AlmacenBloc>();
+    ProductBloc productBloc = context.read<ProductBloc>();
     ProfileBloc profileBloc = context.read<ProfileBloc>();
+    PaymentBloc paymentBloc = context.read<PaymentBloc>();
     FavoriteBloc favoriteBloc = context.read<FavoriteBloc>();
     LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     LayoutCubit layoutcubit = BlocProvider.of<LayoutCubit>(context);
-    AppUtilInfo appInfo = sl<AppUtilInfo>();
+    //  AppUtilInfo appInfo = sl<AppUtilInfo>();
 
     ///////
-    appInfo.accessToken = null;
-    appInfo.refreshToken = null;
+    // appInfo.accessToken = null;
+    // appInfo.refreshToken = null;
+    categoribloc.add(const CategoriesEvent.signOut());
+    almacenbloc.add(const AlmacenEvent.signOut());
+    almacenbloc.add(AlmacenEvent.activeAlmacen(
+        index: -1, almacenes: almacenbloc.almaceneslist));
+    productBloc.add(const ProductEvent.signOut());
     favoriteBloc.add(const FavoriteEvent.signOut());
     profileBloc.add(const ProfileEvent.signOut());
+    paymentBloc.add(const PaymentEvent.signOut());
     layoutcubit.changeScreen(0);
 
     cubit.loginForm.control('email').updateValue('');
     cubit.loginForm.control('password').updateValue('');
     context.pushReplacementNamed(LoginScreen.name);
     final prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', '');
     prefs.remove('email');
     prefs.remove('password');
   }

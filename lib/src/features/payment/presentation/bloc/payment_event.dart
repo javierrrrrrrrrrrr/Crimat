@@ -10,4 +10,5 @@ abstract class PaymentEvent with _$PaymentEvent {
       _StartedPhase2Event;
   const factory PaymentEvent.erroroccurred() = _ErroroccurredEvent;
   const factory PaymentEvent.completed() = _CompletedEvent;
+  const factory PaymentEvent.signOut() = _SignOut;
 }

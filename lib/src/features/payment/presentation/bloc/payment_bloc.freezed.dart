@@ -24,6 +24,7 @@ mixin _$PaymentEvent {
     required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$PaymentEvent {
     TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
+    TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$PaymentEvent {
     TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$PaymentEvent {
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
     required TResult Function(_CompletedEvent value) completed,
+    required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$PaymentEvent {
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
     TResult? Function(_CompletedEvent value)? completed,
+    TResult? Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$PaymentEvent {
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
     TResult Function(_CompletedEvent value)? completed,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +148,7 @@ class _$_LoadEvent implements _LoadEvent {
     required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
+    required TResult Function() signOut,
   }) {
     return load();
   }
@@ -155,6 +162,7 @@ class _$_LoadEvent implements _LoadEvent {
     TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
+    TResult? Function()? signOut,
   }) {
     return load?.call();
   }
@@ -168,6 +176,7 @@ class _$_LoadEvent implements _LoadEvent {
     TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -185,6 +194,7 @@ class _$_LoadEvent implements _LoadEvent {
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
     required TResult Function(_CompletedEvent value) completed,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return load(this);
   }
@@ -198,6 +208,7 @@ class _$_LoadEvent implements _LoadEvent {
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
     TResult? Function(_CompletedEvent value)? completed,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return load?.call(this);
   }
@@ -211,6 +222,7 @@ class _$_LoadEvent implements _LoadEvent {
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
     TResult Function(_CompletedEvent value)? completed,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -268,6 +280,7 @@ class _$_StartedPhase0Event implements _StartedPhase0Event {
     required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
+    required TResult Function() signOut,
   }) {
     return startedPhase0();
   }
@@ -281,6 +294,7 @@ class _$_StartedPhase0Event implements _StartedPhase0Event {
     TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
+    TResult? Function()? signOut,
   }) {
     return startedPhase0?.call();
   }
@@ -294,6 +308,7 @@ class _$_StartedPhase0Event implements _StartedPhase0Event {
     TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (startedPhase0 != null) {
@@ -311,6 +326,7 @@ class _$_StartedPhase0Event implements _StartedPhase0Event {
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
     required TResult Function(_CompletedEvent value) completed,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return startedPhase0(this);
   }
@@ -324,6 +340,7 @@ class _$_StartedPhase0Event implements _StartedPhase0Event {
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
     TResult? Function(_CompletedEvent value)? completed,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return startedPhase0?.call(this);
   }
@@ -337,6 +354,7 @@ class _$_StartedPhase0Event implements _StartedPhase0Event {
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
     TResult Function(_CompletedEvent value)? completed,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (startedPhase0 != null) {
@@ -421,6 +439,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
     required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
+    required TResult Function() signOut,
   }) {
     return startedPhase1(datos);
   }
@@ -434,6 +453,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
     TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
+    TResult? Function()? signOut,
   }) {
     return startedPhase1?.call(datos);
   }
@@ -447,6 +467,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
     TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (startedPhase1 != null) {
@@ -464,6 +485,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
     required TResult Function(_CompletedEvent value) completed,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return startedPhase1(this);
   }
@@ -477,6 +499,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
     TResult? Function(_CompletedEvent value)? completed,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return startedPhase1?.call(this);
   }
@@ -490,6 +513,7 @@ class _$_StartedPhase1Event implements _StartedPhase1Event {
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
     TResult Function(_CompletedEvent value)? completed,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (startedPhase1 != null) {
@@ -580,6 +604,7 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
     required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
+    required TResult Function() signOut,
   }) {
     return startedPhase2(context);
   }
@@ -593,6 +618,7 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
     TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
+    TResult? Function()? signOut,
   }) {
     return startedPhase2?.call(context);
   }
@@ -606,6 +632,7 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
     TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (startedPhase2 != null) {
@@ -623,6 +650,7 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
     required TResult Function(_CompletedEvent value) completed,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return startedPhase2(this);
   }
@@ -636,6 +664,7 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
     TResult? Function(_CompletedEvent value)? completed,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return startedPhase2?.call(this);
   }
@@ -649,6 +678,7 @@ class _$_StartedPhase2Event implements _StartedPhase2Event {
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
     TResult Function(_CompletedEvent value)? completed,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (startedPhase2 != null) {
@@ -712,6 +742,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
     required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
+    required TResult Function() signOut,
   }) {
     return erroroccurred();
   }
@@ -725,6 +756,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
     TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
+    TResult? Function()? signOut,
   }) {
     return erroroccurred?.call();
   }
@@ -738,6 +770,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
     TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (erroroccurred != null) {
@@ -755,6 +788,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
     required TResult Function(_CompletedEvent value) completed,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return erroroccurred(this);
   }
@@ -768,6 +802,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
     TResult? Function(_CompletedEvent value)? completed,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return erroroccurred?.call(this);
   }
@@ -781,6 +816,7 @@ class _$_ErroroccurredEvent implements _ErroroccurredEvent {
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
     TResult Function(_CompletedEvent value)? completed,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (erroroccurred != null) {
@@ -838,6 +874,7 @@ class _$_CompletedEvent implements _CompletedEvent {
     required TResult Function(BuildContext context) startedPhase2,
     required TResult Function() erroroccurred,
     required TResult Function() completed,
+    required TResult Function() signOut,
   }) {
     return completed();
   }
@@ -851,6 +888,7 @@ class _$_CompletedEvent implements _CompletedEvent {
     TResult? Function(BuildContext context)? startedPhase2,
     TResult? Function()? erroroccurred,
     TResult? Function()? completed,
+    TResult? Function()? signOut,
   }) {
     return completed?.call();
   }
@@ -864,6 +902,7 @@ class _$_CompletedEvent implements _CompletedEvent {
     TResult Function(BuildContext context)? startedPhase2,
     TResult Function()? erroroccurred,
     TResult Function()? completed,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (completed != null) {
@@ -881,6 +920,7 @@ class _$_CompletedEvent implements _CompletedEvent {
     required TResult Function(_StartedPhase2Event value) startedPhase2,
     required TResult Function(_ErroroccurredEvent value) erroroccurred,
     required TResult Function(_CompletedEvent value) completed,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return completed(this);
   }
@@ -894,6 +934,7 @@ class _$_CompletedEvent implements _CompletedEvent {
     TResult? Function(_StartedPhase2Event value)? startedPhase2,
     TResult? Function(_ErroroccurredEvent value)? erroroccurred,
     TResult? Function(_CompletedEvent value)? completed,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return completed?.call(this);
   }
@@ -907,6 +948,7 @@ class _$_CompletedEvent implements _CompletedEvent {
     TResult Function(_StartedPhase2Event value)? startedPhase2,
     TResult Function(_ErroroccurredEvent value)? erroroccurred,
     TResult Function(_CompletedEvent value)? completed,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (completed != null) {
@@ -918,6 +960,137 @@ class _$_CompletedEvent implements _CompletedEvent {
 
 abstract class _CompletedEvent implements PaymentEvent {
   const factory _CompletedEvent() = _$_CompletedEvent;
+}
+
+/// @nodoc
+abstract class _$$_SignOutCopyWith<$Res> {
+  factory _$$_SignOutCopyWith(
+          _$_SignOut value, $Res Function(_$_SignOut) then) =
+      __$$_SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignOutCopyWithImpl<$Res>
+    extends _$PaymentEventCopyWithImpl<$Res, _$_SignOut>
+    implements _$$_SignOutCopyWith<$Res> {
+  __$$_SignOutCopyWithImpl(_$_SignOut _value, $Res Function(_$_SignOut) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignOut implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString() {
+    return 'PaymentEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() startedPhase0,
+    required TResult Function(RequestModel datos) startedPhase1,
+    required TResult Function(BuildContext context) startedPhase2,
+    required TResult Function() erroroccurred,
+    required TResult Function() completed,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? startedPhase0,
+    TResult? Function(RequestModel datos)? startedPhase1,
+    TResult? Function(BuildContext context)? startedPhase2,
+    TResult? Function()? erroroccurred,
+    TResult? Function()? completed,
+    TResult? Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? startedPhase0,
+    TResult Function(RequestModel datos)? startedPhase1,
+    TResult Function(BuildContext context)? startedPhase2,
+    TResult Function()? erroroccurred,
+    TResult Function()? completed,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_StartedPhase0Event value) startedPhase0,
+    required TResult Function(_StartedPhase1Event value) startedPhase1,
+    required TResult Function(_StartedPhase2Event value) startedPhase2,
+    required TResult Function(_ErroroccurredEvent value) erroroccurred,
+    required TResult Function(_CompletedEvent value) completed,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_StartedPhase0Event value)? startedPhase0,
+    TResult? Function(_StartedPhase1Event value)? startedPhase1,
+    TResult? Function(_StartedPhase2Event value)? startedPhase2,
+    TResult? Function(_ErroroccurredEvent value)? erroroccurred,
+    TResult? Function(_CompletedEvent value)? completed,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_StartedPhase0Event value)? startedPhase0,
+    TResult Function(_StartedPhase1Event value)? startedPhase1,
+    TResult Function(_StartedPhase2Event value)? startedPhase2,
+    TResult Function(_ErroroccurredEvent value)? erroroccurred,
+    TResult Function(_CompletedEvent value)? completed,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements PaymentEvent {
+  const factory _SignOut() = _$_SignOut;
 }
 
 /// @nodoc

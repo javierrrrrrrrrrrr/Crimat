@@ -47,7 +47,7 @@ class MainProdcutCarrusel extends StatelessWidget {
                     },
                   ),
                 ),
-            loadedSuccess: (productos, _) {
+            loadedSuccess: (productos, _, __) {
               if (productos.isEmpty) {
                 return const NoSelectedAlmacenwidget(
                     message:
