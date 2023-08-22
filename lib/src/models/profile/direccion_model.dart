@@ -5,7 +5,7 @@ part 'direccion_model.g.dart';
 @JsonSerializable()
 class DireccionModel {
   @JsonKey(name: 'id')
-  final int id;
+  final int? id;
   @JsonKey(name: 'direccion')
   final String direccion;
   @JsonKey(name: 'apartado')
@@ -21,7 +21,7 @@ class DireccionModel {
 
   DireccionModel({
     this.codigoPostal,
-    required this.id,
+    this.id,
     required this.direccion,
     required this.apartado,
     required this.ciudad,

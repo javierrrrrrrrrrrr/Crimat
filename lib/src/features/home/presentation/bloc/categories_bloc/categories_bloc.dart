@@ -66,7 +66,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
       },
       signOut: () {
         resetVariable();
-        emit(const CategoriesState.initial());
+      //  emit(const CategoriesState.initial());
       },
     );
   }

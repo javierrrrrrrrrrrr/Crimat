@@ -149,7 +149,10 @@ class ProfileMainWidget extends StatelessWidget {
     ///////
     // appInfo.accessToken = null;
     // appInfo.refreshToken = null;
+    //  categoribloc.add(const CategoriesEvent.selectCategory(categorySelectedIndex: -1));
+    // categoribloc.add( CategoriesEvent.selectSubCategory());
     categoribloc.add(const CategoriesEvent.signOut());
+
     almacenbloc.add(const AlmacenEvent.signOut());
     almacenbloc.add(AlmacenEvent.activeAlmacen(
         index: -1, almacenes: almacenbloc.almaceneslist));

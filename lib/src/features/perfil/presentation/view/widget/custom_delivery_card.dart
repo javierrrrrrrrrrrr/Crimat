@@ -183,7 +183,7 @@ class CustomMainRowWidget extends StatelessWidget {
           value: datos!.salones[index].direccion.id == id ? true : false,
           onChanged: (value) {
             profilebloc.add(ProfileEvent.saveDireccion(
-                id: datos!.salones[index].direccion.id));
+                id: datos!.salones[index].direccion.id!));
           },
           materialTapTargetSize: MaterialTapTargetSize.padded,
         ),

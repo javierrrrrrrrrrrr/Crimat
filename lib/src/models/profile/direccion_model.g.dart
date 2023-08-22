@@ -9,7 +9,7 @@ part of 'direccion_model.dart';
 DireccionModel _$DireccionModelFromJson(Map<String, dynamic> json) =>
     DireccionModel(
       codigoPostal: json['codigo_postal'] as String?,
-      id: json['id'] as int,
+      id: json['id'] as int?,
       direccion: json['direccion'] as String,
       apartado: json['apartado'] as String,
       ciudad: json['ciudad'] as String,

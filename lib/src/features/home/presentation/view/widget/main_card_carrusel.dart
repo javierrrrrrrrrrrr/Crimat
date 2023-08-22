@@ -26,7 +26,6 @@ class MainCardCarrusel extends StatelessWidget {
   Widget build(BuildContext context) {
     final cartBloc = context.read<CartBloc>();
 
-    //  String? token = sl<AppUtilInfo>().accessToken;
     final productbloc = context.read<ProductBloc>();
     final favoritebloc = context.read<FavoriteBloc>();
 
@@ -42,7 +41,7 @@ class MainCardCarrusel extends StatelessWidget {
             color: Colors.white.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: const Offset(0, 3), // Cambiar la dirección de la sombra
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -54,8 +53,6 @@ class MainCardCarrusel extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () async {
-                  // String? token = AppUtilInfo().accessToken;
-                  // print(token);
                   final args = producto;
 
                   context.pushNamed(ProductsDetails.name, extra: args);
