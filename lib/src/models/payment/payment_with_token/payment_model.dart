@@ -99,14 +99,14 @@ class DireccionModel {
   final String estado;
 
   @JsonKey(name: 'codigo postal')
-  final String codigoPostal;
+  final String? codigoPostal;
 
   DireccionModel({
     required this.direccion,
     required this.ciudad,
     required this.apartado,
     required this.estado,
-    required this.codigoPostal,
+    this.codigoPostal,
   });
 
   factory DireccionModel.fromJson(Map<String, dynamic> json) =>

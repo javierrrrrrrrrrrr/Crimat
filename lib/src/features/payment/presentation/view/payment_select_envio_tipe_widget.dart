@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../models/payment/request_data_model.dart';
-import '../../../../models/payment/shipping_model.dart';
+import '../../../../models/payment/payment_with_token/request_data_model.dart';
+import '../../../../models/payment/payment_with_token/shipping_model.dart';
 import '../../../../models/profile/profile_model.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../perfil/presentation/bloc/profile_bloc.dart';
@@ -47,7 +47,12 @@ class TipoEnvioDireccion extends StatelessWidget {
               return BlocBuilder<ProfileBloc, ProfileState>(
                 builder: (context, state) {
                   return state.maybeWhen(
-                      orElse: () => Container(),
+                      orElse: () => CustomDeliveryType(
+                          model: data,
+                          modelselected: data[data.indexWhere((shipping) =>
+                                  shipping.id ==
+                                  profilebloc.selectedShippingTypeid) +
+                              1]),
                       changeCheckSuccess: (_, __) => CustomDeliveryType(
                           model: data,
                           modelselected: data[data.indexWhere((shipping) =>
@@ -56,9 +61,7 @@ class TipoEnvioDireccion extends StatelessWidget {
                               1]),
                       updateDeliveryTypeSeleccion: (id) => CustomDeliveryType(
                           model: data,
-                          modelselected: data[
-                              data.indexWhere((shipping) => shipping.id == id) +
-                                  1]));
+                          modelselected: data[data.indexWhere((shipping) => shipping.id == id) + 1]));
                 },
               );
             },

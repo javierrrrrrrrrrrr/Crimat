@@ -1,10 +1,12 @@
 import 'package:crimat_app/src/features/payment/presentation/view/payment_completed_widget.dart';
 import 'package:crimat_app/src/features/payment/presentation/view/payment_select_envio_tipe_widget.dart';
+import 'package:crimat_app/src/features/payment/presentation/view/payment_without_token_first_step.dart';
+import 'package:crimat_app/src/features/payment/presentation/view/payment_without_token_form_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../models/payment/payment_model.dart';
+import '../../../../models/payment/payment_with_token/payment_model.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../bloc/payment_bloc.dart';
@@ -28,18 +30,20 @@ class PaymentAuxView extends StatelessWidget {
       builder: (context, state) {
         return BlocBuilder<PaymentBloc, PaymentState>(
           builder: (context, state) {
-            return state.when(
-                initial: () => Container(),
-                phase1InProgress: () => Container(),
-                phase2InProgress: () => Container(),
-                completed: () => const CompletedWidget(),
-                cancelled: () => Container(),
-                error: (messege) => Container(),
-                phase1Complated: (paymentdata) => CheckoutView(
-                      paymentdata: paymentdata,
-                    ),
-                phase0Complated: (data) => TipoEnvioDireccion(data: data),
-                phase0InProgress: () => Container());
+            return state.maybeWhen(
+              orElse: () => Container(),
+              completed: () => const CompletedWidget(),
+              phase1Complated: (paymentdata) => CheckoutView(
+                paymentdata: paymentdata,
+              ),
+              phase0Complated: (data) => TipoEnvioDireccion(data: data),
+              phase0WithoutTokenComplated: (data) =>
+                  FirstStepWithoutTokenPayment(data: data),
+              phase1InProgressWithoutToken: () =>
+                  const FormForDataNoRegisterUser(),
+              phase2WithoutTokenComplated: (datos) =>
+                  CheckoutView(paymentdata: datos),
+            );
           },
         );
       },

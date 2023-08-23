@@ -60,7 +60,7 @@ DireccionModel _$DireccionModelFromJson(Map<String, dynamic> json) =>
       ciudad: json['ciudad'] as String,
       apartado: json['apartado'] as String,
       estado: json['estado'] as String,
-      codigoPostal: json['codigo postal'] as String,
+      codigoPostal: json['codigo postal'] as String?,
     );
 
 Map<String, dynamic> _$DireccionModelToJson(DireccionModel instance) =>

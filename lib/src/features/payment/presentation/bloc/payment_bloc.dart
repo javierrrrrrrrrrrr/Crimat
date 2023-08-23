@@ -2,12 +2,14 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../errors/failure.dart';
-import '../../../../models/payment/payment_model.dart';
-import '../../../../models/payment/request_data_model.dart';
-import '../../../../models/payment/shipping_model.dart';
+import '../../../../models/payment/payment_with_token/payment_model.dart';
+import '../../../../models/payment/payment_with_token/request_data_model.dart';
+import '../../../../models/payment/payment_with_token/shipping_model.dart';
+import '../../../../models/payment/payment_without_token/without_token_request_model.dart';
 import '../../../../repositories/payment_repository.dart';
 
 part 'payment_event.dart';
@@ -90,6 +92,42 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
         signOut: () {
           resteVariables();
           emit(const PaymentState.initial());
+        },
+        //sin token
+        startedPhase0WithoutToken: () async {
+          emit(const PaymentState.phase0InProgressWithoutToken());
+          dynamic result = await paymentdata.getShippingMethods();
+          result.fold((failure) {
+            if (failure is ServerFailure) {
+              emit(const PaymentState.error(
+                  message: "Error al cargar los datos"));
+            }
+          }, (paymentdata) {
+            _shippingMethods = paymentdata;
+            emit(PaymentState.phase0WithoutTokenComplated(
+                paymentdata: paymentdata));
+          });
+        },
+        startedPhase1WithoutToken: () {
+          emit(const PaymentState.phase1InProgressWithoutToken());
+        },
+        startedPhase2WithoutToken: (data) async {
+          emit(const PaymentState.phase2InProgressWithoutToken());
+
+          dynamic result = await paymentdata.getPaymentDataNoUser(
+            datos: data,
+          );
+
+          result.fold((failure) {
+            if (failure is ServerFailure) {
+              emit(const PaymentState.error(
+                  message:
+                      "Estamos presentando problemas para procesar su solicitud"));
+            }
+          }, (PaymentModel paymentdata) {
+            paymentdatos = paymentdata;
+            emit(PaymentState.phase2WithoutTokenComplated(datos: paymentdata));
+          });
         });
   }
 
@@ -97,4 +135,52 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
     paymentdatos = null;
     _shippingMethods = null;
   }
+
+  FormGroup unregisterUser = FormGroup(
+    {
+      'nombre': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
+      'apellidos': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
+      'email': FormControl<String>(
+        validators: [Validators.required, Validators.email],
+      ),
+      'telefono': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
+      'direccion': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
+      'apartado': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
+      'ciudad': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
+      'estado': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
+      'codigo_postal': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
+    },
+  );
 }
