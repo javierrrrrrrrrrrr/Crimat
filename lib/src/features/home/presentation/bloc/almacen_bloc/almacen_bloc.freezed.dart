@@ -21,18 +21,21 @@ mixin _$AlmacenEvent {
     required TResult Function() load,
     required TResult Function(int index, List<AlmacenModel> almacenes)
         activeAlmacen,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
+    TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$AlmacenEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
     required TResult Function(_ActiveAlmacen value) activeAlmacen,
+    required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
     TResult? Function(_ActiveAlmacen value)? activeAlmacen,
+    TResult? Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
     TResult Function(_ActiveAlmacen value)? activeAlmacen,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$_Load implements _Load {
     required TResult Function() load,
     required TResult Function(int index, List<AlmacenModel> almacenes)
         activeAlmacen,
+    required TResult Function() signOut,
   }) {
     return load();
   }
@@ -123,6 +130,7 @@ class _$_Load implements _Load {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
+    TResult? Function()? signOut,
   }) {
     return load?.call();
   }
@@ -132,6 +140,7 @@ class _$_Load implements _Load {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -145,6 +154,7 @@ class _$_Load implements _Load {
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
     required TResult Function(_ActiveAlmacen value) activeAlmacen,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return load(this);
   }
@@ -154,6 +164,7 @@ class _$_Load implements _Load {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
     TResult? Function(_ActiveAlmacen value)? activeAlmacen,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return load?.call(this);
   }
@@ -163,6 +174,7 @@ class _$_Load implements _Load {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
     TResult Function(_ActiveAlmacen value)? activeAlmacen,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -260,6 +272,7 @@ class _$_ActiveAlmacen implements _ActiveAlmacen {
     required TResult Function() load,
     required TResult Function(int index, List<AlmacenModel> almacenes)
         activeAlmacen,
+    required TResult Function() signOut,
   }) {
     return activeAlmacen(index, almacenes);
   }
@@ -269,6 +282,7 @@ class _$_ActiveAlmacen implements _ActiveAlmacen {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
+    TResult? Function()? signOut,
   }) {
     return activeAlmacen?.call(index, almacenes);
   }
@@ -278,6 +292,7 @@ class _$_ActiveAlmacen implements _ActiveAlmacen {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (activeAlmacen != null) {
@@ -291,6 +306,7 @@ class _$_ActiveAlmacen implements _ActiveAlmacen {
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
     required TResult Function(_ActiveAlmacen value) activeAlmacen,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return activeAlmacen(this);
   }
@@ -300,6 +316,7 @@ class _$_ActiveAlmacen implements _ActiveAlmacen {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
     TResult? Function(_ActiveAlmacen value)? activeAlmacen,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return activeAlmacen?.call(this);
   }
@@ -309,6 +326,7 @@ class _$_ActiveAlmacen implements _ActiveAlmacen {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
     TResult Function(_ActiveAlmacen value)? activeAlmacen,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (activeAlmacen != null) {
@@ -328,6 +346,114 @@ abstract class _ActiveAlmacen implements AlmacenEvent {
   @JsonKey(ignore: true)
   _$$_ActiveAlmacenCopyWith<_$_ActiveAlmacen> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SignOutCopyWith<$Res> {
+  factory _$$_SignOutCopyWith(
+          _$_SignOut value, $Res Function(_$_SignOut) then) =
+      __$$_SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignOutCopyWithImpl<$Res>
+    extends _$AlmacenEventCopyWithImpl<$Res, _$_SignOut>
+    implements _$$_SignOutCopyWith<$Res> {
+  __$$_SignOutCopyWithImpl(_$_SignOut _value, $Res Function(_$_SignOut) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignOut implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString() {
+    return 'AlmacenEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(int index, List<AlmacenModel> almacenes)
+        activeAlmacen,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
+    TResult? Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(int index, List<AlmacenModel> almacenes)? activeAlmacen,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_ActiveAlmacen value) activeAlmacen,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_ActiveAlmacen value)? activeAlmacen,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_ActiveAlmacen value)? activeAlmacen,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements AlmacenEvent {
+  const factory _SignOut() = _$_SignOut;
 }
 
 /// @nodoc

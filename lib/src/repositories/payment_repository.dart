@@ -3,9 +3,10 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 
 import '../errors/expetion.dart';
 import '../errors/failure.dart';
-import '../models/payment/payment_model.dart';
-import '../models/payment/request_data_model.dart';
-import '../models/payment/shipping_model.dart';
+import '../models/payment/payment_with_token/payment_model.dart';
+import '../models/payment/payment_with_token/request_data_model.dart';
+import '../models/payment/payment_with_token/shipping_model.dart';
+import '../models/payment/payment_without_token/without_token_request_model.dart';
 import '../services/payment_source/payment_data_source.dart';
 
 class PaymentRepository {
@@ -15,11 +16,21 @@ class PaymentRepository {
 
   Future<Either<Failure, PaymentModel>> getPaymentData(
       {required String token, required RequestModel datos}) async {
-    //TODO: Hacer la implementacion de si el dispositivo tiene internet.
-
     final PaymentModel data;
     try {
-      data = await paymentDataSurce.getPaymentData(token, datos);
+      data = await paymentDataSurce.getPaymentDatawithtoken(token, datos);
+
+      return Right(data);
+    } on ServerException {
+      return Left(ServerFailure('Server failure'));
+    }
+  }
+
+  Future<Either<Failure, PaymentModel>> getPaymentDataNoUser(
+      {required OrderRequestModelWithoutToken datos}) async {
+    final PaymentModel data;
+    try {
+      data = await paymentDataSurce.getPaymentDataNoUser(datos);
 
       return Right(data);
     } on ServerException {
@@ -29,7 +40,7 @@ class PaymentRepository {
 
 //getShippingMethods
   Future<Either<Failure, List<ShippingModel>>> getShippingMethods(
-      {required String token}) async {
+      {String? token}) async {
     try {
       List<ShippingModel> data =
           await paymentDataSurce.getShippingMethods(token);

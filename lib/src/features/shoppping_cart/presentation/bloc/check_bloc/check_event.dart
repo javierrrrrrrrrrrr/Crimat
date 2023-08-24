@@ -6,4 +6,5 @@ abstract class CheckEvent with _$CheckEvent {
       {required List<ProductModel> productlist}) = _UpdateList;
   const factory CheckEvent.updatevisibility({required int index}) =
       _Updatevisibility;
+  const factory CheckEvent.signOut() = _SignOut;
 }

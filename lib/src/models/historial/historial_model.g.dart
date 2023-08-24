@@ -37,24 +37,6 @@ Map<String, dynamic> _$OrdenModelToJson(OrdenModel instance) =>
       'productos': instance.products,
     };
 
-DireccionModel _$DireccionModelFromJson(Map<String, dynamic> json) =>
-    DireccionModel(
-      address: json['direccion'] as String,
-      city: json['ciudad'] as String,
-      apartado: json['apartado'] as String,
-      state: json['estado'] as String,
-      postalCode: json['codigo postal'] as String,
-    );
-
-Map<String, dynamic> _$DireccionModelToJson(DireccionModel instance) =>
-    <String, dynamic>{
-      'direccion': instance.address,
-      'ciudad': instance.city,
-      'apartado': instance.apartado,
-      'estado': instance.state,
-      'codigo postal': instance.postalCode,
-    };
-
 ProductoModel _$ProductoModelFromJson(Map<String, dynamic> json) =>
     ProductoModel(
       json['imagen'] as String,

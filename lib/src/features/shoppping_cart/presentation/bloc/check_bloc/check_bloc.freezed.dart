@@ -20,18 +20,21 @@ mixin _$CheckEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ProductModel> productlist) updateList,
     required TResult Function(int index) updatevisibility,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<ProductModel> productlist)? updateList,
     TResult? Function(int index)? updatevisibility,
+    TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ProductModel> productlist)? updateList,
     TResult Function(int index)? updatevisibility,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$CheckEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_UpdateList value) updateList,
     required TResult Function(_Updatevisibility value) updatevisibility,
+    required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UpdateList value)? updateList,
     TResult? Function(_Updatevisibility value)? updatevisibility,
+    TResult? Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UpdateList value)? updateList,
     TResult Function(_Updatevisibility value)? updatevisibility,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +154,7 @@ class _$_UpdateList implements _UpdateList {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ProductModel> productlist) updateList,
     required TResult Function(int index) updatevisibility,
+    required TResult Function() signOut,
   }) {
     return updateList(productlist);
   }
@@ -157,6 +164,7 @@ class _$_UpdateList implements _UpdateList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<ProductModel> productlist)? updateList,
     TResult? Function(int index)? updatevisibility,
+    TResult? Function()? signOut,
   }) {
     return updateList?.call(productlist);
   }
@@ -166,6 +174,7 @@ class _$_UpdateList implements _UpdateList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ProductModel> productlist)? updateList,
     TResult Function(int index)? updatevisibility,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (updateList != null) {
@@ -179,6 +188,7 @@ class _$_UpdateList implements _UpdateList {
   TResult map<TResult extends Object?>({
     required TResult Function(_UpdateList value) updateList,
     required TResult Function(_Updatevisibility value) updatevisibility,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return updateList(this);
   }
@@ -188,6 +198,7 @@ class _$_UpdateList implements _UpdateList {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UpdateList value)? updateList,
     TResult? Function(_Updatevisibility value)? updatevisibility,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return updateList?.call(this);
   }
@@ -197,6 +208,7 @@ class _$_UpdateList implements _UpdateList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UpdateList value)? updateList,
     TResult Function(_Updatevisibility value)? updatevisibility,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (updateList != null) {
@@ -282,6 +294,7 @@ class _$_Updatevisibility implements _Updatevisibility {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ProductModel> productlist) updateList,
     required TResult Function(int index) updatevisibility,
+    required TResult Function() signOut,
   }) {
     return updatevisibility(index);
   }
@@ -291,6 +304,7 @@ class _$_Updatevisibility implements _Updatevisibility {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<ProductModel> productlist)? updateList,
     TResult? Function(int index)? updatevisibility,
+    TResult? Function()? signOut,
   }) {
     return updatevisibility?.call(index);
   }
@@ -300,6 +314,7 @@ class _$_Updatevisibility implements _Updatevisibility {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ProductModel> productlist)? updateList,
     TResult Function(int index)? updatevisibility,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (updatevisibility != null) {
@@ -313,6 +328,7 @@ class _$_Updatevisibility implements _Updatevisibility {
   TResult map<TResult extends Object?>({
     required TResult Function(_UpdateList value) updateList,
     required TResult Function(_Updatevisibility value) updatevisibility,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return updatevisibility(this);
   }
@@ -322,6 +338,7 @@ class _$_Updatevisibility implements _Updatevisibility {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UpdateList value)? updateList,
     TResult? Function(_Updatevisibility value)? updatevisibility,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return updatevisibility?.call(this);
   }
@@ -331,6 +348,7 @@ class _$_Updatevisibility implements _Updatevisibility {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UpdateList value)? updateList,
     TResult Function(_Updatevisibility value)? updatevisibility,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (updatevisibility != null) {
@@ -348,6 +366,113 @@ abstract class _Updatevisibility implements CheckEvent {
   @JsonKey(ignore: true)
   _$$_UpdatevisibilityCopyWith<_$_Updatevisibility> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SignOutCopyWith<$Res> {
+  factory _$$_SignOutCopyWith(
+          _$_SignOut value, $Res Function(_$_SignOut) then) =
+      __$$_SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignOutCopyWithImpl<$Res>
+    extends _$CheckEventCopyWithImpl<$Res, _$_SignOut>
+    implements _$$_SignOutCopyWith<$Res> {
+  __$$_SignOutCopyWithImpl(_$_SignOut _value, $Res Function(_$_SignOut) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignOut implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString() {
+    return 'CheckEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<ProductModel> productlist) updateList,
+    required TResult Function(int index) updatevisibility,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<ProductModel> productlist)? updateList,
+    TResult? Function(int index)? updatevisibility,
+    TResult? Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<ProductModel> productlist)? updateList,
+    TResult Function(int index)? updatevisibility,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UpdateList value) updateList,
+    required TResult Function(_Updatevisibility value) updatevisibility,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UpdateList value)? updateList,
+    TResult? Function(_Updatevisibility value)? updatevisibility,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UpdateList value)? updateList,
+    TResult Function(_Updatevisibility value)? updatevisibility,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements CheckEvent {
+  const factory _SignOut() = _$_SignOut;
 }
 
 /// @nodoc

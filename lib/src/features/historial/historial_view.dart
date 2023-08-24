@@ -18,8 +18,8 @@ class HistorialView extends StatelessWidget {
     return BlocBuilder<HistorialBloc, HistorialState>(
         builder: (context, state) => state.when(
               initial: () => const SizedBox(),
-              loading: () => const SpinKitFadingCircle(
-                color: Colors.white,
+              loading: () => SpinKitFadingCircle(
+                color: Theme.of(context).primaryColor,
               ),
               failure: (error) => CustomErrorWidget(
                 message: error,

@@ -28,6 +28,7 @@ mixin _$ProductEvent {
     required TResult Function() toInitialState,
     required TResult Function(bool isfavorite, int productid)
         updatePrductFavorite,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$ProductEvent {
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
     TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +54,7 @@ mixin _$ProductEvent {
         getProductsBySubCategories,
     TResult Function()? toInitialState,
     TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +67,7 @@ mixin _$ProductEvent {
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
     required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +78,7 @@ mixin _$ProductEvent {
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
     TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,6 +89,7 @@ mixin _$ProductEvent {
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -181,6 +187,7 @@ class _$_LoadProducts implements _LoadProducts {
     required TResult Function() toInitialState,
     required TResult Function(bool isfavorite, int productid)
         updatePrductFavorite,
+    required TResult Function() signOut,
   }) {
     return loadProducts(id);
   }
@@ -196,6 +203,7 @@ class _$_LoadProducts implements _LoadProducts {
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
     TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult? Function()? signOut,
   }) {
     return loadProducts?.call(id);
   }
@@ -211,6 +219,7 @@ class _$_LoadProducts implements _LoadProducts {
         getProductsBySubCategories,
     TResult Function()? toInitialState,
     TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -229,6 +238,7 @@ class _$_LoadProducts implements _LoadProducts {
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
     required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return loadProducts(this);
   }
@@ -242,6 +252,7 @@ class _$_LoadProducts implements _LoadProducts {
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
     TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return loadProducts?.call(this);
   }
@@ -255,6 +266,7 @@ class _$_LoadProducts implements _LoadProducts {
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -367,6 +379,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
     required TResult Function() toInitialState,
     required TResult Function(bool isfavorite, int productid)
         updatePrductFavorite,
+    required TResult Function() signOut,
   }) {
     return getProductsByCategories(category, listProduct);
   }
@@ -382,6 +395,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
     TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult? Function()? signOut,
   }) {
     return getProductsByCategories?.call(category, listProduct);
   }
@@ -397,6 +411,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
         getProductsBySubCategories,
     TResult Function()? toInitialState,
     TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (getProductsByCategories != null) {
@@ -415,6 +430,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
     required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return getProductsByCategories(this);
   }
@@ -428,6 +444,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
     TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return getProductsByCategories?.call(this);
   }
@@ -441,6 +458,7 @@ class _$_GetProductsByCategories implements _GetProductsByCategories {
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (getProductsByCategories != null) {
@@ -559,6 +577,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
     required TResult Function() toInitialState,
     required TResult Function(bool isfavorite, int productid)
         updatePrductFavorite,
+    required TResult Function() signOut,
   }) {
     return getProductsBySubCategories(subCategory, listProduct);
   }
@@ -574,6 +593,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
     TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult? Function()? signOut,
   }) {
     return getProductsBySubCategories?.call(subCategory, listProduct);
   }
@@ -589,6 +609,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
         getProductsBySubCategories,
     TResult Function()? toInitialState,
     TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (getProductsBySubCategories != null) {
@@ -607,6 +628,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
     required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return getProductsBySubCategories(this);
   }
@@ -620,6 +642,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
     TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return getProductsBySubCategories?.call(this);
   }
@@ -633,6 +656,7 @@ class _$_GetProductsBySubCategories implements _GetProductsBySubCategories {
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (getProductsBySubCategories != null) {
@@ -703,6 +727,7 @@ class _$_ToInitialState implements _ToInitialState {
     required TResult Function() toInitialState,
     required TResult Function(bool isfavorite, int productid)
         updatePrductFavorite,
+    required TResult Function() signOut,
   }) {
     return toInitialState();
   }
@@ -718,6 +743,7 @@ class _$_ToInitialState implements _ToInitialState {
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
     TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult? Function()? signOut,
   }) {
     return toInitialState?.call();
   }
@@ -733,6 +759,7 @@ class _$_ToInitialState implements _ToInitialState {
         getProductsBySubCategories,
     TResult Function()? toInitialState,
     TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (toInitialState != null) {
@@ -751,6 +778,7 @@ class _$_ToInitialState implements _ToInitialState {
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
     required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return toInitialState(this);
   }
@@ -764,6 +792,7 @@ class _$_ToInitialState implements _ToInitialState {
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
     TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return toInitialState?.call(this);
   }
@@ -777,6 +806,7 @@ class _$_ToInitialState implements _ToInitialState {
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (toInitialState != null) {
@@ -876,6 +906,7 @@ class _$_UpdatePrductFavorite implements _UpdatePrductFavorite {
     required TResult Function() toInitialState,
     required TResult Function(bool isfavorite, int productid)
         updatePrductFavorite,
+    required TResult Function() signOut,
   }) {
     return updatePrductFavorite(isfavorite, productid);
   }
@@ -891,6 +922,7 @@ class _$_UpdatePrductFavorite implements _UpdatePrductFavorite {
         getProductsBySubCategories,
     TResult? Function()? toInitialState,
     TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult? Function()? signOut,
   }) {
     return updatePrductFavorite?.call(isfavorite, productid);
   }
@@ -906,6 +938,7 @@ class _$_UpdatePrductFavorite implements _UpdatePrductFavorite {
         getProductsBySubCategories,
     TResult Function()? toInitialState,
     TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (updatePrductFavorite != null) {
@@ -924,6 +957,7 @@ class _$_UpdatePrductFavorite implements _UpdatePrductFavorite {
         getProductsBySubCategories,
     required TResult Function(_ToInitialState value) toInitialState,
     required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return updatePrductFavorite(this);
   }
@@ -937,6 +971,7 @@ class _$_UpdatePrductFavorite implements _UpdatePrductFavorite {
         getProductsBySubCategories,
     TResult? Function(_ToInitialState value)? toInitialState,
     TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return updatePrductFavorite?.call(this);
   }
@@ -950,6 +985,7 @@ class _$_UpdatePrductFavorite implements _UpdatePrductFavorite {
         getProductsBySubCategories,
     TResult Function(_ToInitialState value)? toInitialState,
     TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (updatePrductFavorite != null) {
@@ -972,13 +1008,153 @@ abstract class _UpdatePrductFavorite implements ProductEvent {
 }
 
 /// @nodoc
+abstract class _$$_SignOutCopyWith<$Res> {
+  factory _$$_SignOutCopyWith(
+          _$_SignOut value, $Res Function(_$_SignOut) then) =
+      __$$_SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignOutCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$_SignOut>
+    implements _$$_SignOutCopyWith<$Res> {
+  __$$_SignOutCopyWithImpl(_$_SignOut _value, $Res Function(_$_SignOut) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignOut implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString() {
+    return 'ProductEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) loadProducts,
+    required TResult Function(
+            CategoriesModel category, List<ProductModel> listProduct)
+        getProductsByCategories,
+    required TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)
+        getProductsBySubCategories,
+    required TResult Function() toInitialState,
+    required TResult Function(bool isfavorite, int productid)
+        updatePrductFavorite,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? loadProducts,
+    TResult? Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
+    TResult? Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
+    TResult? Function()? toInitialState,
+    TResult? Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult? Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? loadProducts,
+    TResult Function(CategoriesModel category, List<ProductModel> listProduct)?
+        getProductsByCategories,
+    TResult Function(
+            TipoProductoModel subCategory, List<ProductModel> listProduct)?
+        getProductsBySubCategories,
+    TResult Function()? toInitialState,
+    TResult Function(bool isfavorite, int productid)? updatePrductFavorite,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_GetProductsByCategories value)
+        getProductsByCategories,
+    required TResult Function(_GetProductsBySubCategories value)
+        getProductsBySubCategories,
+    required TResult Function(_ToInitialState value) toInitialState,
+    required TResult Function(_UpdatePrductFavorite value) updatePrductFavorite,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult? Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
+    TResult? Function(_ToInitialState value)? toInitialState,
+    TResult? Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_GetProductsByCategories value)? getProductsByCategories,
+    TResult Function(_GetProductsBySubCategories value)?
+        getProductsBySubCategories,
+    TResult Function(_ToInitialState value)? toInitialState,
+    TResult Function(_UpdatePrductFavorite value)? updatePrductFavorite,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements ProductEvent {
+  const factory _SignOut() = _$_SignOut;
+}
+
+/// @nodoc
 mixin _$ProductState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)
+            List<ProductModel> originalProductList, String token)
         loadedSuccess,
     required TResult Function(String message) failure,
   }) =>
@@ -988,7 +1164,7 @@ mixin _$ProductState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)?
+            List<ProductModel> originalProductList, String token)?
         loadedSuccess,
     TResult? Function(String message)? failure,
   }) =>
@@ -998,7 +1174,7 @@ mixin _$ProductState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)?
+            List<ProductModel> originalProductList, String token)?
         loadedSuccess,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -1089,7 +1265,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)
+            List<ProductModel> originalProductList, String token)
         loadedSuccess,
     required TResult Function(String message) failure,
   }) {
@@ -1102,7 +1278,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)?
+            List<ProductModel> originalProductList, String token)?
         loadedSuccess,
     TResult? Function(String message)? failure,
   }) {
@@ -1115,7 +1291,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)?
+            List<ProductModel> originalProductList, String token)?
         loadedSuccess,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -1208,7 +1384,7 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)
+            List<ProductModel> originalProductList, String token)
         loadedSuccess,
     required TResult Function(String message) failure,
   }) {
@@ -1221,7 +1397,7 @@ class _$_Loading implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)?
+            List<ProductModel> originalProductList, String token)?
         loadedSuccess,
     TResult? Function(String message)? failure,
   }) {
@@ -1234,7 +1410,7 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)?
+            List<ProductModel> originalProductList, String token)?
         loadedSuccess,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -1294,7 +1470,9 @@ abstract class _$$_LoadedSuccessCopyWith<$Res> {
       __$$_LoadedSuccessCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {List<ProductModel> productos, List<ProductModel> originalProductList});
+      {List<ProductModel> productos,
+      List<ProductModel> originalProductList,
+      String token});
 }
 
 /// @nodoc
@@ -1310,6 +1488,7 @@ class __$$_LoadedSuccessCopyWithImpl<$Res>
   $Res call({
     Object? productos = null,
     Object? originalProductList = null,
+    Object? token = null,
   }) {
     return _then(_$_LoadedSuccess(
       productos: null == productos
@@ -1320,6 +1499,10 @@ class __$$_LoadedSuccessCopyWithImpl<$Res>
           ? _value._originalProductList
           : originalProductList // ignore: cast_nullable_to_non_nullable
               as List<ProductModel>,
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1329,7 +1512,8 @@ class __$$_LoadedSuccessCopyWithImpl<$Res>
 class _$_LoadedSuccess implements _LoadedSuccess {
   const _$_LoadedSuccess(
       {required final List<ProductModel> productos,
-      required final List<ProductModel> originalProductList})
+      required final List<ProductModel> originalProductList,
+      required this.token})
       : _productos = productos,
         _originalProductList = originalProductList;
 
@@ -1351,8 +1535,11 @@ class _$_LoadedSuccess implements _LoadedSuccess {
   }
 
   @override
+  final String token;
+
+  @override
   String toString() {
-    return 'ProductState.loadedSuccess(productos: $productos, originalProductList: $originalProductList)';
+    return 'ProductState.loadedSuccess(productos: $productos, originalProductList: $originalProductList, token: $token)';
   }
 
   @override
@@ -1363,14 +1550,16 @@ class _$_LoadedSuccess implements _LoadedSuccess {
             const DeepCollectionEquality()
                 .equals(other._productos, _productos) &&
             const DeepCollectionEquality()
-                .equals(other._originalProductList, _originalProductList));
+                .equals(other._originalProductList, _originalProductList) &&
+            (identical(other.token, token) || other.token == token));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_productos),
-      const DeepCollectionEquality().hash(_originalProductList));
+      const DeepCollectionEquality().hash(_originalProductList),
+      token);
 
   @JsonKey(ignore: true)
   @override
@@ -1384,11 +1573,11 @@ class _$_LoadedSuccess implements _LoadedSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)
+            List<ProductModel> originalProductList, String token)
         loadedSuccess,
     required TResult Function(String message) failure,
   }) {
-    return loadedSuccess(productos, originalProductList);
+    return loadedSuccess(productos, originalProductList, token);
   }
 
   @override
@@ -1397,11 +1586,11 @@ class _$_LoadedSuccess implements _LoadedSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)?
+            List<ProductModel> originalProductList, String token)?
         loadedSuccess,
     TResult? Function(String message)? failure,
   }) {
-    return loadedSuccess?.call(productos, originalProductList);
+    return loadedSuccess?.call(productos, originalProductList, token);
   }
 
   @override
@@ -1410,13 +1599,13 @@ class _$_LoadedSuccess implements _LoadedSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)?
+            List<ProductModel> originalProductList, String token)?
         loadedSuccess,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
     if (loadedSuccess != null) {
-      return loadedSuccess(productos, originalProductList);
+      return loadedSuccess(productos, originalProductList, token);
     }
     return orElse();
   }
@@ -1461,12 +1650,13 @@ class _$_LoadedSuccess implements _LoadedSuccess {
 
 abstract class _LoadedSuccess implements ProductState {
   const factory _LoadedSuccess(
-          {required final List<ProductModel> productos,
-          required final List<ProductModel> originalProductList}) =
-      _$_LoadedSuccess;
+      {required final List<ProductModel> productos,
+      required final List<ProductModel> originalProductList,
+      required final String token}) = _$_LoadedSuccess;
 
   List<ProductModel> get productos;
   List<ProductModel> get originalProductList;
+  String get token;
   @JsonKey(ignore: true)
   _$$_LoadedSuccessCopyWith<_$_LoadedSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1538,7 +1728,7 @@ class _$_Failure implements _Failure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)
+            List<ProductModel> originalProductList, String token)
         loadedSuccess,
     required TResult Function(String message) failure,
   }) {
@@ -1551,7 +1741,7 @@ class _$_Failure implements _Failure {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)?
+            List<ProductModel> originalProductList, String token)?
         loadedSuccess,
     TResult? Function(String message)? failure,
   }) {
@@ -1564,7 +1754,7 @@ class _$_Failure implements _Failure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<ProductModel> productos,
-            List<ProductModel> originalProductList)?
+            List<ProductModel> originalProductList, String token)?
         loadedSuccess,
     TResult Function(String message)? failure,
     required TResult orElse(),

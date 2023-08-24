@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/models/profile/direccion_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'historial_model.g.dart';
@@ -42,33 +43,6 @@ class OrdenModel {
       _$OrdenModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OrdenModelToJson(this);
-}
-
-@JsonSerializable()
-class DireccionModel {
-  @JsonKey(name: 'direccion')
-  final String address;
-  @JsonKey(name: 'ciudad')
-  final String city;
-  @JsonKey(name: 'apartado')
-  final String apartado;
-  @JsonKey(name: 'estado')
-  final String state;
-  @JsonKey(name: 'codigo postal')
-  final String postalCode;
-
-  DireccionModel({
-    required this.address,
-    required this.city,
-    required this.apartado,
-    required this.state,
-    required this.postalCode,
-  });
-
-  factory DireccionModel.fromJson(Map<String, dynamic> json) =>
-      _$DireccionModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$DireccionModelToJson(this);
 }
 
 @JsonSerializable()

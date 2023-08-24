@@ -15,7 +15,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(const CartState.initial()) {
     on<CartEvent>(eventHandler);
   }
-  final List<ProductModel> _cartListProducts = [];
+  List<ProductModel> _cartListProducts = [];
   late ProductModel? _selectedProduct;
 
   List<ProductModel> get productList => _cartListProducts;
@@ -97,7 +97,16 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
         emit(const CartState.initial());
       },
+      signOut: () {
+        resetVariable();
+        emit(const CartState.initial());
+      },
     );
+  }
+
+  void resetVariable() {
+    _cartListProducts = [];
+    _selectedProduct = null;
   }
 }
 

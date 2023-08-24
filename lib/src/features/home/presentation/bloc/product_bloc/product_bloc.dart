@@ -3,11 +3,11 @@ import 'package:bloc/bloc.dart';
 import 'package:crimat_app/src/models/home/categories/categories_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../../errors/failure.dart';
 import '../../../../../models/home/products/producto_model.dart';
 import '../../../../../repositories/product_repository.dart';
-import '../../../../../shared/app_info.dart';
 
 part 'product_event.dart';
 part 'product_state.dart';
@@ -15,7 +15,7 @@ part 'product_bloc.freezed.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final ProdcutRepository repository;
-  String? token = AppInfo().accessToken;
+  // String? token = sl<AppUtilInfo>().accessToken;
   List<ProductModel> _productslist = [];
 
   ProductBloc(
@@ -25,6 +25,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   }
 
   FutureOr<void> eventHandler(ProductEvent event, Emitter emit) async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
     await event.when(
       loadProducts: (id) async {
         final Either<Failure, List<ProductModel>> result;
@@ -39,7 +41,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         }, (productos) {
           _productslist = productos;
           emit(ProductState.loadedSuccess(
-              productos: _productslist, originalProductList: _productslist));
+              productos: _productslist,
+              originalProductList: _productslist,
+              token: token!));
         });
       },
       toInitialState: () {
@@ -62,7 +66,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         }
 
         emit(ProductState.loadedSuccess(
-            productos: aux, originalProductList: listProduct));
+            token: token!, productos: aux, originalProductList: listProduct));
       },
       getProductsBySubCategories:
           (subCategory, List<ProductModel> listProduct) async {
@@ -80,7 +84,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
 
         emit(
           ProductState.loadedSuccess(
-              productos: aux, originalProductList: listProduct),
+              token: token!, productos: aux, originalProductList: listProduct),
         );
       },
       updatePrductFavorite: (bool isfavorite, int productid) {
@@ -89,10 +93,20 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             _productslist.firstWhere((element) => element.id == productid);
         auxproducto.favorite = isfavorite;
         emit(ProductState.loadedSuccess(
-            productos: _productslist, originalProductList: _productslist));
+            token: token!,
+            productos: _productslist,
+            originalProductList: _productslist));
 
         //auxproducto.
       },
+      signOut: () {
+        restVariable();
+        emit(const ProductState.initial());
+      },
     );
+  }
+
+  void restVariable() {
+    _productslist = [];
   }
 }

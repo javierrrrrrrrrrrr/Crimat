@@ -9,6 +9,7 @@ import 'package:crimat_app/src/features/splash/intro_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/screens/register_on_process_screen.dart';
 import '../../features/historial/historial_view.dart';
 import '../../features/historial/presentation/view/historial_details_screen.dart';
 import '../../features/home/products_detales_screen.dart';
@@ -31,6 +32,12 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
     path: '/intro',
     name: IntroScreen.name,
     builder: (context, state) => const IntroScreen(),
+  ),
+  GoRoute(
+    path: '/RegisterOnProcessScreen',
+    name: RegisterOnProcessScreen.name,
+    builder: (context, state) =>
+        const Scaffold(body: RegisterOnProcessScreen()),
   ),
   // GoRoute(
   //   path: '/layout',

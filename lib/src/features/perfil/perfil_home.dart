@@ -9,11 +9,21 @@ import 'package:crimat_app/src/shared/widgets/cusotm_buttom_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/profile/profile_model.dart';
 import '../../shared/utils/const.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
+import '../auth/cubit/login_cubit.dart';
+import '../auth/screens/login_screen.dart';
+import '../favorites/presentation/bloc/favorite_bloc.dart';
+import '../home/presentation/bloc/almacen_bloc/almacen_bloc.dart';
+import '../home/presentation/bloc/categories_bloc/categories_bloc.dart';
+import '../home/presentation/bloc/product_bloc/product_bloc.dart';
+import '../layout/layout_cubit.dart';
+import '../payment/presentation/bloc/payment_bloc.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({
@@ -24,16 +34,24 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final profilebloc = context.read<ProfileBloc>();
     return BlocBuilder<ProfileBloc, ProfileState>(
-        builder: (context, state) => state.when(
-              failure: (message) => Container(),
+        builder: (context, state) => state.maybeWhen(
+              orElse: () => ProfileMainWidget(
+                profil: profilebloc.profiledata!,
+              ),
               initial: () => Container(),
-              loading: () => Container(),
+              loading: () => Center(
+                child: SpinKitFadingCircle(
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+              failure: (message) => Container(),
               success: (profile) => ProfileMainWidget(
                 profil: profile,
               ),
               noLogedUser: () => const Center(
-                child: Text("Definir que poner aqui"),
+                child: Text("usted no está registrado en la aplicación"),
               ),
               changeCheckSuccess: (id, profile) => ProfileMainWidget(
                 profil: profile,
@@ -70,15 +88,17 @@ class ProfileMainWidget extends StatelessWidget {
                       final args = profil;
                       if (index == 0) {
                         profilebloc.add(const ProfileEvent.readDireccion());
-                        context.pushNamed(DeliveryAddress.name, extra: args);
+                        context.pushNamed(
+                          DeliveryAddress.name,
+                          extra: args,
+                        );
                       }
                     },
                     child: Column(
                       children: [
                         PerfilOption(
                             title: opciones[1].value1,
-                            subtitle:
-                                " ${profil.direcciones.length} direcciones"),
+                            subtitle: " ${profil.salones.length} direcciones"),
                         SizedBox(
                           height: 10.h,
                         ),
@@ -90,6 +110,10 @@ class ProfileMainWidget extends StatelessWidget {
               ),
             ),
             CusotmButtom(
+              onPressed: () async {
+                //restablecer todos los valores
+                clearAllValues(context);
+              },
               width: 280.w,
               height: 45.h,
               name: "Cerrar sesión",
@@ -109,5 +133,41 @@ class ProfileMainWidget extends StatelessWidget {
         )
       ],
     );
+  }
+
+  void clearAllValues(BuildContext context) async {
+    CategoriesBloc categoribloc = context.read<CategoriesBloc>();
+    AlmacenBloc almacenbloc = context.read<AlmacenBloc>();
+    ProductBloc productBloc = context.read<ProductBloc>();
+    ProfileBloc profileBloc = context.read<ProfileBloc>();
+    PaymentBloc paymentBloc = context.read<PaymentBloc>();
+    FavoriteBloc favoriteBloc = context.read<FavoriteBloc>();
+    LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
+    LayoutCubit layoutcubit = BlocProvider.of<LayoutCubit>(context);
+    //  AppUtilInfo appInfo = sl<AppUtilInfo>();
+
+    ///////
+    // appInfo.accessToken = null;
+    // appInfo.refreshToken = null;
+    //  categoribloc.add(const CategoriesEvent.selectCategory(categorySelectedIndex: -1));
+    // categoribloc.add( CategoriesEvent.selectSubCategory());
+    categoribloc.add(const CategoriesEvent.signOut());
+
+    almacenbloc.add(const AlmacenEvent.signOut());
+    almacenbloc.add(AlmacenEvent.activeAlmacen(
+        index: -1, almacenes: almacenbloc.almaceneslist));
+    productBloc.add(const ProductEvent.signOut());
+    favoriteBloc.add(const FavoriteEvent.signOut());
+    profileBloc.add(const ProfileEvent.signOut());
+    paymentBloc.add(const PaymentEvent.signOut());
+    layoutcubit.changeScreen(0);
+
+    cubit.loginForm.control('email').updateValue('');
+    cubit.loginForm.control('password').updateValue('');
+    context.pushReplacementNamed(LoginScreen.name);
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', '');
+    prefs.remove('email');
+    prefs.remove('password');
   }
 }

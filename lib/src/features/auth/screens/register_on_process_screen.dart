@@ -9,6 +9,8 @@ import 'package:go_router/go_router.dart';
 class RegisterOnProcessScreen extends StatelessWidget {
   const RegisterOnProcessScreen({Key? key}) : super(key: key);
 
+  static const String name = 'register_on_process_screen';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

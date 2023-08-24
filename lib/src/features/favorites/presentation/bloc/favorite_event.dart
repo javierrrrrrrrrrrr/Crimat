@@ -21,4 +21,6 @@ abstract class FavoriteEvent with _$FavoriteEvent {
   const factory FavoriteEvent.updateAlmacenIdInProductFavorite(
       {required int idAlmacenForUpdate,
       required int productid}) = _UpdateAlmacenIdInProductFavoriteEvent;
+
+  const factory FavoriteEvent.signOut() = _SignOut;
 }

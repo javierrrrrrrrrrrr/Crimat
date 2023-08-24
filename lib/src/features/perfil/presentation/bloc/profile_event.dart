@@ -9,4 +9,15 @@ class ProfileEvent with _$ProfileEvent {
 
   const factory ProfileEvent.updateShippingType({required int id}) =
       _UpdateShippingTypeEvent;
+
+  const factory ProfileEvent.goNewAddress() = _GoNewAddressEvent;
+  const factory ProfileEvent.addNewAddress(
+      {required SalonRequestModel requestdata}) = _AddNewAddressEvent;
+
+  const factory ProfileEvent.goEditAddress(
+      {required SalonModel selectedsalon}) = _GoEditAddressEvent;
+  const factory ProfileEvent.editNewAddress(
+      {required EditSalonResponseModel requestdata}) = _EditNewAddressEvent;
+
+  const factory ProfileEvent.signOut() = _SignOut;
 }

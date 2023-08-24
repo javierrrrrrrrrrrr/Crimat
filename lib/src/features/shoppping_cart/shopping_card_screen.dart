@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../shared/utils/utils.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../home/presentation/view/widget/products_details_widgets/option_buttoms.dart';
@@ -32,7 +33,12 @@ class ShoppingCartView extends StatelessWidget {
           },
           phase0InProgress: () => UtilFunctions.loading(context),
           phase1InProgress: () => UtilFunctions.loading(context),
-          phase0Complated: (paymentdata) {
+          phase0InProgressWithoutToken: () => UtilFunctions.loading(context),
+          phase0Complated: (_) {
+            context.pushNamed(PaymentAuxView.name);
+            context.pop();
+          },
+          phase0WithoutTokenComplated: (_) {
             context.pushNamed(PaymentAuxView.name);
             context.pop();
           },
@@ -100,22 +106,29 @@ class MainWidget extends StatelessWidget {
         Positioned(
           bottom: 0,
           child: OptionButtoms(
-            isShopping: true,
-            total: cart.subtotal,
-            onPressedPay: () {
-              profilebloc.add(const ProfileEvent.load());
-              paymentbloc.add(const PaymentEvent.startedPhase0());
+              isShopping: true,
+              total: cart.subtotal,
+              onPressedPay: () async {
+                final prefs = await SharedPreferences.getInstance();
+                final token = prefs.getString('token');
 
-              profilebloc.stream.listen((state) {
-                state.maybeWhen(
-                  orElse: () {},
-                  success: (_) {
-                    profilebloc.add(const ProfileEvent.readDireccion());
-                  },
-                );
-              });
-            },
-          ),
+                if (token != '') {
+                  profilebloc.add(const ProfileEvent.load());
+                  paymentbloc.add(const PaymentEvent.startedPhase0());
+
+                  profilebloc.stream.listen((state) {
+                    state.maybeWhen(
+                      orElse: () {},
+                      success: (_) {
+                        profilebloc.add(const ProfileEvent.readDireccion());
+                      },
+                    );
+                  });
+                } else {
+                  paymentbloc
+                      .add(const PaymentEvent.startedPhase0WithoutToken());
+                }
+              }),
         ),
       ],
     );

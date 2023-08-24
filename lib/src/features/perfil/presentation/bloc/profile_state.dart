@@ -10,6 +10,11 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.updateDeliveryTypeSeleccion(
       {required int updatedId}) = _UpdateDeliveryTypeSeleccionState;
   const factory ProfileState.loading() = _Loading;
+  const factory ProfileState.addAddress() = _AddAddressState;
+  const factory ProfileState.goaddAddress() = _GoAddAddressState;
+  const factory ProfileState.goEditAddress({required SalonModel data}) =
+      _GoEditAddressState;
+  const factory ProfileState.editAddress() = _EditAddressState;
   const factory ProfileState.success({
     required ProfileModel profile,
   }) = _Success;

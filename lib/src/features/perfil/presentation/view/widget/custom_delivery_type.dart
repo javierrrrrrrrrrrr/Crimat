@@ -2,7 +2,7 @@ import 'package:crimat_app/src/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../models/payment/shipping_model.dart';
+import '../../../../../models/payment/payment_with_token/shipping_model.dart';
 import '../../../../../shared/widgets/card_sking.dart';
 
 class CustomDeliveryType extends StatelessWidget {

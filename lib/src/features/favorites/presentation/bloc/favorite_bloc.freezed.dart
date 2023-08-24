@@ -26,6 +26,7 @@ mixin _$FavoriteEvent {
         updateSelectedFavoriteProdcut,
     required TResult Function(int idAlmacenForUpdate, int productid)
         updateAlmacenIdInProductFavorite,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,6 +38,7 @@ mixin _$FavoriteEvent {
     TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult? Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +50,7 @@ mixin _$FavoriteEvent {
     TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +65,7 @@ mixin _$FavoriteEvent {
         updateSelectedFavoriteProdcut,
     required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
         updateAlmacenIdInProductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +78,7 @@ mixin _$FavoriteEvent {
         updateSelectedFavoriteProdcut,
     TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,6 +91,7 @@ mixin _$FavoriteEvent {
         updateSelectedFavoriteProdcut,
     TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -153,6 +159,7 @@ class _$_Load implements _Load {
         updateSelectedFavoriteProdcut,
     required TResult Function(int idAlmacenForUpdate, int productid)
         updateAlmacenIdInProductFavorite,
+    required TResult Function() signOut,
   }) {
     return load();
   }
@@ -167,6 +174,7 @@ class _$_Load implements _Load {
     TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult? Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function()? signOut,
   }) {
     return load?.call();
   }
@@ -181,6 +189,7 @@ class _$_Load implements _Load {
     TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -201,6 +210,7 @@ class _$_Load implements _Load {
         updateSelectedFavoriteProdcut,
     required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
         updateAlmacenIdInProductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return load(this);
   }
@@ -216,6 +226,7 @@ class _$_Load implements _Load {
         updateSelectedFavoriteProdcut,
     TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return load?.call(this);
   }
@@ -231,6 +242,7 @@ class _$_Load implements _Load {
         updateSelectedFavoriteProdcut,
     TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -319,6 +331,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
         updateSelectedFavoriteProdcut,
     required TResult Function(int idAlmacenForUpdate, int productid)
         updateAlmacenIdInProductFavorite,
+    required TResult Function() signOut,
   }) {
     return addedProduct(product);
   }
@@ -333,6 +346,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult? Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function()? signOut,
   }) {
     return addedProduct?.call(product);
   }
@@ -347,6 +361,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
     TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (addedProduct != null) {
@@ -367,6 +382,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
         updateSelectedFavoriteProdcut,
     required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
         updateAlmacenIdInProductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return addedProduct(this);
   }
@@ -382,6 +398,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
         updateSelectedFavoriteProdcut,
     TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return addedProduct?.call(this);
   }
@@ -397,6 +414,7 @@ class _$_AddedProductToFavoriteEvent implements _AddedProductToFavoriteEvent {
         updateSelectedFavoriteProdcut,
     TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (addedProduct != null) {
@@ -492,6 +510,7 @@ class _$_RemovedProductToFavoriteEvent
         updateSelectedFavoriteProdcut,
     required TResult Function(int idAlmacenForUpdate, int productid)
         updateAlmacenIdInProductFavorite,
+    required TResult Function() signOut,
   }) {
     return removedProduct(product);
   }
@@ -506,6 +525,7 @@ class _$_RemovedProductToFavoriteEvent
     TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult? Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function()? signOut,
   }) {
     return removedProduct?.call(product);
   }
@@ -520,6 +540,7 @@ class _$_RemovedProductToFavoriteEvent
     TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (removedProduct != null) {
@@ -540,6 +561,7 @@ class _$_RemovedProductToFavoriteEvent
         updateSelectedFavoriteProdcut,
     required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
         updateAlmacenIdInProductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return removedProduct(this);
   }
@@ -555,6 +577,7 @@ class _$_RemovedProductToFavoriteEvent
         updateSelectedFavoriteProdcut,
     TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return removedProduct?.call(this);
   }
@@ -570,6 +593,7 @@ class _$_RemovedProductToFavoriteEvent
         updateSelectedFavoriteProdcut,
     TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (removedProduct != null) {
@@ -662,6 +686,7 @@ class _$_UpdateFavoriteList implements _UpdateFavoriteList {
         updateSelectedFavoriteProdcut,
     required TResult Function(int idAlmacenForUpdate, int productid)
         updateAlmacenIdInProductFavorite,
+    required TResult Function() signOut,
   }) {
     return updateFavoriteList(product);
   }
@@ -676,6 +701,7 @@ class _$_UpdateFavoriteList implements _UpdateFavoriteList {
     TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult? Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function()? signOut,
   }) {
     return updateFavoriteList?.call(product);
   }
@@ -690,6 +716,7 @@ class _$_UpdateFavoriteList implements _UpdateFavoriteList {
     TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (updateFavoriteList != null) {
@@ -710,6 +737,7 @@ class _$_UpdateFavoriteList implements _UpdateFavoriteList {
         updateSelectedFavoriteProdcut,
     required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
         updateAlmacenIdInProductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return updateFavoriteList(this);
   }
@@ -725,6 +753,7 @@ class _$_UpdateFavoriteList implements _UpdateFavoriteList {
         updateSelectedFavoriteProdcut,
     TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return updateFavoriteList?.call(this);
   }
@@ -740,6 +769,7 @@ class _$_UpdateFavoriteList implements _UpdateFavoriteList {
         updateSelectedFavoriteProdcut,
     TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (updateFavoriteList != null) {
@@ -837,6 +867,7 @@ class _$_UpdateSelectedFavoriteProdcutEvent
         updateSelectedFavoriteProdcut,
     required TResult Function(int idAlmacenForUpdate, int productid)
         updateAlmacenIdInProductFavorite,
+    required TResult Function() signOut,
   }) {
     return updateSelectedFavoriteProdcut(product);
   }
@@ -851,6 +882,7 @@ class _$_UpdateSelectedFavoriteProdcutEvent
     TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult? Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function()? signOut,
   }) {
     return updateSelectedFavoriteProdcut?.call(product);
   }
@@ -865,6 +897,7 @@ class _$_UpdateSelectedFavoriteProdcutEvent
     TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (updateSelectedFavoriteProdcut != null) {
@@ -885,6 +918,7 @@ class _$_UpdateSelectedFavoriteProdcutEvent
         updateSelectedFavoriteProdcut,
     required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
         updateAlmacenIdInProductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return updateSelectedFavoriteProdcut(this);
   }
@@ -900,6 +934,7 @@ class _$_UpdateSelectedFavoriteProdcutEvent
         updateSelectedFavoriteProdcut,
     TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return updateSelectedFavoriteProdcut?.call(this);
   }
@@ -915,6 +950,7 @@ class _$_UpdateSelectedFavoriteProdcutEvent
         updateSelectedFavoriteProdcut,
     TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (updateSelectedFavoriteProdcut != null) {
@@ -1025,6 +1061,7 @@ class _$_UpdateAlmacenIdInProductFavoriteEvent
         updateSelectedFavoriteProdcut,
     required TResult Function(int idAlmacenForUpdate, int productid)
         updateAlmacenIdInProductFavorite,
+    required TResult Function() signOut,
   }) {
     return updateAlmacenIdInProductFavorite(idAlmacenForUpdate, productid);
   }
@@ -1039,6 +1076,7 @@ class _$_UpdateAlmacenIdInProductFavoriteEvent
     TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult? Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function()? signOut,
   }) {
     return updateAlmacenIdInProductFavorite?.call(
         idAlmacenForUpdate, productid);
@@ -1054,6 +1092,7 @@ class _$_UpdateAlmacenIdInProductFavoriteEvent
     TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
     TResult Function(int idAlmacenForUpdate, int productid)?
         updateAlmacenIdInProductFavorite,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (updateAlmacenIdInProductFavorite != null) {
@@ -1074,6 +1113,7 @@ class _$_UpdateAlmacenIdInProductFavoriteEvent
         updateSelectedFavoriteProdcut,
     required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
         updateAlmacenIdInProductFavorite,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return updateAlmacenIdInProductFavorite(this);
   }
@@ -1089,6 +1129,7 @@ class _$_UpdateAlmacenIdInProductFavoriteEvent
         updateSelectedFavoriteProdcut,
     TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return updateAlmacenIdInProductFavorite?.call(this);
   }
@@ -1104,6 +1145,7 @@ class _$_UpdateAlmacenIdInProductFavoriteEvent
         updateSelectedFavoriteProdcut,
     TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
         updateAlmacenIdInProductFavorite,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (updateAlmacenIdInProductFavorite != null) {
@@ -1124,6 +1166,148 @@ abstract class _UpdateAlmacenIdInProductFavoriteEvent implements FavoriteEvent {
   _$$_UpdateAlmacenIdInProductFavoriteEventCopyWith<
           _$_UpdateAlmacenIdInProductFavoriteEvent>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SignOutCopyWith<$Res> {
+  factory _$$_SignOutCopyWith(
+          _$_SignOut value, $Res Function(_$_SignOut) then) =
+      __$$_SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignOutCopyWithImpl<$Res>
+    extends _$FavoriteEventCopyWithImpl<$Res, _$_SignOut>
+    implements _$$_SignOutCopyWith<$Res> {
+  __$$_SignOutCopyWithImpl(_$_SignOut _value, $Res Function(_$_SignOut) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignOut implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString() {
+    return 'FavoriteEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(ProductModel product) addedProduct,
+    required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) updateFavoriteList,
+    required TResult Function(ProductModel product)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(int idAlmacenForUpdate, int productid)
+        updateAlmacenIdInProductFavorite,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? updateFavoriteList,
+    TResult? Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult? Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
+    TResult? Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(ProductModel product)? addedProduct,
+    TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? updateFavoriteList,
+    TResult Function(ProductModel product)? updateSelectedFavoriteProdcut,
+    TResult Function(int idAlmacenForUpdate, int productid)?
+        updateAlmacenIdInProductFavorite,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_AddedProductToFavoriteEvent value) addedProduct,
+    required TResult Function(_RemovedProductToFavoriteEvent value)
+        removedProduct,
+    required TResult Function(_UpdateFavoriteList value) updateFavoriteList,
+    required TResult Function(_UpdateSelectedFavoriteProdcutEvent value)
+        updateSelectedFavoriteProdcut,
+    required TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)
+        updateAlmacenIdInProductFavorite,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_AddedProductToFavoriteEvent value)? addedProduct,
+    TResult? Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult? Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult? Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult? Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_AddedProductToFavoriteEvent value)? addedProduct,
+    TResult Function(_RemovedProductToFavoriteEvent value)? removedProduct,
+    TResult Function(_UpdateFavoriteList value)? updateFavoriteList,
+    TResult Function(_UpdateSelectedFavoriteProdcutEvent value)?
+        updateSelectedFavoriteProdcut,
+    TResult Function(_UpdateAlmacenIdInProductFavoriteEvent value)?
+        updateAlmacenIdInProductFavorite,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements FavoriteEvent {
+  const factory _SignOut() = _$_SignOut;
 }
 
 /// @nodoc

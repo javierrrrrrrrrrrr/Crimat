@@ -14,4 +14,6 @@ abstract class CartEvent with _$CartEvent {
 
   const factory CartEvent.addProductinDiferentAlmacen(
       {required ProductModel product}) = _AddProductinDiferentAlmacenState;
+
+  const factory CartEvent.signOut() = _SignOut;
 }

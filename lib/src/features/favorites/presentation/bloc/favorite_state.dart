@@ -12,4 +12,6 @@ abstract class FavoriteState with _$FavoriteState {
 
   const factory FavoriteState.updatePositionCheck({required int position}) =
       _UpdatePositionCheckState;
+
+   
 }

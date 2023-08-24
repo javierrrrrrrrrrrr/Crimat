@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../models/home/products/producto_model.dart';
-import '../../../../../shared/app_info.dart';
 import '../../../../../shared/utils/utils.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../../favorites/presentation/bloc/favorite_bloc.dart';
@@ -26,7 +25,7 @@ class MainCardCarrusel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cartBloc = context.read<CartBloc>();
-    String? token = AppInfo().accessToken;
+
     final productbloc = context.read<ProductBloc>();
     final favoritebloc = context.read<FavoriteBloc>();
 
@@ -42,7 +41,7 @@ class MainCardCarrusel extends StatelessWidget {
             color: Colors.white.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: const Offset(0, 3), // Cambiar la dirección de la sombra
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -53,9 +52,7 @@ class MainCardCarrusel extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
-                onTap: () {
-                  String? token = AppInfo().accessToken;
-                  print(token);
+                onTap: () async {
                   final args = producto;
 
                   context.pushNamed(ProductsDetails.name, extra: args);
@@ -109,37 +106,63 @@ class MainCardCarrusel extends StatelessWidget {
               ))
             ],
           ),
-          Positioned(
-            right: 10.w,
-            top: 10.h,
-            child: GestureDetector(
-              onTap: () {
-                print("sss");
-                if (token != null) {
-                  productbloc.add(ProductEvent.updatePrductFavorite(
-                    isfavorite: !(producto.favorite!),
-                    productid: producto.id,
-                  ));
-                  if (producto.favorite == false) {
-                    favoritebloc
-                        .add(FavoriteEvent.addedProduct(product: producto));
-                    UtilFunctions.printToast(
-                        message: 'Producto agregado a favorito');
-                  } else {
-                    favoritebloc
-                        .add(FavoriteEvent.removedProduct(product: producto));
-                    UtilFunctions.printToast(
-                        message: 'Producto eliminado de favorito');
-                  }
-                }
-              },
-              child: FavoriteCircle(
-                isfavorite: producto.favorite ?? false,
-                productid: producto.id,
-              ),
-            ),
+          //ajustar esto
+
+          BlocBuilder<ProductBloc, ProductState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                  loadedSuccess: (_, __, havetoken) {
+                    return havetoken != ''
+                        ? CircleFavoiriteMainWidget(
+                            productbloc: productbloc,
+                            producto: producto,
+                            favoritebloc: favoritebloc)
+                        : Container();
+                  },
+                  orElse: () => Container());
+            },
           )
         ],
+      ),
+    );
+  }
+}
+
+class CircleFavoiriteMainWidget extends StatelessWidget {
+  const CircleFavoiriteMainWidget({
+    super.key,
+    required this.productbloc,
+    required this.producto,
+    required this.favoritebloc,
+  });
+
+  final ProductBloc productbloc;
+  final ProductModel producto;
+  final FavoriteBloc favoritebloc;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      right: 10.w,
+      top: 10.h,
+      child: GestureDetector(
+        onTap: () {
+          productbloc.add(ProductEvent.updatePrductFavorite(
+            isfavorite: !(producto.favorite!),
+            productid: producto.id,
+          ));
+          if (producto.favorite == false) {
+            favoritebloc.add(FavoriteEvent.addedProduct(product: producto));
+            UtilFunctions.printToast(message: 'Producto agregado a favorito');
+          } else {
+            favoritebloc.add(FavoriteEvent.removedProduct(product: producto));
+            UtilFunctions.printToast(message: 'Producto eliminado de favorito');
+          }
+        },
+        child: FavoriteCircle(
+          isfavorite: producto.favorite ?? false,
+          productid: producto.id,
+        ),
       ),
     );
   }

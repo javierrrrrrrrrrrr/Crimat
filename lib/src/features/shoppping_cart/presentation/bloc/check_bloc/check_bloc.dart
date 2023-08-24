@@ -34,6 +34,14 @@ class CheckBloc extends Bloc<CheckEvent, CheckState> {
         _checklist[index] = !_checklist[index];
         emit(CheckState.loaded(selection: _checklist));
       },
+      signOut: () {
+        resetVariable();
+        emit(const CheckState.initial());
+      },
     );
+  }
+
+  void resetVariable() {
+    _checklist = [];
   }
 }

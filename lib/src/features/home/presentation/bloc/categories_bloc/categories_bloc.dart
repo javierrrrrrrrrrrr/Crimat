@@ -64,6 +64,12 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
             subCategiries: categories[categoryIndex].tiposProducto,
             subCategogyIndex: subCategoryIndex));
       },
+      signOut: () {
+        resetVariable();
+      //  emit(const CategoriesState.initial());
+      },
     );
   }
+
+  void resetVariable() {}
 }

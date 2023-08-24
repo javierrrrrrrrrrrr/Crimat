@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../resources/urls.dart';
 import '../models/auth/login_response_model.dart';
 
@@ -16,9 +17,15 @@ class AuthRepository {
     Uri uri = Uri.https(Urls.host, Urls.login);
     var response = await http.post(uri, headers: headers, body: bodyToSend);
     var decodeResponse = jsonDecode(response.body);
+    final prefs = await SharedPreferences.getInstance();
     if (response.statusCode == 200) {
+      // Guardar las credenciales en SharedPreferences
+      prefs.setString('email', email);
+      prefs.setString('password', password);
       return LoginResponseModel.fromJson(decodeResponse);
     } else {
+      prefs.remove('email');
+      prefs.remove('password');
       throw (decodeResponse['error']);
     }
   }

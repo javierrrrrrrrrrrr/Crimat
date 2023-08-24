@@ -23,6 +23,7 @@ mixin _$CartEvent {
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$CartEvent {
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$CartEvent {
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +56,7 @@ mixin _$CartEvent {
     required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
+    required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +67,7 @@ mixin _$CartEvent {
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult? Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +78,7 @@ mixin _$CartEvent {
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -166,6 +172,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
+    required TResult Function() signOut,
   }) {
     return addedProduct(product);
   }
@@ -178,6 +185,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult? Function()? signOut,
   }) {
     return addedProduct?.call(product);
   }
@@ -190,6 +198,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (addedProduct != null) {
@@ -208,6 +217,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return addedProduct(this);
   }
@@ -221,6 +231,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return addedProduct?.call(this);
   }
@@ -234,6 +245,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (addedProduct != null) {
@@ -325,6 +337,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
+    required TResult Function() signOut,
   }) {
     return removedProduct(product);
   }
@@ -337,6 +350,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult? Function()? signOut,
   }) {
     return removedProduct?.call(product);
   }
@@ -349,6 +363,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (removedProduct != null) {
@@ -367,6 +382,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return removedProduct(this);
   }
@@ -380,6 +396,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return removedProduct?.call(this);
   }
@@ -393,6 +410,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (removedProduct != null) {
@@ -484,6 +502,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
+    required TResult Function() signOut,
   }) {
     return removedAllProduct(product);
   }
@@ -496,6 +515,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult? Function()? signOut,
   }) {
     return removedAllProduct?.call(product);
   }
@@ -508,6 +528,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (removedAllProduct != null) {
@@ -526,6 +547,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return removedAllProduct(this);
   }
@@ -539,6 +561,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return removedAllProduct?.call(this);
   }
@@ -552,6 +575,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (removedAllProduct != null) {
@@ -615,6 +639,7 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
+    required TResult Function() signOut,
   }) {
     return clearShoppingCart();
   }
@@ -627,6 +652,7 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult? Function()? signOut,
   }) {
     return clearShoppingCart?.call();
   }
@@ -639,6 +665,7 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (clearShoppingCart != null) {
@@ -657,6 +684,7 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
     required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return clearShoppingCart(this);
   }
@@ -670,6 +698,7 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return clearShoppingCart?.call(this);
   }
@@ -683,6 +712,7 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (clearShoppingCart != null) {
@@ -770,6 +800,7 @@ class _$_AddProductinDiferentAlmacenState
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
     required TResult Function(ProductModel product) addProductinDiferentAlmacen,
+    required TResult Function() signOut,
   }) {
     return addProductinDiferentAlmacen(product);
   }
@@ -782,6 +813,7 @@ class _$_AddProductinDiferentAlmacenState
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
     TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult? Function()? signOut,
   }) {
     return addProductinDiferentAlmacen?.call(product);
   }
@@ -794,6 +826,7 @@ class _$_AddProductinDiferentAlmacenState
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
     TResult Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (addProductinDiferentAlmacen != null) {
@@ -812,6 +845,7 @@ class _$_AddProductinDiferentAlmacenState
     required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
     required TResult Function(_AddProductinDiferentAlmacenState value)
         addProductinDiferentAlmacen,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return addProductinDiferentAlmacen(this);
   }
@@ -825,6 +859,7 @@ class _$_AddProductinDiferentAlmacenState
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult? Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult? Function(_SignOut value)? signOut,
   }) {
     return addProductinDiferentAlmacen?.call(this);
   }
@@ -838,6 +873,7 @@ class _$_AddProductinDiferentAlmacenState
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
     TResult Function(_AddProductinDiferentAlmacenState value)?
         addProductinDiferentAlmacen,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (addProductinDiferentAlmacen != null) {
@@ -857,6 +893,135 @@ abstract class _AddProductinDiferentAlmacenState implements CartEvent {
   _$$_AddProductinDiferentAlmacenStateCopyWith<
           _$_AddProductinDiferentAlmacenState>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SignOutCopyWith<$Res> {
+  factory _$$_SignOutCopyWith(
+          _$_SignOut value, $Res Function(_$_SignOut) then) =
+      __$$_SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignOutCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_SignOut>
+    implements _$$_SignOutCopyWith<$Res> {
+  __$$_SignOutCopyWithImpl(_$_SignOut _value, $Res Function(_$_SignOut) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignOut implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString() {
+    return 'CartEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ProductModel product) addedProduct,
+    required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) removedAllProduct,
+    required TResult Function() clearShoppingCart,
+    required TResult Function(ProductModel product) addProductinDiferentAlmacen,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? removedAllProduct,
+    TResult? Function()? clearShoppingCart,
+    TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult? Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ProductModel product)? addedProduct,
+    TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? removedAllProduct,
+    TResult Function()? clearShoppingCart,
+    TResult Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AddedProductToCartEvent value) addedProduct,
+    required TResult Function(_RemovedProductToCartEvent value) removedProduct,
+    required TResult Function(_RemovedProductAllToCartEvent value)
+        removedAllProduct,
+    required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
+    required TResult Function(_AddProductinDiferentAlmacenState value)
+        addProductinDiferentAlmacen,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
+    TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
+    TResult? Function(_AddProductinDiferentAlmacenState value)?
+        addProductinDiferentAlmacen,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult Function(_RemovedProductToCartEvent value)? removedProduct,
+    TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
+    TResult Function(_AddProductinDiferentAlmacenState value)?
+        addProductinDiferentAlmacen,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements CartEvent {
+  const factory _SignOut() = _$_SignOut;
 }
 
 /// @nodoc

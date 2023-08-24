@@ -5,12 +5,13 @@ import 'package:crimat_app/src/shared/utils/widget/warning_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../features/favorites/presentation/bloc/favorite_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../models/home/products/producto_model.dart';
-import '../../models/payment/shipping_model.dart';
+import '../../models/payment/payment_with_token/shipping_model.dart';
 import '../widgets/cusotm_buttom_product.dart';
 
 class UtilFunctions {
@@ -18,8 +19,11 @@ class UtilFunctions {
     return showDialog(
       barrierDismissible: false,
       context: context,
-      builder: (context) => const Align(
-          alignment: Alignment.center, child: CircularProgressIndicator()),
+      builder: (context) => Align(
+          alignment: Alignment.center,
+          child: SpinKitFadingCircle(
+            color: Theme.of(context).primaryColor,
+          )),
     );
   }
 

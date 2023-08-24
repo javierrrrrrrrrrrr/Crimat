@@ -1,6 +1,7 @@
 class Urls {
   ///Whiletrue server
   /////whiletruecu.com
+  /////Crimatus
   static const String host = 'whiletruecu.com';
   static const String api = 'whiletruecu.com';
   static const String hostApi = '/crimat-development/api';
@@ -21,4 +22,5 @@ class Urls {
   static String get deleteFavorite => 'crimat-development/api/remove_favorito/';
   static String get getPaymentData => 'crimat-development/api/nueva_orden/';
   static String get getShippingMethods => 'crimat-development/api/envios/';
+  static String get createNewSalon => 'crimat-development/api/salon/';
 }

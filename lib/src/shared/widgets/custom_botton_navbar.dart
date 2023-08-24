@@ -9,6 +9,7 @@ import '../../../resources/app_icons.dart';
 import '../../../resources/general_styles.dart';
 import '../../features/favorites/presentation/bloc/favorite_bloc.dart';
 import '../../features/historial/presentation/bloc/historial_bloc/historial_bloc.dart';
+import '../../features/perfil/presentation/bloc/profile_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 
 class CustomBottonNavigationBar extends StatelessWidget {
@@ -88,12 +89,16 @@ class CustomBottonNavigationBar extends StatelessWidget {
                     : AppIcons.profile),
                 label: context.loc.profile),
           ],
-          onTap: (newIndex) {
+          onTap: (newIndex) async {
+            if (newIndex == 0) {}
             if (newIndex == 1) {
               context.read<HistorialBloc>().add(const HistorialEvent.load());
             }
             if (newIndex == 3) {
               context.read<FavoriteBloc>().add(const FavoriteEvent.load());
+            }
+            if (newIndex == 4) {
+              context.read<ProfileBloc>().add(const ProfileEvent.load());
             }
             onItemTapped(newIndex, context);
             BlocProvider.of<LayoutCubit>(context).changeScreen(newIndex);

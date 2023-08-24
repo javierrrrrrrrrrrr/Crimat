@@ -3,7 +3,7 @@ import 'package:crimat_app/src/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 
 import '../models/home/categories/categories_model.dart';
-import '../services/categories_data_source.dart';
+import '../services/home/categories_data_source.dart';
 
 class CategoriesRepository {
   final CategoriesDataSurce categoriasDataSurce;

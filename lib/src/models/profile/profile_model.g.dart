@@ -13,8 +13,8 @@ ProfileModel _$ProfileModelFromJson(Map<String, dynamic> json) => ProfileModel(
       json['telefono'] as String,
       json['licencia'] as String,
       SuscripcionModel.fromJson(json['suscripcion'] as Map<String, dynamic>),
-      (json['direcciones'] as List<dynamic>)
-          .map((e) => DireccionModel.fromJson(e as Map<String, dynamic>))
+      (json['salones'] as List<dynamic>)
+          .map((e) => SalonModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -26,7 +26,7 @@ Map<String, dynamic> _$ProfileModelToJson(ProfileModel instance) =>
       'telefono': instance.telefono,
       'licencia': instance.licencia,
       'suscripcion': instance.suscripcion,
-      'direcciones': instance.direcciones,
+      'salones': instance.salones,
     };
 
 SuscripcionModel _$SuscripcionModelFromJson(Map<String, dynamic> json) =>
@@ -47,22 +47,15 @@ Map<String, dynamic> _$SuscripcionModelToJson(SuscripcionModel instance) =>
       'valor': instance.valor,
     };
 
-DireccionModel _$DireccionModelFromJson(Map<String, dynamic> json) =>
-    DireccionModel(
+SalonModel _$SalonModelFromJson(Map<String, dynamic> json) => SalonModel(
       json['id'] as int,
-      json['direccion'] as String,
-      json['aparatdo'] as String,
-      json['ciudad'] as String,
-      json['estado'] as String,
-      json['postal'] as String,
+      json['nombre'] as String,
+      DireccionModel.fromJson(json['direccion'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$DireccionModelToJson(DireccionModel instance) =>
+Map<String, dynamic> _$SalonModelToJson(SalonModel instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'nombre': instance.nombre,
       'direccion': instance.direccion,
-      'aparatdo': instance.apartado,
-      'ciudad': instance.ciudad,
-      'estado': instance.estado,
-      'postal': instance.postal,
     };

@@ -7,6 +7,7 @@ class ProductState with _$ProductState {
   const factory ProductState.loadedSuccess({
     required List<ProductModel> productos,
     required List<ProductModel> originalProductList,
+    required String token,
   }) = _LoadedSuccess;
   const factory ProductState.failure({
     required String message,

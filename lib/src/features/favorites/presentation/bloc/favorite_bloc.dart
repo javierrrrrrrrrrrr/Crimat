@@ -1,17 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../errors/failure.dart';
 import '../../../../models/home/products/producto_model.dart';
 import '../../../../repositories/favorite_repository.dart';
-import '../../../../shared/app_info.dart';
 
 part 'favorite_event.dart';
 part 'favorite_state.dart';
 part 'favorite_bloc.freezed.dart';
 
 class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
-  String? token = AppInfo().accessToken;
   final FavoriteRepository favorite;
   List<ProductModel> favoriteProductList = [];
   ProductModel? selectedFavoriteProduct;
@@ -24,11 +23,13 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     FavoriteEvent event,
     Emitter emit,
   ) async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
     await event.when(
       load: () async {
         dynamic result;
         emit(const FavoriteState.loading());
-        if (token != null) {
+        if (token != '') {
           result = await favorite.getFavorite(token: token!);
           result.fold((failure) {
             if (failure is ServerFailure) {
@@ -36,6 +37,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
             }
           }, (favoritelist) {
             favoriteProductList = favoritelist;
+
             emit(FavoriteState.loaded(productModelList: favoriteProductList));
           });
         } else {
@@ -44,12 +46,12 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
       },
       addedProduct: (ProductModel product) {
         if (token != null) {
-          favorite.addFavorite(token: token!, productid: product.id);
+          favorite.addFavorite(token: token, productid: product.id);
         }
       },
       removedProduct: (ProductModel product) {
         if (token != null) {
-          favorite.removeFavorite(token: token!, productid: product.id);
+          favorite.removeFavorite(token: token, productid: product.id);
         }
       },
       updateFavoriteList: (ProductModel product) {
@@ -69,6 +71,15 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
 
         emit(FavoriteState.loaded(productModelList: favoriteProductList));
       },
+      signOut: () {
+        resetVariable();
+        emit(const FavoriteState.initial());
+      },
     );
+  }
+
+  void resetVariable() {
+    favoriteProductList = [];
+    selectedFavoriteProduct = null;
   }
 }

@@ -1,3 +1,4 @@
+import 'package:crimat_app/src/models/profile/direccion_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'profile_model.g.dart';
@@ -16,8 +17,8 @@ class ProfileModel {
   final String licencia;
   @JsonKey(name: 'suscripcion')
   final SuscripcionModel suscripcion;
-  @JsonKey(name: 'direcciones')
-  final List<DireccionModel> direcciones;
+  @JsonKey(name: 'salones')
+  final List<SalonModel> salones;
 
   ProfileModel(
     this.email,
@@ -26,7 +27,7 @@ class ProfileModel {
     this.telefono,
     this.licencia,
     this.suscripcion,
-    this.direcciones,
+    this.salones,
   );
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) =>
@@ -63,31 +64,22 @@ class SuscripcionModel {
 }
 
 @JsonSerializable()
-class DireccionModel {
+class SalonModel {
   @JsonKey(name: 'id')
   final int id;
+  @JsonKey(name: 'nombre')
+  final String nombre;
   @JsonKey(name: 'direccion')
-  final String direccion;
-  @JsonKey(name: 'aparatdo')
-  final String apartado;
-  @JsonKey(name: 'ciudad')
-  final String ciudad;
-  @JsonKey(name: 'estado')
-  final String estado;
-  @JsonKey(name: 'postal')
-  final String postal;
+  final DireccionModel direccion;
 
-  DireccionModel(
+  SalonModel(
     this.id,
+    this.nombre,
     this.direccion,
-    this.apartado,
-    this.ciudad,
-    this.estado,
-    this.postal,
   );
 
-  factory DireccionModel.fromJson(Map<String, dynamic> json) =>
-      _$DireccionModelFromJson(json);
+  factory SalonModel.fromJson(Map<String, dynamic> json) =>
+      _$SalonModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DireccionModelToJson(this);
+  Map<String, dynamic> toJson() => _$SalonModelToJson(this);
 }
