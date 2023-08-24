@@ -101,7 +101,7 @@ class FormForDataNoRegisterUser extends StatelessWidget {
                 ),
                 CusotmButtom(
                   onPressed: () {
-//prodcutos
+                    final formValue = paymentbloc.unregisterUser.value;
                     final Cart cart = Cart(product: cartBloc.productList);
                     for (int i = 0;
                         i < cart.productQuantity(cart.product).keys.length;
@@ -126,17 +126,18 @@ class FormForDataNoRegisterUser extends StatelessWidget {
                         auxproductoslistcart.add(productoslistcart[i]);
                       }
                     }
+
                     final direccion = DireccionModelWithoutToken(
-                        apartado: 'prueba',
-                        ciudad: 'prueba',
-                        codigoPostal: 'prueba',
-                        direccion: 'prueba',
-                        estado: 'prueba');
+                        apartado: formValue['apartado'].toString(),
+                        ciudad: formValue['ciudad'].toString(),
+                        codigoPostal: formValue['codigo_postal'].toString(),
+                        direccion: formValue['direccion'].toString(),
+                        estado: formValue['estado'].toString());
                     final unregister = UnregisterModel(
-                      apellidos: 'prueba',
-                      email: 'prueba@gmail.com',
-                      nombre: 'prueba',
-                      telefono: 'prueba',
+                      apellidos: formValue['apellidos'].toString(),
+                      email: formValue['email'].toString(),
+                      nombre: formValue['nombre'].toString(),
+                      telefono: formValue['telefono'].toString(),
                       direccion: direccion,
                     );
 
