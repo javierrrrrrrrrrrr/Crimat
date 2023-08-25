@@ -19,32 +19,42 @@ mixin _$HistorialEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(List<OrdenModel> historial)
+        saveInStorageHistorial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(List<OrdenModel> historial)? saveInStorageHistorial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(List<OrdenModel> historial)? saveInStorageHistorial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_SaveInStorageHistorialEvent value)
+        saveInStorageHistorial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_SaveInStorageHistorialEvent value)?
+        saveInStorageHistorial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_SaveInStorageHistorialEvent value)?
+        saveInStorageHistorial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -105,6 +115,8 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(List<OrdenModel> historial)
+        saveInStorageHistorial,
   }) {
     return load();
   }
@@ -113,6 +125,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(List<OrdenModel> historial)? saveInStorageHistorial,
   }) {
     return load?.call();
   }
@@ -121,6 +134,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(List<OrdenModel> historial)? saveInStorageHistorial,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -133,6 +147,8 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_SaveInStorageHistorialEvent value)
+        saveInStorageHistorial,
   }) {
     return load(this);
   }
@@ -141,6 +157,8 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_SaveInStorageHistorialEvent value)?
+        saveInStorageHistorial,
   }) {
     return load?.call(this);
   }
@@ -149,6 +167,8 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_SaveInStorageHistorialEvent value)?
+        saveInStorageHistorial,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -160,6 +180,157 @@ class _$_Load implements _Load {
 
 abstract class _Load implements HistorialEvent {
   const factory _Load() = _$_Load;
+}
+
+/// @nodoc
+abstract class _$$_SaveInStorageHistorialEventCopyWith<$Res> {
+  factory _$$_SaveInStorageHistorialEventCopyWith(
+          _$_SaveInStorageHistorialEvent value,
+          $Res Function(_$_SaveInStorageHistorialEvent) then) =
+      __$$_SaveInStorageHistorialEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<OrdenModel> historial});
+}
+
+/// @nodoc
+class __$$_SaveInStorageHistorialEventCopyWithImpl<$Res>
+    extends _$HistorialEventCopyWithImpl<$Res, _$_SaveInStorageHistorialEvent>
+    implements _$$_SaveInStorageHistorialEventCopyWith<$Res> {
+  __$$_SaveInStorageHistorialEventCopyWithImpl(
+      _$_SaveInStorageHistorialEvent _value,
+      $Res Function(_$_SaveInStorageHistorialEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? historial = null,
+  }) {
+    return _then(_$_SaveInStorageHistorialEvent(
+      historial: null == historial
+          ? _value._historial
+          : historial // ignore: cast_nullable_to_non_nullable
+              as List<OrdenModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SaveInStorageHistorialEvent implements _SaveInStorageHistorialEvent {
+  const _$_SaveInStorageHistorialEvent(
+      {required final List<OrdenModel> historial})
+      : _historial = historial;
+
+  final List<OrdenModel> _historial;
+  @override
+  List<OrdenModel> get historial {
+    if (_historial is EqualUnmodifiableListView) return _historial;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_historial);
+  }
+
+  @override
+  String toString() {
+    return 'HistorialEvent.saveInStorageHistorial(historial: $historial)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SaveInStorageHistorialEvent &&
+            const DeepCollectionEquality()
+                .equals(other._historial, _historial));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_historial));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SaveInStorageHistorialEventCopyWith<_$_SaveInStorageHistorialEvent>
+      get copyWith => __$$_SaveInStorageHistorialEventCopyWithImpl<
+          _$_SaveInStorageHistorialEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(List<OrdenModel> historial)
+        saveInStorageHistorial,
+  }) {
+    return saveInStorageHistorial(historial);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(List<OrdenModel> historial)? saveInStorageHistorial,
+  }) {
+    return saveInStorageHistorial?.call(historial);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(List<OrdenModel> historial)? saveInStorageHistorial,
+    required TResult orElse(),
+  }) {
+    if (saveInStorageHistorial != null) {
+      return saveInStorageHistorial(historial);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_SaveInStorageHistorialEvent value)
+        saveInStorageHistorial,
+  }) {
+    return saveInStorageHistorial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_SaveInStorageHistorialEvent value)?
+        saveInStorageHistorial,
+  }) {
+    return saveInStorageHistorial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_SaveInStorageHistorialEvent value)?
+        saveInStorageHistorial,
+    required TResult orElse(),
+  }) {
+    if (saveInStorageHistorial != null) {
+      return saveInStorageHistorial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveInStorageHistorialEvent implements HistorialEvent {
+  const factory _SaveInStorageHistorialEvent(
+          {required final List<OrdenModel> historial}) =
+      _$_SaveInStorageHistorialEvent;
+
+  List<OrdenModel> get historial;
+  @JsonKey(ignore: true)
+  _$$_SaveInStorageHistorialEventCopyWith<_$_SaveInStorageHistorialEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

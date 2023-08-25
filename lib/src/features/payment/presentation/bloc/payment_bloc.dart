@@ -20,6 +20,7 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
   final PaymentRepository paymentdata;
 
   PaymentModel? paymentdatos;
+  PaymentModel? get payment => paymentdatos;
 
   List<ShippingModel>? _shippingMethods;
   List<ShippingModel>? get shippingMethods => _shippingMethods;

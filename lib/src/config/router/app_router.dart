@@ -19,9 +19,9 @@ import '../../features/perfil/presentation/view/delivery_address_view.dart';
 import '../../features/perfil/presentation/view/plane_view.dart';
 import '../../features/shoppping_cart/shopping_card_screen.dart';
 import '../../features/splash/splash_screen.dart';
-import '../../models/historial/historial_model.dart';
 import '../../models/home/almacen/almacen_model.dart';
 import '../../models/home/products/producto_model.dart';
+import '../../models/payment/payment_with_token/payment_model.dart';
 import '../../models/profile/profile_model.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [

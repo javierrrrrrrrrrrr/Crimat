@@ -5,7 +5,7 @@ import 'package:crimat_app/src/features/historial/presentation/view/widget/orden
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../models/historial/historial_model.dart';
+import '../../../../models/payment/payment_with_token/payment_model.dart';
 import '../../../../shared/widgets/card_sking.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../home/presentation/view/widget/custom_title.dart';
@@ -44,17 +44,17 @@ class HistorialDetails extends StatelessWidget {
                   left: 40,
                   child: ColumDetails(
                     isvisibleamount: false,
-                    orderNumber: datos.orderNumber,
-                    quantity: datos.quantity,
-                    totalAmount: datos.totalAmount,
-                    warehouse: datos.warehouse,
+                    orderNumber: datos.numOrden,
+                    quantity: datos.cantidad,
+                    totalAmount: datos.montoTotal,
+                    warehouse: datos.almacen,
                   ),
                 ),
                 Positioned(
                   top: 32.h,
                   right: 45,
                   child: CustomDate(
-                    date: datos.orderDate,
+                    date: datos.fechaOrden,
                   ),
                 ),
                 Positioned(

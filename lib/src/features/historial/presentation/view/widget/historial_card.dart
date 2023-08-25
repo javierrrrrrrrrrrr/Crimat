@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../../models/historial/historial_model.dart';
+import '../../../../../models/payment/payment_with_token/payment_model.dart';
 import '../../../../../shared/widgets/card_sking.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../historial_details_screen.dart';
@@ -24,16 +24,16 @@ class HisorialCard extends StatelessWidget {
         Positioned(
           left: 10.w,
           child: ColumDetails(
-            orderNumber: data.orderNumber,
-            quantity: data.quantity,
-            totalAmount: data.totalAmount,
-            warehouse: data.warehouse,
+            orderNumber: data.numOrden,
+            quantity: data.cantidad,
+            totalAmount: data.montoTotal,
+            warehouse: data.almacen,
           ),
         ),
         Positioned(
           right: 15.w,
           top: 15.h,
-          child: CustomDate(date: data.orderDate),
+          child: CustomDate(date: data.fechaOrden),
         ),
         Positioned(
           right: 15.w,

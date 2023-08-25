@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../../../resources/urls.dart';
 import '../../errors/expetion.dart';
-import '../../models/historial/historial_model.dart';
+import '../../models/payment/payment_with_token/payment_model.dart';
 
 class HistorialOnlineDataSource {
   final http.Client client;

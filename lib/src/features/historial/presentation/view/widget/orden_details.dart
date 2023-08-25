@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../models/historial/historial_model.dart';
+import '../../../../../models/payment/payment_with_token/payment_model.dart';
 
 class OrdenDetails extends StatelessWidget {
   const OrdenDetails({
@@ -34,28 +34,28 @@ class OrdenDetails extends StatelessWidget {
         ),
         CustomInfoRow(
           step: "Descuento",
-          value: "${datos.discount}",
+          value: "${datos.descuento}",
         ),
         SizedBox(
           height: 0.h,
         ),
         CustomInfoRow(
           step: "Costo de envio",
-          value: "\$${datos.shippingCost}",
+          value: "\$${datos.costoEnvio}",
         ),
         SizedBox(
           height: 0.h,
         ),
         CustomInfoRow(
           step: "Impustos",
-          value: "\$${datos.tax}",
+          value: "\$${datos.impuesto}",
         ),
         SizedBox(
           height: 0.h,
         ),
         CustomInfoRow(
           step: "Monto total",
-          value: "\$${datos.totalAmount}",
+          value: "\$${datos.montoTotal}",
         ),
       ],
     );
