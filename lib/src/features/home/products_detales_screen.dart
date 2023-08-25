@@ -6,20 +6,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../models/home/almacen/almacen_model.dart';
 import '../../models/home/products/producto_model.dart';
 import '../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 
 class ProductsDetails extends StatelessWidget {
-  const ProductsDetails({Key? key, required this.product}) : super(key: key);
+  const ProductsDetails(
+      {Key? key, required this.product, this.isAlmaenScreen, this.almacen})
+      : super(key: key);
 
   static const String name = 'product_detail_screen';
 
   final ProductModel product;
+  final bool? isAlmaenScreen;
+  final AlmacenModel? almacen;
 
   @override
   Widget build(BuildContext context) {
-    // final ProductModel producto =
-    //     ModalRoute.of(context)?.settings.arguments as ProductModel;
     return MainWidget(
       product: product,
     );

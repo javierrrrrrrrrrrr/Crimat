@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:crimat_app/src/errors/failure.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../../../models/historial/historial_model.dart';
+import '../../../../../models/payment/payment_with_token/payment_model.dart';
 import '../../../../../repositories/historial_repository.dart';
 
 part 'historial_event.dart';
@@ -35,6 +35,8 @@ class HistorialBloc extends Bloc<HistorialEvent, HistorialState> {
       }, (historial) {
         emit(HistorialState.success(historial: historial));
       });
+    }, saveInStorageHistorial: (List<OrdenModel> datos) async {
+      await historial.saveHistorial(historial: datos);
     });
   }
 }

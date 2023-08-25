@@ -6,8 +6,10 @@ import 'package:go_router/go_router.dart';
 class ProductDetailsHeder extends StatelessWidget {
   const ProductDetailsHeder({
     super.key,
+    this.isALmacen,
   });
 
+  final bool? isALmacen;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,7 +25,9 @@ class ProductDetailsHeder extends StatelessWidget {
         SizedBox(
           width: 80.w,
         ),
-        Text(context.loc.productDetails),
+        isALmacen == true
+            ? const Text('Detalles del Almacen')
+            : Text(context.loc.productDetails),
       ],
     );
   }

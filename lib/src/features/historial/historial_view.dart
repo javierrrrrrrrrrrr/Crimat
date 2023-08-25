@@ -3,7 +3,7 @@ import 'package:crimat_app/src/features/historial/presentation/view/widget/histo
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import '../../models/historial/historial_model.dart';
+import '../../models/payment/payment_with_token/payment_model.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
 import '../../shared/widgets/custom_error_widget.dart';
 

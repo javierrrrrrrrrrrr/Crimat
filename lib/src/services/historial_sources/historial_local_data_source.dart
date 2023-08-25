@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../errors/expetion.dart';
-import '../../models/historial/historial_model.dart';
+import '../../models/payment/payment_with_token/payment_model.dart';
 
 class HistorialLocalDataSource {
   final SharedPreferences sharedPreferences;

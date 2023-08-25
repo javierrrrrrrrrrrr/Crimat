@@ -12,14 +12,16 @@ import 'package:go_router/go_router.dart';
 import '../../features/auth/screens/register_on_process_screen.dart';
 import '../../features/historial/historial_view.dart';
 import '../../features/historial/presentation/view/historial_details_screen.dart';
+import '../../features/home/almacen_detales_screen.dart';
 import '../../features/home/products_detales_screen.dart';
 import '../../features/payment/presentation/view/payment_aux_view.dart';
 import '../../features/perfil/presentation/view/delivery_address_view.dart';
 import '../../features/perfil/presentation/view/plane_view.dart';
 import '../../features/shoppping_cart/shopping_card_screen.dart';
 import '../../features/splash/splash_screen.dart';
-import '../../models/historial/historial_model.dart';
+import '../../models/home/almacen/almacen_model.dart';
 import '../../models/home/products/producto_model.dart';
+import '../../models/payment/payment_with_token/payment_model.dart';
 import '../../models/profile/profile_model.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [
@@ -62,6 +64,17 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
                   return Scaffold(
                       body: ProductsDetails(
                     product: args,
+                    key: state.pageKey,
+                  ));
+                }),
+            GoRoute(
+                path: 'home/almacendetails',
+                name: AlmacenDetails.name,
+                builder: (context, state) {
+                  final args = state.extra as AlmacenModel;
+                  return Scaffold(
+                      body: AlmacenDetails(
+                    almacen: args,
                     key: state.pageKey,
                   ));
                 }),

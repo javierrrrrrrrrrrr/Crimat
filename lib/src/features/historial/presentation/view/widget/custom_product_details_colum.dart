@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../models/historial/historial_model.dart';
+import '../../../../../models/payment/payment_with_token/payment_model.dart';
 import 'details_card.dart';
 
 class CustomCardProdcutsDetailsColum extends StatelessWidget {
@@ -19,7 +19,7 @@ class CustomCardProdcutsDetailsColum extends StatelessWidget {
         width: 300.w,
         child: ListView.builder(
             scrollDirection: Axis.vertical,
-            itemCount: datos.products.length,
+            itemCount: datos.productos.length,
             itemBuilder: (BuildContext context, int index) {
               return Column(
                 children: [
@@ -27,10 +27,10 @@ class CustomCardProdcutsDetailsColum extends StatelessWidget {
                     height: 14.h,
                   ),
                   DetailsCard(
-                    image: datos.products[index].imagen,
-                    name: datos.products[index].name,
-                    price: datos.products[index].price,
-                    quantity: datos.products[index].quantity,
+                    image: datos.productos[index].imagen,
+                    name: datos.productos[index].nombre,
+                    price: datos.productos[index].precio,
+                    quantity: datos.productos[index].cantidad,
                   ),
                 ],
               );
