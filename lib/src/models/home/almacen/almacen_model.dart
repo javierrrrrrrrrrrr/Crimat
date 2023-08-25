@@ -13,12 +13,15 @@ class AlmacenModel {
   final String taxes;
   @JsonKey(name: 'eliminado')
   final bool deleted;
+  @JsonKey(name: 'photo')
+  final String? imagen;
   @JsonKey(name: 'direccion')
   final num address;
   @JsonKey(name: 'gestor')
   final num gestor;
 
-  AlmacenModel({
+  AlmacenModel(
+    this.imagen, {
     required this.id,
     required this.name,
     required this.phone,

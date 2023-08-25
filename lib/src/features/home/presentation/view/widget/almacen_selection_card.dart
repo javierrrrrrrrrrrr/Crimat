@@ -5,9 +5,11 @@ import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../almacen_detales_screen.dart';
 import '../../bloc/product_bloc/product_bloc.dart';
-import 'image_container.dart';
+import 'custom_picture_container.dart';
 
 class AlmacenSeleccionCard extends StatelessWidget {
   const AlmacenSeleccionCard({
@@ -67,11 +69,19 @@ class AlmacenSeleccionCard extends StatelessWidget {
                   });
             },
             key: ValueKey(almacen.id),
-            child: ImageContainer(
-              height: 103.sp,
-              width: 123.sp,
-              url: 'assets/images/no_image.png',
-            ),
+            child: almacen.imagen == null || almacen.imagen == ''
+                ? SizedBox(
+                    height: 103.h,
+                    width: 123.w,
+                    child: const PictureContainer(
+                      isanotherurl:
+                          "https://via.placeholder.com/150x150.png?text=Imagen+no+disponible",
+                    ),
+                  )
+                : SizedBox(
+                    height: 103.h,
+                    width: 123.w,
+                    child: PictureContainer(pictureUrl: almacen.imagen)),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.sp),
@@ -131,7 +141,9 @@ class AlmacenSeleccionCard extends StatelessWidget {
                 ),
                 CusotmButtom(
                   onPressed: () {
-                    //navegar para los detalles del almacen
+                    final args = almacen;
+
+                    context.pushNamed(AlmacenDetails.name, extra: args);
                   },
                   ispraimary: true,
                   name: context.loc.viewWarehouse,

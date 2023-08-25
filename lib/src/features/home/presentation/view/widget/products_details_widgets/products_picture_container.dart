@@ -7,15 +7,22 @@ class ProductPictureContainer extends StatelessWidget {
   const ProductPictureContainer({
     super.key,
     required this.url,
+    this.notimage,
   });
 
   final String url;
+  final bool? notimage;
 
   @override
   Widget build(BuildContext context) {
-    return PictureContainer(
-      pictureUrl: url,
-      height: 300.h,
-    );
+    return notimage == true
+        ? PictureContainer(
+            isanotherurl: url,
+            height: 300.h,
+          )
+        : PictureContainer(
+            pictureUrl: url,
+            height: 300.h,
+          );
   }
 }
