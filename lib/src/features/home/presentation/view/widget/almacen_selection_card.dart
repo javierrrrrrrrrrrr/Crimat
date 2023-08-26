@@ -107,9 +107,18 @@ class AlmacenSeleccionCard extends StatelessWidget {
                       SizedBox(
                         height: 10.h,
                       ),
-                      Text(
-                        almacen.name,
-                        style: Theme.of(context).textTheme.bodySmall,
+                      FittedBox(
+                        fit: BoxFit.fill,
+                        child: SizedBox(
+                          height: 16.h,
+                          width: 120.w,
+                          child: Text(
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            almacen.name,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: 10.h,
