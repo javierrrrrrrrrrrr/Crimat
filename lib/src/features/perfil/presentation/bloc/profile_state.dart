@@ -15,6 +15,10 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.goEditAddress({required SalonModel data}) =
       _GoEditAddressState;
   const factory ProfileState.editAddress() = _EditAddressState;
+
+  const factory ProfileState.getSubscriptionsType(
+      {required List<SubscriptionsModel> data}) = _GetSubscriptionsTypeState;
+
   const factory ProfileState.success({
     required ProfileModel profile,
   }) = _Success;

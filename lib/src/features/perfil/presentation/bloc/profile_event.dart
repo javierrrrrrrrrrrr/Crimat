@@ -19,5 +19,7 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.editNewAddress(
       {required EditSalonResponseModel requestdata}) = _EditNewAddressEvent;
 
+  const factory ProfileEvent.getSubscriptionsTyps() =
+      _GetSubscriptionsTypsEvent;
   const factory ProfileEvent.signOut() = _SignOut;
 }

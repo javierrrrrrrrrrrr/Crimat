@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../errors/failure.dart';
 import '../../../../models/profile/edit_salon_request_data_model.dart';
 import '../../../../models/profile/profile_model.dart';
+import '../../../../models/profile/subscriptions_model.dart';
 import '../../../../repositories/profile_repository.dart';
 
 part 'profile_event.dart';
@@ -115,6 +116,18 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     }, signOut: () {
       restVariable();
       emit(const ProfileState.initial());
+    }, getSubscriptionsTyps: () async {
+      emit(const ProfileState.loading());
+
+      dynamic result = await profilerepo.getTypeSubscriptions(token: token);
+
+      result.fold((failure) {
+        if (failure is ServerFailure) {
+          emit(ProfileState.failure(message: failure.message));
+        }
+      }, (List<SubscriptionsModel> data) async {
+        emit(ProfileState.getSubscriptionsType(data: data));
+      });
     });
   }
 
