@@ -28,6 +28,7 @@ mixin _$ProfileEvent {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ mixin _$ProfileEvent {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +58,7 @@ mixin _$ProfileEvent {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) =>
@@ -73,6 +76,7 @@ mixin _$ProfileEvent {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -87,6 +91,7 @@ mixin _$ProfileEvent {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -101,6 +106,7 @@ mixin _$ProfileEvent {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
@@ -171,6 +177,7 @@ class _$_Load implements _Load {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) {
     return load();
@@ -188,6 +195,7 @@ class _$_Load implements _Load {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) {
     return load?.call();
@@ -205,6 +213,7 @@ class _$_Load implements _Load {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -228,6 +237,7 @@ class _$_Load implements _Load {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) {
     return load(this);
@@ -245,6 +255,7 @@ class _$_Load implements _Load {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return load?.call(this);
@@ -262,6 +273,7 @@ class _$_Load implements _Load {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -351,6 +363,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) {
     return saveDireccion(id);
@@ -368,6 +381,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) {
     return saveDireccion?.call(id);
@@ -385,6 +399,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -408,6 +423,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) {
     return saveDireccion(this);
@@ -425,6 +441,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return saveDireccion?.call(this);
@@ -442,6 +459,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -510,6 +528,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) {
     return readDireccion();
@@ -527,6 +546,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) {
     return readDireccion?.call();
@@ -544,6 +564,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -567,6 +588,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) {
     return readDireccion(this);
@@ -584,6 +606,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return readDireccion?.call(this);
@@ -601,6 +624,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -691,6 +715,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) {
     return updateShippingType(id);
@@ -708,6 +733,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) {
     return updateShippingType?.call(id);
@@ -725,6 +751,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -748,6 +775,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) {
     return updateShippingType(this);
@@ -765,6 +793,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return updateShippingType?.call(this);
@@ -782,6 +811,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -850,6 +880,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) {
     return goNewAddress();
@@ -867,6 +898,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) {
     return goNewAddress?.call();
@@ -884,6 +916,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -907,6 +940,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) {
     return goNewAddress(this);
@@ -924,6 +958,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return goNewAddress?.call(this);
@@ -941,6 +976,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1031,6 +1067,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) {
     return addNewAddress(requestdata);
@@ -1048,6 +1085,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) {
     return addNewAddress?.call(requestdata);
@@ -1065,6 +1103,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1088,6 +1127,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) {
     return addNewAddress(this);
@@ -1105,6 +1145,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return addNewAddress?.call(this);
@@ -1122,6 +1163,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1218,6 +1260,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) {
     return goEditAddress(selectedsalon);
@@ -1235,6 +1278,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) {
     return goEditAddress?.call(selectedsalon);
@@ -1252,6 +1296,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1275,6 +1320,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) {
     return goEditAddress(this);
@@ -1292,6 +1338,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return goEditAddress?.call(this);
@@ -1309,6 +1356,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1405,6 +1453,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) {
     return editNewAddress(requestdata);
@@ -1422,6 +1471,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) {
     return editNewAddress?.call(requestdata);
@@ -1439,6 +1489,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1462,6 +1513,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) {
     return editNewAddress(this);
@@ -1479,6 +1531,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return editNewAddress?.call(this);
@@ -1496,6 +1549,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1568,6 +1622,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) {
     return getSubscriptionsTyps();
@@ -1585,6 +1640,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) {
     return getSubscriptionsTyps?.call();
@@ -1602,6 +1658,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1625,6 +1682,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) {
     return getSubscriptionsTyps(this);
@@ -1642,6 +1700,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return getSubscriptionsTyps?.call(this);
@@ -1659,6 +1718,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1671,6 +1731,198 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
 
 abstract class _GetSubscriptionsTypsEvent implements ProfileEvent {
   const factory _GetSubscriptionsTypsEvent() = _$_GetSubscriptionsTypsEvent;
+}
+
+/// @nodoc
+abstract class _$$_BuySubscriptionsEventCopyWith<$Res> {
+  factory _$$_BuySubscriptionsEventCopyWith(_$_BuySubscriptionsEvent value,
+          $Res Function(_$_BuySubscriptionsEvent) then) =
+      __$$_BuySubscriptionsEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$_BuySubscriptionsEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_BuySubscriptionsEvent>
+    implements _$$_BuySubscriptionsEventCopyWith<$Res> {
+  __$$_BuySubscriptionsEventCopyWithImpl(_$_BuySubscriptionsEvent _value,
+      $Res Function(_$_BuySubscriptionsEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_BuySubscriptionsEvent(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_BuySubscriptionsEvent implements _BuySubscriptionsEvent {
+  const _$_BuySubscriptionsEvent({required this.id});
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.buySubscriptions(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_BuySubscriptionsEvent &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_BuySubscriptionsEventCopyWith<_$_BuySubscriptionsEvent> get copyWith =>
+      __$$_BuySubscriptionsEventCopyWithImpl<_$_BuySubscriptionsEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(int id) saveDireccion,
+    required TResult Function() readDireccion,
+    required TResult Function(int id) updateShippingType,
+    required TResult Function() goNewAddress,
+    required TResult Function(SalonRequestModel requestdata) addNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
+    required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
+    required TResult Function() signOut,
+  }) {
+    return buySubscriptions(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(int id)? saveDireccion,
+    TResult? Function()? readDireccion,
+    TResult? Function(int id)? updateShippingType,
+    TResult? Function()? goNewAddress,
+    TResult? Function(SalonRequestModel requestdata)? addNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
+    TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
+    TResult? Function()? signOut,
+  }) {
+    return buySubscriptions?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(int id)? saveDireccion,
+    TResult Function()? readDireccion,
+    TResult Function(int id)? updateShippingType,
+    TResult Function()? goNewAddress,
+    TResult Function(SalonRequestModel requestdata)? addNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
+    TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (buySubscriptions != null) {
+      return buySubscriptions(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_SaveDireccionEvent value) saveDireccion,
+    required TResult Function(_ReadDireccionEvent value) readDireccion,
+    required TResult Function(_UpdateShippingTypeEvent value)
+        updateShippingType,
+    required TResult Function(_GoNewAddressEvent value) goNewAddress,
+    required TResult Function(_AddNewAddressEvent value) addNewAddress,
+    required TResult Function(_GoEditAddressEvent value) goEditAddress,
+    required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_GetSubscriptionsTypsEvent value)
+        getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return buySubscriptions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_SaveDireccionEvent value)? saveDireccion,
+    TResult? Function(_ReadDireccionEvent value)? readDireccion,
+    TResult? Function(_UpdateShippingTypeEvent value)? updateShippingType,
+    TResult? Function(_GoNewAddressEvent value)? goNewAddress,
+    TResult? Function(_AddNewAddressEvent value)? addNewAddress,
+    TResult? Function(_GoEditAddressEvent value)? goEditAddress,
+    TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return buySubscriptions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_SaveDireccionEvent value)? saveDireccion,
+    TResult Function(_ReadDireccionEvent value)? readDireccion,
+    TResult Function(_UpdateShippingTypeEvent value)? updateShippingType,
+    TResult Function(_GoNewAddressEvent value)? goNewAddress,
+    TResult Function(_AddNewAddressEvent value)? addNewAddress,
+    TResult Function(_GoEditAddressEvent value)? goEditAddress,
+    TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (buySubscriptions != null) {
+      return buySubscriptions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BuySubscriptionsEvent implements ProfileEvent {
+  const factory _BuySubscriptionsEvent({required final int id}) =
+      _$_BuySubscriptionsEvent;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$$_BuySubscriptionsEventCopyWith<_$_BuySubscriptionsEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1720,6 +1972,7 @@ class _$_SignOut implements _SignOut {
     required TResult Function(EditSalonResponseModel requestdata)
         editNewAddress,
     required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
     required TResult Function() signOut,
   }) {
     return signOut();
@@ -1737,6 +1990,7 @@ class _$_SignOut implements _SignOut {
     TResult? Function(SalonModel selectedsalon)? goEditAddress,
     TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
     TResult? Function()? signOut,
   }) {
     return signOut?.call();
@@ -1754,6 +2008,7 @@ class _$_SignOut implements _SignOut {
     TResult Function(SalonModel selectedsalon)? goEditAddress,
     TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
     TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1777,6 +2032,7 @@ class _$_SignOut implements _SignOut {
     required TResult Function(_EditNewAddressEvent value) editNewAddress,
     required TResult Function(_GetSubscriptionsTypsEvent value)
         getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_SignOut value) signOut,
   }) {
     return signOut(this);
@@ -1794,6 +2050,7 @@ class _$_SignOut implements _SignOut {
     TResult? Function(_GoEditAddressEvent value)? goEditAddress,
     TResult? Function(_EditNewAddressEvent value)? editNewAddress,
     TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return signOut?.call(this);
@@ -1811,6 +2068,7 @@ class _$_SignOut implements _SignOut {
     TResult Function(_GoEditAddressEvent value)? goEditAddress,
     TResult Function(_EditNewAddressEvent value)? editNewAddress,
     TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1838,6 +2096,7 @@ mixin _$ProfileState {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -1855,6 +2114,7 @@ mixin _$ProfileState {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -1871,6 +2131,7 @@ mixin _$ProfileState {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -1890,6 +2151,8 @@ mixin _$ProfileState {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -1908,6 +2171,8 @@ mixin _$ProfileState {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -1925,6 +2190,8 @@ mixin _$ProfileState {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -1997,6 +2264,7 @@ class _$_Initial implements _Initial {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -2017,6 +2285,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2036,6 +2305,7 @@ class _$_Initial implements _Initial {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2061,6 +2331,8 @@ class _$_Initial implements _Initial {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -2082,6 +2354,8 @@ class _$_Initial implements _Initial {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -2102,6 +2376,8 @@ class _$_Initial implements _Initial {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -2165,6 +2441,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -2185,6 +2462,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2204,6 +2482,7 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2229,6 +2508,8 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -2250,6 +2531,8 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -2270,6 +2553,8 @@ class _$_NoLogedUserState implements _NoLogedUserState {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -2369,6 +2654,7 @@ class _$_ChangeCheckSuccessState implements _ChangeCheckSuccessState {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -2389,6 +2675,7 @@ class _$_ChangeCheckSuccessState implements _ChangeCheckSuccessState {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2408,6 +2695,7 @@ class _$_ChangeCheckSuccessState implements _ChangeCheckSuccessState {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2433,6 +2721,8 @@ class _$_ChangeCheckSuccessState implements _ChangeCheckSuccessState {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -2454,6 +2744,8 @@ class _$_ChangeCheckSuccessState implements _ChangeCheckSuccessState {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -2474,6 +2766,8 @@ class _$_ChangeCheckSuccessState implements _ChangeCheckSuccessState {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -2578,6 +2872,7 @@ class _$_UpdateDeliveryTypeSeleccionState
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -2598,6 +2893,7 @@ class _$_UpdateDeliveryTypeSeleccionState
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2617,6 +2913,7 @@ class _$_UpdateDeliveryTypeSeleccionState
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2642,6 +2939,8 @@ class _$_UpdateDeliveryTypeSeleccionState
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -2663,6 +2962,8 @@ class _$_UpdateDeliveryTypeSeleccionState
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -2683,6 +2984,8 @@ class _$_UpdateDeliveryTypeSeleccionState
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -2752,6 +3055,7 @@ class _$_Loading implements _Loading {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -2772,6 +3076,7 @@ class _$_Loading implements _Loading {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2791,6 +3096,7 @@ class _$_Loading implements _Loading {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2816,6 +3122,8 @@ class _$_Loading implements _Loading {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -2837,6 +3145,8 @@ class _$_Loading implements _Loading {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -2857,6 +3167,8 @@ class _$_Loading implements _Loading {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -2920,6 +3232,7 @@ class _$_AddAddressState implements _AddAddressState {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -2940,6 +3253,7 @@ class _$_AddAddressState implements _AddAddressState {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -2959,6 +3273,7 @@ class _$_AddAddressState implements _AddAddressState {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -2984,6 +3299,8 @@ class _$_AddAddressState implements _AddAddressState {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -3005,6 +3322,8 @@ class _$_AddAddressState implements _AddAddressState {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -3025,6 +3344,8 @@ class _$_AddAddressState implements _AddAddressState {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -3088,6 +3409,7 @@ class _$_GoAddAddressState implements _GoAddAddressState {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -3108,6 +3430,7 @@ class _$_GoAddAddressState implements _GoAddAddressState {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -3127,6 +3450,7 @@ class _$_GoAddAddressState implements _GoAddAddressState {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -3152,6 +3476,8 @@ class _$_GoAddAddressState implements _GoAddAddressState {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -3173,6 +3499,8 @@ class _$_GoAddAddressState implements _GoAddAddressState {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -3193,6 +3521,8 @@ class _$_GoAddAddressState implements _GoAddAddressState {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -3283,6 +3613,7 @@ class _$_GoEditAddressState implements _GoEditAddressState {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -3303,6 +3634,7 @@ class _$_GoEditAddressState implements _GoEditAddressState {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -3322,6 +3654,7 @@ class _$_GoEditAddressState implements _GoEditAddressState {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -3347,6 +3680,8 @@ class _$_GoEditAddressState implements _GoEditAddressState {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -3368,6 +3703,8 @@ class _$_GoEditAddressState implements _GoEditAddressState {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -3388,6 +3725,8 @@ class _$_GoEditAddressState implements _GoEditAddressState {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -3457,6 +3796,7 @@ class _$_EditAddressState implements _EditAddressState {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -3477,6 +3817,7 @@ class _$_EditAddressState implements _EditAddressState {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -3496,6 +3837,7 @@ class _$_EditAddressState implements _EditAddressState {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -3521,6 +3863,8 @@ class _$_EditAddressState implements _EditAddressState {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -3542,6 +3886,8 @@ class _$_EditAddressState implements _EditAddressState {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -3562,6 +3908,8 @@ class _$_EditAddressState implements _EditAddressState {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -3576,6 +3924,188 @@ class _$_EditAddressState implements _EditAddressState {
 
 abstract class _EditAddressState implements ProfileState {
   const factory _EditAddressState() = _$_EditAddressState;
+}
+
+/// @nodoc
+abstract class _$$_BuySubscriptionsCompletedStateCopyWith<$Res> {
+  factory _$$_BuySubscriptionsCompletedStateCopyWith(
+          _$_BuySubscriptionsCompletedState value,
+          $Res Function(_$_BuySubscriptionsCompletedState) then) =
+      __$$_BuySubscriptionsCompletedStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_BuySubscriptionsCompletedStateCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$_BuySubscriptionsCompletedState>
+    implements _$$_BuySubscriptionsCompletedStateCopyWith<$Res> {
+  __$$_BuySubscriptionsCompletedStateCopyWithImpl(
+      _$_BuySubscriptionsCompletedState _value,
+      $Res Function(_$_BuySubscriptionsCompletedState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_BuySubscriptionsCompletedState
+    implements _BuySubscriptionsCompletedState {
+  const _$_BuySubscriptionsCompletedState();
+
+  @override
+  String toString() {
+    return 'ProfileState.buySubscriptionsCompleted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_BuySubscriptionsCompletedState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() noLogedUser,
+    required TResult Function(int id, ProfileModel profile) changeCheckSuccess,
+    required TResult Function(int updatedId) updateDeliveryTypeSeleccion,
+    required TResult Function() loading,
+    required TResult Function() addAddress,
+    required TResult Function() goaddAddress,
+    required TResult Function(SalonModel data) goEditAddress,
+    required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
+    required TResult Function(List<SubscriptionsModel> data)
+        getSubscriptionsType,
+    required TResult Function(ProfileModel profile) success,
+    required TResult Function(String message) failure,
+  }) {
+    return buySubscriptionsCompleted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? noLogedUser,
+    TResult? Function(int id, ProfileModel profile)? changeCheckSuccess,
+    TResult? Function(int updatedId)? updateDeliveryTypeSeleccion,
+    TResult? Function()? loading,
+    TResult? Function()? addAddress,
+    TResult? Function()? goaddAddress,
+    TResult? Function(SalonModel data)? goEditAddress,
+    TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
+    TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
+    TResult? Function(ProfileModel profile)? success,
+    TResult? Function(String message)? failure,
+  }) {
+    return buySubscriptionsCompleted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? noLogedUser,
+    TResult Function(int id, ProfileModel profile)? changeCheckSuccess,
+    TResult Function(int updatedId)? updateDeliveryTypeSeleccion,
+    TResult Function()? loading,
+    TResult Function()? addAddress,
+    TResult Function()? goaddAddress,
+    TResult Function(SalonModel data)? goEditAddress,
+    TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
+    TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
+    TResult Function(ProfileModel profile)? success,
+    TResult Function(String message)? failure,
+    required TResult orElse(),
+  }) {
+    if (buySubscriptionsCompleted != null) {
+      return buySubscriptionsCompleted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_NoLogedUserState value) noLogedUser,
+    required TResult Function(_ChangeCheckSuccessState value)
+        changeCheckSuccess,
+    required TResult Function(_UpdateDeliveryTypeSeleccionState value)
+        updateDeliveryTypeSeleccion,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddAddressState value) addAddress,
+    required TResult Function(_GoAddAddressState value) goaddAddress,
+    required TResult Function(_GoEditAddressState value) goEditAddress,
+    required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
+    required TResult Function(_GetSubscriptionsTypeState value)
+        getSubscriptionsType,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return buySubscriptionsCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NoLogedUserState value)? noLogedUser,
+    TResult? Function(_ChangeCheckSuccessState value)? changeCheckSuccess,
+    TResult? Function(_UpdateDeliveryTypeSeleccionState value)?
+        updateDeliveryTypeSeleccion,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddAddressState value)? addAddress,
+    TResult? Function(_GoAddAddressState value)? goaddAddress,
+    TResult? Function(_GoEditAddressState value)? goEditAddress,
+    TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
+    TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return buySubscriptionsCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_NoLogedUserState value)? noLogedUser,
+    TResult Function(_ChangeCheckSuccessState value)? changeCheckSuccess,
+    TResult Function(_UpdateDeliveryTypeSeleccionState value)?
+        updateDeliveryTypeSeleccion,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddAddressState value)? addAddress,
+    TResult Function(_GoAddAddressState value)? goaddAddress,
+    TResult Function(_GoEditAddressState value)? goEditAddress,
+    TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
+    TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
+    TResult Function(_Success value)? success,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (buySubscriptionsCompleted != null) {
+      return buySubscriptionsCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BuySubscriptionsCompletedState implements ProfileState {
+  const factory _BuySubscriptionsCompletedState() =
+      _$_BuySubscriptionsCompletedState;
 }
 
 /// @nodoc
@@ -3662,6 +4192,7 @@ class _$_GetSubscriptionsTypeState implements _GetSubscriptionsTypeState {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -3682,6 +4213,7 @@ class _$_GetSubscriptionsTypeState implements _GetSubscriptionsTypeState {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -3701,6 +4233,7 @@ class _$_GetSubscriptionsTypeState implements _GetSubscriptionsTypeState {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -3726,6 +4259,8 @@ class _$_GetSubscriptionsTypeState implements _GetSubscriptionsTypeState {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -3747,6 +4282,8 @@ class _$_GetSubscriptionsTypeState implements _GetSubscriptionsTypeState {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -3767,6 +4304,8 @@ class _$_GetSubscriptionsTypeState implements _GetSubscriptionsTypeState {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -3862,6 +4401,7 @@ class _$_Success implements _Success {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -3882,6 +4422,7 @@ class _$_Success implements _Success {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -3901,6 +4442,7 @@ class _$_Success implements _Success {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -3926,6 +4468,8 @@ class _$_Success implements _Success {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -3947,6 +4491,8 @@ class _$_Success implements _Success {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -3967,6 +4513,8 @@ class _$_Success implements _Success {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
@@ -4060,6 +4608,7 @@ class _$_Failure implements _Failure {
     required TResult Function() goaddAddress,
     required TResult Function(SalonModel data) goEditAddress,
     required TResult Function() editAddress,
+    required TResult Function() buySubscriptionsCompleted,
     required TResult Function(List<SubscriptionsModel> data)
         getSubscriptionsType,
     required TResult Function(ProfileModel profile) success,
@@ -4080,6 +4629,7 @@ class _$_Failure implements _Failure {
     TResult? Function()? goaddAddress,
     TResult? Function(SalonModel data)? goEditAddress,
     TResult? Function()? editAddress,
+    TResult? Function()? buySubscriptionsCompleted,
     TResult? Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult? Function(ProfileModel profile)? success,
     TResult? Function(String message)? failure,
@@ -4099,6 +4649,7 @@ class _$_Failure implements _Failure {
     TResult Function()? goaddAddress,
     TResult Function(SalonModel data)? goEditAddress,
     TResult Function()? editAddress,
+    TResult Function()? buySubscriptionsCompleted,
     TResult Function(List<SubscriptionsModel> data)? getSubscriptionsType,
     TResult Function(ProfileModel profile)? success,
     TResult Function(String message)? failure,
@@ -4124,6 +4675,8 @@ class _$_Failure implements _Failure {
     required TResult Function(_GoAddAddressState value) goaddAddress,
     required TResult Function(_GoEditAddressState value) goEditAddress,
     required TResult Function(_EditAddressState value) editAddress,
+    required TResult Function(_BuySubscriptionsCompletedState value)
+        buySubscriptionsCompleted,
     required TResult Function(_GetSubscriptionsTypeState value)
         getSubscriptionsType,
     required TResult Function(_Success value) success,
@@ -4145,6 +4698,8 @@ class _$_Failure implements _Failure {
     TResult? Function(_GoAddAddressState value)? goaddAddress,
     TResult? Function(_GoEditAddressState value)? goEditAddress,
     TResult? Function(_EditAddressState value)? editAddress,
+    TResult? Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult? Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
@@ -4165,6 +4720,8 @@ class _$_Failure implements _Failure {
     TResult Function(_GoAddAddressState value)? goaddAddress,
     TResult Function(_GoEditAddressState value)? goEditAddress,
     TResult Function(_EditAddressState value)? editAddress,
+    TResult Function(_BuySubscriptionsCompletedState value)?
+        buySubscriptionsCompleted,
     TResult Function(_GetSubscriptionsTypeState value)? getSubscriptionsType,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,

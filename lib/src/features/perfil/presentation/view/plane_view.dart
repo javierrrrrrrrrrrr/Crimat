@@ -92,6 +92,7 @@ class CustomSubTypeRow extends StatelessWidget {
   final SubscriptionsModel data;
   @override
   Widget build(BuildContext context) {
+    final profilebloc = context.read<ProfileBloc>();
     return Stack(
       children: [
         CardSking(
@@ -162,7 +163,9 @@ class CustomSubTypeRow extends StatelessWidget {
           bottom: 18.h,
           right: 10.w,
           child: CusotmButtom(
-              onPressed: () {},
+              onPressed: () {
+                profilebloc.add(ProfileEvent.buySubscriptions(id: data.id));
+              },
               width: 100.w,
               height: 30.h,
               name: "Comprar",

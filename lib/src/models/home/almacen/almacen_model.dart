@@ -1,4 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+
+import '../../profile/direccion_model.dart';
 part 'almacen_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
@@ -10,15 +12,15 @@ class AlmacenModel {
   @JsonKey(name: 'telefono')
   final String phone;
   @JsonKey(name: 'taxes')
-  final String taxes;
+  final double taxes;
   @JsonKey(name: 'eliminado')
-  final bool deleted;
+  final bool? deleted;
   @JsonKey(name: 'photo')
   final String? imagen;
   @JsonKey(name: 'direccion')
-  final num address;
+  final DireccionModel address;
   @JsonKey(name: 'gestor')
-  final num gestor;
+  final String gestor;
 
   AlmacenModel(
     this.imagen, {
@@ -26,7 +28,7 @@ class AlmacenModel {
     required this.name,
     required this.phone,
     required this.taxes,
-    required this.deleted,
+    this.deleted,
     required this.address,
     required this.gestor,
   });

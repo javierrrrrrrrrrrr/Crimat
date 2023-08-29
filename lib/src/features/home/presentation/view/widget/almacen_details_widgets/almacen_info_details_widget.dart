@@ -24,14 +24,16 @@ class AlmacenInfo extends StatelessWidget {
           SizedBox(
             height: 100.h,
           ),
-          const CustomInfoRow(
+          CustomInfoRow(
             imagen: "assets/icons/location.png",
-            texto: 'Falta la direccion en la repuesta',
+            texto:
+                '${almacen.address.apartado} ${almacen.address.ciudad}${almacen.address.direccion}}',
           ),
           SizedBox(
             height: 50.h,
           ),
           CustomInfoRow(
+            isPhonenumber: true,
             imagen: "assets/icons/whasapp.png",
             texto: almacen.phone,
           ),

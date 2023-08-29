@@ -6,10 +6,12 @@ class CustomInfoRow extends StatelessWidget {
     super.key,
     required this.imagen,
     required this.texto,
+    this.isPhonenumber,
   });
 
   final String imagen;
   final String texto;
+  final bool? isPhonenumber;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,9 @@ class CustomInfoRow extends StatelessWidget {
         SizedBox(
           width: 20.w,
         ),
-        Text(texto),
+        isPhonenumber == true
+            ? Text(texto)
+            : SizedBox(height: 50.h, width: 250.w, child: Text(texto)),
       ],
     );
   }

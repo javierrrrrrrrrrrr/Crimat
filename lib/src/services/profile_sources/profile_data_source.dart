@@ -143,4 +143,32 @@ class ProfileDataSource {
       return throw ServerException();
     }
   }
+
+  Future<void> buySubscriptions(
+    String? token,
+    int id,
+  ) async {
+    final Uri uri = Uri.https(Urls.api, Urls.buySubscriptionsData);
+    try {
+      final response = await http.post(uri, headers: {
+        'Authorization': 'Bearer $token',
+      }, body: {
+        "suscripcion": id.toString(),
+      });
+
+      if (response.statusCode == 200) {
+        // final jsonMap = jsonDecode(response.body) as List<dynamic>;
+        // final subscriptionsdata = jsonMap
+        //     .map((almacenData) => SubscriptionsModel.fromJson(almacenData))
+        //     .toList();
+        // return subscriptionsdata;
+      } else {
+        final errorMessage =
+            'Ocurrió un problema en el servidor: ${response.statusCode}';
+        throw ServerException(errorMessage);
+      }
+    } catch (e) {
+      //    return throw ServerException();
+    }
+  }
 }

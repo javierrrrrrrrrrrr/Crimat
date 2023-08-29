@@ -128,6 +128,18 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       }, (List<SubscriptionsModel> data) async {
         emit(ProfileState.getSubscriptionsType(data: data));
       });
+    }, buySubscriptions: (int id) async {
+      emit(const ProfileState.loading());
+      dynamic result =
+          await profilerepo.buySubscriptions(token: token!, id: id);
+
+      result.fold((failure) {
+        if (failure is ServerFailure) {
+          emit(ProfileState.failure(message: failure.message));
+        }
+      }, (data) async {
+        //  dynamic aux = convertir(salonmodel: salondata);
+      });
     });
   }
 

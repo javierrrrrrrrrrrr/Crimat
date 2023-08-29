@@ -16,6 +16,10 @@ class ProfileState with _$ProfileState {
       _GoEditAddressState;
   const factory ProfileState.editAddress() = _EditAddressState;
 
+//para probar falta el dato que devuelve el enpint
+  const factory ProfileState.buySubscriptionsCompleted() =
+      _BuySubscriptionsCompletedState;
+
   const factory ProfileState.getSubscriptionsType(
       {required List<SubscriptionsModel> data}) = _GetSubscriptionsTypeState;
 

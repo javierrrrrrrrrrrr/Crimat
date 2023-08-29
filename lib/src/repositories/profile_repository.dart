@@ -74,4 +74,16 @@ class ProfileRepository {
       return Left(ServerFailure('Server failure'));
     }
   }
+
+  Future<Either<Failure, void>> buySubscriptions(
+      {String? token, required id}) async {
+    try {
+      // final typeSubscriptions =
+      await profileDataSurce.buySubscriptions(token, id);
+
+      return const Right(null);
+    } on ServerException {
+      return Left(ServerFailure('Server failure'));
+    }
+  }
 }
