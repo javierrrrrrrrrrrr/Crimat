@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -7,7 +9,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../errors/failure.dart';
 import '../../../../models/profile/edit_salon_request_data_model.dart';
 import '../../../../models/profile/profile_model.dart';
+import '../../../../models/profile/stripe_response_model.dart';
 import '../../../../models/profile/subscriptions_model.dart';
+import '../../../../repositories/payment_repository.dart';
 import '../../../../repositories/profile_repository.dart';
 
 part 'profile_event.dart';
@@ -15,8 +19,10 @@ part 'profile_state.dart';
 part 'profile_bloc.freezed.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
+  StripeResponse? stripeResponse;
   // String? token = AppUtilInfo().accessToken;
   final ProfileRepository profilerepo;
+  final PaymentRepository paymentdata;
 
   ProfileModel? _profiledata;
   ProfileModel? get profiledata => _profiledata;
@@ -29,6 +35,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   ProfileBloc(
     this.profilerepo,
+    this.paymentdata,
   ) : super(const ProfileState.initial()) {
     on<ProfileEvent>(eventHandler);
   }
@@ -137,9 +144,21 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         if (failure is ServerFailure) {
           emit(ProfileState.failure(message: failure.message));
         }
-      }, (data) async {
-        //  dynamic aux = convertir(salonmodel: salondata);
+      }, (StripeResponse data) async {
+        stripeResponse = data;
+
+        emit(const ProfileState.buySubscriptionsCompleted());
       });
+    }, buySubscriptionsStripe: (BuildContext context) async {
+      emit(const ProfileState.loading());
+      await paymentdata.initPaymentSheet(
+          context: context,
+          paymentIntentClientSecret: stripeResponse!.paymentIntent,
+          customerId: stripeResponse!.customer,
+          customerEphemeralKeySecret: stripeResponse!.ephemeralKey);
+
+      await Stripe.instance.presentPaymentSheet();
+      emit(const ProfileState.buySubscriptionsStripeCompleted());
     });
   }
 

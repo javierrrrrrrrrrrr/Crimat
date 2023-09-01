@@ -8,6 +8,7 @@ import '../../errors/expetion.dart';
 import '../../models/profile/edit_salon_request_data_model.dart';
 import '../../models/profile/new_salon_request_data_model.dart';
 import '../../models/profile/profile_model.dart';
+import '../../models/profile/stripe_response_model.dart';
 import '../../models/profile/subscriptions_model.dart';
 
 class ProfileDataSource {
@@ -144,7 +145,7 @@ class ProfileDataSource {
     }
   }
 
-  Future<void> buySubscriptions(
+  Future<StripeResponse> buySubscriptions(
     String? token,
     int id,
   ) async {
@@ -157,18 +158,17 @@ class ProfileDataSource {
       });
 
       if (response.statusCode == 200) {
-        // final jsonMap = jsonDecode(response.body) as List<dynamic>;
-        // final subscriptionsdata = jsonMap
-        //     .map((almacenData) => SubscriptionsModel.fromJson(almacenData))
-        //     .toList();
-        // return subscriptionsdata;
+        final jsonMap = jsonDecode(response.body);
+
+        final paymentdata = StripeResponse.fromJson(jsonMap);
+        return paymentdata;
       } else {
         final errorMessage =
             'Ocurrió un problema en el servidor: ${response.statusCode}';
         throw ServerException(errorMessage);
       }
     } catch (e) {
-      //    return throw ServerException();
+      return throw ServerException();
     }
   }
 }

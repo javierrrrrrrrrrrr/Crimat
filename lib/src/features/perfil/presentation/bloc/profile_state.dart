@@ -20,6 +20,12 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.buySubscriptionsCompleted() =
       _BuySubscriptionsCompletedState;
 
+  const factory ProfileState.buySubscriptionsStripeCompleted() =
+      _BuySubscriptionsStripeCompletedState;
+
+  // const factory ProfileState.buySubscriptionsInitPay(
+  //     {required StripeResponse data}) = _BuySubscriptionsInitPayState;
+
   const factory ProfileState.getSubscriptionsType(
       {required List<SubscriptionsModel> data}) = _GetSubscriptionsTypeState;
 

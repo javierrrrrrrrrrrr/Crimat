@@ -104,7 +104,8 @@ Future<void> init() async {
       () => ProfileRepository(sl.get<ProfileDataSource>()));
 
   //?? Blocs
-  sl.registerFactory(() => ProfileBloc(sl.get<ProfileRepository>()));
+  sl.registerFactory(() =>
+      ProfileBloc(sl.get<ProfileRepository>(), sl.get<PaymentRepository>()));
 
   ///Favorite
   //?? DataSources.

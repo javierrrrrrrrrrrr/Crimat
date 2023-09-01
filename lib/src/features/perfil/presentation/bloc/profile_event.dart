@@ -22,7 +22,12 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.getSubscriptionsTyps() =
       _GetSubscriptionsTypsEvent;
 
-  const factory ProfileEvent.buySubscriptions({required int id}) =
-      _BuySubscriptionsEvent;
+  const factory ProfileEvent.buySubscriptions({
+    required int id,
+  }) = _BuySubscriptionsEvent;
+
+  const factory ProfileEvent.buySubscriptionsStripe(
+      {required BuildContext context}) = _BuySubscriptionsStripeEvent;
+
   const factory ProfileEvent.signOut() = _SignOut;
 }

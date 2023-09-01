@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../models/profile/subscriptions_model.dart';
 import '../../../../shared/widgets/card_sking.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../perfil_home.dart';
 import '../bloc/profile_bloc.dart';
 
 class PlanesView extends StatelessWidget {
@@ -16,16 +17,31 @@ class PlanesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileBloc, ProfileState>(
+    final profilebloc = context.read<ProfileBloc>();
+    return BlocConsumer<ProfileBloc, ProfileState>(
+      listener: (context, state) {
+        state.maybeWhen(
+            orElse: () => Container(),
+            buySubscriptionsCompleted: () => profilebloc
+                .add(ProfileEvent.buySubscriptionsStripe(context: context)),
+            buySubscriptionsStripeCompleted: () {
+              context.pop;
+              context.goNamed(ProfileView.name);
+            });
+      },
       builder: (context, state) {
-        return state.maybeWhen(
-          orElse: () => Container(),
-          getSubscriptionsType: (data) => CustomPlaneDataColum(data: data),
-          loading: () => Center(
-            child: SpinKitFadingCircle(
-              color: Theme.of(context).primaryColor,
-            ),
-          ),
+        return BlocBuilder<ProfileBloc, ProfileState>(
+          builder: (context, state) {
+            return state.maybeWhen(
+              orElse: () => Container(),
+              getSubscriptionsType: (data) => CustomPlaneDataColum(data: data),
+              loading: () => Center(
+                child: SpinKitFadingCircle(
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+            );
+          },
         );
       },
     );
@@ -160,11 +176,21 @@ class CustomSubTypeRow extends StatelessWidget {
           ),
         ),
         Positioned(
+          top: 10.h,
+          right: 15.w,
+          child: Text(
+            '${data.valor} USD',
+            style: TextStyle(fontSize: 16.sp),
+          ),
+        ),
+        Positioned(
           bottom: 18.h,
           right: 10.w,
           child: CusotmButtom(
               onPressed: () {
-                profilebloc.add(ProfileEvent.buySubscriptions(id: data.id));
+                profilebloc.add(ProfileEvent.buySubscriptions(
+                  id: data.id,
+                ));
               },
               width: 100.w,
               height: 30.h,
