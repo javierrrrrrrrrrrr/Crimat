@@ -50,14 +50,45 @@ class ProfileView extends StatelessWidget {
               success: (profile) => ProfileMainWidget(
                 profil: profile,
               ),
-              noLogedUser: () => const Center(
-                child: Text("usted no está registrado en la aplicación"),
-              ),
+              noLogedUser: () => const NoLogerUserWidget(),
               changeCheckSuccess: (id, profile) => ProfileMainWidget(
                 profil: profile,
               ),
               updateDeliveryTypeSeleccion: (data) => Container(),
             ));
+  }
+}
+
+class NoLogerUserWidget extends StatelessWidget {
+  const NoLogerUserWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    LayoutCubit layoutcubit = BlocProvider.of<LayoutCubit>(context);
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Center(
+          child: Text("usted no está registrado en la aplicación"),
+        ),
+        SizedBox(
+          height: 50.h,
+        ),
+        CusotmButtom(
+            fontsize: 40,
+            lettersize: 220.sp,
+            onPressed: () {
+              context.goNamed(LoginScreen.name);
+              layoutcubit.changeScreen(0);
+            },
+            width: 150.w,
+            height: 50.h,
+            name: "Ir al login",
+            ispraimary: true),
+      ],
+    );
   }
 }
 
