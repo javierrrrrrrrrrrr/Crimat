@@ -185,6 +185,7 @@ class ProfileMainWidget extends StatelessWidget {
     categoribloc.add(const CategoriesEvent.signOut());
 
     almacenbloc.add(const AlmacenEvent.signOut());
+    //ajustar bien este tema 
     almacenbloc.add(AlmacenEvent.activeAlmacen(
         index: 0, almacenes: almacenbloc.almaceneslist));
     productBloc.add(const ProductEvent.signOut());
