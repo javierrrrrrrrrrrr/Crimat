@@ -186,7 +186,7 @@ class ProfileMainWidget extends StatelessWidget {
 
     almacenbloc.add(const AlmacenEvent.signOut());
     almacenbloc.add(AlmacenEvent.activeAlmacen(
-        index: -1, almacenes: almacenbloc.almaceneslist));
+        index: 0, almacenes: almacenbloc.almaceneslist));
     productBloc.add(const ProductEvent.signOut());
     favoriteBloc.add(const FavoriteEvent.signOut());
     profileBloc.add(const ProfileEvent.signOut());
