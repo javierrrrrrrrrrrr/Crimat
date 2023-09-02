@@ -155,6 +155,7 @@ class ProfileDataSource {
         'Authorization': 'Bearer $token',
       }, body: {
         "suscripcion": id.toString(),
+        "duracion": 6
       });
 
       if (response.statusCode == 200) {
