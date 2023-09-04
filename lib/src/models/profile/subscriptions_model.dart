@@ -16,8 +16,8 @@ class SubscriptionsModel {
   final bool eliminado;
   @JsonKey(name: 'cant_salones')
   final int cantSalones;
-  @JsonKey(name: 'estado')
-  final String estado;
+  // @JsonKey(name: 'estado')
+  // final String estado;
   @JsonKey(name: 'valor')
   final String valor;
 
@@ -28,7 +28,7 @@ class SubscriptionsModel {
     required this.dias,
     required this.eliminado,
     required this.cantSalones,
-    required this.estado,
+    // required this.estado,
     required this.valor,
   });
 

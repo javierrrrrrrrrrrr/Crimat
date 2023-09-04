@@ -14,7 +14,6 @@ SubscriptionsModel _$SubscriptionsModelFromJson(Map<String, dynamic> json) =>
       dias: json['dias'] as int,
       eliminado: json['eliminado'] as bool,
       cantSalones: json['cant_salones'] as int,
-      estado: json['estado'] as String,
       valor: json['valor'] as String,
     );
 
@@ -26,6 +25,5 @@ Map<String, dynamic> _$SubscriptionsModelToJson(SubscriptionsModel instance) =>
       'dias': instance.dias,
       'eliminado': instance.eliminado,
       'cant_salones': instance.cantSalones,
-      'estado': instance.estado,
       'valor': instance.valor,
     };

@@ -15,6 +15,8 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<CategoriesEvent>(eventHandler);
   }
 
+  List<CategoriesModel> categorilist = [];
+
   Future<void> eventHandler(CategoriesEvent event, Emitter emit) async {
     await event.when(
       load: () async {
@@ -25,7 +27,8 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
             emit(CategoriesState.failure(message: failure.message));
           }
         }, (categories) {
-          emit(CategoriesState.success(categories: categories));
+          categorilist = categories;
+          emit(CategoriesState.success(categories: categorilist));
         });
       },
       selectCategory: (categorySelectedIndex) {
@@ -66,7 +69,8 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
       },
       signOut: () {
         resetVariable();
-      //  emit(const CategoriesState.initial());
+        emit(CategoriesState.success(categories: categorilist));
+        //  emit(const CategoriesState.initial());
       },
     );
   }

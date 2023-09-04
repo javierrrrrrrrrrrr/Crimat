@@ -175,19 +175,14 @@ class ProfileMainWidget extends StatelessWidget {
     FavoriteBloc favoriteBloc = context.read<FavoriteBloc>();
     LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     LayoutCubit layoutcubit = BlocProvider.of<LayoutCubit>(context);
-    //  AppUtilInfo appInfo = sl<AppUtilInfo>();
 
-    ///////
-    // appInfo.accessToken = null;
-    // appInfo.refreshToken = null;
     //  categoribloc.add(const CategoriesEvent.selectCategory(categorySelectedIndex: -1));
     // categoribloc.add( CategoriesEvent.selectSubCategory());
     categoribloc.add(const CategoriesEvent.signOut());
 
     almacenbloc.add(const AlmacenEvent.signOut());
-    //ajustar bien este tema 
-    almacenbloc.add(AlmacenEvent.activeAlmacen(
-        index: 0, almacenes: almacenbloc.almaceneslist));
+    //ajustar bien este tema
+
     productBloc.add(const ProductEvent.signOut());
     favoriteBloc.add(const FavoriteEvent.signOut());
     profileBloc.add(const ProfileEvent.signOut());

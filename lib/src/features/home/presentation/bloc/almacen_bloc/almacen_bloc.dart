@@ -36,6 +36,7 @@ class AlmacenBloc extends Bloc<AlmacenEvent, AlmacenState> {
       },
       signOut: () {
         resetVariables();
+        emit(AlmacenState.success(almacenes: almaceneslist));
 
         // emit(const AlmacenState.initial());
       },
