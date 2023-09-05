@@ -29,5 +29,7 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.buySubscriptionsStripe(
       {required BuildContext context}) = _BuySubscriptionsStripeEvent;
 
+  const factory ProfileEvent.updatePlaneView() = _UpdatePlaneViewEvent;
+
   const factory ProfileEvent.signOut() = _SignOut;
 }

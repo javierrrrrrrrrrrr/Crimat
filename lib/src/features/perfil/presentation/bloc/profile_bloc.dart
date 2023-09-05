@@ -151,7 +151,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       });
     }, buySubscriptionsStripe: (BuildContext context) async {
       emit(const ProfileState.loading());
-     //validacion para si la subcripcion vale cero
+      //validacion para si la subcripcion vale cero
 
       await paymentdata.initPaymentSheet(
           context: context,
@@ -161,6 +161,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
       await Stripe.instance.presentPaymentSheet();
       emit(const ProfileState.buySubscriptionsStripeCompleted());
+    }, updatePlaneView: () {
+      //actulizar el valor del plan y emitir el estado de succes
     });
   }
 

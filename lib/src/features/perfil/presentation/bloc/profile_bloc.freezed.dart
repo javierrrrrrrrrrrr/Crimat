@@ -30,6 +30,7 @@ mixin _$ProfileEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -46,6 +47,7 @@ mixin _$ProfileEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +64,7 @@ mixin _$ProfileEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) =>
@@ -82,6 +85,7 @@ mixin _$ProfileEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -99,6 +103,7 @@ mixin _$ProfileEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -116,6 +121,7 @@ mixin _$ProfileEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
@@ -188,6 +194,7 @@ class _$_Load implements _Load {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return load();
@@ -207,6 +214,7 @@ class _$_Load implements _Load {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return load?.call();
@@ -226,6 +234,7 @@ class _$_Load implements _Load {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -252,6 +261,7 @@ class _$_Load implements _Load {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return load(this);
@@ -272,6 +282,7 @@ class _$_Load implements _Load {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return load?.call(this);
@@ -292,6 +303,7 @@ class _$_Load implements _Load {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -383,6 +395,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return saveDireccion(id);
@@ -402,6 +415,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return saveDireccion?.call(id);
@@ -421,6 +435,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -447,6 +462,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return saveDireccion(this);
@@ -467,6 +483,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return saveDireccion?.call(this);
@@ -487,6 +504,7 @@ class _$_SaveDireccionEvent implements _SaveDireccionEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -557,6 +575,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return readDireccion();
@@ -576,6 +595,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return readDireccion?.call();
@@ -595,6 +615,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -621,6 +642,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return readDireccion(this);
@@ -641,6 +663,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return readDireccion?.call(this);
@@ -661,6 +684,7 @@ class _$_ReadDireccionEvent implements _ReadDireccionEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -753,6 +777,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return updateShippingType(id);
@@ -772,6 +797,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return updateShippingType?.call(id);
@@ -791,6 +817,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -817,6 +844,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return updateShippingType(this);
@@ -837,6 +865,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return updateShippingType?.call(this);
@@ -857,6 +886,7 @@ class _$_UpdateShippingTypeEvent implements _UpdateShippingTypeEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -927,6 +957,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return goNewAddress();
@@ -946,6 +977,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return goNewAddress?.call();
@@ -965,6 +997,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -991,6 +1024,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return goNewAddress(this);
@@ -1011,6 +1045,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return goNewAddress?.call(this);
@@ -1031,6 +1066,7 @@ class _$_GoNewAddressEvent implements _GoNewAddressEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1123,6 +1159,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return addNewAddress(requestdata);
@@ -1142,6 +1179,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return addNewAddress?.call(requestdata);
@@ -1161,6 +1199,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1187,6 +1226,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return addNewAddress(this);
@@ -1207,6 +1247,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return addNewAddress?.call(this);
@@ -1227,6 +1268,7 @@ class _$_AddNewAddressEvent implements _AddNewAddressEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1325,6 +1367,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return goEditAddress(selectedsalon);
@@ -1344,6 +1387,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return goEditAddress?.call(selectedsalon);
@@ -1363,6 +1407,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1389,6 +1434,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return goEditAddress(this);
@@ -1409,6 +1455,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return goEditAddress?.call(this);
@@ -1429,6 +1476,7 @@ class _$_GoEditAddressEvent implements _GoEditAddressEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1527,6 +1575,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return editNewAddress(requestdata);
@@ -1546,6 +1595,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return editNewAddress?.call(requestdata);
@@ -1565,6 +1615,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1591,6 +1642,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return editNewAddress(this);
@@ -1611,6 +1663,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return editNewAddress?.call(this);
@@ -1631,6 +1684,7 @@ class _$_EditNewAddressEvent implements _EditNewAddressEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1705,6 +1759,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return getSubscriptionsTyps();
@@ -1724,6 +1779,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return getSubscriptionsTyps?.call();
@@ -1743,6 +1799,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1769,6 +1826,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return getSubscriptionsTyps(this);
@@ -1789,6 +1847,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return getSubscriptionsTyps?.call(this);
@@ -1809,6 +1868,7 @@ class _$_GetSubscriptionsTypsEvent implements _GetSubscriptionsTypsEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -1900,6 +1960,7 @@ class _$_BuySubscriptionsEvent implements _BuySubscriptionsEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return buySubscriptions(id);
@@ -1919,6 +1980,7 @@ class _$_BuySubscriptionsEvent implements _BuySubscriptionsEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return buySubscriptions?.call(id);
@@ -1938,6 +2000,7 @@ class _$_BuySubscriptionsEvent implements _BuySubscriptionsEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1964,6 +2027,7 @@ class _$_BuySubscriptionsEvent implements _BuySubscriptionsEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return buySubscriptions(this);
@@ -1984,6 +2048,7 @@ class _$_BuySubscriptionsEvent implements _BuySubscriptionsEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return buySubscriptions?.call(this);
@@ -2004,6 +2069,7 @@ class _$_BuySubscriptionsEvent implements _BuySubscriptionsEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -2103,6 +2169,7 @@ class _$_BuySubscriptionsStripeEvent implements _BuySubscriptionsStripeEvent {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return buySubscriptionsStripe(context);
@@ -2122,6 +2189,7 @@ class _$_BuySubscriptionsStripeEvent implements _BuySubscriptionsStripeEvent {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return buySubscriptionsStripe?.call(context);
@@ -2141,6 +2209,7 @@ class _$_BuySubscriptionsStripeEvent implements _BuySubscriptionsStripeEvent {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -2167,6 +2236,7 @@ class _$_BuySubscriptionsStripeEvent implements _BuySubscriptionsStripeEvent {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return buySubscriptionsStripe(this);
@@ -2187,6 +2257,7 @@ class _$_BuySubscriptionsStripeEvent implements _BuySubscriptionsStripeEvent {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return buySubscriptionsStripe?.call(this);
@@ -2207,6 +2278,7 @@ class _$_BuySubscriptionsStripeEvent implements _BuySubscriptionsStripeEvent {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
@@ -2225,6 +2297,180 @@ abstract class _BuySubscriptionsStripeEvent implements ProfileEvent {
   @JsonKey(ignore: true)
   _$$_BuySubscriptionsStripeEventCopyWith<_$_BuySubscriptionsStripeEvent>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdatePlaneViewEventCopyWith<$Res> {
+  factory _$$_UpdatePlaneViewEventCopyWith(_$_UpdatePlaneViewEvent value,
+          $Res Function(_$_UpdatePlaneViewEvent) then) =
+      __$$_UpdatePlaneViewEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UpdatePlaneViewEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_UpdatePlaneViewEvent>
+    implements _$$_UpdatePlaneViewEventCopyWith<$Res> {
+  __$$_UpdatePlaneViewEventCopyWithImpl(_$_UpdatePlaneViewEvent _value,
+      $Res Function(_$_UpdatePlaneViewEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_UpdatePlaneViewEvent implements _UpdatePlaneViewEvent {
+  const _$_UpdatePlaneViewEvent();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.updatePlaneView()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_UpdatePlaneViewEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(int id) saveDireccion,
+    required TResult Function() readDireccion,
+    required TResult Function(int id) updateShippingType,
+    required TResult Function() goNewAddress,
+    required TResult Function(SalonRequestModel requestdata) addNewAddress,
+    required TResult Function(SalonModel selectedsalon) goEditAddress,
+    required TResult Function(EditSalonResponseModel requestdata)
+        editNewAddress,
+    required TResult Function() getSubscriptionsTyps,
+    required TResult Function(int id) buySubscriptions,
+    required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
+    required TResult Function() signOut,
+  }) {
+    return updatePlaneView();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(int id)? saveDireccion,
+    TResult? Function()? readDireccion,
+    TResult? Function(int id)? updateShippingType,
+    TResult? Function()? goNewAddress,
+    TResult? Function(SalonRequestModel requestdata)? addNewAddress,
+    TResult? Function(SalonModel selectedsalon)? goEditAddress,
+    TResult? Function(EditSalonResponseModel requestdata)? editNewAddress,
+    TResult? Function()? getSubscriptionsTyps,
+    TResult? Function(int id)? buySubscriptions,
+    TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
+    TResult? Function()? signOut,
+  }) {
+    return updatePlaneView?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(int id)? saveDireccion,
+    TResult Function()? readDireccion,
+    TResult Function(int id)? updateShippingType,
+    TResult Function()? goNewAddress,
+    TResult Function(SalonRequestModel requestdata)? addNewAddress,
+    TResult Function(SalonModel selectedsalon)? goEditAddress,
+    TResult Function(EditSalonResponseModel requestdata)? editNewAddress,
+    TResult Function()? getSubscriptionsTyps,
+    TResult Function(int id)? buySubscriptions,
+    TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (updatePlaneView != null) {
+      return updatePlaneView();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_SaveDireccionEvent value) saveDireccion,
+    required TResult Function(_ReadDireccionEvent value) readDireccion,
+    required TResult Function(_UpdateShippingTypeEvent value)
+        updateShippingType,
+    required TResult Function(_GoNewAddressEvent value) goNewAddress,
+    required TResult Function(_AddNewAddressEvent value) addNewAddress,
+    required TResult Function(_GoEditAddressEvent value) goEditAddress,
+    required TResult Function(_EditNewAddressEvent value) editNewAddress,
+    required TResult Function(_GetSubscriptionsTypsEvent value)
+        getSubscriptionsTyps,
+    required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
+    required TResult Function(_BuySubscriptionsStripeEvent value)
+        buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return updatePlaneView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_SaveDireccionEvent value)? saveDireccion,
+    TResult? Function(_ReadDireccionEvent value)? readDireccion,
+    TResult? Function(_UpdateShippingTypeEvent value)? updateShippingType,
+    TResult? Function(_GoNewAddressEvent value)? goNewAddress,
+    TResult? Function(_AddNewAddressEvent value)? addNewAddress,
+    TResult? Function(_GoEditAddressEvent value)? goEditAddress,
+    TResult? Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult? Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
+    TResult? Function(_BuySubscriptionsStripeEvent value)?
+        buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return updatePlaneView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_SaveDireccionEvent value)? saveDireccion,
+    TResult Function(_ReadDireccionEvent value)? readDireccion,
+    TResult Function(_UpdateShippingTypeEvent value)? updateShippingType,
+    TResult Function(_GoNewAddressEvent value)? goNewAddress,
+    TResult Function(_AddNewAddressEvent value)? addNewAddress,
+    TResult Function(_GoEditAddressEvent value)? goEditAddress,
+    TResult Function(_EditNewAddressEvent value)? editNewAddress,
+    TResult Function(_GetSubscriptionsTypsEvent value)? getSubscriptionsTyps,
+    TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
+    TResult Function(_BuySubscriptionsStripeEvent value)?
+        buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (updatePlaneView != null) {
+      return updatePlaneView(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePlaneViewEvent implements ProfileEvent {
+  const factory _UpdatePlaneViewEvent() = _$_UpdatePlaneViewEvent;
 }
 
 /// @nodoc
@@ -2276,6 +2522,7 @@ class _$_SignOut implements _SignOut {
     required TResult Function() getSubscriptionsTyps,
     required TResult Function(int id) buySubscriptions,
     required TResult Function(BuildContext context) buySubscriptionsStripe,
+    required TResult Function() updatePlaneView,
     required TResult Function() signOut,
   }) {
     return signOut();
@@ -2295,6 +2542,7 @@ class _$_SignOut implements _SignOut {
     TResult? Function()? getSubscriptionsTyps,
     TResult? Function(int id)? buySubscriptions,
     TResult? Function(BuildContext context)? buySubscriptionsStripe,
+    TResult? Function()? updatePlaneView,
     TResult? Function()? signOut,
   }) {
     return signOut?.call();
@@ -2314,6 +2562,7 @@ class _$_SignOut implements _SignOut {
     TResult Function()? getSubscriptionsTyps,
     TResult Function(int id)? buySubscriptions,
     TResult Function(BuildContext context)? buySubscriptionsStripe,
+    TResult Function()? updatePlaneView,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -2340,6 +2589,7 @@ class _$_SignOut implements _SignOut {
     required TResult Function(_BuySubscriptionsEvent value) buySubscriptions,
     required TResult Function(_BuySubscriptionsStripeEvent value)
         buySubscriptionsStripe,
+    required TResult Function(_UpdatePlaneViewEvent value) updatePlaneView,
     required TResult Function(_SignOut value) signOut,
   }) {
     return signOut(this);
@@ -2360,6 +2610,7 @@ class _$_SignOut implements _SignOut {
     TResult? Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult? Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult? Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult? Function(_SignOut value)? signOut,
   }) {
     return signOut?.call(this);
@@ -2380,6 +2631,7 @@ class _$_SignOut implements _SignOut {
     TResult Function(_BuySubscriptionsEvent value)? buySubscriptions,
     TResult Function(_BuySubscriptionsStripeEvent value)?
         buySubscriptionsStripe,
+    TResult Function(_UpdatePlaneViewEvent value)? updatePlaneView,
     TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
