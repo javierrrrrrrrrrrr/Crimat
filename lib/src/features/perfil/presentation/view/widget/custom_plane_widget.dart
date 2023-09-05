@@ -36,6 +36,7 @@ class CustomPlane extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              //agregar un bloc builder
               Text(
                 "Plan ${profile.suscripcion.tipo}",
                 style: TextStyle(color: Colors.white, fontSize: 11.sp),
