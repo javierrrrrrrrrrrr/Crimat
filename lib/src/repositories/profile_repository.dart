@@ -77,11 +77,12 @@ class ProfileRepository {
   }
 
   Future<Either<Failure, StripeResponse>> buySubscriptions(
-      {String? token, required id}) async {
+      {String? token, required id, required int cantidadMeses}) async {
     final StripeResponse repuesta;
     try {
       // final typeSubscriptions =
-      repuesta = await profileDataSurce.buySubscriptions(token, id);
+      repuesta =
+          await profileDataSurce.buySubscriptions(token, id, cantidadMeses);
 
       return Right(repuesta);
     } on ServerException {

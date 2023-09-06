@@ -148,6 +148,7 @@ class ProfileDataSource {
   Future<StripeResponse> buySubscriptions(
     String? token,
     int id,
+    int cantidadMeses,
   ) async {
     final Uri uri = Uri.https(Urls.api, Urls.buySubscriptionsData);
     try {
@@ -155,7 +156,7 @@ class ProfileDataSource {
         'Authorization': 'Bearer $token',
       }, body: {
         "suscripcion": id.toString(),
-        "duracion": 6.toString()
+        "duracion": cantidadMeses.toString()
       });
 
       if (response.statusCode == 200) {

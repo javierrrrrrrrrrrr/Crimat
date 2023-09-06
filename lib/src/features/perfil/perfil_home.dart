@@ -35,27 +35,37 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final profilebloc = context.read<ProfileBloc>();
-    return BlocBuilder<ProfileBloc, ProfileState>(
-        builder: (context, state) => state.maybeWhen(
-              orElse: () => ProfileMainWidget(
-                profil: profilebloc.profiledata!,
-              ),
-              initial: () => Container(),
-              loading: () => Center(
-                child: SpinKitFadingCircle(
-                  color: Theme.of(context).primaryColor,
-                ),
-              ),
-              failure: (message) => Container(),
-              success: (profile) => ProfileMainWidget(
-                profil: profile,
-              ),
-              noLogedUser: () => const NoLogerUserWidget(),
-              changeCheckSuccess: (id, profile) => ProfileMainWidget(
-                profil: profile,
-              ),
-              updateDeliveryTypeSeleccion: (data) => Container(),
-            ));
+    return BlocConsumer<ProfileBloc, ProfileState>(
+      listener: (context, state) {
+        state.maybeWhen(
+            orElse: () => Container(),
+            buySubscriptionsStripeCompleted: () =>
+                profilebloc.add(const ProfileEvent.updatePlaneView()));
+      },
+      builder: (context, state) {
+        return BlocBuilder<ProfileBloc, ProfileState>(
+            builder: (context, state) => state.maybeWhen(
+                  orElse: () => ProfileMainWidget(
+                    profil: profilebloc.profiledata!,
+                  ),
+                  initial: () => Container(),
+                  loading: () => Center(
+                    child: SpinKitFadingCircle(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                  failure: (message) => Container(),
+                  success: (profile) => ProfileMainWidget(
+                    profil: profile,
+                  ),
+                  noLogedUser: () => const NoLogerUserWidget(),
+                  changeCheckSuccess: (id, profile) => ProfileMainWidget(
+                    profil: profile,
+                  ),
+                  updateDeliveryTypeSeleccion: (data) => Container(),
+                ));
+      },
+    );
   }
 }
 

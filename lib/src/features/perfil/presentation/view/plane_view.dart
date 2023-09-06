@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../models/profile/subscriptions_model.dart';
 import '../../../../shared/widgets/card_sking.dart';
 import '../../../../shared/widgets/cusotm_buttom_product.dart';
+import '../../../historial/presentation/view/widget/details_card.dart';
 import '../../perfil_home.dart';
 import '../bloc/profile_bloc.dart';
 
@@ -33,7 +34,7 @@ class PlanesView extends StatelessWidget {
         return BlocBuilder<ProfileBloc, ProfileState>(
           builder: (context, state) {
             return state.maybeWhen(
-              orElse: () => Container(),
+              orElse: () => CustomPlaneDataColum(data: profilebloc.sublist!),
               getSubscriptionsType: (data) => CustomPlaneDataColum(data: data),
               loading: () => Center(
                 child: SpinKitFadingCircle(
@@ -89,7 +90,7 @@ class CustomPlaneDataColum extends StatelessWidget {
                     SizedBox(
                       height: 30.h,
                     ),
-                    CustomSubTypeRow(data: data[index]),
+                    CustomSubTypeRow(data: data[index], selectedindex: index),
                   ],
                 );
               }),
@@ -103,9 +104,11 @@ class CustomSubTypeRow extends StatelessWidget {
   const CustomSubTypeRow({
     super.key,
     required this.data,
+    required this.selectedindex,
   });
 
   final SubscriptionsModel data;
+  final int selectedindex;
   @override
   Widget build(BuildContext context) {
     final profilebloc = context.read<ProfileBloc>();
@@ -113,10 +116,10 @@ class CustomSubTypeRow extends StatelessWidget {
       children: [
         CardSking(
           cardwidth: 375.w,
-          cardheight: 120.h,
+          cardheight: 140.h,
         ),
         Container(
-          height: 120.h,
+          height: 140.h,
           width: 100.w,
           decoration: BoxDecoration(
             color: Theme.of(context).primaryColor,
@@ -151,18 +154,21 @@ class CustomSubTypeRow extends StatelessWidget {
                 style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                height: 4.h,
+                height: 12.h,
               ),
               Text(
                 'Días de anticipación:${data.dias}',
                 style: TextStyle(fontSize: 11.sp),
+              ),
+              SizedBox(
+                height: 12.h,
               ),
               Text(
                 'Cantidad de salones:${data.cantSalones}',
                 style: TextStyle(fontSize: 11.sp),
               ),
               SizedBox(
-                height: 15.h,
+                height: 12.h,
               ),
               Text(
                 'Fecha de Fecha de expiración:',
@@ -179,9 +185,22 @@ class CustomSubTypeRow extends StatelessWidget {
           top: 10.h,
           right: 15.w,
           child: Text(
-            '${data.valor} USD',
+            '${calcularValor(selectedindex, context, data.valor)} USD',
             style: TextStyle(fontSize: 16.sp),
           ),
+        ),
+        Positioned(
+          top: 35.h,
+          right: 15.w,
+          child: Text(
+            'Numero de meses',
+            style: TextStyle(fontSize: 11.sp),
+          ),
+        ),
+        Positioned(
+          bottom: 45.h,
+          right: 1.w,
+          child: CustomCantidad(selectedindex: selectedindex),
         ),
         Positioned(
           bottom: 18.h,
@@ -189,14 +208,63 @@ class CustomSubTypeRow extends StatelessWidget {
           child: CusotmButtom(
               onPressed: () {
                 profilebloc.add(ProfileEvent.buySubscriptions(
-                  id: data.id,
-                ));
+                    id: data.id, selectedindex: selectedindex));
               },
               width: 100.w,
               height: 30.h,
               name: "Comprar",
               ispraimary: true),
         ),
+      ],
+    );
+  }
+
+  double calcularValor(
+      int selectedindex, BuildContext context, String preciobase) {
+    final profilebloc = context.read<ProfileBloc>();
+    double valor = 0;
+    valor = profilebloc.subMonth[selectedindex] * double.parse(preciobase);
+
+    return valor;
+  }
+}
+
+class CustomCantidad extends StatelessWidget {
+  const CustomCantidad({
+    super.key,
+    required this.selectedindex,
+  });
+
+  final int selectedindex;
+
+  @override
+  Widget build(BuildContext context) {
+    final profilebloc = context.read<ProfileBloc>();
+    return Row(
+      children: [
+        CusotmButtomCart(
+          icon: Icons.remove,
+          onPressed: () {
+            profilebloc
+                .add(ProfileEvent.subMonth(selectedIndex: selectedindex));
+          },
+        ),
+        BlocBuilder<ProfileBloc, ProfileState>(
+          builder: (context, state) {
+            return state.maybeWhen(
+              orElse: () => const Text('1'),
+              updatedQuantityMonth: (cantidad) =>
+                  Text(cantidad[selectedindex].toString()),
+            );
+            //  return Text('c'));
+          },
+        ),
+        CusotmButtomCart(
+            icon: Icons.add,
+            onPressed: () {
+              profilebloc
+                  .add(ProfileEvent.addMonth(selectedIndex: selectedindex));
+            }),
       ],
     );
   }

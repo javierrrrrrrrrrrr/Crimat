@@ -24,6 +24,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final ProfileRepository profilerepo;
   final PaymentRepository paymentdata;
 
+//id del plan q se compro
+  int? buyPlan;
+
+  //lista de sub
+  List<SubscriptionsModel>? sublist = [];
+  //int cantidad de meses de la sub
+
+  List<int> subMonth = [];
   ProfileModel? _profiledata;
   ProfileModel? get profiledata => _profiledata;
 
@@ -133,12 +141,15 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           emit(ProfileState.failure(message: failure.message));
         }
       }, (List<SubscriptionsModel> data) async {
-        emit(ProfileState.getSubscriptionsType(data: data));
+        sublist = data;
+        subMonth = List<int>.filled(sublist!.length, 1);
+        emit(ProfileState.getSubscriptionsType(data: sublist!));
       });
-    }, buySubscriptions: (int id) async {
+    }, buySubscriptions: (int id, selectedindex) async {
+      buyPlan = id;
       emit(const ProfileState.loading());
-      dynamic result =
-          await profilerepo.buySubscriptions(token: token!, id: id);
+      dynamic result = await profilerepo.buySubscriptions(
+          token: token!, id: id, cantidadMeses: subMonth[selectedindex]);
 
       result.fold((failure) {
         if (failure is ServerFailure) {
@@ -162,7 +173,27 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       await Stripe.instance.presentPaymentSheet();
       emit(const ProfileState.buySubscriptionsStripeCompleted());
     }, updatePlaneView: () {
-      //actulizar el valor del plan y emitir el estado de succes
+      SubscriptionsModel? plandata;
+      for (int i = 0; i < sublist!.length; i++) {
+        if (sublist![i].id == buyPlan) {
+          plandata = sublist![i];
+        }
+      }
+
+      if (plandata != null) {
+        profiledata!.suscripcion.tipo = plandata.tipoSuscripcion;
+      }
+      emit(ProfileState.success(profile: _profiledata!));
+    }, addMonth: (index) {
+      emit(const ProfileState.loading());
+      subMonth[index] = subMonth[index] + 1;
+      emit(ProfileState.updatedQuantityMonth(cantidad: subMonth));
+    }, subMonth: (index) {
+      if (subMonth[index] > 0) {
+        emit(const ProfileState.loading());
+        subMonth[index] = subMonth[index] - 1;
+        emit(ProfileState.updatedQuantityMonth(cantidad: subMonth));
+      }
     });
   }
 

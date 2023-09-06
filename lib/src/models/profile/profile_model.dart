@@ -39,7 +39,7 @@ class ProfileModel {
 @JsonSerializable()
 class SuscripcionModel {
   @JsonKey(name: 'tipo')
-  final String tipo;
+  String tipo;
   @JsonKey(name: 'descuento')
   final double descuento;
   @JsonKey(name: 'dias_visibilidad')

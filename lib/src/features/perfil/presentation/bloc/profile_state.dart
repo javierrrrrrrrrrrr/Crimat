@@ -32,6 +32,9 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.success({
     required ProfileModel profile,
   }) = _Success;
+  const factory ProfileState.updatedQuantityMonth({
+    required List<int> cantidad,
+  }) = _UpdatedQuantityMonthState;
   const factory ProfileState.failure({
     required String message,
   }) = _Failure;

@@ -22,14 +22,17 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.getSubscriptionsTyps() =
       _GetSubscriptionsTypsEvent;
 
-  const factory ProfileEvent.buySubscriptions({
-    required int id,
-  }) = _BuySubscriptionsEvent;
+  const factory ProfileEvent.buySubscriptions(
+      {required int id, required int selectedindex}) = _BuySubscriptionsEvent;
 
   const factory ProfileEvent.buySubscriptionsStripe(
       {required BuildContext context}) = _BuySubscriptionsStripeEvent;
 
   const factory ProfileEvent.updatePlaneView() = _UpdatePlaneViewEvent;
+  const factory ProfileEvent.addMonth({required int selectedIndex}) =
+      _AddMonthEvent;
+  const factory ProfileEvent.subMonth({required int selectedIndex}) =
+      _SubMonthEvent;
 
   const factory ProfileEvent.signOut() = _SignOut;
 }
