@@ -11,10 +11,11 @@ AlmacenModel _$AlmacenModelFromJson(Map<String, dynamic> json) => AlmacenModel(
       id: json['id'] as int,
       name: json['nombre'] as String,
       phone: json['telefono'] as String,
-      taxes: json['taxes'] as String,
-      deleted: json['eliminado'] as bool,
-      address: json['direccion'] as num,
-      gestor: json['gestor'] as num,
+      taxes: (json['taxes'] as num).toDouble(),
+      deleted: json['eliminado'] as bool?,
+      address:
+          DireccionModel.fromJson(json['direccion'] as Map<String, dynamic>),
+      gestor: json['gestor'] as String,
     );
 
 Map<String, dynamic> _$AlmacenModelToJson(AlmacenModel instance) =>
@@ -25,6 +26,6 @@ Map<String, dynamic> _$AlmacenModelToJson(AlmacenModel instance) =>
       'taxes': instance.taxes,
       'eliminado': instance.deleted,
       'photo': instance.imagen,
-      'direccion': instance.address,
+      'direccion': instance.address.toJson(),
       'gestor': instance.gestor,
     };

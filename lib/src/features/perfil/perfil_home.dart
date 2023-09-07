@@ -35,29 +35,70 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final profilebloc = context.read<ProfileBloc>();
-    return BlocBuilder<ProfileBloc, ProfileState>(
-        builder: (context, state) => state.maybeWhen(
-              orElse: () => ProfileMainWidget(
-                profil: profilebloc.profiledata!,
-              ),
-              initial: () => Container(),
-              loading: () => Center(
-                child: SpinKitFadingCircle(
-                  color: Theme.of(context).primaryColor,
-                ),
-              ),
-              failure: (message) => Container(),
-              success: (profile) => ProfileMainWidget(
-                profil: profile,
-              ),
-              noLogedUser: () => const Center(
-                child: Text("usted no está registrado en la aplicación"),
-              ),
-              changeCheckSuccess: (id, profile) => ProfileMainWidget(
-                profil: profile,
-              ),
-              updateDeliveryTypeSeleccion: (data) => Container(),
-            ));
+    return BlocConsumer<ProfileBloc, ProfileState>(
+      listener: (context, state) {
+        state.maybeWhen(
+            orElse: () => Container(),
+            buySubscriptionsStripeCompleted: () =>
+                profilebloc.add(const ProfileEvent.updatePlaneView()));
+      },
+      builder: (context, state) {
+        return BlocBuilder<ProfileBloc, ProfileState>(
+            builder: (context, state) => state.maybeWhen(
+                  orElse: () => ProfileMainWidget(
+                    profil: profilebloc.profiledata!,
+                  ),
+                  initial: () => Container(),
+                  loading: () => Center(
+                    child: SpinKitFadingCircle(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                  failure: (message) => Container(),
+                  success: (profile) => ProfileMainWidget(
+                    profil: profile,
+                  ),
+                  noLogedUser: () => const NoLogerUserWidget(),
+                  changeCheckSuccess: (id, profile) => ProfileMainWidget(
+                    profil: profile,
+                  ),
+                  updateDeliveryTypeSeleccion: (data) => Container(),
+                ));
+      },
+    );
+  }
+}
+
+class NoLogerUserWidget extends StatelessWidget {
+  const NoLogerUserWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    LayoutCubit layoutcubit = BlocProvider.of<LayoutCubit>(context);
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Center(
+          child: Text("usted no está registrado en la aplicación"),
+        ),
+        SizedBox(
+          height: 50.h,
+        ),
+        CusotmButtom(
+            fontsize: 40,
+            lettersize: 220.sp,
+            onPressed: () {
+              context.goNamed(LoginScreen.name);
+              layoutcubit.changeScreen(0);
+            },
+            width: 150.w,
+            height: 50.h,
+            name: "Ir al login",
+            ispraimary: true),
+      ],
+    );
   }
 }
 
@@ -144,18 +185,14 @@ class ProfileMainWidget extends StatelessWidget {
     FavoriteBloc favoriteBloc = context.read<FavoriteBloc>();
     LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     LayoutCubit layoutcubit = BlocProvider.of<LayoutCubit>(context);
-    //  AppUtilInfo appInfo = sl<AppUtilInfo>();
 
-    ///////
-    // appInfo.accessToken = null;
-    // appInfo.refreshToken = null;
     //  categoribloc.add(const CategoriesEvent.selectCategory(categorySelectedIndex: -1));
     // categoribloc.add( CategoriesEvent.selectSubCategory());
     categoribloc.add(const CategoriesEvent.signOut());
 
     almacenbloc.add(const AlmacenEvent.signOut());
-    almacenbloc.add(AlmacenEvent.activeAlmacen(
-        index: -1, almacenes: almacenbloc.almaceneslist));
+    //ajustar bien este tema
+
     productBloc.add(const ProductEvent.signOut());
     favoriteBloc.add(const FavoriteEvent.signOut());
     profileBloc.add(const ProfileEvent.signOut());

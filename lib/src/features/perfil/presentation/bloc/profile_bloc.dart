@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:crimat_app/src/models/profile/new_salon_request_data_model.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -7,6 +9,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../errors/failure.dart';
 import '../../../../models/profile/edit_salon_request_data_model.dart';
 import '../../../../models/profile/profile_model.dart';
+import '../../../../models/profile/stripe_response_model.dart';
+import '../../../../models/profile/subscriptions_model.dart';
+import '../../../../repositories/payment_repository.dart';
 import '../../../../repositories/profile_repository.dart';
 
 part 'profile_event.dart';
@@ -14,9 +19,19 @@ part 'profile_state.dart';
 part 'profile_bloc.freezed.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
+  StripeResponse? stripeResponse;
   // String? token = AppUtilInfo().accessToken;
   final ProfileRepository profilerepo;
+  final PaymentRepository paymentdata;
 
+//id del plan q se compro
+  int? buyPlan;
+
+  //lista de sub
+  List<SubscriptionsModel>? sublist = [];
+  //int cantidad de meses de la sub
+
+  List<int> subMonth = [];
   ProfileModel? _profiledata;
   ProfileModel? get profiledata => _profiledata;
 
@@ -28,6 +43,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   ProfileBloc(
     this.profilerepo,
+    this.paymentdata,
   ) : super(const ProfileState.initial()) {
     on<ProfileEvent>(eventHandler);
   }
@@ -115,6 +131,69 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     }, signOut: () {
       restVariable();
       emit(const ProfileState.initial());
+    }, getSubscriptionsTyps: () async {
+      emit(const ProfileState.loading());
+
+      dynamic result = await profilerepo.getTypeSubscriptions(token: token);
+
+      result.fold((failure) {
+        if (failure is ServerFailure) {
+          emit(ProfileState.failure(message: failure.message));
+        }
+      }, (List<SubscriptionsModel> data) async {
+        sublist = data;
+        subMonth = List<int>.filled(sublist!.length, 1);
+        emit(ProfileState.getSubscriptionsType(data: sublist!));
+      });
+    }, buySubscriptions: (int id, selectedindex) async {
+      buyPlan = id;
+      emit(const ProfileState.loading());
+      dynamic result = await profilerepo.buySubscriptions(
+          token: token!, id: id, cantidadMeses: subMonth[selectedindex]);
+
+      result.fold((failure) {
+        if (failure is ServerFailure) {
+          emit(ProfileState.failure(message: failure.message));
+        }
+      }, (StripeResponse data) async {
+        stripeResponse = data;
+
+        emit(const ProfileState.buySubscriptionsCompleted());
+      });
+    }, buySubscriptionsStripe: (BuildContext context) async {
+      emit(const ProfileState.loading());
+      //validacion para si la subcripcion vale cero
+
+      await paymentdata.initPaymentSheet(
+          context: context,
+          paymentIntentClientSecret: stripeResponse!.paymentIntent,
+          customerId: stripeResponse!.customer,
+          customerEphemeralKeySecret: stripeResponse!.ephemeralKey);
+
+      await Stripe.instance.presentPaymentSheet();
+      emit(const ProfileState.buySubscriptionsStripeCompleted());
+    }, updatePlaneView: () {
+      SubscriptionsModel? plandata;
+      for (int i = 0; i < sublist!.length; i++) {
+        if (sublist![i].id == buyPlan) {
+          plandata = sublist![i];
+        }
+      }
+
+      if (plandata != null) {
+        profiledata!.suscripcion.tipo = plandata.tipoSuscripcion;
+      }
+      emit(ProfileState.success(profile: _profiledata!));
+    }, addMonth: (index) {
+      emit(const ProfileState.loading());
+      subMonth[index] = subMonth[index] + 1;
+      emit(ProfileState.updatedQuantityMonth(cantidad: subMonth));
+    }, subMonth: (index) {
+      if (subMonth[index] > 0) {
+        emit(const ProfileState.loading());
+        subMonth[index] = subMonth[index] - 1;
+        emit(ProfileState.updatedQuantityMonth(cantidad: subMonth));
+      }
     });
   }
 

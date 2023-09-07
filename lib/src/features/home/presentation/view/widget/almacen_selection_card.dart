@@ -110,7 +110,7 @@ class AlmacenSeleccionCard extends StatelessWidget {
                       FittedBox(
                         fit: BoxFit.fill,
                         child: SizedBox(
-                          height: 16.h,
+                          height: 18.h,
                           width: 120.w,
                           child: Text(
                             maxLines: 1,
@@ -133,10 +133,12 @@ class AlmacenSeleccionCard extends StatelessWidget {
                             width: 5.w,
                           ),
                           SizedBox(
-                            width: 50.w,
+                            width: 90.w,
                             height: 20.h,
                             child: Text(
-                              almacen.address.toString(),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              almacen.address.direccion,
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ),

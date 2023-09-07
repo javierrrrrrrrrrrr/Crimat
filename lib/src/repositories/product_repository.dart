@@ -12,11 +12,10 @@ class ProdcutRepository {
 
   Future<Either<Failure, List<ProductModel>>> getAllProduct(
       {required String id, String? token}) async {
-    //TODO: Hacer la implementacion de si el dispositivo tiene internet.
     try {
-      final almacenes = await productDataSurce.getAllProduct(id, token);
+      final products = await productDataSurce.getAllProduct(id, token);
 
-      return Right(almacenes);
+      return Right(products);
     } on ServerException {
       return Left(ServerFailure('Server failure'));
     }

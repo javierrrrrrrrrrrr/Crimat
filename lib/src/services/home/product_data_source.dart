@@ -19,16 +19,21 @@ class ProductDataSource {
     try {
       final http.Response response;
       if (token != '') {
-        response =
-            await http.get(uri, headers: {'Authorization': 'Bearer $token'});
+        response = await http.get(uri, headers: {
+          'Authorization': 'Bearer $token',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json; charset=utf-8',
+          'Accept-Charset': 'utf-8',
+        });
       } else {
         response = await http.get(uri);
       }
 
       if (response.statusCode == 200) {
-        final jsonMap = jsonDecode(response.body) as List<dynamic>;
+        final utf8Response = utf8.decode(response.bodyBytes);
+        final jsonList = jsonDecode(utf8Response) as List<dynamic>;
 
-        final productList = jsonMap
+        final productList = jsonList
             .map((productData) => ProductModel.fromJson(productData))
             .toList();
         return productList;

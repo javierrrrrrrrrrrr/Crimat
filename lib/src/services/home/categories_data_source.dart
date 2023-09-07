@@ -14,12 +14,17 @@ class CategoriesDataSurce {
     final Uri uri = Uri.https(Urls.api, Urls.getcategories);
 
     try {
-      final response = await http.get(uri);
+      final response = await http.get(uri, headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
+        'Accept-Charset': 'utf-8',
+      });
 
       if (response.statusCode == 200) {
-        final jsonMap = jsonDecode(response.body) as List<dynamic>;
+        final utf8Response = utf8.decode(response.bodyBytes);
+        final jsonList = jsonDecode(utf8Response) as List<dynamic>;
 
-        final categoriesList = jsonMap
+        final categoriesList = jsonList
             .map((categoriesData) => CategoriesModel.fromJson(categoriesData))
             .toList();
         return categoriesList;

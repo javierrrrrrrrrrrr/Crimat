@@ -15,9 +15,26 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.goEditAddress({required SalonModel data}) =
       _GoEditAddressState;
   const factory ProfileState.editAddress() = _EditAddressState;
+
+//para probar falta el dato que devuelve el enpint
+  const factory ProfileState.buySubscriptionsCompleted() =
+      _BuySubscriptionsCompletedState;
+
+  const factory ProfileState.buySubscriptionsStripeCompleted() =
+      _BuySubscriptionsStripeCompletedState;
+
+  // const factory ProfileState.buySubscriptionsInitPay(
+  //     {required StripeResponse data}) = _BuySubscriptionsInitPayState;
+
+  const factory ProfileState.getSubscriptionsType(
+      {required List<SubscriptionsModel> data}) = _GetSubscriptionsTypeState;
+
   const factory ProfileState.success({
     required ProfileModel profile,
   }) = _Success;
+  const factory ProfileState.updatedQuantityMonth({
+    required List<int> cantidad,
+  }) = _UpdatedQuantityMonthState;
   const factory ProfileState.failure({
     required String message,
   }) = _Failure;

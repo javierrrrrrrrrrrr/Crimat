@@ -22,12 +22,15 @@ class PaymentDataSource {
       final response = await http.post(uri,
           headers: {
             'Authorization': 'Bearer $token',
-            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Accept-Charset': 'utf-8',
           },
           body: jsonEncode(data.toJson()));
 
       if (response.statusCode == 201) {
-        final jsonMap = jsonDecode(response.body);
+        final utf8Response = utf8.decode(response.bodyBytes);
+        final jsonMap = jsonDecode(utf8Response);
 
         final paymentData = PaymentModel.fromJson(jsonMap);
         return paymentData;
@@ -48,12 +51,15 @@ class PaymentDataSource {
     try {
       final response = await http.post(uri,
           headers: {
-            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Accept-Charset': 'utf-8',
           },
           body: jsonEncode(data.toJson()));
 
       if (response.statusCode == 201) {
-        final jsonMap = jsonDecode(response.body);
+        final utf8Response = utf8.decode(response.bodyBytes);
+        final jsonMap = jsonDecode(utf8Response);
 
         final paymentData = PaymentModel.fromJson(jsonMap);
         return paymentData;
@@ -83,16 +89,19 @@ class PaymentDataSource {
       response = await http.get(
         uri,
         headers: {
-          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json; charset=utf-8',
+          'Accept-Charset': 'utf-8',
         },
       );
     }
 
     try {
       if (response.statusCode == 200) {
-        final jsonMap = jsonDecode(response.body) as List<dynamic>;
+        final utf8Response = utf8.decode(response.bodyBytes);
+        final jsonList = jsonDecode(utf8Response) as List<dynamic>;
 
-        final shippingMethodList = jsonMap
+        final shippingMethodList = jsonList
             .map((shipping) => ShippingModel.fromJson(shipping))
             .toList();
         return shippingMethodList;

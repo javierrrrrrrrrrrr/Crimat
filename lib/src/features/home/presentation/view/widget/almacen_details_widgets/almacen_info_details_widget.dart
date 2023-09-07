@@ -14,7 +14,6 @@ class AlmacenInfo extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -24,14 +23,16 @@ class AlmacenInfo extends StatelessWidget {
           SizedBox(
             height: 100.h,
           ),
-          const CustomInfoRow(
+          CustomInfoRow(
             imagen: "assets/icons/location.png",
-            texto: 'Falta la direccion en la repuesta',
+            texto:
+                '${almacen.address.apartado} ${almacen.address.ciudad} ${almacen.address.direccion}',
           ),
           SizedBox(
             height: 50.h,
           ),
           CustomInfoRow(
+            isPhonenumber: true,
             imagen: "assets/icons/whasapp.png",
             texto: almacen.phone,
           ),

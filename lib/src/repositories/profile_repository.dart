@@ -5,6 +5,8 @@ import '../errors/failure.dart';
 import '../models/profile/edit_salon_request_data_model.dart';
 import '../models/profile/new_salon_request_data_model.dart';
 import '../models/profile/profile_model.dart';
+import '../models/profile/stripe_response_model.dart';
+import '../models/profile/subscriptions_model.dart';
 import '../services/profile_sources/profile_data_source.dart';
 
 class ProfileRepository {
@@ -57,6 +59,32 @@ class ProfileRepository {
       data = await profileDataSurce.editSalon(token, datos);
 
       return Right(data);
+    } on ServerException {
+      return Left(ServerFailure('Server failure'));
+    }
+  }
+
+  Future<Either<Failure, List<SubscriptionsModel>>> getTypeSubscriptions(
+      {String? token}) async {
+    try {
+      final typeSubscriptions =
+          await profileDataSurce.getTypeSubscriptions(token);
+
+      return Right(typeSubscriptions);
+    } on ServerException {
+      return Left(ServerFailure('Server failure'));
+    }
+  }
+
+  Future<Either<Failure, StripeResponse>> buySubscriptions(
+      {String? token, required id, required int cantidadMeses}) async {
+    final StripeResponse repuesta;
+    try {
+      // final typeSubscriptions =
+      repuesta =
+          await profileDataSurce.buySubscriptions(token, id, cantidadMeses);
+
+      return Right(repuesta);
     } on ServerException {
       return Left(ServerFailure('Server failure'));
     }

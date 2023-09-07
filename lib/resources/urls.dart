@@ -23,4 +23,6 @@ class Urls {
   static String get getPaymentData => 'crimat-development/api/nueva_orden/';
   static String get getShippingMethods => 'crimat-development/api/envios/';
   static String get createNewSalon => 'crimat-development/api/salon/';
+  static String get getSubscriptionsData =>'crimat-development/api/suscripciones/';
+  static String get buySubscriptionsData =>'crimat-development/api/comprar_suscripcion/';
 }
