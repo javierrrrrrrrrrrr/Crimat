@@ -50,18 +50,20 @@ class TipoEnvioDireccion extends StatelessWidget {
                       orElse: () => CustomDeliveryType(
                           model: data,
                           modelselected: data[data.indexWhere((shipping) =>
-                                  shipping.id ==
-                                  profilebloc.selectedShippingTypeid) +
-                              1]),
+                              shipping.id ==
+                              profilebloc.selectedShippingTypeid)]),
                       changeCheckSuccess: (_, __) => CustomDeliveryType(
                           model: data,
-                          modelselected: data[data.indexWhere((shipping) =>
-                                  shipping.id ==
-                                  profilebloc.selectedShippingTypeid) +
-                              1]),
+                          modelselected:
+                              profilebloc.selectedShippingTypeid != null
+                                  ? data[data.indexWhere((shipping) =>
+                                      shipping.id ==
+                                      profilebloc.selectedShippingTypeid)]
+                                  : data[0]),
                       updateDeliveryTypeSeleccion: (id) => CustomDeliveryType(
                           model: data,
-                          modelselected: data[data.indexWhere((shipping) => shipping.id == id) + 1]));
+                          modelselected: data[data
+                              .indexWhere((shipping) => shipping.id == id)]));
                 },
               );
             },
@@ -129,7 +131,7 @@ class CustomDireccionSelection extends StatelessWidget {
 
   int findData(context, ProfileModel profile, int selectedid) {
     int index = 0;
-    //ajustar esto tambien
+
     for (int i = 0; i < profile.salones.length; i++) {
       if (selectedid == profile.salones[i].direccion.id) {
         index = i;

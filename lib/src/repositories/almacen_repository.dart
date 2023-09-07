@@ -10,7 +10,6 @@ class AlmacenRepository {
   AlmacenRepository(this.almacenDataSurce);
 
   Future<Either<Failure, List<AlmacenModel>>> getAllAlmacenes() async {
-    //TODO: Hacer la implementacion de si el dispositivo tiene internet.
     try {
       final almacenes = await almacenDataSurce.getAllAlmacen();
 

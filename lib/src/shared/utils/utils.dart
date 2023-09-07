@@ -281,7 +281,7 @@ class UtilFunctions {
                   onPressed: () {
                     Navigator.pop(context);
                     profilebloc.add(ProfileEvent.updateShippingType(
-                        id: selectedShippingIndex));
+                        id: model[selectedShippingIndex].id));
                   },
                   child: const Text('Aceptar'),
                 ),
