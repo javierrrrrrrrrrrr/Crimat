@@ -19,12 +19,16 @@ class AlmacenDataSurce {
       final response = await http.get(uri, headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json; charset=utf-8',
+        'Accept-Charset': 'utf-8',
       });
 
       if (response.statusCode == 200) {
-        final jsonMap = jsonDecode(response.body) as List<dynamic>;
+        //prueba de la codificaion tuve que cambiar esot porque por alguna razon no estaba reconociendo la codificaicon UTF-8 automaticamente
 
-        final almacenesList = jsonMap
+        final utf8Response = utf8.decode(response.bodyBytes);
+        final jsonList = jsonDecode(utf8Response) as List<dynamic>;
+
+        final almacenesList = jsonList
             .map((almacenData) => AlmacenModel.fromJson(almacenData))
             .toList();
         return almacenesList;

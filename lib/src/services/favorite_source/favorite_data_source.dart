@@ -15,13 +15,18 @@ class FavoriteDataSurce {
     final Uri uri = Uri.https(Urls.api, Urls.getFavorite);
 
     try {
-      final response =
-          await http.get(uri, headers: {'Authorization': 'Bearer $token'});
+      final response = await http.get(uri, headers: {
+        'Authorization': 'Bearer $token',
+        'Accept': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
+        'Accept-Charset': 'utf-8',
+      });
 
       if (response.statusCode == 200) {
-        final jsonMap = jsonDecode(response.body) as List<dynamic>;
+        final utf8Response = utf8.decode(response.bodyBytes);
+        final jsonList = jsonDecode(utf8Response) as List<dynamic>;
 
-        final listFavoriteProducts = jsonMap
+        final listFavoriteProducts = jsonList
             .map((favoriteData) => ProductModel.fromJson(favoriteData))
             .toList();
         return listFavoriteProducts;
@@ -58,5 +63,4 @@ class FavoriteDataSurce {
       print("Error al intentar agregar eliminar  a favoritos");
     }
   }
-  
 }
