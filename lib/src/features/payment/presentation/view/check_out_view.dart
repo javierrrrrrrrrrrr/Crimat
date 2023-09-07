@@ -48,8 +48,7 @@ class CheckoutView extends StatelessWidget {
                 info: "Numero de Orden", valor: paymentdata.orden.numOrden),
             CusotmRowInfo(
                 info: "Fecha de Orden", valor: paymentdata.orden.fechaOrden),
-            CusotmRowInfo(
-                info: "Nombre del Almacen", valor: paymentdata.orden.almacen),
+            CusotmRowInfo(info: "Nombre", valor: paymentdata.orden.almacen),
             CusotmRowInfo(
                 info: "Cantidad de productos",
                 valor: paymentdata.orden.cantidad.toString()),

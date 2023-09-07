@@ -16,7 +16,10 @@ class AlmacenDataSurce {
     final Uri uri = Uri.https(Urls.api, Urls.getAlmacen);
 
     try {
-      final response = await http.get(uri);
+      final response = await http.get(uri, headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
+      });
 
       if (response.statusCode == 200) {
         final jsonMap = jsonDecode(response.body) as List<dynamic>;

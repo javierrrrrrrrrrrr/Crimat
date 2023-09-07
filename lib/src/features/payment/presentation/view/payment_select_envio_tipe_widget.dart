@@ -131,7 +131,7 @@ class CustomDireccionSelection extends StatelessWidget {
     int index = 0;
     //ajustar esto tambien
     for (int i = 0; i < profile.salones.length; i++) {
-      if (selectedid == profile.salones[i].id) {
+      if (selectedid == profile.salones[i].direccion.id) {
         index = i;
       }
     }
