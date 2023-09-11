@@ -41,14 +41,14 @@ class CustomPlane extends StatelessWidget {
                 "Plan ${profile.suscripcion.tipo}",
                 style: TextStyle(color: Colors.white, fontSize: 11.sp),
               ),
-              Text(
-                "F.expiración:",
-                style: TextStyle(color: Colors.white, fontSize: 10.sp),
-              ),
-              Text(
-                "7/30/2023",
-                style: TextStyle(color: Colors.white, fontSize: 10.sp),
-              ),
+              // Text(
+              //   "F.expiración:",
+              //   style: TextStyle(color: Colors.white, fontSize: 10.sp),
+              // ),
+              // Text(
+              //   "7/30/2023",
+              //   style: TextStyle(color: Colors.white, fontSize: 10.sp),
+              // ),
             ],
           ),
         ),
