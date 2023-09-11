@@ -170,14 +170,14 @@ class CustomSubTypeRow extends StatelessWidget {
               SizedBox(
                 height: 12.h,
               ),
-              Text(
-                'Fecha de Fecha de expiración:',
-                style: TextStyle(fontSize: 11.sp),
-              ),
-              Text(
-                '7/30/2023',
-                style: TextStyle(fontSize: 11.sp),
-              ),
+              // Text(
+              //   'Fecha de  expiración:',
+              //   style: TextStyle(fontSize: 11.sp),
+              // ),
+              // Text(
+              //   '7/30/2023',
+              //   style: TextStyle(fontSize: 11.sp),
+              // ),
             ],
           ),
         ),
