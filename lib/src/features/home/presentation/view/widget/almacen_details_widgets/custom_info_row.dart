@@ -17,7 +17,7 @@ class CustomInfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(imagen),
+        Image.asset(imagen, width: 32.sp, height: 32.sp),
         SizedBox(
           width: 20.w,
         ),

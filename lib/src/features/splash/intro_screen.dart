@@ -139,7 +139,7 @@ class _IntroScreenState extends State<IntroScreen> {
             children: [
               Row(
                 children: [
-                  Image.asset(AppImages.crimatPro),
+                  Image.asset(AppImages.crimatPro, width: 174, height: 49,),
                 ],
               ),
               SizedBox(

@@ -67,13 +67,13 @@ class CustomBottonNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Image.asset(layoutCubitState.selectedIndex == 0
                   ? AppIcons.homeSelected
-                  : AppIcons.home),
+                  : AppIcons.home, width: 24.sp, height: 24.sp),
               label: context.loc.home,
             ),
             BottomNavigationBarItem(
                 icon: Image.asset(layoutCubitState.selectedIndex == 1
                     ? AppIcons.historySelected
-                    : AppIcons.history),
+                    : AppIcons.history, width: 24.sp, height: 24.sp),
                 label: context.loc.history),
             BottomNavigationBarItem(
                 icon: buyingCar(index, layoutCubitState.selectedIndex),
@@ -81,12 +81,12 @@ class CustomBottonNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
                 icon: Image.asset(layoutCubitState.selectedIndex == 3
                     ? AppIcons.favoriteSelected
-                    : AppIcons.favorite),
+                    : AppIcons.favorite,  width: 24.sp, height: 24.sp,),
                 label: context.loc.favorites),
             BottomNavigationBarItem(
                 icon: Image.asset(layoutCubitState.selectedIndex == 4
                     ? AppIcons.profileSelected
-                    : AppIcons.profile),
+                    : AppIcons.profile, width: 24.sp, height: 24.sp),
                 label: context.loc.profile),
           ],
           onTap: (newIndex) async {
@@ -132,5 +132,5 @@ class CustomBottonNavigationBar extends StatelessWidget {
 
 Widget buyingCar(int elements, int selectedIndex) {
   bool isSelected = selectedIndex == 2;
-  return Image.asset(isSelected ? AppIcons.buySelected : AppIcons.buy);
+  return Image.asset(isSelected ? AppIcons.buySelected : AppIcons.buy, width: 24.sp, height: 24.sp);
 }
