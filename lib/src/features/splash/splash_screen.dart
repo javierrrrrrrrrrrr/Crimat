@@ -48,10 +48,12 @@ class SplashScreen extends StatelessWidget {
           return Scaffold(
             backgroundColor: Theme.of(context).primaryColor,
             body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(
-                  child: Image.asset(AppImages.splashLogo),
-                ),
+                Expanded(child: Container(),),
+                Center(child: Image.asset(AppImages.splashLogo, width: 120, height: 120,)),
+                Expanded(child: Container(),),
                 Padding(
                   padding: EdgeInsets.all(21.sp),
                   child: Text(
