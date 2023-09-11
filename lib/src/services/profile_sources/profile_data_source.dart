@@ -167,8 +167,6 @@ class ProfileDataSource {
     try {
       final response = await http.post(uri, headers: {
         'Authorization': 'Bearer $token',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json; charset=utf-8',
         'Accept-Charset': 'utf-8',
       }, body: {
         "suscripcion": id.toString(),
