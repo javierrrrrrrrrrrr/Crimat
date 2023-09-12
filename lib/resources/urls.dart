@@ -2,8 +2,9 @@ class Urls {
   ///Whiletrue server
   /////whiletruecu.com
   /////Crimatus
-  static const String host = 'whiletruecu.com';
-  static const String api = 'whiletruecu.com';
+  /////crimatus.com
+  static const String host = 'crimatus.com';
+  static const String api = 'crimatus.com';
   static const String hostApi = '/crimat-development/api';
 
   ///Auth services
@@ -23,6 +24,8 @@ class Urls {
   static String get getPaymentData => 'crimat-development/api/nueva_orden/';
   static String get getShippingMethods => 'crimat-development/api/envios/';
   static String get createNewSalon => 'crimat-development/api/salon/';
-  static String get getSubscriptionsData =>'crimat-development/api/suscripciones/';
-  static String get buySubscriptionsData =>'crimat-development/api/comprar_suscripcion/';
+  static String get getSubscriptionsData =>
+      'crimat-development/api/suscripciones/';
+  static String get buySubscriptionsData =>
+      'crimat-development/api/comprar_suscripcion/';
 }
