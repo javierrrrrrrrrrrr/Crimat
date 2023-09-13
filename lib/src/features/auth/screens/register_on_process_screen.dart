@@ -1,6 +1,5 @@
 import 'package:crimat_app/resources/app_images.dart';
 import 'package:crimat_app/resources/general_styles.dart';
-import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:crimat_app/src/shared/widgets/large_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,7 +25,7 @@ class RegisterOnProcessScreen extends StatelessWidget {
                   height: 10.sp,
                 ),
                 Text(
-                  '${context.loc.thanks}!',
+                  "Gracias",
                   textAlign: TextAlign.center,
                   style: GStyles.bigTextStyle
                       .copyWith(fontSize: 34.sp, color: Colors.black),
@@ -35,7 +34,7 @@ class RegisterOnProcessScreen extends StatelessWidget {
                   height: 5.sp,
                 ),
                 Text(
-                  context.loc.registerOnProcess,
+                  "Su registro se esta procesando.\n Sera notificado una vez termine el proceso",
                   textAlign: TextAlign.center,
                   style: GStyles.bigTextStyle
                       .copyWith(fontSize: 14.sp, color: Colors.black),
@@ -46,8 +45,7 @@ class RegisterOnProcessScreen extends StatelessWidget {
           Align(
             alignment: const Alignment(0, 0.8),
             child: LargeButton(
-                text: context.loc.toContinue,
-                onPressed: () => context.go('/home')),
+                text: "Continuar", onPressed: () => context.go('/home')),
           ),
         ],
       ),

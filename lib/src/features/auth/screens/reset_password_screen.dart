@@ -1,6 +1,5 @@
 import 'package:crimat_app/resources/general_styles.dart';
 import 'package:crimat_app/src/repositories/auth_repository.dart';
-import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:crimat_app/src/shared/utils/utils.dart';
 import 'package:crimat_app/src/shared/widgets/custom_reactive_text_field.dart';
 import 'package:crimat_app/src/shared/widgets/large_button.dart';
@@ -62,7 +61,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                             ),
                           ),
                           Text(
-                            context.loc.forgotPass,
+                            "Has olvidado la contraseña?",
                             style: GStyles.normalTextStyle.copyWith(
                                 color: Colors.black,
                                 fontSize: 24.sp,
@@ -71,7 +70,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         ],
                       ),
                       Text(
-                        context.loc.resetPasswordExplanation,
+                        "Por favor, introduzca su dirección de correo y le enviaremos un enlace para crear una nueva contraseña.",
                         style: TextStyle(
                             fontSize: 20.sp,
                             fontFamily: "Poppins",
@@ -86,31 +85,30 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         formGroup: resetPasswordForm,
                         child: Column(
                           children: [
-                            CustomRxTextField(
-                                formControlName: 'email',
-                                labelText: context.loc.email),
+                            const CustomRxTextField(
+                                formControlName: 'email', labelText: "Correo"),
                             SizedBox(
                               height: 40.sp,
                             ),
                             if (resetSuccessful)
-                              Column(
+                              const Column(
                                 children: [
                                   CustomRxTextField(
                                       formControlName: 'reset_password_token',
-                                      labelText: context.loc.code),
+                                      labelText: "Código"),
                                   CustomRxTextField(
                                       formControlName: 'new_password',
-                                      labelText: context.loc.newPassword),
+                                      labelText: "Nueva Contraseña"),
                                   CustomRxTextField(
                                       formControlName: 'confirm_password',
-                                      labelText: context.loc.confirmPassword)
+                                      labelText: "Confirmar contraseña")
                                 ],
                               ),
                             ReactiveFormConsumer(
                                 builder: (context, form, child) {
                               return LargeButton(
                                 loading: onLoading,
-                                text: context.loc.submit,
+                                text: "Enviar",
                                 onPressed: form.valid || form.disabled
                                     ? () {
                                         if (form.valid) {
@@ -135,14 +133,14 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        '${context.loc.successPasswordChanged}!',
+                        "Clave cambiada con éxito",
                         textAlign: TextAlign.center,
                         style: GStyles.bigTextStyle
                             .copyWith(fontSize: 34.sp, color: Colors.black),
                       ),
                       SizedBox(height: 50.sp),
                       LargeButton(
-                        text: context.loc.accept,
+                        text: "Aceptar",
                         onPressed: () {
                           Navigator.of(context).pop();
                         },

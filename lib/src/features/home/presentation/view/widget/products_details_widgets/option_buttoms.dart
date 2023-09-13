@@ -1,4 +1,3 @@
-import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -42,7 +41,7 @@ class OptionButtoms extends StatelessWidget {
                       onPressed: onPressedPraimary,
                       height: 45,
                       width: 150,
-                      name: context.loc.addToCart,
+                      name: "Añadir al carrito",
                       ispraimary: false,
                     ),
                   )
@@ -53,14 +52,14 @@ class OptionButtoms extends StatelessWidget {
                           onPressed: onPressedPraimary,
                           height: 45,
                           width: 178,
-                          name: context.loc.addToCart,
+                          name: "Añadir al carrito",
                           ispraimary: false,
                         ),
                         CusotmButtom(
                           onPressed: onPressedSecondary,
                           height: 45,
                           width: 178,
-                          name: context.loc.buyNow,
+                          name: "Comprar ahora",
                           ispraimary: true,
                         ),
                       ]),
@@ -92,7 +91,7 @@ class CustomCardSking extends StatelessWidget {
                 onPressed: onPressed,
                 height: 55.h,
                 width: 290.w,
-                name: context.loc.continueToPayment,
+                name: "Continuar con el pago",
                 lettersize: 160.w,
                 ispraimary: true,
               ),

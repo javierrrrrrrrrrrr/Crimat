@@ -1,6 +1,5 @@
 import 'package:crimat_app/src/features/layout/layout_cubit.dart';
 import 'package:crimat_app/src/features/layout/layout_state.dart';
-import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -65,29 +64,42 @@ class CustomBottonNavigationBar extends StatelessWidget {
           showUnselectedLabels: true,
           items: [
             BottomNavigationBarItem(
-              icon: Image.asset(layoutCubitState.selectedIndex == 0
-                  ? AppIcons.homeSelected
-                  : AppIcons.home, width: 24.sp, height: 24.sp),
-              label: context.loc.home,
+              icon: Image.asset(
+                  layoutCubitState.selectedIndex == 0
+                      ? AppIcons.homeSelected
+                      : AppIcons.home,
+                  width: 24.sp,
+                  height: 24.sp),
+              label: "Inicio",
             ),
             BottomNavigationBarItem(
-                icon: Image.asset(layoutCubitState.selectedIndex == 1
-                    ? AppIcons.historySelected
-                    : AppIcons.history, width: 24.sp, height: 24.sp),
-                label: context.loc.history),
+                icon: Image.asset(
+                    layoutCubitState.selectedIndex == 1
+                        ? AppIcons.historySelected
+                        : AppIcons.history,
+                    width: 24.sp,
+                    height: 24.sp),
+                label: "Historial"),
             BottomNavigationBarItem(
                 icon: buyingCar(index, layoutCubitState.selectedIndex),
-                label: context.loc.buy),
+                label: "Carrito"),
             BottomNavigationBarItem(
-                icon: Image.asset(layoutCubitState.selectedIndex == 3
-                    ? AppIcons.favoriteSelected
-                    : AppIcons.favorite,  width: 24.sp, height: 24.sp,),
-                label: context.loc.favorites),
+                icon: Image.asset(
+                  layoutCubitState.selectedIndex == 3
+                      ? AppIcons.favoriteSelected
+                      : AppIcons.favorite,
+                  width: 24.sp,
+                  height: 24.sp,
+                ),
+                label: "Favoritos"),
             BottomNavigationBarItem(
-                icon: Image.asset(layoutCubitState.selectedIndex == 4
-                    ? AppIcons.profileSelected
-                    : AppIcons.profile, width: 24.sp, height: 24.sp),
-                label: context.loc.profile),
+                icon: Image.asset(
+                    layoutCubitState.selectedIndex == 4
+                        ? AppIcons.profileSelected
+                        : AppIcons.profile,
+                    width: 24.sp,
+                    height: 24.sp),
+                label: "Perfil"),
           ],
           onTap: (newIndex) async {
             if (newIndex == 0) {}
@@ -132,5 +144,6 @@ class CustomBottonNavigationBar extends StatelessWidget {
 
 Widget buyingCar(int elements, int selectedIndex) {
   bool isSelected = selectedIndex == 2;
-  return Image.asset(isSelected ? AppIcons.buySelected : AppIcons.buy, width: 24.sp, height: 24.sp);
+  return Image.asset(isSelected ? AppIcons.buySelected : AppIcons.buy,
+      width: 24.sp, height: 24.sp);
 }

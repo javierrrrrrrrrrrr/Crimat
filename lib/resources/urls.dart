@@ -3,8 +3,8 @@ class Urls {
   /////whiletruecu.com
   /////Crimatus
   /////crimatus.com
-  static const String host = 'crimatus.com';
-  static const String api = 'crimatus.com';
+  static const String host = 'whiletruecu.com';
+  static const String api = 'whiletruecu.com';
   static const String hostApi = '/crimat-development/api';
 
   ///Auth services

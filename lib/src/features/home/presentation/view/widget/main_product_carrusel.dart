@@ -1,4 +1,3 @@
-import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:crimat_app/src/shared/widgets/custom_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,8 +26,8 @@ class MainProdcutCarrusel extends StatelessWidget {
       },
       child: BlocBuilder<ProductBloc, ProductState>(
         builder: (context, state) => state.when(
-            initial: () => NoSelectedAlmacenwidget(
-                message: context.loc.warehouseProductsSelection),
+            initial: () => const NoSelectedAlmacenwidget(
+                message: "Seleccione un almacén para ver los productos."),
             loading: () => Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: GridView.builder(
@@ -57,7 +56,8 @@ class MainProdcutCarrusel extends StatelessWidget {
                   listener: (context, state) {
                     state.whenOrNull(
                         successAddedToCart: () => UtilFunctions.printToast(
-                            message: context.loc.productSuccessfullyAddedToCart,
+                            message:
+                                "Producto agregado al carrito exitosamente.",
                             shorttime: true));
                   },
                   child: Padding(

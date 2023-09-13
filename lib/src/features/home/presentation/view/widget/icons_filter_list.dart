@@ -1,4 +1,3 @@
-import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +24,7 @@ class IconsFilterList extends StatelessWidget {
                 width: 8.w,
               ),
               Text(
-                context.loc.filters,
+                "Filtros",
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ],

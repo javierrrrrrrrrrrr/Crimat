@@ -1,7 +1,6 @@
 import 'package:crimat_app/resources/general_styles.dart';
 import 'package:crimat_app/src/features/auth/cubit/login_cubit.dart';
 import 'package:crimat_app/src/features/auth/auth_state.dart';
-import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:crimat_app/src/shared/widgets/custom_reactive_text_field.dart';
 import 'package:crimat_app/src/shared/widgets/large_button.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        context.loc.initSession,
+                        'Iniciar sesión',
                         style: TextStyle(
                           fontSize: 28.sp,
                           fontFamily: "Poppins",
@@ -48,7 +47,7 @@ class LoginScreen extends StatelessWidget {
                   FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
-                        context.loc.helloAgain,
+                        "Hola, bienvenido nuevamente a su cuenta.",
                         style: TextStyle(
                             fontSize: 20.sp,
                             fontFamily: "Poppins",
@@ -64,17 +63,18 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         ReactiveTextField(
                           validationMessages: {
-                            'required': (error) => context.loc.requiredMessage,
-                            'email': (error) => context.loc.emailMessage,
+                            'required': (error) => "Este campo es obligatorio",
+                            'email': (error) =>
+                                "Debe introducir un email válido"
                           },
                           formControlName: 'email',
                           decoration: GStyles.formDecoration
-                              .copyWith(labelText: context.loc.email),
+                              .copyWith(labelText: "Correo"),
                         ),
                         SizedBox(height: 16.sp),
-                        CustomRxTextField(
+                        const CustomRxTextField(
                           formControlName: 'password',
-                          labelText: context.loc.password,
+                          labelText: "Contraseña",
                           hideText: true,
                         )
                       ],
@@ -89,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          context.loc.forgotPass,
+                          "Has olvidado la contraseña?",
                           style:
                               GStyles.normalTextStyle.copyWith(fontSize: 16.sp),
                         ),
@@ -104,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                     height: 45.sp,
                   ),
                   LargeButton(
-                    text: context.loc.login,
+                    text: "Iniciar",
                     loading: state.onLoading,
                     onPressed: () {
                       if (!state.onLoading && cubit.loginForm.valid) {
@@ -118,7 +118,7 @@ class LoginScreen extends StatelessWidget {
                     height: 14.sp,
                   ),
                   LargeButton(
-                    text: context.loc.toContinue,
+                    text: "Continuar",
                     color: Colors.white,
                     onPressed:
                         state.onLoading ? null : () => context.go('/home'),
@@ -133,14 +133,14 @@ class LoginScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            context.loc.notRegistered,
+                            "Aún no estás registrado?",
                             style: GStyles.normalTextStyle,
                           ),
                           SizedBox(
                             width: 10.sp,
                           ),
                           Text(
-                            context.loc.createAccount,
+                            "Crea una cuenta",
                             style: GStyles.normalTextStyle
                                 .copyWith(color: GStyles.primaryColor),
                           )

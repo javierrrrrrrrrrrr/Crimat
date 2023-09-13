@@ -1,7 +1,6 @@
 import 'package:crimat_app/src/features/auth/auth_state.dart';
 import 'package:crimat_app/src/features/auth/cubit/register_cubit.dart';
 import 'package:crimat_app/src/features/auth/screens/register_on_process_screen.dart';
-import 'package:crimat_app/src/shared/extensions/context_extension.dart';
 import 'package:crimat_app/src/shared/utils/utils.dart';
 import 'package:crimat_app/src/shared/widgets/custom_reactive_text_field.dart';
 import 'package:crimat_app/src/shared/widgets/large_button.dart';
@@ -34,7 +33,7 @@ class RegisterScreen extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        context.loc.createAccount,
+                        "Crea una cuenta",
                         style: TextStyle(
                           fontSize: 28.sp,
                           fontFamily: "Poppins",
@@ -56,38 +55,37 @@ class RegisterScreen extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Expanded(
+                                const Expanded(
                                     child: CustomRxTextField(
                                         formControlName: 'nombre',
-                                        labelText: context.loc.name)),
+                                        labelText: "Nombre")),
                                 SizedBox(
                                   width: 10.sp,
                                 ),
-                                Expanded(
+                                const Expanded(
                                     child: CustomRxTextField(
                                         formControlName: 'apellidos',
-                                        labelText: context.loc.lastName)),
+                                        labelText: "Apellidos")),
                               ],
                             ),
-                            CustomRxTextField(
-                                formControlName: "email",
-                                labelText: context.loc.email),
-                            CustomRxTextField(
+                            const CustomRxTextField(
+                                formControlName: "email", labelText: "Correo"),
+                            const CustomRxTextField(
                               formControlName: "password",
-                              labelText: context.loc.password,
+                              labelText: "Contraseña",
                               hideText: true,
                             ),
-                            CustomRxTextField(
+                            const CustomRxTextField(
                               formControlName: 'repeat_password',
-                              labelText: context.loc.repeatPassword,
+                              labelText: "Repetir contraseña",
                               hideText: true,
                             ),
-                            CustomRxTextField(
+                            const CustomRxTextField(
                                 formControlName: 'telefono',
-                                labelText: context.loc.phone),
-                            CustomRxTextField(
+                                labelText: "Teléfono"),
+                            const CustomRxTextField(
                                 formControlName: 'licencia',
-                                labelText: context.loc.license)
+                                labelText: "Licencia")
                           ],
                         ),
                       ),
@@ -95,37 +93,37 @@ class RegisterScreen extends StatelessWidget {
                         formGroup: cubit.addressForm,
                         child: Column(
                           children: [
-                            CustomRxTextField(
+                            const CustomRxTextField(
                                 formControlName: 'direccion',
-                                labelText: context.loc.address),
+                                labelText: "Dirección"),
                             Row(
                               children: [
-                                Expanded(
+                                const Expanded(
                                     child: CustomRxTextField(
                                         formControlName: 'apartado',
-                                        labelText: context.loc.aparted)),
+                                        labelText: "Apartado")),
                                 SizedBox(
                                   width: 10.sp,
                                 ),
-                                Expanded(
+                                const Expanded(
                                     child: CustomRxTextField(
                                         formControlName: 'ciudad',
-                                        labelText: context.loc.city)),
+                                        labelText: "Ciudad")),
                               ],
                             ),
                             Row(
                               children: [
-                                Expanded(
+                                const Expanded(
                                     child: CustomRxTextField(
                                         formControlName: 'estado',
-                                        labelText: context.loc.state)),
+                                        labelText: "Estado")),
                                 SizedBox(
                                   width: 10.sp,
                                 ),
-                                Expanded(
+                                const Expanded(
                                     child: CustomRxTextField(
                                         formControlName: 'codigo_postal',
-                                        labelText: context.loc.postalCode)),
+                                        labelText: "Código Postal")),
                               ],
                             )
                           ],
@@ -138,7 +136,7 @@ class RegisterScreen extends StatelessWidget {
                   ),
                   LargeButton(
                     loading: state.onLoading,
-                    text: context.loc.register,
+                    text: "Registrarse",
                     onPressed: () {
                       if (!state.onLoading &&
                           cubit.addressForm.valid &&
@@ -148,7 +146,8 @@ class RegisterScreen extends StatelessWidget {
                         });
                       } else {
                         UtilFunctions.printToast(
-                            message: context.loc.invalidFormText);
+                            message:
+                                "Hay campos no válidos, por favor revise nuevamente los campos a llenar.");
                       }
                     },
                   ),
@@ -156,7 +155,7 @@ class RegisterScreen extends StatelessWidget {
                     height: 10.sp,
                   ),
                   LargeButton(
-                    text: context.loc.registerLater,
+                    text: "Registrarse más tarde",
                     color: Colors.white,
                     onPressed: state.onLoading
                         ? null
