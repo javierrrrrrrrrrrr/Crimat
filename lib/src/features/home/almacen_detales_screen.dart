@@ -38,7 +38,9 @@ class MainWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ProductDetailsHeder(isALmacen: true),
+            const ProductDetailsHeder(
+              isALmacen: true,
+            ),
             SizedBox(height: 20.h),
             almacen.imagen != null && almacen.imagen != ''
                 ? ProductPictureContainer(url: almacen.imagen!)

@@ -4,13 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../models/home/products/producto_model.dart';
-import '../../../../../shared/utils/utils.dart';
 import '../../../../../shared/widgets/cusotm_buttom_product.dart';
 import '../../../../favorites/presentation/bloc/favorite_bloc.dart';
 import '../../../../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import '../../../../shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 import '../../../products_detales_screen.dart';
 import '../../bloc/product_bloc/product_bloc.dart';
+import 'circle_favorite_main_widget.dart';
 import 'custom_picture_container.dart';
 
 class MainCardCarrusel extends StatelessWidget {
@@ -122,84 +122,6 @@ class MainCardCarrusel extends StatelessWidget {
             },
           )
         ],
-      ),
-    );
-  }
-}
-
-class CircleFavoiriteMainWidget extends StatelessWidget {
-  const CircleFavoiriteMainWidget({
-    super.key,
-    required this.productbloc,
-    required this.producto,
-    required this.favoritebloc,
-  });
-
-  final ProductBloc productbloc;
-  final ProductModel producto;
-  final FavoriteBloc favoritebloc;
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      right: 10.w,
-      top: 10.h,
-      child: GestureDetector(
-        onTap: () {
-          productbloc.add(ProductEvent.updatePrductFavorite(
-            isfavorite: !(producto.favorite!),
-            productid: producto.id,
-          ));
-          if (producto.favorite == false) {
-            favoritebloc.add(FavoriteEvent.addedProduct(product: producto));
-            UtilFunctions.printToast(message: 'Producto agregado a favorito');
-          } else {
-            favoritebloc.add(FavoriteEvent.removedProduct(product: producto));
-            UtilFunctions.printToast(message: 'Producto eliminado de favorito');
-          }
-        },
-        child: FavoriteCircle(
-          isfavorite: producto.favorite ?? false,
-          productid: producto.id,
-        ),
-      ),
-    );
-  }
-}
-
-class FavoriteCircle extends StatelessWidget {
-  const FavoriteCircle({
-    super.key,
-    this.isfavorite,
-    required this.productid,
-  });
-
-  final bool? isfavorite;
-  final int productid;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 35.sp,
-      height: 35.sp,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Center(
-        child: Icon(
-          Icons.favorite,
-          color: isfavorite == true ? Colors.red : Colors.grey,
-          size: 20,
-        ),
       ),
     );
   }
