@@ -108,12 +108,6 @@ class CustomDeliveryCard extends StatelessWidget {
                   profilebloc: profilebloc,
                   id: id,
                 ),
-                // updateDeliveryTypeSeleccion: (_) => CustomMainRowWidget(
-                //       datos: datos,
-                //       index: index,
-                //       profilebloc: profilebloc,
-                //       id: profilebloc.selectedId!,
-                // )
               );
             },
           ),
@@ -135,11 +129,6 @@ class CustomDeliveryCard extends StatelessWidget {
         data = profilebloc.profiledata!.salones[i];
       }
     }
-
-    // final data =
-    //     profilebloc.profiledata!.salones.direccion.firstWhere(
-    //   (direccion) => direccion.id == idselectedadrress,
-    // );
 
     profilebloc.addAddressForm.control('nombre').updateValue(data!.nombre);
     profilebloc.addAddressForm

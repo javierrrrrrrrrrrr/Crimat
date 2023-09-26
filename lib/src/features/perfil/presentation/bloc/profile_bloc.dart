@@ -58,7 +58,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       // _selectedId = await profilerepo.readHistorial();
       emit(const ProfileState.loading());
       if (token != '') {
-        print('Este es tokken de profile $token');
         dynamic result;
 
         result = await profilerepo.getProfileData(token: token!);
@@ -77,6 +76,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       }
     }, readDireccion: () async {
       _selectedDeliveryAdressId = await profilerepo.readHistorial();
+      //agregando para marcar la primera direcion si el usario no a selecionado ninguna
+      if (_selectedDeliveryAdressId == 0) {
+        _selectedDeliveryAdressId = _profiledata!.salones[0].direccion.id!;
+      }
 
       emit(ProfileState.changeCheckSuccess(
           id: _selectedDeliveryAdressId!, profile: _profiledata!));
