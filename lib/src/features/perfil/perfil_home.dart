@@ -16,6 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/profile/profile_model.dart';
 import '../../shared/utils/const.dart';
 import '../../shared/widgets/carrusel_list_vertical_conf.dart';
+import '../../shared/widgets/custom_error_widget.dart';
 import '../auth/cubit/login_cubit.dart';
 import '../auth/screens/login_screen.dart';
 import '../favorites/presentation/bloc/favorite_bloc.dart';
@@ -54,7 +55,11 @@ class ProfileView extends StatelessWidget {
                       color: Theme.of(context).primaryColor,
                     ),
                   ),
-                  failure: (message) => Container(),
+                  failure: (message) => CustomErrorWidget(
+                      message: message,
+                      onPressed: () {
+                        profilebloc.add(const ProfileEvent.load());
+                      }),
                   success: (profile) => ProfileMainWidget(
                     profil: profile,
                   ),
