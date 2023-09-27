@@ -20,6 +20,7 @@ import '../../repositories/historial_repository.dart';
 import '../../repositories/payment_repository.dart';
 import '../../repositories/product_repository.dart';
 import '../../repositories/profile_repository.dart';
+import '../../repositories/shopping_cart_repository.dart';
 import '../../services/home/almacen_data_source.dart';
 import '../../services/home/categories_data_source.dart';
 import '../../services/favorite_source/favorite_data_source.dart';
@@ -28,6 +29,7 @@ import '../../services/historial_sources/historial_online_data_source.dart';
 import '../../services/payment_source/payment_data_source.dart';
 import '../../services/home/product_data_source.dart';
 import '../../services/profile_sources/profile_data_source.dart';
+import '../../services/shopping_cart_source/shopping_cart_data_source.dart';
 
 final sl = GetIt.instance;
 
@@ -90,8 +92,17 @@ Future<void> init() async {
   //?? Blocs
   sl.registerFactory(() => HistorialBloc(sl.get<HistorialRepository>()));
 
+  ///ShoppingCart
+  //?? DataSources.
+  sl.registerLazySingleton(
+      () => ShoppingCartDataSource(sl.get<SharedPreferences>()));
+
+  //?? Repositories
+  sl.registerLazySingleton(() => ShoppingCartRepository(
+      shoppingCartRepository: sl.get<ShoppingCartDataSource>()));
+
   //?? Blocs
-  sl.registerFactory(() => CartBloc());
+  sl.registerFactory(() => CartBloc(sl.get<ShoppingCartRepository>()));
   sl.registerFactory(() => CheckBloc());
 
   ///Profile

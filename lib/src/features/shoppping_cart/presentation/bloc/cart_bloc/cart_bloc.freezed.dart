@@ -19,6 +19,7 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ProductModel product) addedProduct,
+    required TResult Function() loadShoppingCartProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
@@ -29,6 +30,7 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function()? loadShoppingCartProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
@@ -39,6 +41,7 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ProductModel product)? addedProduct,
+    TResult Function()? loadShoppingCartProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
@@ -50,6 +53,8 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AddedProductToCartEvent value) addedProduct,
+    required TResult Function(_LoadShoppingCartProductEvent value)
+        loadShoppingCartProduct,
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
@@ -62,6 +67,8 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult? Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -73,6 +80,8 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -168,6 +177,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ProductModel product) addedProduct,
+    required TResult Function() loadShoppingCartProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
@@ -181,6 +191,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function()? loadShoppingCartProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
@@ -194,6 +205,7 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ProductModel product)? addedProduct,
+    TResult Function()? loadShoppingCartProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
@@ -211,6 +223,8 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AddedProductToCartEvent value) addedProduct,
+    required TResult Function(_LoadShoppingCartProductEvent value)
+        loadShoppingCartProduct,
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
@@ -226,6 +240,8 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult? Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -240,6 +256,8 @@ class _$_AddedProductToCartEvent implements _AddedProductToCartEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -263,6 +281,149 @@ abstract class _AddedProductToCartEvent implements CartEvent {
   @JsonKey(ignore: true)
   _$$_AddedProductToCartEventCopyWith<_$_AddedProductToCartEvent>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadShoppingCartProductEventCopyWith<$Res> {
+  factory _$$_LoadShoppingCartProductEventCopyWith(
+          _$_LoadShoppingCartProductEvent value,
+          $Res Function(_$_LoadShoppingCartProductEvent) then) =
+      __$$_LoadShoppingCartProductEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadShoppingCartProductEventCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_LoadShoppingCartProductEvent>
+    implements _$$_LoadShoppingCartProductEventCopyWith<$Res> {
+  __$$_LoadShoppingCartProductEventCopyWithImpl(
+      _$_LoadShoppingCartProductEvent _value,
+      $Res Function(_$_LoadShoppingCartProductEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadShoppingCartProductEvent implements _LoadShoppingCartProductEvent {
+  const _$_LoadShoppingCartProductEvent();
+
+  @override
+  String toString() {
+    return 'CartEvent.loadShoppingCartProduct()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadShoppingCartProductEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ProductModel product) addedProduct,
+    required TResult Function() loadShoppingCartProduct,
+    required TResult Function(ProductModel product) removedProduct,
+    required TResult Function(ProductModel product) removedAllProduct,
+    required TResult Function() clearShoppingCart,
+    required TResult Function(ProductModel product) addProductinDiferentAlmacen,
+    required TResult Function() signOut,
+  }) {
+    return loadShoppingCartProduct();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function()? loadShoppingCartProduct,
+    TResult? Function(ProductModel product)? removedProduct,
+    TResult? Function(ProductModel product)? removedAllProduct,
+    TResult? Function()? clearShoppingCart,
+    TResult? Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult? Function()? signOut,
+  }) {
+    return loadShoppingCartProduct?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ProductModel product)? addedProduct,
+    TResult Function()? loadShoppingCartProduct,
+    TResult Function(ProductModel product)? removedProduct,
+    TResult Function(ProductModel product)? removedAllProduct,
+    TResult Function()? clearShoppingCart,
+    TResult Function(ProductModel product)? addProductinDiferentAlmacen,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (loadShoppingCartProduct != null) {
+      return loadShoppingCartProduct();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AddedProductToCartEvent value) addedProduct,
+    required TResult Function(_LoadShoppingCartProductEvent value)
+        loadShoppingCartProduct,
+    required TResult Function(_RemovedProductToCartEvent value) removedProduct,
+    required TResult Function(_RemovedProductAllToCartEvent value)
+        removedAllProduct,
+    required TResult Function(_ClearShoppingCartEvent value) clearShoppingCart,
+    required TResult Function(_AddProductinDiferentAlmacenState value)
+        addProductinDiferentAlmacen,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return loadShoppingCartProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult? Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
+    TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
+    TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
+    TResult? Function(_AddProductinDiferentAlmacenState value)?
+        addProductinDiferentAlmacen,
+    TResult? Function(_SignOut value)? signOut,
+  }) {
+    return loadShoppingCartProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
+    TResult Function(_RemovedProductToCartEvent value)? removedProduct,
+    TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
+    TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
+    TResult Function(_AddProductinDiferentAlmacenState value)?
+        addProductinDiferentAlmacen,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (loadShoppingCartProduct != null) {
+      return loadShoppingCartProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadShoppingCartProductEvent implements CartEvent {
+  const factory _LoadShoppingCartProductEvent() =
+      _$_LoadShoppingCartProductEvent;
 }
 
 /// @nodoc
@@ -333,6 +494,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ProductModel product) addedProduct,
+    required TResult Function() loadShoppingCartProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
@@ -346,6 +508,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function()? loadShoppingCartProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
@@ -359,6 +522,7 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ProductModel product)? addedProduct,
+    TResult Function()? loadShoppingCartProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
@@ -376,6 +540,8 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AddedProductToCartEvent value) addedProduct,
+    required TResult Function(_LoadShoppingCartProductEvent value)
+        loadShoppingCartProduct,
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
@@ -391,6 +557,8 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult? Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -405,6 +573,8 @@ class _$_RemovedProductToCartEvent implements _RemovedProductToCartEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -498,6 +668,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ProductModel product) addedProduct,
+    required TResult Function() loadShoppingCartProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
@@ -511,6 +682,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function()? loadShoppingCartProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
@@ -524,6 +696,7 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ProductModel product)? addedProduct,
+    TResult Function()? loadShoppingCartProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
@@ -541,6 +714,8 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AddedProductToCartEvent value) addedProduct,
+    required TResult Function(_LoadShoppingCartProductEvent value)
+        loadShoppingCartProduct,
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
@@ -556,6 +731,8 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult? Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -570,6 +747,8 @@ class _$_RemovedProductAllToCartEvent implements _RemovedProductAllToCartEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -635,6 +814,7 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ProductModel product) addedProduct,
+    required TResult Function() loadShoppingCartProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
@@ -648,6 +828,7 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function()? loadShoppingCartProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
@@ -661,6 +842,7 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ProductModel product)? addedProduct,
+    TResult Function()? loadShoppingCartProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
@@ -678,6 +860,8 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AddedProductToCartEvent value) addedProduct,
+    required TResult Function(_LoadShoppingCartProductEvent value)
+        loadShoppingCartProduct,
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
@@ -693,6 +877,8 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult? Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -707,6 +893,8 @@ class _$_ClearShoppingCartEvent implements _ClearShoppingCartEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -796,6 +984,7 @@ class _$_AddProductinDiferentAlmacenState
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ProductModel product) addedProduct,
+    required TResult Function() loadShoppingCartProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
@@ -809,6 +998,7 @@ class _$_AddProductinDiferentAlmacenState
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function()? loadShoppingCartProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
@@ -822,6 +1012,7 @@ class _$_AddProductinDiferentAlmacenState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ProductModel product)? addedProduct,
+    TResult Function()? loadShoppingCartProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
@@ -839,6 +1030,8 @@ class _$_AddProductinDiferentAlmacenState
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AddedProductToCartEvent value) addedProduct,
+    required TResult Function(_LoadShoppingCartProductEvent value)
+        loadShoppingCartProduct,
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
@@ -854,6 +1047,8 @@ class _$_AddProductinDiferentAlmacenState
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult? Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -868,6 +1063,8 @@ class _$_AddProductinDiferentAlmacenState
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -933,6 +1130,7 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ProductModel product) addedProduct,
+    required TResult Function() loadShoppingCartProduct,
     required TResult Function(ProductModel product) removedProduct,
     required TResult Function(ProductModel product) removedAllProduct,
     required TResult Function() clearShoppingCart,
@@ -946,6 +1144,7 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ProductModel product)? addedProduct,
+    TResult? Function()? loadShoppingCartProduct,
     TResult? Function(ProductModel product)? removedProduct,
     TResult? Function(ProductModel product)? removedAllProduct,
     TResult? Function()? clearShoppingCart,
@@ -959,6 +1158,7 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ProductModel product)? addedProduct,
+    TResult Function()? loadShoppingCartProduct,
     TResult Function(ProductModel product)? removedProduct,
     TResult Function(ProductModel product)? removedAllProduct,
     TResult Function()? clearShoppingCart,
@@ -976,6 +1176,8 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AddedProductToCartEvent value) addedProduct,
+    required TResult Function(_LoadShoppingCartProductEvent value)
+        loadShoppingCartProduct,
     required TResult Function(_RemovedProductToCartEvent value) removedProduct,
     required TResult Function(_RemovedProductAllToCartEvent value)
         removedAllProduct,
@@ -991,6 +1193,8 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult? Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult? Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult? Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult? Function(_ClearShoppingCartEvent value)? clearShoppingCart,
@@ -1005,6 +1209,8 @@ class _$_SignOut implements _SignOut {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddedProductToCartEvent value)? addedProduct,
+    TResult Function(_LoadShoppingCartProductEvent value)?
+        loadShoppingCartProduct,
     TResult Function(_RemovedProductToCartEvent value)? removedProduct,
     TResult Function(_RemovedProductAllToCartEvent value)? removedAllProduct,
     TResult Function(_ClearShoppingCartEvent value)? clearShoppingCart,

@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import '../../../resources/app_images.dart';
 import '../../shared/widgets/error_dialog.dart';
 import '../auth/screens/login_screen.dart';
+import '../shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'intro_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -18,11 +19,13 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartbloc = context.read<CartBloc>();
     return BlocProvider<SplashCubit>(
       create: (context) => SplashCubit()..init(),
       child: BlocConsumer<SplashCubit, SplashState>(
         listener: (context, state) async {
           if (state.status == SplashStatus.leaded) {
+            cartbloc.add(const CartEvent.loadShoppingCartProduct());
             if (state.isLogin == 1) {
               context.pushReplacementNamed(IntroScreen.name);
             }
@@ -51,9 +54,18 @@ class SplashScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(child: Container(),),
-                Center(child: Image.asset(AppImages.splashLogo, width: 120, height: 120,)),
-                Expanded(child: Container(),),
+                Expanded(
+                  child: Container(),
+                ),
+                Center(
+                    child: Image.asset(
+                  AppImages.splashLogo,
+                  width: 120,
+                  height: 120,
+                )),
+                Expanded(
+                  child: Container(),
+                ),
                 Padding(
                   padding: EdgeInsets.all(21.sp),
                   child: Text(

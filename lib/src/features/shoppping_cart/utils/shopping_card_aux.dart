@@ -19,15 +19,21 @@ class Cart extends Equatable {
 
   Map<ProductModel, int> productQuantity(List<ProductModel> products) {
     Map<ProductModel, int> quantity = {};
+    Map<int, int> idQuantity = {};
 
     for (var product in products) {
-      if (quantity.containsKey(product)) {
-        if (quantity[product] != null) {
-          quantity[product] = quantity[product]! + 1;
-        }
+      int productId = product.id;
+      if (idQuantity.containsKey(productId)) {
+        idQuantity[productId] = idQuantity[productId]! + 1;
       } else {
+        idQuantity[productId] = 1;
         quantity[product] = 1;
       }
+    }
+
+    for (var entry in quantity.entries) {
+      int productId = entry.key.id;
+      quantity[entry.key] = idQuantity[productId]!;
     }
 
     return quantity;
@@ -42,7 +48,7 @@ class Cart extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
+  List<Object> get props => [
         product,
       ];
 }
