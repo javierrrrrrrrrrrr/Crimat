@@ -28,4 +28,6 @@ class Urls {
       'crimat-development/api/suscripciones/';
   static String get buySubscriptionsData =>
       'crimat-development/api/comprar_suscripcion/';
+
+  static String get refreshtoken => 'crimat-development/api/token/refresh/';
 }

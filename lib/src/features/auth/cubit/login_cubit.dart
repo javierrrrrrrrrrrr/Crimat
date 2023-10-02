@@ -33,6 +33,7 @@ class LoginCubit extends Cubit<AuthState> {
       LoginResponseModel loginResponse =
           await AuthRepository().login(email, password);
       prefs.setString('token', loginResponse.accessToken);
+      prefs.setString('refresh_token', loginResponse.refreshToken);
       // AppUtilInfo appInfo = sl<AppUtilInfo>();
       // appInfo
       //   ..accessToken = loginResponse.accessToken
@@ -43,6 +44,7 @@ class LoginCubit extends Cubit<AuthState> {
       emit(const AuthState(onLoading: false));
     } catch (e) {
       prefs.setString('token', '');
+      prefs.setString('refresh_token', '');
       loginForm.markAsEnabled();
       emit(const AuthState(onLoading: false));
       UtilFunctions.printToast(

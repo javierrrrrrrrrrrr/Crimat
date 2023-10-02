@@ -15,7 +15,7 @@ part 'product_bloc.freezed.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final ProdcutRepository repository;
-  // String? token = sl<AppUtilInfo>().accessToken;
+
   List<ProductModel> _productslist = [];
 
   ProductBloc(

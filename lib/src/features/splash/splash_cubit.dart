@@ -57,6 +57,7 @@ Future<bool> checkLogin() async {
 
       if (resp.accessToken.isNotEmpty) {
         prefs.setString('token', resp.accessToken);
+        prefs.setString('refresh_token', resp.refreshToken);
 
         value = true;
       } else {

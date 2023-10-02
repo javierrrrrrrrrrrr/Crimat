@@ -21,6 +21,8 @@ import '../../repositories/payment_repository.dart';
 import '../../repositories/product_repository.dart';
 import '../../repositories/profile_repository.dart';
 import '../../repositories/shopping_cart_repository.dart';
+import '../../repositories/token_refresh_repository.dart';
+import '../../services/auth/token_refresh_data_source.dart';
 import '../../services/home/almacen_data_source.dart';
 import '../../services/home/categories_data_source.dart';
 import '../../services/favorite_source/favorite_data_source.dart';
@@ -47,16 +49,27 @@ Future<void> init() async {
 
   ///Almacenes
   //?? DataSources.
-  sl.registerLazySingleton(() => AlmacenDataSurce(sl.get<http.Client>()));
+  sl.registerLazySingleton(() => AlmacenDataSurce(
+        sl.get<http.Client>(),
+      ));
+
+  //?? DataSources. de refreshtoken
+  sl.registerLazySingleton(() => TokenRefreshDataSource(sl.get<http.Client>()));
+
+  //?? Repositories de refreshtoken
+  sl.registerLazySingleton(
+      () => TokenRefreshRepository(sl.get<TokenRefreshDataSource>()));
 
   //?? Repositories
   sl.registerLazySingleton(() => AlmacenRepository(sl.get<AlmacenDataSurce>()));
 
   //?? Blocs
-  sl.registerFactory(() => AlmacenBloc(sl.get<AlmacenRepository>()));
+  sl.registerFactory(() =>
+      AlmacenBloc(sl.get<AlmacenRepository>(), sl.get<AlmacenDataSurce>()));
   //Productos
   //?? DataSources.
-  sl.registerLazySingleton(() => ProductDataSource(sl.get<http.Client>()));
+  sl.registerLazySingleton(() => ProductDataSource(
+      sl.get<http.Client>(), sl.get<TokenRefreshRepository>()));
 
   //?? Repositories
   sl.registerLazySingleton(
