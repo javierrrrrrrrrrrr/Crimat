@@ -1,15 +1,26 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:http_interceptor/http/intercepted_client.dart';
 
 import '../../../resources/urls.dart';
 import '../../errors/expetion.dart';
+import '../../models/auth/interceptors/token_refresh_interceptor.dart';
 import '../../models/payment/payment_with_token/payment_model.dart';
+import '../../repositories/token_refresh_repository.dart';
 
 class HistorialOnlineDataSource {
-  final http.Client client;
+  http.Client client;
+  final TokenRefreshRepository tokenRefreshRepository;
 
-  HistorialOnlineDataSource(this.client);
+  HistorialOnlineDataSource(this.client, this.tokenRefreshRepository) {
+    final clientWithInterceptor = InterceptedClient.build(
+      interceptors: [TokenRefreshInterceptor(tokenRefreshRepository)],
+      requestTimeout: const Duration(seconds: 10),
+      client: client,
+    );
+    client = clientWithInterceptor;
+  }
 
   Future<List<OrdenModel>> getAllhistorial(String token) async {
     final Uri uri = Uri.https(
@@ -18,7 +29,7 @@ class HistorialOnlineDataSource {
     );
 
     try {
-      final response = await http.get(uri, headers: {
+      final response = await client.get(uri, headers: {
         'Authorization': 'Bearer $token',
         'Accept': 'application/json',
         'Content-Type': 'application/json; charset=utf-8',

@@ -1,21 +1,34 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:http_interceptor/http/intercepted_client.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../resources/urls.dart';
 import '../../errors/expetion.dart';
+import '../../models/auth/interceptors/token_refresh_interceptor.dart';
 import '../../models/profile/edit_salon_request_data_model.dart';
 import '../../models/profile/new_salon_request_data_model.dart';
 import '../../models/profile/profile_model.dart';
 import '../../models/profile/stripe_response_model.dart';
 import '../../models/profile/subscriptions_model.dart';
+import '../../repositories/token_refresh_repository.dart';
 
 class ProfileDataSource {
-  final http.Client client;
+  final TokenRefreshRepository tokenRefreshRepository;
+  http.Client client;
   final SharedPreferences sharedPreferences;
-  ProfileDataSource(this.client, this.sharedPreferences);
   final String _historialKey = 'historial';
+
+  ProfileDataSource(
+      this.client, this.tokenRefreshRepository, this.sharedPreferences) {
+    final clientWithInterceptor = InterceptedClient.build(
+      interceptors: [TokenRefreshInterceptor(tokenRefreshRepository)],
+      requestTimeout: const Duration(seconds: 10),
+      client: client,
+    );
+    client = clientWithInterceptor;
+  }
 
   Future<ProfileModel> getProfileData(String token) async {
     final Uri uri = Uri.https(
@@ -24,7 +37,7 @@ class ProfileDataSource {
     );
 
     try {
-      final response = await http.get(uri, headers: {
+      final response = await client.get(uri, headers: {
         'Authorization': 'Bearer $token',
         'Accept': 'application/json',
         'Content-Type': 'application/json; charset=utf-8',
@@ -72,7 +85,7 @@ class ProfileDataSource {
     final Uri uri = Uri.https(Urls.api, Urls.createNewSalon);
 
     try {
-      final response = await http.post(uri,
+      final response = await client.post(uri,
           headers: {
             'Authorization': 'Bearer $token',
             'Accept': 'application/json',
@@ -101,7 +114,7 @@ class ProfileDataSource {
       String? token, EditSalonResponseModel data) async {
     final Uri uri = Uri.https(Urls.api, Urls.createNewSalon);
     try {
-      final response = await http.put(uri,
+      final response = await client.put(uri,
           headers: {
             'Authorization': 'Bearer $token',
             'Accept': 'application/json',
@@ -131,7 +144,7 @@ class ProfileDataSource {
   ) async {
     final Uri uri = Uri.https(Urls.api, Urls.getSubscriptionsData);
     try {
-      final response = await http.get(
+      final response = await client.get(
         uri,
         headers: {
           'Authorization': 'Bearer $token',
@@ -165,7 +178,7 @@ class ProfileDataSource {
   ) async {
     final Uri uri = Uri.https(Urls.api, Urls.buySubscriptionsData);
     try {
-      final response = await http.post(uri, headers: {
+      final response = await client.post(uri, headers: {
         'Authorization': 'Bearer $token',
         'Accept-Charset': 'utf-8',
       }, body: {

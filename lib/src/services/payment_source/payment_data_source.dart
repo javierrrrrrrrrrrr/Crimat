@@ -3,23 +3,34 @@ import 'dart:convert';
 import 'package:crimat_app/src/errors/expetion.dart';
 import 'package:crimat_app/src/models/payment/payment_with_token/request_data_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:http_interceptor/http/intercepted_client.dart';
 
 import '../../../resources/urls.dart';
+import '../../models/auth/interceptors/token_refresh_interceptor.dart';
 import '../../models/payment/payment_with_token/payment_model.dart';
 import '../../models/payment/payment_with_token/shipping_model.dart';
 import '../../models/payment/payment_without_token/without_token_request_model.dart';
+import '../../repositories/token_refresh_repository.dart';
 
 class PaymentDataSource {
-  final http.Client client;
+  http.Client client;
+  final TokenRefreshRepository tokenRefreshRepository;
 
-  PaymentDataSource(this.client);
+  PaymentDataSource(this.client, this.tokenRefreshRepository) {
+    final clientWithInterceptor = InterceptedClient.build(
+      interceptors: [TokenRefreshInterceptor(tokenRefreshRepository)],
+      requestTimeout: const Duration(seconds: 10),
+      client: client,
+    );
+    client = clientWithInterceptor;
+  }
 
   Future<PaymentModel> getPaymentDatawithtoken(
       String? token, RequestModel data) async {
     final Uri uri = Uri.https(Urls.api, Urls.getPaymentData);
 
     try {
-      final response = await http.post(uri,
+      final response = await client.post(uri,
           headers: {
             'Authorization': 'Bearer $token',
             'Accept': 'application/json',
@@ -49,7 +60,7 @@ class PaymentDataSource {
     final Uri uri = Uri.https(Urls.api, Urls.getPaymentData);
 
     try {
-      final response = await http.post(uri,
+      final response = await client.post(uri,
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json; charset=utf-8',
@@ -78,7 +89,7 @@ class PaymentDataSource {
     dynamic response;
 
     if (token != '' && token != null) {
-      response = await http.get(
+      response = await client.get(
         uri,
         headers: {
           'Authorization': 'Bearer $token',

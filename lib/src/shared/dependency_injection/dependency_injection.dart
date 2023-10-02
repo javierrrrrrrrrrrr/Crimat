@@ -79,7 +79,8 @@ Future<void> init() async {
 
   ///categorias
   //?? DataSources.
-  sl.registerLazySingleton(() => CategoriesDataSurce(sl.get<http.Client>()));
+  sl.registerLazySingleton(() => CategoriesDataSurce(
+      sl.get<http.Client>(), sl.get<TokenRefreshRepository>()));
 
   //?? Repositories
   sl.registerLazySingleton(
@@ -90,8 +91,8 @@ Future<void> init() async {
 
   ///Historial
   //?? DataSources.
-  sl.registerLazySingleton(
-      () => HistorialOnlineDataSource(sl.get<http.Client>()));
+  sl.registerLazySingleton(() => HistorialOnlineDataSource(
+      sl.get<http.Client>(), sl.get<TokenRefreshRepository>()));
 
   sl.registerLazySingleton(
       () => HistorialLocalDataSource(sl.get<SharedPreferences>()));
@@ -120,8 +121,8 @@ Future<void> init() async {
 
   ///Profile
   //?? DataSources.
-  sl.registerLazySingleton(() =>
-      ProfileDataSource(sl.get<http.Client>(), sl.get<SharedPreferences>()));
+  sl.registerLazySingleton(() => ProfileDataSource(sl.get<http.Client>(),
+      sl.get<TokenRefreshRepository>(), sl.get<SharedPreferences>()));
 
   //?? Repositories
   sl.registerLazySingleton(
@@ -133,7 +134,8 @@ Future<void> init() async {
 
   ///Favorite
   //?? DataSources.
-  sl.registerLazySingleton(() => FavoriteDataSurce(sl.get<http.Client>()));
+  sl.registerLazySingleton(() => FavoriteDataSurce(
+      sl.get<http.Client>(), sl.get<TokenRefreshRepository>()));
 
   //?? Repositories
   sl.registerLazySingleton(
@@ -144,7 +146,8 @@ Future<void> init() async {
 
   ///Payment
   //?? DataSources.
-  sl.registerLazySingleton(() => PaymentDataSource(sl.get<http.Client>()));
+  sl.registerLazySingleton(() => PaymentDataSource(
+      sl.get<http.Client>(), sl.get<TokenRefreshRepository>()));
 
   //?? Repositories
   sl.registerLazySingleton(

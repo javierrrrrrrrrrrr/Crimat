@@ -2,20 +2,31 @@ import 'dart:convert';
 
 import 'package:crimat_app/src/errors/expetion.dart';
 import 'package:http/http.dart' as http;
+import 'package:http_interceptor/http/intercepted_client.dart';
 
 import '../../../resources/urls.dart';
+import '../../models/auth/interceptors/token_refresh_interceptor.dart';
 import '../../models/home/products/producto_model.dart';
+import '../../repositories/token_refresh_repository.dart';
 
 class FavoriteDataSurce {
-  final http.Client client;
+  http.Client client;
+  final TokenRefreshRepository tokenRefreshRepository;
 
-  FavoriteDataSurce(this.client);
+  FavoriteDataSurce(this.client, this.tokenRefreshRepository) {
+    final clientWithInterceptor = InterceptedClient.build(
+      interceptors: [TokenRefreshInterceptor(tokenRefreshRepository)],
+      requestTimeout: const Duration(seconds: 10),
+      client: client,
+    );
+    client = clientWithInterceptor;
+  }
 
   Future<List<ProductModel>> getFavorite(String token) async {
     final Uri uri = Uri.https(Urls.api, Urls.getFavorite);
 
     try {
-      final response = await http.get(uri, headers: {
+      final response = await client.get(uri, headers: {
         'Authorization': 'Bearer $token',
         'Accept': 'application/json',
         'Content-Type': 'application/json; charset=utf-8',
@@ -41,26 +52,20 @@ class FavoriteDataSurce {
   Future<void> addFavorite(String token, int productid) async {
     final Uri uri = Uri.https(Urls.api, Urls.addFavorite);
 
-    final response = await http.post(uri,
+    final response = await client.post(uri,
         headers: {'Authorization': 'Bearer $token'},
         body: {'producto': '$productid'});
     if (response.statusCode == 200) {
-      print("Se agrego correctamente a favorito");
-    } else {
-      print("Error al intentar agregar producto  a favoritos");
-    }
+    } else {}
   }
 
   Future<void> removeFavorite(String token, int productid) async {
     final Uri uri = Uri.https(Urls.api, Urls.deleteFavorite);
 
-    final response = await http.post(uri,
+    final response = await client.post(uri,
         headers: {'Authorization': 'Bearer $token'},
         body: {'producto': '$productid'});
     if (response.statusCode == 200) {
-      print("Se elimino correctamente a favorito");
-    } else {
-      print("Error al intentar agregar eliminar  a favoritos");
-    }
+    } else {}
   }
 }

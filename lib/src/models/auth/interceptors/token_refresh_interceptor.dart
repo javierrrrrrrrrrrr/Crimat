@@ -11,25 +11,8 @@ class TokenRefreshInterceptor implements InterceptorContract {
 
   @override
   Future<RequestData> interceptRequest({required RequestData data}) async {
-    // final prefs = await SharedPreferences.getInstance();
-    // final token = prefs.getString('token');
-    // // Lógica para refrescar el token antes de cada solicitud
-    // //falta
-    // //  lógica de refresco de token aquí
-    // final refreshedToken =
-    //     await tokenRefreshRepository.refreshAccessToken(token: token!);
+    //se puede agregar la logica para hacer algo en caso de ser requerida la interception de la request
 
-    // final modifiedHeaders = Map<String, String>.from(data.headers);
-    // modifiedHeaders['Authorization'] = 'Bearer $refreshedToken';
-
-    // final modifiedData = RequestData(
-    //   headers: modifiedHeaders,
-    //   body: data.body,
-    //   baseUrl: data.url,
-    //   method: data.method,
-    // );
-
-    // return modifiedData;
     return data;
   }
 
