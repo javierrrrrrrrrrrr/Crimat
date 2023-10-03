@@ -10,6 +10,7 @@ import '../../features/favorites/presentation/bloc/favorite_bloc.dart';
 import '../../features/historial/presentation/bloc/historial_bloc/historial_bloc.dart';
 import '../../features/perfil/presentation/bloc/profile_bloc.dart';
 import '../../features/shoppping_cart/presentation/bloc/cart_bloc/cart_bloc.dart';
+import '../../features/shoppping_cart/presentation/bloc/check_bloc/check_bloc.dart';
 
 class CustomBottonNavigationBar extends StatelessWidget {
   const CustomBottonNavigationBar({
@@ -105,6 +106,10 @@ class CustomBottonNavigationBar extends StatelessWidget {
             if (newIndex == 0) {}
             if (newIndex == 1) {
               context.read<HistorialBloc>().add(const HistorialEvent.load());
+            }
+            if (newIndex == 2) {
+              context.read<CheckBloc>().add(CheckEvent.updateList(
+                  productlist: context.read<CartBloc>().productList));
             }
             if (newIndex == 3) {
               context.read<FavoriteBloc>().add(const FavoriteEvent.load());
